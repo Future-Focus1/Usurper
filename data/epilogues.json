@@ -1,0 +1,1157 @@
+{
+  "claimants": {
+    "mira": {
+      "routes": {
+        "conquest": {
+          "triumph": "Mira’s soldiers secure Caerlyn’s approaches and break the armies disputing her seal. The city recognises a queen whose authority has survived an open challenge. She enters the Hall of Kings carrying the office she has already learned to perform.",
+          "brittle": "Mira holds the capital, but military victory has replaced quiet administration with occupation orders. Every appointment now needs an escort. The seal is hers, and the court has learned how loudly its household doors can be defended.",
+          "pyrrhic": "The queen’s banner survives at a cost no treasury entry can conceal. Mira takes the crown among emptied places in the guard roster. The government continues; the people who once made continuation seem ordinary do not all return.",
+          "failure": "Mira cannot convert possession of royal rooms into command of the kingdom. The forces she gathered fall back, and council officers begin refusing her seal. She remains a queen by marriage while the authority she practised passes elsewhere.",
+          "disaster": "The military settlement collapses around Mira’s household. Doors once kept for her protection become boundaries imposed on her. Caerlyn discovers how quickly a palace can change from a seat of government into the last place a claimant may go."
+        },
+        "acclamation": {
+          "triumph": "The lords recognise the work Mira has performed for decades and name her queen in her own right. The formula records a lawful choice instead of pretending she has acquired Valen blood. The seal finally bears an authority matching its use.",
+          "brittle": "Mira is acclaimed after a long account of appointments and concessions. She knows every person who applauds and most of the reasons. Government is possible, provided the new queen remembers which promises made that sentence true.",
+          "pyrrhic": "The council chooses Mira as the least dangerous interruption to its own survival. She receives a crown and a chamber of creditors. Thirty-one years of knowing the court have prepared her to govern this bargain, not to mistake it for devotion.",
+          "failure": "The lords praise Mira’s service and deny that it gives her the crown. Their compliments preserve every useful part of her government while withholding its authority. She has learned what gratitude is worth when the people offering it can choose another ruler.",
+          "disaster": "The recognition hearing becomes a means of stripping Mira’s appointments away in public. Her family’s access, the household seal and the royal accounts are separated from her person. The court survives by calling its dependence on her a temporary irregularity."
+        },
+        "the_flame": {
+          "triumph": "Aldren lights the Crown Candle for Mira without rewriting scripture to explain her sex. The rite names her Keeper of the Hearth. Whatever remains disputed about Erol’s final night, the kingdom entrusts its living households to her care.",
+          "brittle": "Mira is crowned beneath the ancient flame, with conditions read as carefully as prayers. Provincial priests continue their arguments. The High Keeper has given her recognition, and a public measure by which the conduct of her reign can be judged.",
+          "pyrrhic": "The rite proceeds while accusations divide the temple steps. Mira gains sacred recognition without an absolution nobody present can honestly grant. Every future mercy will be compared with the contested mercy of her husband’s last night.",
+          "failure": "The High Keeper cannot assemble the recognition Mira needs. A perfect ceremony would not make the divided clergy accept its meaning. She leaves the Crown Candle unlit, with a clearer knowledge of the distance between a ruler’s work and the words that authorise it.",
+          "disaster": "The attempted coronation turns the temple into another court of accusation. Mira’s supporters cannot protect the rite from political collapse. The Flame’s dispute spreads to the city, and her claim becomes one more danger households seek shelter from."
+        },
+        "peoples_crown": {
+          "triumph": "Caerlyn’s households carry Mira’s claim into the Hall of Kings. They support a government they have seen work, rather than a bloodline they must be told to revere. The queen’s first proclamation records duties owed to the people who brought her there.",
+          "brittle": "The city gives Mira a crown and an immediate petition book. Affection does not end shortages or pay the guards. She has gained people willing to demand competent rule from her, which is a more durable difficulty than a quiet court.",
+          "pyrrhic": "Mira reaches the throne through streets scarred by the contest around her. The people’s support survives, but the wounded and displaced arrive before the ceremonial flowers. The new queen must govern consequences her procession cannot sing away.",
+          "failure": "The city values Mira’s work but cannot overcome the machinery blocking her claim. Support remains in markets and workshops after the procession disperses. She has earned a political constituency without finding a way to make it sovereign.",
+          "disaster": "The popular attempt breaks into violence the household cannot contain. Mira’s name is used by people defending streets and by people searching houses. The defeat leaves an obligation to a city that took a greater risk than its queen could protect."
+        },
+        "kings_will": {
+          "triumph": "The authenticated testament gives Mira a duty rather than a husband’s private appointment. The council accepts her as the ruler able to keep Nezrel whole. She takes authority from a public settlement instead of claiming to be the only reader of Erol’s wishes.",
+          "brittle": "Mira becomes queen under a document that other households may quote against her. Erol’s last instruction does not end argument; it gives the argument a common text. She governs with less secrecy than widowhood once allowed.",
+          "pyrrhic": "The testament prevents one immediate rupture and leaves Mira answering its demand for unity amid the damage already done. She cannot use the dead king’s words to undo the living kingdom’s losses. The reign begins with a duty that is larger than victory.",
+          "failure": "The council authenticates Erol’s testament but refuses Mira’s interpretation of the settlement. A real document cannot supply the coalition her claim still lacks. She has preserved part of her husband’s final work without obtaining the right to finish it alone.",
+          "disaster": "The will is drowned by the strength of the households gathered to hear it. Mira’s opponents turn authentication into another argument about her access to the dying king. The paper survives the attempt; her authority does not."
+        },
+        "last_words": {
+          "triumph": "Nessa’s limited account is heard without being inflated into a complete will. The council accepts Mira’s offer to preserve the realm under public conditions. A queen accustomed to controlling testimony takes the crown by allowing a witness to retain her own words.",
+          "brittle": "Mira’s settlement rests on a remembered sentence and living guarantees. There is no parchment capable of ending every appeal. She is crowned with witnesses beside the seal, and must keep providing reasons for the kingdom to believe their agreement.",
+          "pyrrhic": "The testimony offers enough common ground to crown Mira and too little to quiet her enemies. Nessa’s words are quoted in competing petitions almost immediately. The queen has won a government whose legitimacy must be renewed through its work.",
+          "failure": "The council hears Nessa and still cannot agree that her memory authorises Mira. The witness is not allowed to manufacture the absent clauses. Mira loses the attempt, while a limited testimony survives without being converted into her campaign’s convenient answer.",
+          "disaster": "The hearing becomes a struggle over who owns Nessa’s account. Mira’s claim collapses amid accusations the witness never made. The episode teaches the court how dangerous partial knowledge becomes when powerful people demand a complete weapon."
+        },
+        "marriage": {
+          "triumph": "Mira and Alistair bind their claims under written limits on command, appointments and household security. The marriage makes a working government because neither spouse is asked to vanish inside the other’s title. The northern host and the royal seal finally answer one settlement.",
+          "brittle": "Mira’s marriage secures recognition at the price of sharing decisions she once settled alone. Alistair brings soldiers; she brings the court. Their government functions through careful agreements that must be observed after the wedding guests leave.",
+          "pyrrhic": "The wedding averts one battle and opens a quieter contest over every officer and corridor. Mira wears a crown beside a husband who can still call his own army. Peace has been purchased with a household that cannot afford carelessness.",
+          "failure": "Mira cannot make the marriage terms carry both claims. The households withdraw officers before the ceremony can turn a negotiation into authority. She remains a widow with a disputed seal, having learned how much northern order expected her to surrender.",
+          "disaster": "The marriage attempt fails at the point where shared security would need shared trust. Mira’s access to the court becomes leverage used against her. The agreement leaves two armed households closer together and less willing to permit the other to survive unguarded."
+        },
+        "abdication": {
+          "triumph": "A rival relinquishes the contest under a witnessed settlement. Mira takes the crown without pretending the other household never possessed a claim. The public record gives the kingdom a reason to end the argument without erasing the people who lost it.",
+          "brittle": "Mira receives the surrendered authority along with guarantees she will have to enforce. The defeated household’s signatures are real and its affection absent. Her long practice with reluctant courtiers becomes useful beyond Caerlyn’s walls.",
+          "pyrrhic": "The abdication gives Mira a crown and a grievance with names attached. The final battle is avoided, but the concession cannot restore what the campaign already spent. She must decide whether reconciliation can become more than the ceremony that made her queen.",
+          "failure": "The rival refuses the terms and exposes how little authority Mira can offer in return for surrender. The council postpones her recognition. A weakened opponent has remained strong enough to prevent the neat ending her government needed.",
+          "disaster": "The staged relinquishment becomes another confrontation Mira cannot contain. Guarantees collapse in front of their witnesses. The failed ceremony damages both her authority and the possibility that the next surrender offer will be believed."
+        },
+        "regency": {
+          "triumph": "Mira heads a provisional Crown government with rival households bound into written offices. Her experience becomes the settlement’s working centre rather than an argument for unshared ownership. The treasury pays one administration, and the kingdom gains a government before it gains a perfect theory of succession.",
+          "brittle": "Mira governs under a council capable of refusing her orders. She understands its members too well to call the arrangement easy. The shared seal nevertheless keeps offices working while the realm learns how authority divided can still be authority exercised.",
+          "pyrrhic": "The regency keeps Mira in government and leaves her unable to decide everything that government must do. Emergency bargains accumulate. Nezrel avoids one final battle by carrying its rivalries into an administration that has no spare patience.",
+          "failure": "The council cannot agree on the limits of Mira’s provisional authority. Offices that once depended on her household wait for another seal. She has offered continuity, but continuity alone cannot persuade rivals to accept a place below her chair.",
+          "disaster": "The regency collapses into a contest over who may countermand whom. Mira’s familiar corridors become the paths of a divided administration. The attempt to share the Crown’s work leaves no office able to promise that tomorrow’s order will stand."
+        },
+        "four_banners": {
+          "triumph": "Mira places her seal beside three rival banners and accepts a constitution that can restrain her. The agreement does not excuse the past; it keeps the surviving claimants responsible for a common future. Her knowledge of Caerlyn becomes a resource shared rather than guarded.",
+          "brittle": "The four claimants maintain a common council, and Mira learns to hear refusals without treating them as threats to existence. The government requires patient work. For the first time, her skill in managing a household serves a room she cannot quietly own.",
+          "pyrrhic": "Four banners remain in one hall while their households argue over food, troops and jurisdiction. Mira spends more time persuading than directing. The arrangement preserves the kingdom by making the work of restraint a burden every claimant must carry.",
+          "failure": "The four claimants survive but cannot agree on a government strong enough to bind their households. Mira keeps her share of the administration as the common seal fails. Remaining alive together has proved necessary for peace and insufficient for it.",
+          "disaster": "The common settlement breaks under pressure before its rules can protect the people assembled to make them. Mira’s seal is claimed by incompatible orders. The surviving households inherit the wreckage of a peace they briefly allowed themselves to imagine."
+        },
+        "no_king": {
+          "triumph": "Mira sets down the regalia and transfers the Crown’s offices to a chartered government. A woman once denied authority because she lacked royal blood helps end the rule that made blood decisive. She remains accountable for work she can no longer protect by owning the seal.",
+          "brittle": "Mira gives up the singular crown and remains one experienced voice in a quarrelsome assembly. Some officials miss the speed of her private decisions. Others learn to make decisions that survive her absence. The new realm begins by measuring power where she once merely held it.",
+          "pyrrhic": "The throne is abolished while its habits remain in appointments, debts and households. Mira must surrender authority in practice as well as ceremony. The charter has ended a title; its survival depends on ending the reflex of asking one person to make every difficult choice.",
+          "failure": "Mira offers to dismantle the institution that made her influential, but the council will not accept the authority required to do it. The crown remains an object other people can fight for. Her offer survives as a proposal, not a settled government.",
+          "disaster": "The abolition attempt costs Mira the cooperation of offices built to depend on the Crown. Rival interests agree to oppose her before they agree on anything else. The old institution survives by demonstrating how many people can benefit from keeping one throne in the room."
+        },
+        "arias_heir": {
+          "triumph": "Aria’s original writ is accepted as a precedent for choosing a capable sovereign under extraordinary necessity. Mira is crowned in her own right without claiming a doubtful rumour proves her case. The new law leaves a door open for the ruler who follows her.",
+          "brittle": "Mira gains the crown through Aria’s precedent, while the council limits how later households may invoke it. A queen’s recognised government becomes law rather than a gracious exception. The victory will matter beyond her reign if the limits are allowed to remain honest.",
+          "pyrrhic": "The precedent carries Mira into sovereignty without removing the opposition gathered around it. She has won a legal route and inherited the work of making it ordinary. Every appointment will be treated as a test of the two queens separated by centuries.",
+          "failure": "The council accepts the old writ’s authenticity and rejects its extension to Mira. Aria remains a precedent people can praise without applying. Mira leaves the hearing knowing a preserved document cannot force institutions to use the door it records.",
+          "disaster": "The precedent dispute becomes a campaign against Mira’s person, drowning the actual writ in accusation. The attempt fails before the council can settle what extraordinary succession should mean. Future readers will still find the original beside the arguments used to bury it."
+        },
+        "wolf_and_spider": {
+          "triumph": "Mira and Alistair bind their claims under written limits on command, appointments and household security. The marriage makes a working government because neither spouse is asked to vanish inside the other’s title. The northern host and the royal seal finally answer one settlement.",
+          "brittle": "Mira’s marriage secures recognition at the price of sharing decisions she once settled alone. Alistair brings soldiers; she brings the court. Their government functions through careful agreements that must be observed after the wedding guests leave.",
+          "pyrrhic": "The wedding averts one battle and opens a quieter contest over every officer and corridor. Mira wears a crown beside a husband who can still call his own army. Peace has been purchased with a household that cannot afford carelessness.",
+          "failure": "Mira cannot make the marriage terms carry both claims. The households withdraw officers before the ceremony can turn a negotiation into authority. She remains a widow with a disputed seal, having learned how much northern order expected her to surrender.",
+          "disaster": "The marriage attempt fails at the point where shared security would need shared trust. Mira’s access to the court becomes leverage used against her. The agreement leaves two armed households closer together and less willing to permit the other to survive unguarded."
+        }
+      },
+      "titles": {
+        "conquest": {
+          "triumph": "The Queen in Her Own Hall",
+          "brittle": "A Guard at Every Door",
+          "pyrrhic": "The Empty Places",
+          "failure": "Queen Without a Seal",
+          "disaster": "The Last Locked Door"
+        },
+        "acclamation": {
+          "triumph": "Authority in Her Own Name",
+          "brittle": "The Appointments That Bought a Crown",
+          "pyrrhic": "A Chamber of Creditors",
+          "failure": "Service Without Sovereignty",
+          "disaster": "The Household Divided"
+        },
+        "the_flame": {
+          "triumph": "Keeper of the Living Hearth",
+          "brittle": "The Conditional Blessing",
+          "pyrrhic": "The Mercy Still Disputed",
+          "failure": "The Unlit Candle",
+          "disaster": "A Temple of Accusation"
+        },
+        "peoples_crown": {
+          "triumph": "The City Chooses Its Queen",
+          "brittle": "The People’s Petition Book",
+          "pyrrhic": "Flowers Among the Wounded",
+          "failure": "The Government They Could Not Give",
+          "disaster": "The Procession Broken"
+        },
+        "kings_will": {
+          "triumph": "The Duty Beyond Widowhood",
+          "brittle": "A Document Anyone May Quote",
+          "pyrrhic": "The Burden of the Whole Realm",
+          "failure": "The Will Without Her Crown",
+          "disaster": "Paper Against the Armies"
+        },
+        "last_words": {
+          "triumph": "The Witness Keeps Her Words",
+          "brittle": "The Queen and the Living Guarantees",
+          "pyrrhic": "A Sentence for Every Petition",
+          "failure": "The Memory That Could Not Crown Her",
+          "disaster": "The Account They Tried to Own"
+        },
+        "marriage": {
+          "triumph": "The Crown They Agreed to Share",
+          "brittle": "The Queen at a Shared Table",
+          "pyrrhic": "The Two Household Guards",
+          "failure": "The Vows That Could Not Hold",
+          "disaster": "A Palace Too Close to Storm"
+        },
+        "abdication": {
+          "triumph": "A Rival’s Future Preserved",
+          "brittle": "The Signatures Without Affection",
+          "pyrrhic": "The Surrender and the Grievance",
+          "failure": "The Kneeling That Never Came",
+          "disaster": "The Guarantees in Ruins"
+        },
+        "regency": {
+          "triumph": "The Work of a Common Seal",
+          "brittle": "A Council That Can Refuse Her",
+          "pyrrhic": "The Patience the Crown Demands",
+          "failure": "Continuity Without Agreement",
+          "disaster": "Orders from Separate Rooms"
+        },
+        "four_banners": {
+          "triumph": "The Seal Beside Three Banners",
+          "brittle": "The Queen Who Heard Refusals",
+          "pyrrhic": "The Government No One Owns",
+          "failure": "Four Survivors Without One Rule",
+          "disaster": "The Peace Before Its Safeguards"
+        },
+        "no_king": {
+          "triumph": "The Keys Returned to the Realm",
+          "brittle": "The Assembly’s Experienced Voice",
+          "pyrrhic": "A Throne Removed, a Habit Remaining",
+          "failure": "The Crown They Would Not Set Down",
+          "disaster": "The Offices That Kept a Monarch"
+        },
+        "arias_heir": {
+          "triumph": "The Door Aria Left Open",
+          "brittle": "An Exception Written as Law",
+          "pyrrhic": "The Precedent Still Contested",
+          "failure": "The Writ They Would Not Apply",
+          "disaster": "The Queen Beneath the Argument"
+        },
+        "wolf_and_spider": {
+          "triumph": "The Crown They Agreed to Share",
+          "brittle": "The Queen at a Shared Table",
+          "pyrrhic": "The Two Household Guards",
+          "failure": "The Vows That Could Not Hold",
+          "disaster": "A Palace Too Close to Storm"
+        }
+      }
+    },
+    "ethan": {
+      "routes": {
+        "conquest": {
+          "triumph": "Ethan’s host wins the military settlement and keeps the capital’s surrender terms. The veterans recognise the commander who once taught them discipline. He becomes king by force, then makes the first law of the reign answerable to something beyond his sword.",
+          "brittle": "The returned prince takes the crown behind a host that has become the court’s strongest argument. Reputation brought men to his banner; victory has taught some of them to expect rewards. Ethan must govern the distinction between grateful loyalty and a soldier’s invoice.",
+          "pyrrhic": "Ethan wins the throne with company rolls filled by deaths and households waiting for men who will not return. The old legend becomes a reign carrying its own casualties. His bloodline gives him a title, not an exemption from the cost.",
+          "failure": "The host cannot complete the return its songs promised. Ethan withdraws from the capital’s approaches while veterans decide whether they are still a company or the last followers of an old name. The road opens again, heavier than the first exile.",
+          "disaster": "Ethan’s military bid breaks the people who believed returning could restore what exile took. His claim loses its army before it gains a crown. The men who once measured commanders against him must now explain the disaster to their own households."
+        },
+        "acclamation": {
+          "triumph": "The council recognises Ethan through a lawful settlement rather than treating blood as permission to skip judgment. His return becomes a public office with public duties. The old soldier accepts the title without pretending that six years away have made him incapable of error.",
+          "brittle": "Ethan is acclaimed by lords who respect his descent and worry about his reputation among their soldiers. The crown comes with careful limitations. He has returned to a court more willing to recognise his name than to trust what he may do with it.",
+          "pyrrhic": "The lords choose Ethan because a familiar Valen seems safer than another week of uncertainty. He receives recognition while many of the facts surrounding his exile remain contested. Governing begins before personal vindication has finished.",
+          "failure": "Ethan’s descent cannot carry the votes his coalition still lacks. The council calls his years of service honourable and declines the crown. He leaves with a name partly restored, learning that restoration and sovereignty are separate judgments.",
+          "disaster": "The recognition hearing revives every dispute the return was meant to settle. Houses that promised support deny responsibility for the promise. Ethan is made the subject of another public decision whose authors will not have to live his years afterwards."
+        },
+        "the_flame": {
+          "triumph": "Aldren crowns Ethan as Keeper of the Hearth after receiving guarantees the new king is willing to obey. The rite does not settle every allegation of the past. It entrusts peace to a man whose future conduct can now be judged publicly.",
+          "brittle": "Ethan takes the Crown Candle beneath the gaze of priests divided over his return. His recognition is real, and its obligations exact. He will have to earn a blessing that cannot honestly be extended backwards over every missing fact.",
+          "pyrrhic": "The religious settlement crowns Ethan while leaving his household under continuing scrutiny. The old soldier accepts prayers offered for the realm more readily than praise offered for himself. The crown survives on conditions his supporters may resent being asked to keep.",
+          "failure": "The Flame cannot sustain a rite around Ethan’s divided recognition. The High Keeper refuses to turn incomplete inquiry into convenient absolution. Ethan loses a route to the throne without gaining the clean condemnation or vindication his enemies and friends expected.",
+          "disaster": "The coronation attempt becomes a quarrel the temple cannot contain. Ethan’s supporters discover that a sacred setting can amplify suspicion as readily as honour. His claim leaves the temple damaged by another contest over who may speak for the hearth."
+        },
+        "peoples_crown": {
+          "triumph": "The people who sheltered the exile bring Ethan to the crown under promises of accountable rule. His old reputation has become more than a song because the campaign gave households reasons to trust it. He enters Caerlyn owing his return to people without titles.",
+          "brittle": "Ethan is carried into government by affection that immediately demands grain, roads and fair judgment. Being remembered kindly was easier than deserving tomorrow’s trust. His reign begins where the legend ends: at a desk covered in ordinary needs.",
+          "pyrrhic": "The people win Ethan a crown through streets changed by the struggle to admit him. His name can still gather a crowd, but the crowd contains injured families and unpaid demands. Popular legitimacy now obliges him to heal what popular action could not spare.",
+          "failure": "The markets welcome Ethan without being able to break the institutions resisting him. The procession disperses before recognition becomes law. He remains a man people would shelter, which is a kind of victory smaller and more human than the one he sought.",
+          "disaster": "The movement around Ethan’s name collapses into panic and suppression. Households that once protected a traveller have become targets in a claimant’s contest. His defeat is measured by the people who believed reputation could make an armed capital yield."
+        },
+        "kings_will": {
+          "triumph": "Ethan accepts the authenticated testament as a duty to preserve the realm, rather than an older brother’s private gift. The council chooses him under that duty. He becomes king without needing Erol’s final words to repair every part of their relationship.",
+          "brittle": "The will gives Ethan recognition through an interpretation others can challenge. He is neither named without ambiguity nor excluded without recourse. The new king must supply through his reign the evidence of fitness the document asks the living to judge.",
+          "pyrrhic": "Erol’s testament brings Ethan close enough to the throne for the kingdom to accept a fragile settlement. The brother who once pronounced exile has left no simple apology. Ethan governs under a final instruction larger than the family’s unfinished reckoning.",
+          "failure": "The authenticated document does not deliver the crown Ethan hoped his brother might have intended. Other households read the same duty differently. He loses the attempt with a fuller record of Erol’s indecision and no right to turn it into certainty.",
+          "disaster": "The will cannot protect Ethan’s coalition from the armed interests gathering around its interpretation. His supporters scatter while the document remains on the table. The dead brother’s authority has failed to rescue the living one a second time."
+        },
+        "last_words": {
+          "triumph": "Nessa’s remembered sentence supports a settlement Ethan can keep, without pretending she heard an appointment she did not. He takes the crown with the testimony’s limits preserved. A man punished by an incomplete account begins his reign by respecting another account’s boundaries.",
+          "brittle": "Ethan is recognised through a witness’s memory and a network of living guarantees. There is no perfect final instruction to shelter him. His authority rests on keeping promises whose witnesses can still return and ask what became of them.",
+          "pyrrhic": "The remembered words make Ethan’s recognition possible and leave the council arguing over what they require. He has gained a crown whose supporting sentence can be quoted by every disappointed ally. Preserving the realm will require more discipline than winning the reading.",
+          "failure": "Nessa’s account does not settle the council’s doubts about Ethan. He refuses, or fails, to turn a witness’s partial memory into the appointment his claim lacks. The defeat leaves the testimony intact and the throne available to another coalition.",
+          "disaster": "The last-word hearing becomes another trial of Ethan’s household while the sentence itself is lost beneath louder claims. The attempt fails without resolving the succession. He has learned how easily a remembered voice can be made to accuse a person it never named."
+        },
+        "marriage": {
+          "triumph": "Ethan and Celene establish a marriage alliance with public terms for the Crown and the coast. Her ships and his reputation support a government neither household could secure alone. They take shared responsibility seriously enough to leave its limits written.",
+          "brittle": "Ethan’s marriage gives the returned prince recognition through a coast that expects reliable contracts. Celene remains an independent political partner. The king cannot command her captains as though they were old soldiers grateful for his return.",
+          "pyrrhic": "The marriage crowns Ethan while binding his household to debts and tariffs the campaign has made difficult to pay. Celene has purchased a settlement rather than a romance. They must preserve a government that already owes more than its wedding promises suggest.",
+          "failure": "The coastal pact cannot overcome the opposition gathered against Ethan’s recognition. Celene withdraws ships from a promise she cannot make solvent. The failed ceremony leaves him with neither a new household nor a crown, and with another relationship priced by the contest.",
+          "disaster": "The marriage negotiations become a struggle over guarantees no household can enforce. Cargoes are held while soldiers demand wages. Ethan’s bid collapses at the point where affection, descent and commercial necessity were supposed to become one government."
+        },
+        "abdication": {
+          "triumph": "Ethan accepts a rival’s public withdrawal under terms that preserve a future for the defeated household. The crown is transferred through a lawful settlement rather than another exile imposed without inquiry. His reign begins by refusing to repeat the form of his own loss.",
+          "brittle": "The rival yields enough authority for Ethan to become king, while retaining allies who will test every guarantee. The old soldier knows how an unresolved grievance can outlive its sentence. He must keep the settlement from becoming another name for humiliation.",
+          "pyrrhic": "Ethan receives the crown through a relinquishment made bitter by the campaign that preceded it. The final battle is spared; peace is still a discipline. He understands the defeated claimant too well to assume that survival makes surrender painless.",
+          "failure": "The rival will not accept the guarantees Ethan offers. Weakness proves different from consent. His own memory of imposed exile cannot supply the power needed to make a fair withdrawal safe enough for the other household to choose.",
+          "disaster": "The abdication attempt fails in front of witnesses who had expected a lawful end. Threats replace guarantees. Ethan’s claim suffers alongside the possibility that another ruler will believe mercy offered at the end of a campaign can be trusted."
+        },
+        "regency": {
+          "triumph": "Ethan serves at the head of a provisional Crown government with authority divided by written office. The soldier’s instinct to protect becomes part of an administration capable of limiting him. A smaller title preserves more of the kingdom than a larger personal victory would.",
+          "brittle": "Ethan accepts a shared seal and discovers how slowly councils move compared with companies. The arrangement works when he uses command to carry out decisions rather than silence the people making them. His return is a job, not a vindication ceremony.",
+          "pyrrhic": "The regency prevents a decisive battle while leaving Ethan responsible for enforcing bargains he did not entirely choose. His soldiers expect a king’s certainty from an office built around uncertainty. The Crown continues through restraint that rarely receives a cheer.",
+          "failure": "The households cannot settle the scope of Ethan’s provisional command. Every offered limit looks to somebody like submission. He loses the attempt at shared government while retaining the difficult knowledge that a throne divided need not have meant a realm divided.",
+          "disaster": "The shared authority breaks into contradictory orders to the royal army. Ethan cannot hold a line whose commanders disagree about the institution it serves. The attempted compromise leaves garrisons waiting while rival households recover their private commands."
+        },
+        "four_banners": {
+          "triumph": "Ethan accepts a common government that leaves Mira, Arlo and Alistair alive with protected political places. Returning has become a choice to end the family’s pattern rather than finish it. His authority is recorded among four signatures, none capable of owning the whole realm.",
+          "brittle": "Four banners remain above the council. Ethan learns to argue beside people he once expected to confront across a field. The settlement asks more of his patience than his sword, and gives the surviving claimants a reason to keep learning that discipline.",
+          "pyrrhic": "Ethan’s household gains peace without a clean personal vindication. Four claims continue inside one administration, making the old soldier responsible for compromises his legend would never have sung. The kingdom survives because none of them can demand the story alone.",
+          "failure": "The surviving claimants cannot turn a common meeting into common authority. Ethan’s willingness to share is insufficient to make every household risk obeying the same decision. The banners separate again without the easy certainty that another war will settle them.",
+          "disaster": "The four-banner settlement collapses beneath fear and incompatible commands. Ethan’s attempt to bring old enemies into government leaves his people exposed to a bargain that could not hold. The failure will be cited against cooperation by those who never wanted to try it."
+        },
+        "no_king": {
+          "triumph": "Ethan relinquishes the hereditary claim he returned to defend and helps transfer authority to a chartered government. His service no longer requires another Valen to occupy the throne. The roads become the place he inspects as a public officer, not the place he must flee.",
+          "brittle": "The old soldier serves a realm whose authority can answer him without needing to share his blood. Some veterans struggle to stop calling him king. The assembly’s arguments are untidy, and for once untidiness does not have to be settled by a family sentence.",
+          "pyrrhic": "Ethan helps end the crown while royal companies still look to a Valen for orders. Renouncing a title proves easier than changing loyalty’s habits. He spends the first uncertain settlement teaching his own soldiers to obey an institution that can outlive him.",
+          "failure": "The attempt to end hereditary rule fails while Ethan still possesses a possible hereditary claim. Lords suspect a manoeuvre; supporters suspect surrender. He has refused a simple personal victory without yet securing a government able to survive that refusal.",
+          "disaster": "The abolition bid gives threatened institutions a common enemy in Ethan’s household. His bloodline cannot protect a project that would make blood irrelevant. The Crown survives the attempt, and the returned prince learns that laying down a claim does not lay down its dangers."
+        },
+        "brothers": {
+          "triumph": "Ethan recognises Arlo and becomes Protector under a written office answerable to the adult king and council. Uncle and nephew end a family contest by choosing different duties. The songs call it brotherhood; the law records limits that make the metaphor safe.",
+          "brittle": "Arlo is crowned while Ethan’s Protectorate keeps the military settlement intact. The two Valens disagree without needing to compete for the same chair. Their family’s new bargain depends on treating advice, command and sovereignty as separate responsibilities.",
+          "pyrrhic": "Ethan sets aside his stronger traditional claim to protect Arlo’s disputed ascent. The arrangement saves a final family war but leaves veterans asking whose orders they should hear first. The Protector must prove that yielding the crown was not a way to govern through it.",
+          "failure": "The uncle and nephew cannot sustain recognition strong enough for their pact to govern. Ethan’s supporters resist the smaller office; Arlo’s fear a disguised regency over a grown man. The failed settlement leaves two claims where it intended two duties.",
+          "disaster": "The Protectorate collapses when rival households make the divided commands impossible to trust. Ethan’s attempt to spare the family another contest instead exposes both its claims. Neither blood nor an affectionate name can replace a workable division of authority."
+        }
+      },
+      "titles": {
+        "conquest": {
+          "triumph": "The Commander Becomes King",
+          "brittle": "The Veterans’ Invoice",
+          "pyrrhic": "A Crown Above the Company Roll",
+          "failure": "The Road After the Defeat",
+          "disaster": "The Return That Broke the Host"
+        },
+        "acclamation": {
+          "triumph": "The Return Made Lawful",
+          "brittle": "A Valen Under Conditions",
+          "pyrrhic": "A Crown Before Vindication",
+          "failure": "A Name Restored, a Throne Denied",
+          "disaster": "Another Judgment Against a Prince"
+        },
+        "the_flame": {
+          "triumph": "The Oath for the Future",
+          "brittle": "The Blessing They Will Measure",
+          "pyrrhic": "A King Beneath Scrutiny",
+          "failure": "The Rite Without Absolution",
+          "disaster": "The Temple’s Divided Return"
+        },
+        "peoples_crown": {
+          "triumph": "The Households Bring Him Home",
+          "brittle": "The Desk Beyond the Legend",
+          "pyrrhic": "The Wounded in the Procession",
+          "failure": "The Man They Would Still Shelter",
+          "disaster": "The Price His Supporters Paid"
+        },
+        "kings_will": {
+          "triumph": "The Brother’s Public Duty",
+          "brittle": "The King Who Must Supply the Proof",
+          "pyrrhic": "The Instruction Without an Apology",
+          "failure": "The Testament That Did Not Choose Him",
+          "disaster": "A Dead Brother Cannot Save a Host"
+        },
+        "last_words": {
+          "triumph": "A Limited Voice, a Lawful Crown",
+          "brittle": "The Witnesses Who May Return",
+          "pyrrhic": "The Sentence Above the King",
+          "failure": "The Account He Could Not Purchase",
+          "disaster": "The Hearing Beneath Louder Claims"
+        },
+        "marriage": {
+          "triumph": "The Coast and the Returned Prince",
+          "brittle": "A Captain Who Will Not Obey Him",
+          "pyrrhic": "The Wedding Account",
+          "failure": "The Harbour Withdraws Its Promise",
+          "disaster": "The Cargoes Behind the Vows"
+        },
+        "abdication": {
+          "triumph": "No Second Exile",
+          "brittle": "The Guarantee Worth Keeping",
+          "pyrrhic": "The Crown and the Defeated Man",
+          "failure": "Weakness Without Consent",
+          "disaster": "The Next Mercy Made Costlier"
+        },
+        "regency": {
+          "triumph": "A Protector of the Common Work",
+          "brittle": "The Soldier Learns a Council",
+          "pyrrhic": "Command Beneath a Shared Seal",
+          "failure": "The Smaller Title They Could Not Share",
+          "disaster": "The Army Between Orders"
+        },
+        "four_banners": {
+          "triumph": "The Family’s Pattern Ends",
+          "brittle": "A Table Where Enemies Answer",
+          "pyrrhic": "Peace Without Vindication",
+          "failure": "The Claims That Could Not Agree",
+          "disaster": "The Bargain That Failed His People"
+        },
+        "no_king": {
+          "triumph": "Service Without a Valen Throne",
+          "brittle": "The Veteran at the Assembly",
+          "pyrrhic": "Teaching Loyalty Another Name",
+          "failure": "The Claim He Chose to Relinquish",
+          "disaster": "The Crown’s Friends Find a Prince"
+        },
+        "brothers": {
+          "triumph": "The Uncle Who Chose Protection",
+          "brittle": "Two Offices for Two Valens",
+          "pyrrhic": "The Protectorate and the Old Songs",
+          "failure": "The Family’s Two Unsettled Duties",
+          "disaster": "The Command That Could Not Divide"
+        }
+      }
+    },
+    "arlo": {
+      "routes": {
+        "conquest": {
+          "triumph": "Arlo’s army wins the military settlement, and the capital accepts a man it once knew only as a rumour. He makes the surrender terms public before entering the Hall of Kings. Blood brought him into the contest; the people who fought must now see what he intends to build.",
+          "brittle": "Arlo takes the crown with soldiers correcting anyone who remembers his old trade too loudly. He has gained authority before the court has learned to respect his judgment. Every decision now risks becoming a test of whether the stable manager deserved the army that carried him.",
+          "pyrrhic": "The throne is won while Maren households count the riders who will not return. Arlo has risen far enough to see how little a crown can give back. His blood is recognised; his first work is to govern the cost of proving it with steel.",
+          "failure": "Arlo’s host fails before the capital, and the new title his followers rehearsed becomes difficult to say. The road toward Maren is still a road he knows. Returning there would preserve a life without undoing the risk others took for his claim.",
+          "disaster": "The military bid destroys the shelter Arlo’s ascent depended on. Men who learned his name in a stable yard are scattered beneath banners too large for their first hopes. The court is able to laugh again because somebody else has paid for its safety."
+        },
+        "acclamation": {
+          "triumph": "The council recognises Arlo through a lawful settlement that distinguishes proof of parentage from fitness to govern. His ordinary experience becomes part of the case rather than an embarrassment to conceal. He accepts the crown with his earlier household’s name still legible in the record.",
+          "brittle": "Arlo is acclaimed by lords prepared to accept the lineage and negotiate with the person. Their support comes through offices and guarantees rather than admiration. The new king must become harder to use than the unacknowledged child they imagined finding.",
+          "pyrrhic": "The lords choose Arlo because his youth seems safer than a stronger household’s victory. He gains a crown surrounded by people eager to explain his decisions for him. The most important part of governing will be learning when advice has become ownership.",
+          "failure": "The council hears Arlo’s evidence and refuses his recognition. Accepting that Erol may have fathered him is not the same as legitimising him or entrusting him with the realm. His future remains larger than the answer the hall was willing to give.",
+          "disaster": "The acclamation turns into a demonstration of how easily powerful houses can isolate a claimant without established office. Arlo’s papers are not enough to protect the people who supported them. He leaves the attempt with a more exact understanding of what his hidden childhood spared and denied."
+        },
+        "the_flame": {
+          "triumph": "Aldren crowns Arlo as Keeper of the Hearth after public recognition settles what birth alone could not. The young king’s first oath concerns the people he must shelter. Lysa’s son receives a duty, not a religious explanation for why being hidden was necessary.",
+          "brittle": "Arlo gains the Flame’s recognition while temple officers continue debating the legal path that brought him there. The rite gives him responsibilities he understands more readily than pedigree. His reign must keep the divine spark in households a royal parent never publicly claimed.",
+          "pyrrhic": "The religious coronation grants Arlo a crown beneath a dispute already spreading through provincial pulpits. His youth offers hope and invites control. The hearth is entrusted to him before the people arguing over his origins have learned to listen to his plans.",
+          "failure": "The High Keeper cannot make the necessary recognition hold around Arlo’s claim. The candle remains a ceremony available to another settlement. He has discovered that divine care for every person does not make every person heir to a kingdom.",
+          "disaster": "The attempt at religious recognition collapses into a quarrel about birth and authority. Arlo becomes the object of sermons written by people who never knew his mother. The failed rite teaches him how far a human life can disappear inside a useful theological argument."
+        },
+        "peoples_crown": {
+          "triumph": "Ordinary households bring Arlo to the throne for the work of his campaign as well as the story of his birth. The man who knew their horses and carts becomes responsible for their roads and courts. His first seal preserves the right to ask him why.",
+          "brittle": "Arlo gains a crown from people who expect him to remain recognisable beneath it. The capital immediately brings needs larger than a vale household. Remembering ordinary life will help him govern; it will not supply every answer for a kingdom.",
+          "pyrrhic": "The people make Arlo king after a contest that has damaged the streets carrying his procession. His rise has become a public hope with public casualties. Keeping that hope honest will require giving disappointed households more than another story about possibility.",
+          "failure": "People believe Arlo might govern well and cannot make the capital’s institutions surrender to that belief. He loses the throne attempt without losing every relationship the campaign created. The life he built before royal recognition is still capable of continuing.",
+          "disaster": "The movement around Arlo breaks under armed resistance. People who recognised themselves in his ascent are punished for the resemblance. His defeat leaves a debt to ordinary supporters that no recovered family name can settle."
+        },
+        "kings_will": {
+          "triumph": "The authenticated will asks for a whole kingdom instead of quietly granting a son the crown. Arlo gains recognition by answering that public duty. He takes Erol’s final instruction without allowing it to replace the household that taught him how care is practised.",
+          "brittle": "Arlo becomes king under a document less affectionate than the visits he remembers and more useful to the realm. Its conditions prevent blood from ending the argument. He must govern as the person the living accepted, rather than the son a dead man might have meant to acknowledge.",
+          "pyrrhic": "The testament creates enough agreement to crown Arlo while leaving the people who raised him exposed to the consequences. Erol’s final words have arrived later than a public fatherhood should have. Arlo must make the settlement kinder than the silence that preceded it.",
+          "failure": "Erol’s authenticated testament refuses to do the work of appointing Arlo beyond dispute. The council chooses a different interpretation. He has found the king’s final public duty and must decide how much of his own future still needs the king’s permission.",
+          "disaster": "The will’s reading becomes an armed argument Arlo’s coalition cannot withstand. A real document proves unable to protect its least established interpreter. Erol’s last instruction remains in the archive while the son he hid must seek another place to live."
+        },
+        "last_words": {
+          "triumph": "Nessa’s remembered words become part of a public settlement recognising Arlo without inventing a private appointment. He is crowned through promises the living can inspect. A hidden child and an overlooked servant have helped give the realm a government without pretending either knew every answer.",
+          "brittle": "The council accepts Arlo under a settlement supported by limited testimony and present guarantees. The witness does not turn his father into a more decisive man than the record permits. He takes the crown knowing authority must now be earned beyond the absent parchment.",
+          "pyrrhic": "Arlo’s recognition rests on a sentence every rival can still interpret differently. The crown arrives with the work of keeping those interpretations inside a common government. The old tutor’s last remembered duty proves more demanding than any chess problem he set.",
+          "failure": "The testimony cannot supply the missing consensus around Arlo’s claim. Nessa refuses to say that a king named a son she did not hear him name. Arlo loses the settlement without being allowed to purchase certainty from another person’s fear.",
+          "disaster": "The hearing breaks into claims that Nessa’s account cannot honestly support. Arlo’s household is overwhelmed by those better equipped to command the room. The remembered sentence survives as evidence of a duty the competing households failed to perform."
+        },
+        "marriage": {
+          "triumph": "Arlo and Celene sign a marriage settlement that preserves each household’s independent responsibilities. The coast brings ships; Arlo brings a recognised claim and a programme the merchants can measure. He becomes king with a partner capable of refusing to turn guidance into ownership.",
+          "brittle": "The marriage gives Arlo a crown and a household more experienced than his own campaign. Celene’s terms are clear enough to protect him if he learns to use them. He must become a political partner instead of accepting the comfort of being managed.",
+          "pyrrhic": "Arlo is crowned through a coastal alliance whose accounts already bear the campaign’s damage. Celene supplies authority at a price shared government cannot postpone. His future becomes a contract with somebody competent enough to know exactly what he has not yet learned.",
+          "failure": "The marriage settlement cannot make Arlo’s recognition hold. Celene refuses to expose her coast to guarantees the council will not enforce. The failed agreement leaves him a claimant again, with neither the protection nor the obligations of a new household.",
+          "disaster": "The marriage attempt traps Arlo’s claim between hostile recognition and commercial debts. His proposed rise becomes a risk nobody in the negotiating rooms agrees to carry. The ceremony fails before it can give him the secure household it promised."
+        },
+        "abdication": {
+          "triumph": "A rival publicly relinquishes authority and accepts Arlo under enforceable guarantees. The crown comes through a settlement recognising how many lives a blood claim can endanger. Arlo begins by preserving a future for the person who could have prevented his own.",
+          "brittle": "Arlo receives the crown through terms drafted by older households that expect to keep testing him. The surrendered claim remains a political presence. He must govern as an adult capable of keeping a bargain, rather than the beneficiary of another lord’s convenience.",
+          "pyrrhic": "The abdication crowns Arlo without making the defeated household’s grievance disappear. One final battle is avoided after too many earlier costs. His rise begins to look less like discovery and more like responsibility for every person the discovery displaced.",
+          "failure": "The rival refuses the terms under which Arlo expects recognition. Proof of blood cannot make an adversary trust the future he offers. He loses the neat settlement and retains the harder work of building authority outside a family revelation.",
+          "disaster": "The proposed withdrawal becomes another confrontation Arlo lacks the means to control. Guarantees fail before their witnesses. The adult who spent his childhood without a title discovers how dangerous it is to offer a kingdom’s protection before possessing its obedience."
+        },
+        "regency": {
+          "triumph": "Arlo takes the public Crown authority within a provisional government whose offices and limits are written. Advice remains advice, and responsibility remains his. The arrangement gives him experienced ministers without declaring a twenty-four-year-old man a child to be ruled through.",
+          "brittle": "Arlo governs with a council that can restrain him and rival households that can contest its decisions. He learns quickly because the duties are real. The settlement protects him from isolation while asking him to become harder to manipulate than the court expected.",
+          "pyrrhic": "The shared government crowns Arlo in practice and divides authority over almost everything the crown must do. The arrangement saves a battle and makes ordinary decisions difficult. He has risen into a council whose members cannot agree what they meant to raise.",
+          "failure": "The households fail to write a provisional authority Arlo can exercise without becoming their instrument. He refuses, or cannot sustain, the settlement. The empty crown remains contested while he considers what share of power would actually permit him to govern.",
+          "disaster": "The regency becomes a contest over which older household can issue orders in Arlo’s name. The common seal ceases to guarantee a common decision. His failed ascent exposes the cost of being recognised by people who do not intend to listen."
+        },
+        "four_banners": {
+          "triumph": "Arlo’s signature stands beside Mira’s, Ethan’s and Alistair’s under a government that recognises each claim without letting one consume the realm. His possible bloodline begins the conversation rather than ending it. The once-unregistered child enters public history as a participant in a shared peace.",
+          "brittle": "Arlo sits in a council with three people whose power once made his future uncertain. The agreement gives him a voice and prevents it from becoming the only voice. He grows into authority through decisions other claimants may answer directly.",
+          "pyrrhic": "The four-banner government preserves Arlo’s place and limits the victory his supporters imagined. The kingdom remains one quarrelsome institution. He must convince his own household that a future shared can be worth more than the crown they risked themselves to prove he deserved.",
+          "failure": "The four surviving claims cannot sustain one government. Arlo’s recognition remains part of the record, but the shared seal fails to give it practical protection. His future is no longer hidden; it is still unsettled.",
+          "disaster": "The common settlement collapses before its safeguards can make the least established household secure. Arlo’s people learn that sitting in a room with powerful rivals is not the same as being protected from them. The failure damages the possibility of another shared table."
+        },
+        "no_king": {
+          "triumph": "Arlo helps abolish the institution he once needed to acknowledge him. A chartered government accepts his work without asking his blood to authorise it. Lysa’s son can belong to the realm openly without requiring somebody else to become nobody beneath a crown.",
+          "brittle": "Arlo gives up an exclusive hereditary future for an uncertain public one. The assembly is louder than the stable loft and less deferential than a royal court. He remains able to make a life because his identity has become larger than the title he could have inherited.",
+          "pyrrhic": "The crown is set down while its former households continue competing inside the new charter. Arlo’s supporters must learn that proving his descent was not the same as granting him permanent authority. The experiment preserves a future without promising him ownership of it.",
+          "failure": "The abolition attempt fails among people who believe Arlo’s revealed lineage should make him eager to inherit. His refusal to treat discovery as destiny unsettles supporters as much as opponents. The crown survives, and he must choose another shape for an acknowledged life.",
+          "disaster": "The threatened royal order unites against Arlo’s attempt to dismantle it. People who doubted his blood now condemn his unwillingness to use it. His claim collapses beneath the institution that first kept his existence convenient to conceal."
+        },
+        "brothers": {
+          "triumph": "Arlo is crowned with Ethan serving as Protector under limits both have signed. The uncle recognises the nephew’s claim without claiming to own the adult he protects. The arrangement gives Arlo an experienced commander and a family relationship larger than succession.",
+          "brittle": "Arlo and Ethan hold the pact while the court tests which office can refuse which order. The crown belongs to Arlo; protection belongs to a duty that can be reviewed. Kinship helps the agreement survive, and the written limits keep kinship from becoming control.",
+          "pyrrhic": "Arlo gains a crown with Ethan’s veterans still looking first at the man who led them back. The Protectorate has prevented a family battle. Arlo must now exercise real authority without treating his uncle’s experience as a threat to his adulthood.",
+          "failure": "The pact cannot make Arlo’s recognition and Ethan’s command fit one lawful government. Their households fear losing more than the agreement can protect. The failed arrangement leaves Arlo with a acknowledged relative and an unsettled future.",
+          "disaster": "The shared family settlement breaks under conflicting orders and rival suspicion. Arlo’s claim loses the protection it expected at the moment it most needs independent authority. An uncle’s goodwill has proved unable to carry an institution the households never trusted."
+        },
+        "blood_of_erol": {
+          "triumph": "The court distinguishes parentage from legitimisation, then completes a lawful recognition of Arlo under public guarantees. Lysa’s son becomes king without pretending every right was settled at birth. His first seal bears the name he has chosen to carry openly.",
+          "brittle": "The proof is accepted and the legal settlement gives Arlo a crown. The same lords who dismissed him now offer experienced guidance at an experienced price. Recognition ends one kind of uncertainty and begins the need to govern people who hope to use him.",
+          "pyrrhic": "Arlo’s parentage and lawful claim are recognised after the house that raised him has borne the campaign’s costs. The crown cannot turn those costs into a childhood happily restored. He must decide what to build with the future the evidence has made possible.",
+          "failure": "The evidence establishes a serious claim without assembling the authority needed to crown Arlo. The court separates a king’s son from a kingdom’s ruler. He leaves with his origins harder to deny and his next life still his to make.",
+          "disaster": "The recognition attempt is overwhelmed by interests stronger than Arlo’s coalition. Proof becomes an exhibit argued over after its bearer has lost control of the room. A royal father’s hidden decisions have again exposed the son to a danger the father no longer has to answer."
+        }
+      },
+      "titles": {
+        "conquest": {
+          "triumph": "From the Stables to the Seal",
+          "brittle": "A Crown Before Respect",
+          "pyrrhic": "The Riders Who Did Not Return",
+          "failure": "The Road to a Known Household",
+          "disaster": "The Ascent That Spent Its Shelter"
+        },
+        "acclamation": {
+          "triumph": "The Man the Council Chooses",
+          "brittle": "Guidance with a Price",
+          "pyrrhic": "The Young King They Hope to Own",
+          "failure": "Origins Without Authority",
+          "disaster": "The Room the Papers Could Not Hold"
+        },
+        "the_flame": {
+          "triumph": "Lysa’s Son Keeps the Hearth",
+          "brittle": "A Duty Larger Than Pedigree",
+          "pyrrhic": "The Crown Before They Hear His Plans",
+          "failure": "The Spark That Was Not Succession",
+          "disaster": "A Mother Lost Beneath Sermons"
+        },
+        "peoples_crown": {
+          "triumph": "The Man Who Knew Their Carts",
+          "brittle": "Recognisable Beneath the Crown",
+          "pyrrhic": "Hope with Public Casualties",
+          "failure": "A Life After the Unwon Throne",
+          "disaster": "The Ordinary People Who Risked It"
+        },
+        "kings_will": {
+          "triumph": "A Public Duty Instead of a Private Son",
+          "brittle": "The Tutor’s Last Difficult Lesson",
+          "pyrrhic": "A Testament Too Late for Childhood",
+          "failure": "A Future Without His Father’s Leave",
+          "disaster": "The Son Outside the Archive"
+        },
+        "last_words": {
+          "triumph": "A Hidden Child and a Witness’s Voice",
+          "brittle": "Living Guarantees for a Living King",
+          "pyrrhic": "The Sentence Every Rival Keeps",
+          "failure": "The Certainty She Would Not Invent",
+          "disaster": "The Duty Left Unperformed"
+        },
+        "marriage": {
+          "triumph": "A Partner Beside the New King",
+          "brittle": "The King Who Must Become a Partner",
+          "pyrrhic": "The Contract of an Unfinished Ascent",
+          "failure": "The Coast Cannot Give Him Shelter",
+          "disaster": "A Household Nobody Could Guarantee"
+        },
+        "abdication": {
+          "triumph": "A Future for the One Who Yielded",
+          "brittle": "The Adult at the Surrender Table",
+          "pyrrhic": "The Cost of Replacing a Claim",
+          "failure": "Blood Cannot Supply Trust",
+          "disaster": "Protection Offered Before Power"
+        },
+        "regency": {
+          "triumph": "Authority Without a Childhood Regency",
+          "brittle": "The King Who Learns to Answer",
+          "pyrrhic": "The Crown They Meant to Manage",
+          "failure": "Recognition Without a Real Office",
+          "disaster": "The Orders Written in His Name"
+        },
+        "four_banners": {
+          "triumph": "A Name Among Four Signatures",
+          "brittle": "The Claimant With a Protected Voice",
+          "pyrrhic": "A Shared Future Worth the Cost",
+          "failure": "Acknowledged and Still Unsettled",
+          "disaster": "A Table Without Safeguards"
+        },
+        "no_king": {
+          "triumph": "Lysa’s Son Belongs Without a Crown",
+          "brittle": "The Assembly Beyond the Loft",
+          "pyrrhic": "A Descent That Grants No Permanent Chair",
+          "failure": "Discovery Without Destiny",
+          "disaster": "The Institution That Kept Him Hidden"
+        },
+        "brothers": {
+          "triumph": "A Crown and a Written Protectorate",
+          "brittle": "The King and His Uncle’s Advice",
+          "pyrrhic": "The Adult Beyond the Veterans’ First Glance",
+          "failure": "A Relative Without a Settlement",
+          "disaster": "Protection Without an Institution"
+        },
+        "blood_of_erol": {
+          "triumph": "A Claim Made Lawful",
+          "brittle": "The Recognised King They Hope to Use",
+          "pyrrhic": "The Crown and the House That Paid",
+          "failure": "The Origins the Court Must Hear",
+          "disaster": "The Proof Without Protection"
+        }
+      }
+    },
+    "alistair": {
+      "routes": {
+        "conquest": {
+          "triumph": "Alistair wins the military settlement and enforces the capital’s surrender terms against his own companies. The north’s disciplined host becomes a kingdom’s army only when its lord accepts limits beyond Stormhold. He takes the crown with an order to reopen roads before collecting trophies.",
+          "brittle": "Alistair’s soldiers make him king, and the south obeys while counting the garrisons. Order has reached further than consent. The new ruler must make security useful enough that people will someday keep it when a Storm patrol is not watching.",
+          "pyrrhic": "The crown is won through a campaign that has consumed the reserves which made Storm’s strength possible. Alistair governs a bruised south and a depleted north. His argument that disorder kills is now judged against the people killed imposing his answer.",
+          "failure": "The army cannot deliver the kingdom Alistair believed its discipline deserved. He withdraws toward northern strength without converting it into a lawful crown. Stormhold may still stand, but its lord must account for a campaign that order alone could not win.",
+          "disaster": "The northern bid breaks before it can settle Nezrel. The host’s failure leaves roads exposed and houses reconsidering their oaths. Alistair has discovered that the means of forcing a decision can collapse before the realm accepts what was forced upon it."
+        },
+        "acclamation": {
+          "triumph": "The great houses recognise Alistair under terms that turn military necessity into an accountable office. The southern signatures are neither inherited nor intimidated into silence. He becomes king by accepting that a kingdom can judge the order offered to it.",
+          "brittle": "Alistair is acclaimed after guarantees for local courts, levies and trade are read aloud. He has acquired a crown less absolute than the command he exercised in the north. The restraints are part of the recognition, not an inconvenience to be discarded after it.",
+          "pyrrhic": "The lords choose Alistair because his army offers the quickest end to a crisis they can no longer finance. Their recognition is a weary bargain. He receives the crown with the burden of making necessity feel like a government people can continue to accept.",
+          "failure": "The council appreciates northern strength and refuses to make it succession law. Alistair’s officers wait outside a hall his argument cannot command. He has won the attention of every house without earning enough of their consent to govern them together.",
+          "disaster": "The attempted recognition exposes the gap between Alistair’s private agreements and the votes he can actually obtain. Lords disown concessions once they sense the hall turning. A ruler used to counting iron finds that signatures can become less reliable than the softest metal."
+        },
+        "the_flame": {
+          "triumph": "Aldren crowns Alistair after his guarantees make protection answerable to the people protected. The Flame recognises order as a duty rather than a justification for every punishment. The northern lord becomes Keeper of a hearth larger than Stormhold’s walls.",
+          "brittle": "Alistair accepts the Crown Candle with conditions his captains consider intrusive. The blessing gives southern households a reason to hear him, and temple witnesses a reason to question him. Sacred recognition has made his power more visible rather than less limited.",
+          "pyrrhic": "The religious settlement crowns Alistair amid prayers that sound more like appeals for restraint than celebration. The institution has risked its authority to end the contest. His future punishments will be measured against the refuge the rite promises to ordinary people.",
+          "failure": "The Flame declines to convert Alistair’s military argument into recognition. A maintained road is not an answer to every damaged household. He leaves the rite’s possibility behind, with an army still capable of demanding what the temple would not freely give.",
+          "disaster": "The attempted coronation makes the northern claim a threat the temple openly resists. Alistair’s supporters cannot preserve the rite without contradicting its purpose. His bid fails where order was supposed to become a blessing."
+        },
+        "peoples_crown": {
+          "triumph": "Southern households support Alistair because the campaign taught them his administration can hear an appeal. They bring his claim into the capital without needing a northern spear at every door. The man who trusted order first receives a crown from people who chose to trust it.",
+          "brittle": "The public settlement makes Alistair king while refusing to stop asking what his government costs. He has gained a constituency rather than obedient spectators. His first task is to keep listening when its demands interfere with efficient orders.",
+          "pyrrhic": "Alistair’s popular crown follows streets altered by the contest around it. Enough people believe his rule could protect them, but protection begins among damaged households. The north’s confidence must become a southern recovery plan rather than another speech about strength.",
+          "failure": "The people accept parts of Alistair’s programme and refuse to carry the whole claim into power. He learns that respect for safe roads does not imply permission to own their destination. The army remains stronger than the popular settlement he attempted.",
+          "disaster": "The movement intended to prove Alistair’s consent breaks beneath suspicion and force. His household cannot make the crowd’s decisions look independent after the contest turns violent. A claim meant to broaden northern authority instead makes the south fear its arrival more."
+        },
+        "kings_will": {
+          "triumph": "The authenticated will’s duty to keep Nezrel whole becomes a lawful framework for accepting Alistair. He abandons the fiction that readiness alone grants a crown. The council recognises a northern lord willing to answer the dead king’s instruction through public guarantees.",
+          "brittle": "Alistair gains recognition through a testament that neither names him outright nor excludes his interpretation. He must keep demonstrating why strength can serve unity. The document places a duty above the authority he once expected to impose beneath his own name.",
+          "pyrrhic": "The will gives Alistair enough common ground for a fragile coronation. Its demand for a whole realm now weighs against every house the campaign has alienated. The crown is won; the argument that his order fulfils Erol’s duty remains a task.",
+          "failure": "Erol’s authenticated instruction cannot make Alistair’s coalition acceptable to the council. The testament recognises a duty his opponents believe another claimant can perform. Northern readiness has failed to become the interpretation the kingdom is willing to live under.",
+          "disaster": "The will’s reading exposes Alistair’s advance knowledge of the crisis to hostile interpretations without securing recognition. The record cannot make his host’s arrival look inevitable. His attempt at lawful acceptance collapses into the accusation that he merely found an older seal for conquest."
+        },
+        "last_words": {
+          "triumph": "Nessa’s limited testimony gives Alistair’s opponents a common duty to negotiate around. He accepts its limits and provides living guarantees where the missing parchment provides none. The settlement makes him king without requiring a servant to invent his entitlement.",
+          "brittle": "Alistair is recognised through a remembered instruction and carefully witnessed conditions. His authority rests on what he will do, not on a claim that Erol privately chose him. The north’s strongest ruler must make that distinction visible to the south.",
+          "pyrrhic": "The last-word settlement crowns Alistair while leaving many households doubtful that keeping a realm whole means holding it tightly. The witness’s sentence gives them language for future objections. His government must answer those objections without silencing the source of its own recognition.",
+          "failure": "The council hears the testimony and remains unconvinced by Alistair’s proposed settlement. A servant’s memory cannot authorise the northern host by itself. He loses the attempt with the means of force still beside the reason force was not enough.",
+          "disaster": "The hearing becomes an accusation that Alistair has tried to turn every surviving piece of Erol’s voice into a military warrant. The testimony does not support the certainty his household needs. The failed bid makes another witness less likely to speak freely."
+        },
+        "marriage": {
+          "triumph": "Alistair and Mira accept a marriage settlement that joins northern command to royal administration under public limits. He becomes king through shared work rather than demanding a widow deliver the throne. The army halts where the agreement requires it to halt.",
+          "brittle": "Alistair’s marriage brings the capital’s recognition at the price of a household he cannot govern like Stormhold. Mira knows every office his soldiers need. Their crown will remain shared only if both continue treating negotiation as part of authority.",
+          "pyrrhic": "The marriage crowns Alistair and Mira above a court that expects one of them to tire of the bargain. Soldiers and servants maintain separate loyalties under one household roof. The final battle is avoided by making vigilance the occupation of a reign.",
+          "failure": "The northern demand and the royal household cannot occupy the same enforceable vows. Alistair’s campaign fails to turn marriage into recognition. The captains who expected a gate receive another road, and Mira’s seal remains outside his command.",
+          "disaster": "The marriage attempt collapses under incompatible security demands. Alistair learns that bringing an army to a wedding negotiation does not make a spouse safe enough to trust. The failed pact leaves him closer to Caerlyn and further from its acceptance."
+        },
+        "abdication": {
+          "triumph": "A rival relinquishes the contest under guarantees Alistair is strong enough to enforce and disciplined enough to keep. The public act supplies recognition his army alone could not. He takes the crown after allowing defeat to mean survival rather than an exemplary grave.",
+          "brittle": "Alistair becomes king through a rival’s witnessed withdrawal. Northern officers would prefer simpler terms; southern households insist on the terms already signed. The crown has made his authority wider by making its obligations harder to evade.",
+          "pyrrhic": "The relinquished claim gives Alistair a crown and leaves the defeated household’s grievance within the kingdom. He can suppress its expression or govern the reasons it survives. The settlement has ended the decisive contest without finishing the work of peace.",
+          "failure": "The rival refuses the surrender Alistair believed weakness would compel. Northern strength cannot make the offered guarantees credible enough. His claim fails at the distinction between obtaining a signature and making a living person able to accept it.",
+          "disaster": "The abdication attempt becomes a public confrontation that damages every guarantee Alistair hoped to exchange for recognition. His household’s coercive reputation returns before the surrender can settle the crown. The kingdom learns to distrust the next offer more."
+        },
+        "regency": {
+          "triumph": "Alistair accepts a provisional Crown government in which military command is one office among several. The shared administration turns his strength into a resource the realm can authorise and limit. Nezrel gains the security he promised without giving his household sole ownership of its future.",
+          "brittle": "Alistair serves under a shared seal that sometimes tells the northern army to wait. He finds the arrangement slow and increasingly useful. A ruler accustomed to making decisions alone begins to distinguish an objection from an attempt to destroy order.",
+          "pyrrhic": "The regency keeps Alistair’s host inside a common settlement while his captains resent every negotiated delay. He has exchanged a final campaign for a government whose quarrels may never end. The kingdom survives because he does not resolve all of them with soldiers.",
+          "failure": "The shared offices cannot agree on how to limit Alistair’s command. His host remains a power the council fears relying on and fears refusing. The provisional settlement fails before it can make northern strength part of a common institution.",
+          "disaster": "Contradictory orders break the shared government’s authority over Alistair’s host. Northern officers obey the familiar household command, and the common seal becomes an unanswered request. His attempt to join a larger order fails where it most needed to restrain his own."
+        },
+        "four_banners": {
+          "triumph": "Alistair gives three other claimants a protected place in the government his army might have tried to own. The four signatures turn maintained order into a common duty. Storm’s banner remains proud above a hall in which bending to a rule no longer means defeat.",
+          "brittle": "The northern lord remains one of four authorities bound to a shared constitution. Every difficult vote tempts him to simplify the room. The agreement lasts because he keeps choosing to hear the other signatures before calling the captains.",
+          "pyrrhic": "The four-banner government keeps Alistair from conquest and makes the north answer to compromises it dislikes. He must persuade his own houses that a restrained army can still defend them. The peace survives as work his old philosophy underestimated.",
+          "failure": "The surviving claimants cannot agree on guarantees broad enough to contain Alistair’s host and narrow enough for his houses to accept. Four banners leave the same hall without a common government. He has learned the price of sharing, without yet finding the means to pay it.",
+          "disaster": "The shared settlement collapses when the households no longer believe its rules can protect them. Alistair’s strength becomes the reason others prepare to abandon the bargain. The experiment fails under the fear its constitution had been meant to replace."
+        },
+        "no_king": {
+          "triumph": "Alistair helps transfer the Crown’s authority to a chartered realm and subjects the northern host to its common law. He gives up the single command he once believed necessary for survival. Nezrel’s order becomes stronger where it can refuse its strongest lord.",
+          "brittle": "The crown ends and Alistair remains responsible for making armies obey an assembly. The north distrusts some southern votes; the south distrusts familiar northern methods. The new charter works when he defends its decisions as firmly as he once defended his own.",
+          "pyrrhic": "The royal title is abolished before the private habits of command have disappeared. Alistair’s army remains powerful enough to tempt him toward a simpler solution. The experiment survives only as long as he resists rescuing it by taking it back.",
+          "failure": "Alistair’s offer to end monarchy cannot gain the consent his military authority might have forced. Houses suspect a crown disguised as a council. He has proposed a realm that can limit him without yet proving they could safely accept the proposal.",
+          "disaster": "The abolition attempt exposes Alistair to a coalition united by fear of what his army might do after the title disappears. The charter fails before common law can displace private command. The kingdom keeps its crown and the northern lord his unanswered argument about order."
+        },
+        "wolf_and_spider": {
+          "triumph": "Alistair and Mira accept a marriage settlement that joins northern command to royal administration under public limits. He becomes king through shared work rather than demanding a widow deliver the throne. The army halts where the agreement requires it to halt.",
+          "brittle": "Alistair’s marriage brings the capital’s recognition at the price of a household he cannot govern like Stormhold. Mira knows every office his soldiers need. Their crown will remain shared only if both continue treating negotiation as part of authority.",
+          "pyrrhic": "The marriage crowns Alistair and Mira above a court that expects one of them to tire of the bargain. Soldiers and servants maintain separate loyalties under one household roof. The final battle is avoided by making vigilance the occupation of a reign.",
+          "failure": "The northern demand and the royal household cannot occupy the same enforceable vows. Alistair’s campaign fails to turn marriage into recognition. The captains who expected a gate receive another road, and Mira’s seal remains outside his command.",
+          "disaster": "The marriage attempt collapses under incompatible security demands. Alistair learns that bringing an army to a wedding negotiation does not make a spouse safe enough to trust. The failed pact leaves him closer to Caerlyn and further from its acceptance."
+        }
+      },
+      "titles": {
+        "conquest": {
+          "triumph": "Order Beyond Stormhold",
+          "brittle": "The Garrison Before Consent",
+          "pyrrhic": "A Crown Between Two Depleted Lands",
+          "failure": "The Strength That Could Not Become Law",
+          "disaster": "The North’s Broken Bid"
+        },
+        "acclamation": {
+          "triumph": "The Lord Who Accepts a Limit",
+          "brittle": "The Conditions Beneath the Crown",
+          "pyrrhic": "The Government They Need Today",
+          "failure": "Iron Outside the Council Door",
+          "disaster": "The Signatures Softer Than Metal"
+        },
+        "the_flame": {
+          "triumph": "The Hearth Beyond His Walls",
+          "brittle": "The Blessing That Makes Power Visible",
+          "pyrrhic": "The Prayers for Restraint",
+          "failure": "The Road That Cannot Answer Everything",
+          "disaster": "Order Without a Blessing"
+        },
+        "peoples_crown": {
+          "triumph": "The South Chooses to Trust Him",
+          "brittle": "The Constituency That Keeps Asking",
+          "pyrrhic": "A Recovery Plan Beyond Strength",
+          "failure": "Respect Without Permission",
+          "disaster": "The Consent His Spears Cannot Prove"
+        },
+        "kings_will": {
+          "triumph": "Readiness Under a Public Duty",
+          "brittle": "The Strongest Reader Must Still Answer",
+          "pyrrhic": "The Realm He Must Keep Whole",
+          "failure": "The Interpretation They Refuse",
+          "disaster": "An Older Seal for Conquest"
+        },
+        "last_words": {
+          "triumph": "Strength Under Living Guarantees",
+          "brittle": "The Crown Erol Did Not Privately Give",
+          "pyrrhic": "A Sentence for the South’s Objections",
+          "failure": "Force Beside the Failed Argument",
+          "disaster": "The Witness Who Cannot Grant Certainty"
+        },
+        "marriage": {
+          "triumph": "The Army Halts at the Written Line",
+          "brittle": "The Household He Cannot Command Alone",
+          "pyrrhic": "The Wedding’s Separate Guards",
+          "failure": "The Gate the Vows Could Not Open",
+          "disaster": "The Wedding That Could Not Make Them Safe"
+        },
+        "abdication": {
+          "triumph": "The Victory That Lets a Rival Live",
+          "brittle": "The Guarantees His Captains Must Keep",
+          "pyrrhic": "The Grievance Inside the Kingdom",
+          "failure": "The Signature That Cannot Be Forced",
+          "disaster": "The Offer Made Harder to Believe"
+        },
+        "regency": {
+          "triumph": "An Army Within a Common Institution",
+          "brittle": "The Lord Who Learns to Wait",
+          "pyrrhic": "The Quarrel He Does Not End by Force",
+          "failure": "The Command They Fear to Authorise",
+          "disaster": "The Familiar Order Breaks the Common Seal"
+        },
+        "four_banners": {
+          "triumph": "A Proud Banner Under Common Rules",
+          "brittle": "The Vote Before the Captains",
+          "pyrrhic": "The Peace His Philosophy Underestimated",
+          "failure": "The Guarantees the North Cannot Share",
+          "disaster": "The Fear Beneath the Constitution"
+        },
+        "no_king": {
+          "triumph": "A Realm That Can Refuse Its Strongest Lord",
+          "brittle": "The Army Answers an Assembly",
+          "pyrrhic": "The Rescue He Must Not Impose",
+          "failure": "A Council They Fear Is Another Crown",
+          "disaster": "Private Command Beneath an Old Throne"
+        },
+        "wolf_and_spider": {
+          "triumph": "The Army Halts at the Written Line",
+          "brittle": "The Household He Cannot Command Alone",
+          "pyrrhic": "The Wedding’s Separate Guards",
+          "failure": "The Gate the Vows Could Not Open",
+          "disaster": "The Wedding That Could Not Make Them Safe"
+        }
+      }
+    }
+  },
+  "milestones": [
+    {
+      "id": "mira_market",
+      "title": "The City’s Other Key",
+      "requires": {
+        "flags": [
+          "MIRA_CIVIC_PAYOFF"
+        ]
+      },
+      "text": "The market witnesses keep one copy of the grain charter outside the castle. A future officer attempting to close the account discovers that the city has the means to question him. Mira’s most durable civic decision is a rule she cannot quietly erase.",
+      "claimant": [
+        "mira"
+      ]
+    },
+    {
+      "id": "mira_witness_office",
+      "title": "The Account Within the Seal",
+      "requires": {
+        "flags": [
+          "MIRA_WITNESS_OFFICE"
+        ]
+      },
+      "text": "The grain witnesses become royal clerks. Their training improves the accounts; their salaries make independence more difficult to claim. Mira has created a competent office, and a responsibility to keep competence from becoming another form of obedience.",
+      "claimant": [
+        "mira"
+      ]
+    },
+    {
+      "id": "mira_care",
+      "title": "A Duty Beyond the Household",
+      "requires": {
+        "flags": [
+          "MIRA_CARE_EQUAL"
+        ]
+      },
+      "text": "The midwives’ fund remains available to households regardless of banner. Records of care and loss enter provincial accounts as public duties. The grief once used to diminish Mira’s place at court has helped her recognise a duty the succession never measured.",
+      "claimant": [
+        "mira"
+      ]
+    },
+    {
+      "id": "mira_record",
+      "title": "The Account No One Owns",
+      "requires": {
+        "flags": [
+          "MIRA_RECORD_ACCEPTED"
+        ]
+      },
+      "text": "Pell’s dated account remains in independent custody. It preserves Erol’s illness and the limits of what anyone witnessed. Future arguments over Mira’s final night must answer those limits, rather than beginning with whichever accusation a new ruler finds convenient.",
+      "claimant": [
+        "mira"
+      ]
+    },
+    {
+      "id": "ethan_households",
+      "title": "The Discharge Date",
+      "requires": {
+        "flags": [
+          "ETHAN_TERM_SERVICE"
+        ]
+      },
+      "text": "The volunteers’ discharge date remains on the company roll. Their families treat it as a measure of whether Ethan’s restored name still means what they trusted. His soldiers are people returning to households, rather than an old legend’s endless supply of followers.",
+      "claimant": [
+        "ethan"
+      ]
+    },
+    {
+      "id": "ethan_wardens",
+      "title": "A Road Worth Returning To",
+      "requires": {
+        "flags": [
+          "ETHAN_VETERAN_WARDENS"
+        ]
+      },
+      "text": "Veteran wardens keep local roads open under a settlement that lets them remain at home. The old company’s memory becomes a public service beyond a claimant’s field army. Ethan’s return has given other men a reason to stop wandering.",
+      "claimant": [
+        "ethan"
+      ]
+    },
+    {
+      "id": "ethan_law",
+      "title": "The Exile in the Archive",
+      "requires": {
+        "flags": [
+          "ETHAN_LAWFUL_REVIEW"
+        ]
+      },
+      "text": "The lawful review preserves the account of Ethan’s summons, the disputed encounter and the inadequate inquiry preceding exile. It does not force every reader to agree. It gives the next accused person an argument for a hearing the prince himself once lacked.",
+      "claimant": [
+        "ethan"
+      ]
+    },
+    {
+      "id": "ethan_choice",
+      "title": "The Loyalty That Could Refuse",
+      "requires": {
+        "flags": [
+          "ETHAN_CHOSEN_LOYALTY"
+        ]
+      },
+      "text": "The western households keep their right to refuse service. Their chosen deliveries survive in local accounts beside the names of people who remained outside the campaign. Ethan’s gratitude has become a practice that does not require another generation to shelter him indefinitely.",
+      "claimant": [
+        "ethan"
+      ]
+    },
+    {
+      "id": "arlo_lysa",
+      "title": "Lysa’s House",
+      "requires": {
+        "flags": [
+          "ARLO_LYSA_LEGACY"
+        ]
+      },
+      "text": "The laundry above the quay retains Lysa’s name. Its workers train new apprentices and keep the story of a mother who once hoped for an independent room. Arlo has recovered a parent’s life without reducing it to proof of a king’s blood.",
+      "claimant": [
+        "arlo"
+      ]
+    },
+    {
+      "id": "arlo_water",
+      "title": "Two Keys for the Reserve",
+      "requires": {
+        "flags": [
+          "ARLO_VALE_RESERVE"
+        ]
+      },
+      "text": "Maren’s reserve is opened by estate and village witnesses together. The water schedule remains a practical agreement, copied when the next shortage comes. Arlo’s earliest work of government was measured in fields kept alive rather than names made illustrious.",
+      "claimant": [
+        "arlo"
+      ]
+    },
+    {
+      "id": "arlo_office",
+      "title": "The Earned Name",
+      "requires": {
+        "flags": [
+          "ARLO_EARNED_OFFICE"
+        ]
+      },
+      "text": "Arlo’s stable and transport appointment remains valid apart from the succession result. The writ records work he performed before his possible ancestry was public. Whatever becomes of the Crown, the realm contains one place he did not need a royal father to earn.",
+      "claimant": [
+        "arlo"
+      ]
+    },
+    {
+      "id": "arlo_delegation",
+      "title": "A Household That Can Work Without Him",
+      "requires": {
+        "flags": [
+          "ARLO_DELEGATED_OFFICE"
+        ]
+      },
+      "text": "The senior groom continues Maren’s transport work under delegated authority. Arlo’s campaign did not require his old household to stop functioning while it waited for him. Learning to entrust work to another person has left something useful behind the ascent.",
+      "claimant": [
+        "arlo"
+      ]
+    },
+    {
+      "id": "storm_limit",
+      "title": "The Right to Stop a Shaft",
+      "requires": {
+        "flags": [
+          "STORM_MINE_RIGHTS"
+        ]
+      },
+      "text": "Northern mine contracts retain a stop-work right checked against household records. The iron arrives with fewer false figures and a duty to respect the people producing it. Alistair’s order becomes more reliable where it admits a limit.",
+      "claimant": [
+        "alistair"
+      ]
+    },
+    {
+      "id": "storm_compact",
+      "title": "A Judgment Against the Winning Banner",
+      "requires": {
+        "flags": [
+          "STORM_COMPACT_PAYOFF"
+        ]
+      },
+      "text": "The upheld seed-reserve appeal is copied into the northern compact’s precedents. Later officers cannot dismiss a protected harvest merely by calling their need an emergency. Alistair has left his own companies a law difficult to pretend was intended only for opponents.",
+      "claimant": [
+        "alistair"
+      ]
+    },
+    {
+      "id": "storm_home",
+      "title": "The North Remains a Home",
+      "requires": {
+        "flags": [
+          "STORM_DEFENDED_HOME"
+        ]
+      },
+      "text": "Northern levies retain duties to transport and border protection instead of being spent entirely on a southern claim. The households behind Stormhold can recognise security that survives their lord’s ambitions. Order has been made useful at home before being offered abroad.",
+      "claimant": [
+        "alistair"
+      ]
+    },
+    {
+      "id": "storm_south",
+      "title": "The Southern Appeal",
+      "requires": {
+        "flags": [
+          "STORM_SOUTHERN_COURTS"
+        ]
+      },
+      "text": "Southern witnesses retain a seat beside the incoming magistrates. Their account of the settlement treats Storm authority as something that can be questioned. The north’s law has reached further by permitting the people beneath it to remain visible.",
+      "claimant": [
+        "alistair"
+      ]
+    },
+    {
+      "id": "river_trade",
+      "title": "The Honest Missing Sacks",
+      "requires": {
+        "flags": [
+          "RIVER_TRUST_PAYOFF"
+        ]
+      },
+      "text": "The river contract’s first loss remains in its records instead of disappearing into a village requisition. Merchants use that account to price new cargoes. A costly promise has become a route people can choose to trust."
+    },
+    {
+      "id": "workshop",
+      "title": "The Cartwrights’ Next Contract",
+      "requires": {
+        "flags": [
+          "APPRENTICE_TRANSPORT"
+        ]
+      },
+      "text": "The paid apprentices continue repairing transport under a written contract. Their wages have made homes out of the war’s displaced households. Some future campaign will depend on wheels fitted by people who were once offered only a place in a levy."
+    },
+    {
+      "id": "parole",
+      "title": "The Roll of Men Who Went Home",
+      "requires": {
+        "flags": [
+          "PAROLE_PRECEDENT"
+        ]
+      },
+      "text": "The infirmary keeps a roll of patients who observed parole and returned to their households. It proves neither that all enemies can be reconciled nor that mercy is free. It records particular lives a settlement allowed to continue."
+    },
+    {
+      "id": "fields",
+      "title": "The Fields Between the Banners",
+      "requires": {
+        "flags": [
+          "FIELDS_PROTECTED"
+        ]
+      },
+      "text": "The local harvest agreement survives in crossing records on both banks. It preserves the memory of commanders who let seed carts through when campaign orders could have stopped them. Future harvests can appeal to a precedent smaller than peace and larger than permission."
+    }
+  ],
+  "npc_rules": [
+    {
+      "id": "nessa_life",
+      "npc": "nessa_grey",
+      "requires": {
+        "flags": [
+          "NESSA_INDEPENDENT_LIFE"
+        ],
+        "npc_alive": [
+          "nessa_grey"
+        ],
+        "any": [
+          {
+            "npc_state": {
+              "nessa_grey": "missing"
+            }
+          },
+          {
+            "npc_state": {
+              "nessa_grey": "free"
+            }
+          }
+        ]
+      },
+      "text": "Nessa chooses a home beyond the court’s daily reach. Her recorded testimony stays available, and her brother begins the apprenticeship the chamber post was meant to fund. The witness is permitted to become a person with another tomorrow."
+    },
+    {
+      "id": "nessa_office",
+      "npc": "nessa_grey",
+      "requires": {
+        "flags": [
+          "NESSA_PAID_OFFICE"
+        ],
+        "npc_alive": [
+          "nessa_grey"
+        ],
+        "npc_state": {
+          "nessa_grey": "free"
+        }
+      },
+      "text": "Nessa keeps a salaried clerical post with the right to leave. She learns to write accounts about supplies rather than a king’s last hour. Access to her memory remains a request, instead of the purpose of her whole life."
+    },
+    {
+      "id": "nessa_retained",
+      "npc": "nessa_grey",
+      "requires": {
+        "flags": [
+          "NESSA_RETAINED"
+        ],
+        "npc_alive": [
+          "nessa_grey"
+        ],
+        "npc_state": {
+          "nessa_grey": "free"
+        }
+      },
+      "text": "Nessa remains in the household under protection she cannot entirely distinguish from confinement. The court has secured a witness and postponed the life she asked to live. Her account survives alongside that unfinished request."
+    },
+    {
+      "id": "pell_record",
+      "npc": "oren_pell",
+      "requires": {
+        "flags": [
+          "MIRA_RECORD_ACCEPTED"
+        ],
+        "npc_alive": [
+          "oren_pell"
+        ],
+        "npc_state": {
+          "oren_pell": "free"
+        }
+      },
+      "text": "Pell deposits copies of his dated notes beyond any one household’s control. He continues to distinguish what he observed from what others want him to conclude. The physician has found a way to serve the living without pretending his oath made the past simple."
+    },
+    {
+      "id": "evelyne_heard",
+      "npc": "evelyne_maren",
+      "requires": {
+        "flags": [
+          "EVELYNE_HEARD"
+        ],
+        "npc_alive": [
+          "evelyne_maren"
+        ],
+        "npc_state": {
+          "evelyne_maren": "free"
+        }
+      },
+      "text": "Evelyne keeps the original family letters at Maren. She has been heard without being given control over Arlo’s adult choice. Their relationship survives as care capable of disagreeing, rather than an old protection stretched into ownership."
+    },
+    {
+      "id": "tomas_office",
+      "npc": "tomas_maren",
+      "requires": {
+        "flags": [
+          "ARLO_EARNED_OFFICE"
+        ],
+        "npc_alive": [
+          "tomas_maren"
+        ],
+        "npc_state": {
+          "tomas_maren": "free"
+        }
+      },
+      "text": "Tomas keeps Arlo’s earned appointment among the estate writs. He has finally offered a named place that does not depend on hiding or proving royal blood. The man who protected a child begins learning how to recognise the adult."
+    },
+    {
+      "id": "celene_spouse",
+      "npc": "celene_veyne",
+      "requires": {
+        "flags": [
+          "MARRIED_CELENE_VEYNE"
+        ],
+        "npc_alive": [
+          "celene_veyne"
+        ],
+        "npc_state": {
+          "celene_veyne": "free"
+        }
+      },
+      "text": "Celene keeps responsibility for the coastal estates under the marriage settlement. Her spouse receives a political partner capable of stating a price and observing a term. The coast’s future remains an obligation she will not quietly surrender to a royal household.",
+      "victory_only": true
+    }
+  ],
+  "world": [
+    {
+      "id": "granaries",
+      "requires": {
+        "flags": [
+          "OPEN_GRANARY_CHARTER"
+        ],
+        "min_stability": 55,
+        "min_rations": 5
+      },
+      "text": "Public grain accounts give the towns a practical way to inspect promises. They do not end scarcity. They make a shortage harder to conceal long enough for a private bargain to turn it into famine."
+    },
+    {
+      "id": "compacts",
+      "requires": {
+        "flags": [
+          "STORM_WRITTEN_COMPACT"
+        ],
+        "not_flags": [
+          "STORM_COMPACT_BROKEN"
+        ],
+        "min_stability": 45
+      },
+      "text": "The northern compact circulates beyond its first signatories. Houses still argue about levies, but begin arguing from limits they have already accepted. Written obligation does a little of the work once left to a lord’s reputation."
+    },
+    {
+      "id": "broken_compact",
+      "requires": {
+        "flags": [
+          "STORM_COMPACT_BROKEN"
+        ]
+      },
+      "text": "Copies of the rejected seed-reserve appeal remain in northern household chests. Officers can still obtain obedience. They have made the next promise more expensive to believe."
+    },
+    {
+      "id": "outside_purse",
+      "requires": {
+        "flags": [
+          "VAROS_TAKEN"
+        ],
+        "min_foreign": 15
+      },
+      "text": "Varos’s envoys return to the question of the eastern lands with the original payments in their account. The foreign purse was never only generosity. Its obligations remain a part of Nezrel’s unsettled future."
+    },
+    {
+      "id": "sown",
+      "requires": {
+        "flags": [
+          "FIELDS_PROTECTED"
+        ],
+        "min_stability": 45
+      },
+      "text": "Along the ford villages, a harvest planted under local safe-conduct becomes an argument for wider cooperation. The people who agreed to let carts pass have left the next season something a crown cannot create by proclamation."
+    }
+  ]
+}

@@ -1,0 +1,4320 @@
+[
+  {
+    "id": "mira_open_stores",
+    "title": "A Queen’s Account",
+    "speaker": "A granary superintendent",
+    "place": "The lower granary",
+    "text": "The superintendent has two sets of figures: grain in the bins and grain already promised to the garrison. Both are correct. Below the castle, bakers accuse your household of keeping a dead king’s stores for a private war. You have spent thirty-one years balancing these obligations in private. The empty throne makes privacy look like hoarding. A public account would give the city a way to judge your rule before anyone gives you its title.",
+    "choices": [
+      {
+        "id": "account",
+        "text": "Publish the stores and fund a grain reserve.",
+        "outcome": "The figures go onto the market wall. The superintendent agrees to return with receipts, including the embarrassing ones.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -140
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_OPEN_ACCOUNT"
+          },
+          {
+            "op": "schedule",
+            "event": "mira_receipts",
+            "delay": 3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          }
+        ],
+        "requires": {
+          "min_gold": 140,
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "garrison",
+        "text": "Reserve the grain for soldiers and explain the obligation.",
+        "outcome": "Your captains welcome a firm supply guarantee. Bakers take copies of the order and promise to hold you to its end date.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "rations",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_GARRISON_ACCOUNT"
+          },
+          {
+            "op": "schedule",
+            "event": "mira_garrison_payment",
+            "delay": 3
+          }
+        ]
+      },
+      {
+        "id": "defer",
+        "text": "Let the existing officers administer the stores.",
+        "outcome": "The superintendent bows. You retain flexibility, but the disputed figures remain somebody else’s story.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_STORES_DEFERRED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 3
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court"
+  },
+  {
+    "id": "mira_receipts",
+    "title": "The Receipts on the Wall",
+    "speaker": "A baker of Caerlyn",
+    "place": "The riverside market",
+    "text": "Three weeks of purchases are posted beside your account. One cargo is short. The superintendent admits the loss before a rival’s pamphlet can announce it; the baker beside her says the remaining shipments have kept his ovens lit. Your openness has produced both evidence of failure and people prepared to defend the work. The city asks whether inspection will remain a favour or become a right.",
+    "choices": [
+      {
+        "id": "right",
+        "text": "Make the inspection permanent, with elected market witnesses.",
+        "outcome": "The witnesses accept a duty that will outlast this shortage. Clerks begin drawing up the rule.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -70
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 8
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "stability",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "OPEN_GRANARY_CHARTER"
+          },
+          {
+            "op": "schedule",
+            "event": "mira_charter_return",
+            "delay": 4
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_charter"
+          }
+        ],
+        "requires": {
+          "min_gold": 70
+        }
+      },
+      {
+        "id": "replace",
+        "text": "Replace the superintendent and centralise the account.",
+        "outcome": "The shortage acquires a named culprit. The next returns will come directly to your desk.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_ACCOUNT_CENTRALISED"
+          }
+        ]
+      },
+      {
+        "id": "end",
+        "text": "Close the public account once the current reserve is delivered.",
+        "outcome": "The ovens remain open this week. The witnesses leave with their final copy and no promise of another.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_ACCOUNT_ENDED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "MIRA_OPEN_ACCOUNT"
+      ],
+      "claimant": "mira",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "caerlyn",
+    "scheduled_only": true
+  },
+  {
+    "id": "mira_charter_return",
+    "title": "The City Keeps Its Own Copy",
+    "speaker": "The market witnesses",
+    "place": "Castle Caerlyn",
+    "text": "The market witnesses return without a petition. When a grain factor attempted to charge the Crown twice, they compared his receipt with the public return and refused delivery until the fraud was corrected. They bring the recovered grain and a charter copied in several ordinary hands. The reward for your earlier loss of control is a city capable of doing part of the work itself.",
+    "choices": [
+      {
+        "id": "confirm",
+        "text": "Confirm the charter and acknowledge the witnesses.",
+        "outcome": "A rule now bears both the royal seal and the marks of the people who must use it.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 8
+          },
+          {
+            "op": "gold",
+            "amount": 120
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_CIVIC_PAYOFF"
+          }
+        ]
+      },
+      {
+        "id": "office",
+        "text": "Bring the witnesses into a salaried royal office.",
+        "outcome": "The witness system gains trained clerks and loses some distance from your household.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_WITNESS_OFFICE"
+          }
+        ],
+        "requires": {
+          "min_gold": 50
+        }
+      }
+    ],
+    "requires": {
+      "flags": [
+        "OPEN_GRANARY_CHARTER"
+      ],
+      "claimant": "mira",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "caerlyn",
+    "scheduled_only": true
+  },
+  {
+    "id": "mira_garrison_payment",
+    "title": "The Promise Has a Date",
+    "speaker": "A palace quartermaster",
+    "place": "The treasury stair",
+    "text": "The guaranteed garrison allotment has held. Soldiers who expected irregular issues have accepted a smaller emergency levy because their food arrived when promised. The bakers now want the reserve released, as your published order said it would be. Keeping a temporary measure temporary is less dramatic than imposing it, and more likely to be remembered.",
+    "choices": [
+      {
+        "id": "release",
+        "text": "Release the reserve on the promised date.",
+        "outcome": "The quartermaster signs off without asking you to invent an emergency.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "gold",
+            "amount": 100
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "reputation",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_GARRISON_HONOURED"
+          }
+        ],
+        "requires": {
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "extend",
+        "text": "Extend the reserve while the crown remains unsettled.",
+        "outcome": "The garrison stays supplied. The bakers keep the first order as proof of what changed.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 5
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_GARRISON_EXTENDED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "MIRA_GARRISON_ACCOUNT"
+      ],
+      "claimant": "mira",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court",
+    "scheduled_only": true
+  },
+  {
+    "id": "mira_mothers",
+    "title": "The Petition Without an Heir",
+    "speaker": "A laundress named Sena",
+    "place": "The Queen’s gallery",
+    "text": "A group of women who have lost children ask for licensed midwives and a fund for bereaved households. Their spokesman has rehearsed a compliment about Queen Aria and cannot finish it. You remember years when your own grief was discussed as a fault in the succession. The fund will not solve that injury. It might stop another family being punished for the same absence.",
+    "choices": [
+      {
+        "id": "fund",
+        "text": "Fund the work and publish it as a household duty.",
+        "outcome": "Sena accepts practical help without being asked to praise you. The midwives will report what the first grant achieves.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -100
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_MIDWIVES"
+          },
+          {
+            "op": "schedule",
+            "event": "mira_mothers_return",
+            "delay": 5
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_mothers"
+          }
+        ],
+        "requires": {
+          "min_gold": 100
+        }
+      },
+      {
+        "id": "temple",
+        "text": "Ask the Flame to administer a matching grant.",
+        "outcome": "Temple officers undertake the work, and will share credit and responsibility with your household.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -45
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "political": 4,
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_TEMPLE_MIDWIVES"
+          }
+        ],
+        "requires": {
+          "npc_alive": [
+            "aldren_veil"
+          ],
+          "npc_state": {
+            "aldren_veil": "free"
+          },
+          "min_gold": 45
+        }
+      },
+      {
+        "id": "private",
+        "text": "Give from your private purse without a public policy.",
+        "outcome": "The petitioners receive immediate aid. The matter remains an act of patronage.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_PRIVATE_MIDWIVES"
+          }
+        ],
+        "requires": {
+          "min_gold": 20
+        }
+      }
+    ],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 7
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court"
+  },
+  {
+    "id": "mira_mothers_return",
+    "title": "A Letter Written for Someone Else",
+    "speaker": "Sena, by letter",
+    "place": "The Queen’s desk",
+    "text": "Sena writes on a sheet intended for a birth notice. The funded midwives have reached three villages, and the households are keeping their own records of losses and care. A provincial official tried to classify the fund as a favour reserved for royal supporters. Sena sends his letter with hers. Your policy has reached the point where it needs protection from people eager to use it.",
+    "choices": [
+      {
+        "id": "all",
+        "text": "Make access independent of allegiance.",
+        "outcome": "The official’s restriction is withdrawn. The villages keep the letters as evidence of an enforceable right.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 9
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_CARE_EQUAL"
+          }
+        ]
+      },
+      {
+        "id": "local",
+        "text": "Give each village authority over its own grant.",
+        "outcome": "Local witnesses gain a responsibility the Crown cannot watch every day.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "gold",
+            "amount": 60
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_CARE_LOCAL"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "MIRA_MIDWIVES"
+      ],
+      "claimant": "mira",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court",
+    "scheduled_only": true
+  },
+  {
+    "id": "mira_inquest",
+    "title": "The Limit of a Confession",
+    "speaker": "Master Oren Pell",
+    "place": "A private chamber",
+    "text": "Pell has brought his dated notes, not a verdict. They establish Erol’s illness and the instructions Pell heard. They do not measure what happened after you dismissed him. He offers to deposit copies with independent witnesses, provided neither you nor your enemies can force them to certify what they did not see. Such an account could shelter you from invented evidence and still leave the final night open to judgment.",
+    "choices": [
+      {
+        "id": "deposit",
+        "text": "Permit an independent record with its limits intact.",
+        "outcome": "Pell agrees to an account that neither calls you innocent nor writes a convenient murder for your enemies.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "political": 5,
+            "amount": 8
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -3
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_LIMITED_INQUEST"
+          },
+          {
+            "op": "schedule",
+            "event": "mira_inquest_result",
+            "delay": 4
+          }
+        ]
+      },
+      {
+        "id": "private",
+        "text": "Keep the notes private and use them only in negotiation.",
+        "outcome": "Pell leaves a sealed copy with you. The public story remains vulnerable.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "political": 0,
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 5
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_PRIVATE_INQUEST"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "has_ledger": [
+        "erol_illness"
+      ],
+      "claimant": "mira",
+      "min_turn": 12,
+      "npc_alive": [
+        "oren_pell"
+      ],
+      "npc_state": {
+        "oren_pell": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court",
+    "speaker_id": "oren_pell"
+  },
+  {
+    "id": "mira_inquest_result",
+    "title": "What the Record Can Bear",
+    "speaker": "The inquest witnesses",
+    "place": "The Hall of Petitions",
+    "text": "The witnesses publish Pell’s notes beside the limits of their knowledge. A lord demands a cleaner verdict; a temple examiner refuses. The account establishes a concealed illness and contradictory instructions, while preserving the uncertainty of the final dose. Accepting that uncertainty costs you the claim of effortless innocence. It also makes every later accusation answer to a record.",
+    "choices": [
+      {
+        "id": "accept",
+        "text": "Accept the published account without a royal correction.",
+        "outcome": "The record becomes difficult for any household to rewrite.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "reputation",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 7
+          },
+          {
+            "op": "stability",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_RECORD_ACCEPTED"
+          }
+        ]
+      },
+      {
+        "id": "frame",
+        "text": "Issue a separate statement explaining your understanding of mercy.",
+        "outcome": "Your words accompany the record. They persuade some readers and trouble others.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_MERCY_STATEMENT"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_mercy"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "MIRA_LIMITED_INQUEST"
+      ],
+      "claimant": "mira",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court",
+    "scheduled_only": true
+  },
+  {
+    "id": "ethan_pension_roll",
+    "title": "The Men Behind the Song",
+    "speaker": "An old company clerk",
+    "place": "A veterans’ hall",
+    "text": "The clerk has a pension roll from the company you once commanded. Several dead men are still drawing pay through a noble’s agent; several living men receive nothing. The veterans who remember your fairness also remember the orders you signed. Correcting the roll will give you fewer immediate recruits than promising glory, but it would prove the remembered commander can still do unromantic work.",
+    "choices": [
+      {
+        "id": "audit",
+        "text": "Recover the false payments and protect the living pensions.",
+        "outcome": "The clerk begins comparing names with households. He warns that the money will take weeks to recover.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PENSION_AUDIT"
+          },
+          {
+            "op": "schedule",
+            "event": "ethan_pension_accounts",
+            "delay": 3
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_veterans"
+          }
+        ],
+        "requires": {
+          "min_gold": 30
+        }
+      },
+      {
+        "id": "recruit",
+        "text": "Offer service wages to the veterans who can still march.",
+        "outcome": "Men gather under your name. Households left behind ask when service pay will become a pension.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "forces",
+            "amount": 130
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PENSION_RECRUITS"
+          }
+        ],
+        "requires": {
+          "min_gold": 20,
+          "min_rations": 2
+        }
+      },
+      {
+        "id": "sponsor",
+        "text": "Put the clerk in contact with sympathetic village guilds.",
+        "outcome": "The work starts with local contributions and fewer royal expectations.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PENSION_LOCAL"
+          },
+          {
+            "op": "schedule",
+            "event": "ethan_pension_accounts",
+            "delay": 4
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 3
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road"
+  },
+  {
+    "id": "ethan_pension_accounts",
+    "title": "The Names That Answer",
+    "speaker": "The company clerk",
+    "place": "A borrowed counting room",
+    "text": "Households have answered the clerk’s inquiries. The false payments can be recovered, but the agent offers you a quicker bargain: support in a lord’s hall in return for leaving his books sealed. The veterans know this meeting is happening. What they do not know is whether you still consider their names worth more than a private agreement.",
+    "choices": [
+      {
+        "id": "recover",
+        "text": "Reject the bargain and return the money to the roll.",
+        "outcome": "The agent withdraws his offer. The clerk posts an account that gives every recovered coin a household.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 160
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PENSIONS_PAID"
+          },
+          {
+            "op": "schedule",
+            "event": "ethan_households_return",
+            "delay": 4
+          }
+        ]
+      },
+      {
+        "id": "bargain",
+        "text": "Take public support and demand a partial repayment.",
+        "outcome": "Some pensions resume. The clerk records the missing remainder instead of pretending the bargain was whole.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "reputation",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PENSION_BARGAIN"
+          }
+        ]
+      },
+      {
+        "id": "trial",
+        "text": "Preserve the evidence for a lawful hearing after the succession.",
+        "outcome": "The agent’s assets are held pending judgment. Neither coin nor acquittal is granted today.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PENSION_TRIAL"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "ETHAN_PENSION_RECRUITS"
+      ],
+      "claimant": "ethan",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "ethan_households_return",
+    "title": "A Regiment Comes Home",
+    "speaker": "Veterans and their families",
+    "place": "The road camp",
+    "text": "The returned pensions have changed the camp more than another speech could. Families can buy seed, and men who could not afford to leave home can now volunteer. They arrive with carts and a written offer of three months’ service. They are loyal because you paid a debt rather than asking them to remember you indefinitely.",
+    "choices": [
+      {
+        "id": "term",
+        "text": "Accept the term and write the discharge date.",
+        "outcome": "The volunteers join with a promise their families can read.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 220
+          },
+          {
+            "op": "rations",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "morale",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_TERM_SERVICE"
+          }
+        ]
+      },
+      {
+        "id": "home",
+        "text": "Ask them to guard their own roads and keep the carts moving.",
+        "outcome": "The families return with a local security agreement. Your army stays smaller, and its supply route becomes safer.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 100
+          },
+          {
+            "op": "rations",
+            "amount": 8
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "stability",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_VETERAN_WARDENS"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "ETHAN_PENSIONS_PAID"
+      ],
+      "claimant": "ethan",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "ethan_hearing",
+    "title": "An Account Without a Chorus",
+    "speaker": "Chancellor Lucan Rook",
+    "place": "A neutral record room",
+    "text": "Lucan offers a sworn deposition about the night of your exile. It can establish why you entered Mira’s chambers and where your account differs from hers. It cannot make an absent witness see through a door. Your followers want an announcement of innocence. A deposition would offer something harder to cheer: a record with limits, available to people who dislike you.",
+    "choices": [
+      {
+        "id": "record",
+        "text": "Give the complete account and allow questions.",
+        "outcome": "Lucan records your claim and your admission that the encounter became physical. He schedules independent examination.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 5
+          },
+          {
+            "op": "reputation",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_SWORN_ACCOUNT"
+          },
+          {
+            "op": "schedule",
+            "event": "ethan_hearing_result",
+            "delay": 4
+          }
+        ]
+      },
+      {
+        "id": "private",
+        "text": "Offer the account privately to possible allies.",
+        "outcome": "You keep control of the hearing’s audience, and the account remains a political bargain.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PRIVATE_ACCOUNT"
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse to try the accusation before another court.",
+        "outcome": "The years of silence continue. Some veterans honour the refusal; others needed an answer.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_HEARING_REFUSED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 9,
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court",
+    "speaker_id": "lucan_rook"
+  },
+  {
+    "id": "ethan_hearing_result",
+    "title": "The Judgment of What Is Known",
+    "speaker": "The independent examiners",
+    "place": "The record room",
+    "text": "The examiners confirm your account of a summons and an argument over a possible child. They cannot settle every act in the chamber. They conclude that Erol’s exile order was issued without the inquiry demanded in an ordinary criminal court. This does not ask anyone to forget Mira’s account. It establishes a reason to reconsider a punishment that has already consumed six years.",
+    "choices": [
+      {
+        "id": "reconsider",
+        "text": "Ask for the exile order to be reviewed through ordinary law.",
+        "outcome": "Your return becomes an appeal the council must answer, rather than a claim that royal blood excuses inquiry.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 8
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "reputation",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_LAWFUL_REVIEW"
+          }
+        ]
+      },
+      {
+        "id": "publish",
+        "text": "Publish the finding and ask the kingdom to judge your conduct.",
+        "outcome": "Markets hear a fuller story. Mira’s supporters challenge the conclusions without being removed from the argument.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 9
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PUBLIC_REVIEW"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "ETHAN_SWORN_ACCOUNT"
+      ],
+      "claimant": "ethan",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court",
+    "scheduled_only": true
+  },
+  {
+    "id": "ethan_shelter_register",
+    "title": "The Names That Sheltered You",
+    "speaker": "A western village elder",
+    "place": "The forest road",
+    "text": "The elder brings a register of households that hid you during the exile. A rival’s officer has requested it as evidence of harbouring a traitor. Your captains could use the same names to find shelter and recruits. The people who protected a hired guard did not volunteer to become a claimant’s permanent network. The elder asks whether your gratitude includes a right to refuse you now.",
+    "choices": [
+      {
+        "id": "destroy",
+        "text": "Destroy the copy and forbid demands for service.",
+        "outcome": "The elder keeps the only household record. The captains lose a useful shortcut.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "reputation",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_SHELTER_PROTECTED"
+          },
+          {
+            "op": "schedule",
+            "event": "ethan_shelter_return",
+            "delay": 4
+          }
+        ]
+      },
+      {
+        "id": "consent",
+        "text": "Keep only the names of households that consent.",
+        "outcome": "The register becomes shorter and usable. The elder promises to carry the request without threats.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_SHELTER_CONSENT"
+          },
+          {
+            "op": "schedule",
+            "event": "ethan_shelter_return",
+            "delay": 4
+          }
+        ]
+      },
+      {
+        "id": "use",
+        "text": "Use the register to organise a supply network.",
+        "outcome": "The army gains a road of familiar doors. The elder leaves without thanking you.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 5
+          },
+          {
+            "op": "forces",
+            "amount": 60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -5
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_SHELTER_USED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 13
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road"
+  },
+  {
+    "id": "ethan_shelter_return",
+    "title": "Doors Open Without an Order",
+    "speaker": "The elder’s messengers",
+    "place": "The western road",
+    "text": "News that households could refuse has reached villages beyond the original register. Several have sent supplies anyway. Their letter says they will help a ruler who recognises that loyalty chosen can last longer than service compelled. Your early restraint has produced a network your captains could not have ordered into existence.",
+    "choices": [
+      {
+        "id": "accept",
+        "text": "Accept the supplies and maintain their right to refuse.",
+        "outcome": "The agreement is copied for the next villages, without adding a levy clause.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 9
+          },
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "stability",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_CHOSEN_LOYALTY"
+          }
+        ]
+      },
+      {
+        "id": "paid",
+        "text": "Pay for the deliveries and make the network a contract.",
+        "outcome": "The households gain predictable work; your captains gain predictable transport.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "rations",
+            "amount": 12
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_HOUSEHOLD_CONTRACT"
+          }
+        ],
+        "requires": {
+          "min_gold": 60
+        }
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "ETHAN_SHELTER_USED"
+      ],
+      "claimant": "ethan",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "ethan_oath_test",
+    "title": "Victory and the Prisoners",
+    "speaker": "A patrol captain",
+    "place": "The camp stockade",
+    "text": "A captured officer can be exchanged for supplies. Your captain wants to hang him for the villages his company burned, and several villagers want him tried where they can speak. A promise to spare prisoners is useful only if it survives a prisoner you have reason to hate. The officer’s responsibility can be judged without treating his capture as permission for spectacle.",
+    "choices": [
+      {
+        "id": "trial",
+        "text": "Hold a witnessed trial and preserve the right of defence.",
+        "outcome": "The villagers prepare testimony. The captain accepts that a verdict must come after the hearing.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 4
+          },
+          {
+            "op": "reputation",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PRISONER_HEARING"
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_oaths"
+          }
+        ],
+        "requires": {
+          "min_gold": 20
+        }
+      },
+      {
+        "id": "exchange",
+        "text": "Exchange him under a written safe-conduct.",
+        "outcome": "Your quartermaster receives supplies. The villages consider the debt unfinished.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "gold",
+            "amount": 60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_PRISONER_EXCHANGED"
+          }
+        ]
+      },
+      {
+        "id": "punish",
+        "text": "Execute him as a warning to the other companies.",
+        "outcome": "The camp obeys. People who counted on your restraint keep their own record.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -7
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_EXECUTED_PRISONERS"
+          },
+          {
+            "op": "break_promise",
+            "id": "bren_tal",
+            "text": "Prisoners will not be killed for spectacle."
+          },
+          {
+            "op": "break_promise",
+            "id": "aldren_veil",
+            "text": "Prisoners will not be killed for spectacle."
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 19
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road"
+  },
+  {
+    "id": "arlo_lysa_box",
+    "title": "A Box That Was Not Royal",
+    "speaker": "Lady Evelyne Maren",
+    "place": "Maren’s linen room",
+    "text": "Evelyne has kept a small box apart from the royal accounts. It contains a ribbon, an unfinished household budget and a letter Lysa wrote to a friend about opening a laundry. None proves your parentage. All belonged to your mother. Evelyne says you may use the letters to find people who knew her, but asks you not to turn every remembered kindness into evidence against a king.",
+    "choices": [
+      {
+        "id": "life",
+        "text": "Follow the names to learn about Lysa’s life.",
+        "outcome": "Evelyne gives you the box without asking for it back. You send a careful inquiry to your mother’s former friend.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -10
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "political": 0,
+            "amount": 6
+          },
+          {
+            "op": "reputation",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_LYSA_LIFE"
+          },
+          {
+            "op": "schedule",
+            "event": "arlo_lysa_friend",
+            "delay": 3
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_lysa"
+          }
+        ],
+        "requires": {
+          "min_gold": 10
+        }
+      },
+      {
+        "id": "proof",
+        "text": "Copy the dates for the inquiry into your birth.",
+        "outcome": "The box becomes part of your evidence work. Evelyne asks that the originals remain at Maren.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "political": 0,
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_LYSA_PROOF"
+          },
+          {
+            "op": "schedule",
+            "event": "arlo_lysa_friend",
+            "delay": 3
+          }
+        ]
+      },
+      {
+        "id": "keep",
+        "text": "Keep the box private and let your mother’s plans be hers.",
+        "outcome": "The letters remain among belongings rather than exhibits.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "political": 0,
+            "amount": 5
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_LYSA_PRIVATE"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 4,
+      "npc_alive": [
+        "evelyne_maren"
+      ],
+      "npc_state": {
+        "evelyne_maren": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "maren",
+    "speaker_id": "evelyne_maren"
+  },
+  {
+    "id": "arlo_lysa_friend",
+    "title": "What Lysa Wanted",
+    "speaker": "A retired laundress",
+    "place": "A riverside house",
+    "text": "Lysa’s friend remembers a woman saving for a room above a laundry, not waiting to become a noble’s favourite. She will certify dates relevant to your birth, but refuses to tell a romance she never witnessed. She also has the small savings Lysa left in her care. The sum could pay a messenger. It could begin the independent household Lysa never had.",
+    "choices": [
+      {
+        "id": "work",
+        "text": "Use the savings to endow apprenticeships in Lysa’s name.",
+        "outcome": "The laundress accepts the decision and records both the dates and the use of the money.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "LYSA_APPRENTICESHIPS"
+          },
+          {
+            "op": "schedule",
+            "event": "arlo_lysa_payoff",
+            "delay": 5
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_lysa"
+          }
+        ],
+        "requires": {
+          "min_gold": 20
+        }
+      },
+      {
+        "id": "witness",
+        "text": "Take the dated deposition and leave the savings untouched.",
+        "outcome": "You gain a bounded witness account. The money stays with the woman who kept it safe.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "arlo_birth_witness"
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "LYSA_DATES_KEPT"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_lodge"
+          }
+        ]
+      },
+      {
+        "id": "fund",
+        "text": "Use the savings to continue your birth investigation.",
+        "outcome": "The first independent money your mother saved pays for your next inquiry.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 60
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "LYSA_SAVINGS_SPENT"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "arlo_lysa_payoff",
+    "title": "A Sign Above the Door",
+    "speaker": "The apprentices of Lysa’s house",
+    "place": "The riverside laundry",
+    "text": "The apprenticeship money has opened a working laundry above the quay. Its earnings now support two households and pay for a messenger who brings you the accounts. The apprentices have found a former lodge maid through their customers, along with dates useful to your inquiry. You did not purchase a witness; you made a place where people could safely answer.",
+    "choices": [
+      {
+        "id": "acknowledge",
+        "text": "Accept the account and the testimony with their limits.",
+        "outcome": "Lysa’s name stays above the door. The maid’s deposition joins your evidence without becoming a royal fairy tale.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "arlo_birth_witness"
+          },
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 8
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_LYSA_LEGACY"
+          }
+        ]
+      },
+      {
+        "id": "expand",
+        "text": "Ask the house to train laundresses for the travelling infirmary.",
+        "outcome": "The workers take a paid contract. Your army gains cleaner linen and the house gains another trade.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "rations",
+            "amount": 5
+          },
+          {
+            "op": "morale",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_LYSA_INFIRMARY"
+          }
+        ],
+        "requires": {
+          "min_gold": 30
+        }
+      }
+    ],
+    "requires": {
+      "flags": [
+        "LYSA_APPRENTICESHIPS"
+      ],
+      "claimant": "arlo",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "coast",
+    "scheduled_only": true
+  },
+  {
+    "id": "arlo_water",
+    "title": "The Upstream Field",
+    "speaker": "Two Maren tenant spokespeople",
+    "place": "The vale’s irrigation ditch",
+    "text": "The upstream villages have begun taking water after dark. Downstream wheat is thinning, and both sides claim old rights. Tomas’s steward can issue an order, but you have worked beside the families involved and know which fields actually feed which households. They ask whether your new claim means the ditch is beneath your attention. A settlement must share a shortage, not merely declare somebody virtuous.",
+    "choices": [
+      {
+        "id": "measure",
+        "text": "Fund a measured water schedule with witnesses from both banks.",
+        "outcome": "The spokespeople agree to test the schedule for a month, keeping their own measurements.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -25
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_WATER_SCHEDULE"
+          },
+          {
+            "op": "schedule",
+            "event": "arlo_water_result",
+            "delay": 4
+          }
+        ],
+        "requires": {
+          "min_gold": 25
+        }
+      },
+      {
+        "id": "priority",
+        "text": "Give priority to fields supplying your household.",
+        "outcome": "Your stores gain a reliable flow. The excluded fields begin calculating what your claim costs them.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_WATER_PRIORITY"
+          }
+        ]
+      },
+      {
+        "id": "lord",
+        "text": "Leave the ruling to the estate’s established officers.",
+        "outcome": "The officers issue the usual order. You retain time for the succession inquiry.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_WATER_DEFERRED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 8
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "maren"
+  },
+  {
+    "id": "arlo_water_result",
+    "title": "The Dry Week",
+    "speaker": "The water witnesses",
+    "place": "Maren Vale",
+    "text": "Rain has not come. The schedule has reduced theft, but there is not enough water for every field promised. The witnesses bring their figures before violence brings them for you. They propose buying grain for the worst-hit households while keeping the agreed turns. An orderly rule now needs a costly exception to remain credible.",
+    "choices": [
+      {
+        "id": "relief",
+        "text": "Buy emergency grain and maintain the measured agreement.",
+        "outcome": "The worst-hit households receive food with the reason recorded. Both banks agree to keep the schedule.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_WATER_RELIEF"
+          },
+          {
+            "op": "schedule",
+            "event": "arlo_water_harvest",
+            "delay": 5
+          }
+        ],
+        "requires": {
+          "min_gold": 60,
+          "min_rations": 2
+        }
+      },
+      {
+        "id": "reduce",
+        "text": "Reduce every household’s allotment by the same proportion.",
+        "outcome": "The shortage is shared evenly. Equality leaves less room to protect the most exposed families.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_WATER_SHARED"
+          },
+          {
+            "op": "schedule",
+            "event": "arlo_water_harvest",
+            "delay": 5
+          }
+        ]
+      },
+      {
+        "id": "abandon",
+        "text": "Abandon the schedule and requisition the nearest crops.",
+        "outcome": "Your quartermaster obtains grain today. The witness experiment ends at the ditch.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 6
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -7
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_WATER_BROKEN"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "ARLO_WATER_SCHEDULE"
+      ],
+      "claimant": "arlo",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "maren",
+    "scheduled_only": true
+  },
+  {
+    "id": "arlo_water_harvest",
+    "title": "The Harvest They Can Account For",
+    "speaker": "The tenant witnesses",
+    "place": "The vale market",
+    "text": "Enough of the harvest survives to deliver grain above the levy forecast. The witnesses attribute it to fewer stolen turns and fewer families abandoning fields. They bring the surplus under the same written agreement that shared the shortage. Your knowledge of a ditch has become a reason for people to consider your authority beyond it.",
+    "choices": [
+      {
+        "id": "reserve",
+        "text": "Keep a public reserve for the next dry season.",
+        "outcome": "The witnesses store grain under two keys, one held by the estate and one by the villages.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 10
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "stability",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_VALE_RESERVE"
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_water"
+          }
+        ]
+      },
+      {
+        "id": "market",
+        "text": "Sell part of the surplus under the agreed shares.",
+        "outcome": "The households receive their portion and your treasury receives a share without another requisition.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 180
+          },
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_VALE_PROFIT"
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_water"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "ARLO_WATER_BROKEN"
+      ],
+      "claimant": "arlo",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "maren",
+    "scheduled_only": true
+  },
+  {
+    "id": "arlo_first_office",
+    "title": "A Place in the Register",
+    "speaker": "Lord Tomas Maren",
+    "place": "The household counting room",
+    "text": "Tomas offers to enter you formally as steward of the Maren stables and transport, with wages and authority that would remain if the royal claim fails. It is not adoption, legitimisation or a crown. It is a named place you earned before any letter arrived. Accepting it might remind a court of your ordinary beginnings. Refusing it might leave your identity entirely dependent on the king who would not acknowledge you.",
+    "choices": [
+      {
+        "id": "accept",
+        "text": "Accept the earned office and keep the royal inquiry separate.",
+        "outcome": "Tomas writes the appointment without a conditional clause about your blood.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "political": 0,
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_EARNED_OFFICE"
+          }
+        ]
+      },
+      {
+        "id": "delegate",
+        "text": "Accept the appointment and delegate daily work to the senior groom.",
+        "outcome": "The stable gains a clear chain of responsibility while you continue the campaign.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 40
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_DELEGATED_OFFICE"
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Decline any title below the one your blood may warrant.",
+        "outcome": "Tomas puts the unused writ away. The succession inquiry becomes the whole measure of your future.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "political": 0,
+            "amount": -6
+          },
+          {
+            "op": "reputation",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_REFUSED_OFFICE"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 13,
+      "npc_alive": [
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "maren",
+    "speaker_id": "tomas_maren"
+  },
+  {
+    "id": "arlo_mother_heard",
+    "title": "The Promise Before the Proofs",
+    "speaker": "Lady Evelyne Maren",
+    "place": "A quiet room at Maren",
+    "text": "You promised to hear Evelyne before announcing your blood. She does not ask you to abandon the inquiry. She asks that the family remain people, not exhibits: their names kept off hostile pamphlets, the original letters protected, and Lysa remembered as more than a king’s secret. You can hear these terms without allowing anybody to own your decision.",
+    "choices": [
+      {
+        "id": "hear",
+        "text": "Hear her terms and record the protection you can actually provide.",
+        "outcome": "Evelyne accepts that she cannot decide for you. Your earlier promise is fulfilled without a claim that danger has vanished.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "political": 0,
+            "amount": 8
+          },
+          {
+            "op": "reputation",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "EVELYNE_HEARD"
+          },
+          {
+            "op": "clear_promise",
+            "id": "evelyne_maren",
+            "text": "You will not announce the blood until she has spoken."
+          }
+        ]
+      },
+      {
+        "id": "guarantee",
+        "text": "Promise the house will remain outside the war.",
+        "outcome": "Evelyne wants to believe you. The promise is larger than anything you presently control.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "political": 0,
+            "amount": 5
+          },
+          {
+            "op": "promise",
+            "id": "evelyne_maren",
+            "text": "Maren’s household will remain outside the war."
+          },
+          {
+            "op": "flag",
+            "flag": "EVELYNE_HEARD"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "PROMISED_EVELYNE"
+      ],
+      "not_flags": [
+        "BLOOD_PROVEN"
+      ],
+      "claimant": "arlo",
+      "min_turn": 14,
+      "npc_alive": [
+        "evelyne_maren"
+      ],
+      "npc_state": {
+        "evelyne_maren": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "maren",
+    "speaker_id": "evelyne_maren"
+  },
+  {
+    "id": "storm_shaft",
+    "title": "The Closed Shaft",
+    "speaker": "A Reach mine factor",
+    "place": "Stormhold’s account room",
+    "text": "Four miners have died beneath a cracked support. The factor’s report calls the shaft productive; the miners’ families call it known to be dangerous. Its iron has already been promised to your armourers. Stopping work costs wages as well as metal. A ruler who orders a closure without food for the households can make his mercy resemble another punishment.",
+    "choices": [
+      {
+        "id": "inspect",
+        "text": "Close the shaft, pay relief, and order an independent inspection.",
+        "outcome": "The families receive food while inspectors work. The armourers are told to revise their schedule.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SHAFT_INSPECTED"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_shaft_findings",
+            "delay": 3
+          }
+        ],
+        "requires": {
+          "min_gold": 120,
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "repairs",
+        "text": "Keep a reduced crew and put the factor’s pay against the repairs.",
+        "outcome": "Work continues at lower output. The factor must make good on repairs rather than a reassuring paragraph.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SHAFT_MANAGED"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_shaft_findings",
+            "delay": 3
+          }
+        ],
+        "requires": {
+          "min_gold": 40
+        }
+      },
+      {
+        "id": "output",
+        "text": "Maintain production until the southern campaign is supplied.",
+        "outcome": "The iron forecast survives. The families hear that their safety has a campaign deadline.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 140
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -6
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SHAFT_OUTPUT"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_shaft_cost",
+            "delay": 4
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 3
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "stormhold"
+  },
+  {
+    "id": "storm_shaft_findings",
+    "title": "The Factor’s Second Book",
+    "speaker": "The mine inspectors",
+    "place": "The northern Reach",
+    "text": "The inspection finds repairs recorded as paid and never completed. The factor offers restitution if the finding remains within Stormhold. Public accountability may unsettle every northern contract; concealment may preserve confidence only until another shaft falls. The miners want an enforceable right to stop work when supports fail, not a lord’s promise to take more interest.",
+    "choices": [
+      {
+        "id": "right",
+        "text": "Recover the money and write the miners’ stop-work right.",
+        "outcome": "The factor’s assets cover repairs. The contract gains a limit your own armourers must observe.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 100
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -4
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_MINE_RIGHTS"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_mine_return",
+            "delay": 5
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_north"
+          }
+        ]
+      },
+      {
+        "id": "replace",
+        "text": "Replace the factor and keep inspection under your magistrates.",
+        "outcome": "The northern contracts remain centrally enforced. Families gain better supports and no independent veto.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 150
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_MINE_MAGISTRATES"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_mine_return",
+            "delay": 5
+          }
+        ]
+      },
+      {
+        "id": "settle",
+        "text": "Accept quiet restitution and return the shaft to work.",
+        "outcome": "Repairs are paid for. The public books retain their older confidence.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 180
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_MINE_QUIET"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "stormhold",
+    "scheduled_only": true
+  },
+  {
+    "id": "storm_mine_return",
+    "title": "Iron That Arrives With Names",
+    "speaker": "The Reach carters",
+    "place": "Stormhold’s outer yard",
+    "text": "The repaired shaft is producing again. Carters bring iron and a list of paid shifts checked against the families’ own records. Fewer injured workers and fewer disputed wages have made the output steadier than the old forecast. The north has given you a reward for accepting a limit: reliable metal, rather than a promise extracted from frightened people.",
+    "choices": [
+      {
+        "id": "road",
+        "text": "Use the recovery to maintain the passes and transport.",
+        "outcome": "The iron goes into carts, fittings and a winter road crew. Your host will be supplied by a north that can still move.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 180
+          },
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_ACCOUNTABLE_ORDER"
+          }
+        ]
+      },
+      {
+        "id": "arms",
+        "text": "Use the recovery to equip a paid reserve.",
+        "outcome": "The northern reserve receives sound equipment and a documented term of service.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 250
+          },
+          {
+            "op": "morale",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_PAID_RESERVE"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "stormhold",
+    "scheduled_only": true
+  },
+  {
+    "id": "storm_shaft_cost",
+    "title": "A Production Figure Without Workers",
+    "speaker": "A miners’ delegation",
+    "place": "The north road",
+    "text": "The shaft meets its quota for one week, then a second collapse closes it entirely. Families have left for safer work. Your factor has been reporting iron the carts no longer carry. The delegation asks whether House Storm’s reputation for order includes the cost of a false figure approved because it was convenient.",
+    "choices": [
+      {
+        "id": "repair",
+        "text": "Pay the households and reopen only after inspection.",
+        "outcome": "The delegation accepts relief without withdrawing its accusation.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -180
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": -4
+          },
+          {
+            "op": "claim",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SHAFT_REPARATION"
+          }
+        ],
+        "requires": {
+          "min_gold": 180,
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "levy",
+        "text": "Compel replacement labour and keep the forecast.",
+        "outcome": "The carts may move again. The northern workforce learns that leaving a dangerous shaft can become a crime.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 70
+          },
+          {
+            "op": "fear",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -8
+          },
+          {
+            "op": "stability",
+            "amount": -5
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SHAFT_COMPELLED"
+          }
+        ]
+      },
+      {
+        "id": "close",
+        "text": "Close the shaft and accept the lost output.",
+        "outcome": "The dangerous workings cease. Unpaid households will seek their next livelihood elsewhere.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SHAFT_LOST"
+          }
+        ],
+        "requires": {
+          "min_gold": 60
+        }
+      }
+    ],
+    "requires": {
+      "flags": [
+        "STORM_SHAFT_OUTPUT"
+      ],
+      "claimant": "alistair",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "storm_compact",
+    "title": "What the North Will Promise",
+    "speaker": "Northern house delegates",
+    "place": "Stormhold’s great hall",
+    "text": "The lesser northern houses will provide levies if their terms are written: a season of service, a protected seed reserve and appeals against arbitrary requisition. Your father relied on inherited obedience. You have relied on maintained roads and decisive punishment. The delegates offer something slower and perhaps stronger: obligations both sides can measure.",
+    "choices": [
+      {
+        "id": "compact",
+        "text": "Accept the written terms and make the same limits bind your own officers.",
+        "outcome": "The delegates sign a compact with an appeal clause. Your captains receive copies before the next requisition.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -70
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 6
+          },
+          {
+            "op": "fear",
+            "amount": -3
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_WRITTEN_COMPACT"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_compact_test",
+            "delay": 4
+          }
+        ],
+        "requires": {
+          "min_gold": 70
+        }
+      },
+      {
+        "id": "service",
+        "text": "Guarantee the term of service, reserving emergency requisition.",
+        "outcome": "The houses sign a narrower agreement. The definition of emergency remains yours to defend.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 300
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_LIMITED_COMPACT"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_compact_test",
+            "delay": 4
+          }
+        ]
+      },
+      {
+        "id": "oath",
+        "text": "Demand the old oath without additions.",
+        "outcome": "The hall obeys. Several signatures are much smaller than their seals.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 400
+          },
+          {
+            "op": "fear",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_UNWRITTEN_OATH"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 9
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "stormhold"
+  },
+  {
+    "id": "storm_compact_test",
+    "title": "The Appeal Against Your Captain",
+    "speaker": "A northern magistrate",
+    "place": "A roadside court",
+    "text": "A captain has taken a village’s protected seed reserve, claiming a military emergency. The troops have already eaten part of it. The village has invoked the compact. Upholding its appeal means correcting an officer in public while the host is campaigning. Refusing it means admitting that your written limits vanish whenever you need them.",
+    "choices": [
+      {
+        "id": "uphold",
+        "text": "Reimburse the seed and make the captain answer under the compact.",
+        "outcome": "The magistrate issues a judgment that applies to the winning banner as well as the village.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -90
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_APPEAL_UPHELD"
+          },
+          {
+            "op": "schedule",
+            "event": "storm_compact_return",
+            "delay": 4
+          }
+        ],
+        "requires": {
+          "min_gold": 90,
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "replace",
+        "text": "Reimburse the village privately and transfer the captain.",
+        "outcome": "The damage is repaired, but the public right of appeal remains less certain.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -70
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_APPEAL_PRIVATE"
+          }
+        ],
+        "requires": {
+          "min_gold": 70
+        }
+      },
+      {
+        "id": "emergency",
+        "text": "Reject the appeal as a campaign emergency.",
+        "outcome": "The captain keeps his authority. The village keeps the compact as a record of a promise refused.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -7
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_COMPACT_BROKEN"
+          },
+          {
+            "op": "reputation",
+            "amount": -5
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "storm_compact_return",
+    "title": "Levies Who Know the Terms",
+    "speaker": "The northern delegates",
+    "place": "The mustering field",
+    "text": "News of the upheld appeal has reached the next levy muster. Houses that withheld men have now sent them with carts and their own copies of the terms. They have not become less proud. They have learned that submitting a petition to your court can work. A compact imposed on your officers has done what an ultimatum could not.",
+    "choices": [
+      {
+        "id": "terms",
+        "text": "Accept the levies on the same written terms.",
+        "outcome": "The new companies enter the muster without another exception.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 450
+          },
+          {
+            "op": "rations",
+            "amount": 8
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 8
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_COMPACT_PAYOFF"
+          }
+        ]
+      },
+      {
+        "id": "roads",
+        "text": "Use the new commitments for transport and border defence.",
+        "outcome": "The field host stays smaller, and its northern foundation becomes harder to threaten.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 200
+          },
+          {
+            "op": "rations",
+            "amount": 10
+          },
+          {
+            "op": "claim",
+            "amount": 7
+          },
+          {
+            "op": "foreign",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_DEFENDED_HOME"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "STORM_APPEAL_UPHELD"
+      ],
+      "claimant": "alistair",
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "stormhold",
+    "scheduled_only": true
+  },
+  {
+    "id": "storm_south_court",
+    "title": "The Reeve Who Refuses the Word",
+    "speaker": "A southern reeve",
+    "place": "A town under Storm banners",
+    "text": "The reeve will account for supplies, but refuses to call your arrival a rescue. Her town paid its previous levy and has heard northern officers praise how quietly the people submit. She offers its records if your magistrates sit beside the existing town witnesses. You can purchase grain from an occupied town. Acceptance will require it to believe an appeal can survive your departure.",
+    "choices": [
+      {
+        "id": "joint",
+        "text": "Recognise the town’s witnesses and establish a joint court.",
+        "outcome": "The reeve hands over the accounts after the witnesses’ role is written.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "fear",
+            "amount": -3
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SOUTHERN_COURTS"
+          }
+        ],
+        "requires": {
+          "min_gold": 80
+        }
+      },
+      {
+        "id": "purchase",
+        "text": "Pay for supplies and leave the town’s judgment to later.",
+        "outcome": "The town trades without declaring affection. Your quartermaster receives the grain he paid for.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -70
+          },
+          {
+            "op": "rations",
+            "amount": 8
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SOUTHERN_TRADE"
+          }
+        ],
+        "requires": {
+          "min_gold": 70
+        }
+      },
+      {
+        "id": "impose",
+        "text": "Replace the witnesses with your own magistrate.",
+        "outcome": "The records arrive under guard. The town learns the difference between administration and consent.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -6
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "STORM_SOUTHERN_IMPOSITION"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "min_player_territories": 3,
+      "claimant": "alistair",
+      "min_turn": 17
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court"
+  },
+  {
+    "id": "salt_contract",
+    "title": "The Salt Convoy",
+    "speaker": "Lady Celene Veyne",
+    "place": "The southern warehouse",
+    "text": "Celene offers a convoy carrying salt and grain upriver. Raiders have made the insurers nervous. She proposes a written agreement: your escort protects the route, her house shares verified cargo losses, and neither side may quietly charge the same missing sacks twice. You would tie soldiers to trade during a succession crisis. You would also give the river towns a reason to prefer your banner’s protection.",
+    "choices": [
+      {
+        "id": "contract",
+        "text": "Sign the loss-sharing agreement and provide the escort.",
+        "outcome": "Celene commits ships and schedules a quay account after delivery.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "forces",
+            "amount": -60
+          },
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "political": 4,
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_SHARED_CONTRACT"
+          },
+          {
+            "op": "schedule",
+            "event": "salt_delivery",
+            "delay": 3
+          }
+        ],
+        "requires": {
+          "min_gold": 80,
+          "min_forces": 60
+        }
+      },
+      {
+        "id": "buy",
+        "text": "Buy a smaller cargo without promising soldiers.",
+        "outcome": "The merchant takes the price and leaves the risk with her captains.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "political": 0,
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_CASH_PURCHASE"
+          }
+        ],
+        "requires": {
+          "min_gold": 60
+        }
+      },
+      {
+        "id": "refuse",
+        "text": "Keep the soldiers for the campaign.",
+        "outcome": "The convoy seeks a different guarantor. Your field strength remains intact.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_CONTRACT_REFUSED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "min_turn": 8,
+      "npc_alive": [
+        "celene_veyne"
+      ],
+      "npc_state": {
+        "celene_veyne": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "coast",
+    "speaker_id": "celene_veyne"
+  },
+  {
+    "id": "salt_delivery",
+    "title": "The Cargo and the Missing Sacks",
+    "speaker": "The convoy clerk",
+    "place": "An upriver quay",
+    "text": "Most of the cargo arrives. One barge grounded while avoiding raiders, and the clerk’s verified account leaves both partners owing part of the loss. Your escort has returned safely. A captain suggests taking the missing grain from a riverside village and calling the account complete. Paying your agreed share would establish what your signature is worth when a contract becomes inconvenient.",
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Pay the verified share and accept the delivered cargo.",
+        "outcome": "The clerk closes an honest account. River merchants copy the agreement.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "forces",
+            "amount": 60
+          },
+          {
+            "op": "rations",
+            "amount": 10
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_LOSS_HONOURED"
+          },
+          {
+            "op": "schedule",
+            "event": "salt_trade_returns",
+            "delay": 4
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_salt"
+          }
+        ],
+        "requires": {
+          "min_gold": 40
+        }
+      },
+      {
+        "id": "dispute",
+        "text": "Submit the loss to a neutral merchant court.",
+        "outcome": "The escort returns and the undisputed grain is unloaded. The remaining account waits for arbitration.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 60
+          },
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_LOSS_ARBITRATED"
+          }
+        ]
+      },
+      {
+        "id": "seize",
+        "text": "Requisition the shortfall from the nearest village.",
+        "outcome": "The convoy’s figure balances. The village records a loss the contract never included.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 60
+          },
+          {
+            "op": "rations",
+            "amount": 12
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -6
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_LOSS_SEIZED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "SALT_SHARED_CONTRACT"
+      ],
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "coast",
+    "scheduled_only": true
+  },
+  {
+    "id": "salt_trade_returns",
+    "title": "A Route That Merchants Trust",
+    "speaker": "The river merchants",
+    "place": "The quay offices",
+    "text": "Merchants have pooled the next cargo after hearing that you paid for a loss instead of inventing a scapegoat. Celene’s captains no longer need to insure every sack against your household’s arithmetic. The saving appears as cheaper supplies and a share of the river tolls. A costly promise has become a reliable route.",
+    "choices": [
+      {
+        "id": "renew",
+        "text": "Renew on the same terms.",
+        "outcome": "The route becomes a continuing source of supplies while the agreement is honoured.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 140
+          },
+          {
+            "op": "rations",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "RIVER_TRUST_PAYOFF"
+          },
+          {
+            "op": "modifier",
+            "id": "trusted_river",
+            "name": "Trusted river contract",
+            "turns": 6,
+            "gold": 24,
+            "rations": 1
+          }
+        ]
+      },
+      {
+        "id": "local",
+        "text": "Use the saving to reduce village tolls.",
+        "outcome": "The treasury takes less and local carts join the route.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 60
+          },
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 8
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "stability",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "RIVER_TOLLS_REDUCED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "SALT_LOSS_HONOURED"
+      ],
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "coast",
+    "scheduled_only": true
+  },
+  {
+    "id": "orphan_workshop",
+    "title": "A Workshop Instead of a Company",
+    "speaker": "A master bowyer",
+    "place": "The camp’s outer market",
+    "text": "Young people who lost homes to the campaigning armies are looking for food and work. A bowyer offers paid apprenticeships making carts and repairing bows. Your captain would rather place the older ones in levy companies immediately. Neither plan removes the need to feed them. The workshop postpones military strength in exchange for households that may still exist after the war.",
+    "choices": [
+      {
+        "id": "workshop",
+        "text": "Fund the workshop and guarantee apprentice wages.",
+        "outcome": "The bowyer takes names for work rather than muster. He will report the first contracts.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -55
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "ORPHAN_WORKSHOP"
+          },
+          {
+            "op": "schedule",
+            "event": "orphan_workshop_return",
+            "delay": 5
+          }
+        ],
+        "requires": {
+          "min_gold": 55,
+          "min_rations": 2
+        }
+      },
+      {
+        "id": "levy",
+        "text": "Recruit the adults and arrange food for their younger dependants.",
+        "outcome": "The levy grows, with dependants explicitly written into its supply obligation.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 80
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "ORPHAN_PAID_LEVY"
+          }
+        ],
+        "requires": {
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "guild",
+        "text": "Ask local guilds to take responsibility without a Crown contract.",
+        "outcome": "Some guilds agree; others decline. The young people have names to approach, without guaranteed wages.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ORPHAN_GUILD_REQUEST"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "min_turn": 10
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road"
+  },
+  {
+    "id": "orphan_workshop_return",
+    "title": "Wheels That Stay on the Cart",
+    "speaker": "The bowyer’s apprentices",
+    "place": "The supply yard",
+    "text": "The workshop delivers repaired carts and properly fitted wheel rims. Your quartermaster admits he has lost more food to broken axles than to raiders this month. The apprentices have sold surplus work to passing merchants and return part of their advance. They ask for another contract, not a speech about how grateful they should be.",
+    "choices": [
+      {
+        "id": "contract",
+        "text": "Offer a paid transport contract for the next season.",
+        "outcome": "The workshop gains continuing work. Your household gains people who can repair what it depends on.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 100
+          },
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "APPRENTICE_TRANSPORT"
+          }
+        ]
+      },
+      {
+        "id": "independent",
+        "text": "Let the workshop trade independently and take only the agreed repayment.",
+        "outcome": "The apprentices become a local business able to decline your next request.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 140
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 8
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "stability",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "APPRENTICE_INDEPENDENCE"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "ORPHAN_WORKSHOP"
+      ],
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "shared_infirmary",
+    "title": "Beds Behind the Banners",
+    "speaker": "A Flame infirmarian",
+    "place": "A converted mill",
+    "text": "A mill can house wounded people from more than one army. The infirmarian asks for linen, grain and a safe-conduct all claimants may inspect. Your officers fear enemy soldiers will recover and return to the field. She suggests exchanging names under parole, making care a reason to stop fighting for a season rather than merely a way to fight again.",
+    "choices": [
+      {
+        "id": "parole",
+        "text": "Supply the infirmary and require a witnessed seasonal parole.",
+        "outcome": "The infirmarian opens a common patient roll, with military obligations written beside each name.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "COMMON_INFIRMARY"
+          },
+          {
+            "op": "schedule",
+            "event": "infirmary_parole",
+            "delay": 4
+          }
+        ],
+        "requires": {
+          "min_gold": 50,
+          "min_rations": 3
+        }
+      },
+      {
+        "id": "own",
+        "text": "Supply beds for your own wounded first.",
+        "outcome": "Your companies recover under their own guard. The common proposal remains unfinished.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "forces",
+            "amount": 40
+          },
+          {
+            "op": "morale",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "BANNER_INFIRMARY"
+          }
+        ],
+        "requires": {
+          "min_gold": 30,
+          "min_rations": 2
+        }
+      },
+      {
+        "id": "decline",
+        "text": "Keep the mill for supply storage.",
+        "outcome": "The quartermaster retains a dry store. The wounded remain in the scattered camps.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "INFIRMARY_DECLINED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "min_turn": 15
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "temple"
+  },
+  {
+    "id": "infirmary_parole",
+    "title": "The Men Who Do Not Return to War",
+    "speaker": "The common infirmarian",
+    "place": "The mill hospital",
+    "text": "Patients from rival armies have kept their parole. Several are escorting discharged wounded home instead of rejoining a banner. The infirmarian brings signed rolls and a proposal for exchanging the next prisoners under the same terms. Mercy has not made every enemy a friend. It has made fewer people enemies this week.",
+    "choices": [
+      {
+        "id": "extend",
+        "text": "Extend the exchange agreement.",
+        "outcome": "The rolls become a precedent commanders can check before demanding revenge.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 70
+          },
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 7
+          },
+          {
+            "op": "stability",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "PAROLE_PRECEDENT"
+          },
+          {
+            "op": "chronicle",
+            "id": "rw_oaths"
+          }
+        ]
+      },
+      {
+        "id": "close",
+        "text": "Complete the current exchange and end the Crown contract.",
+        "outcome": "The patients go home. The common work closes with its obligations fulfilled.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 70
+          },
+          {
+            "op": "gold",
+            "amount": 60
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "PAROLE_COMPLETED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "COMMON_INFIRMARY"
+      ],
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "temple",
+    "scheduled_only": true
+  },
+  {
+    "id": "sowing_truce",
+    "title": "A Truce for Seed",
+    "speaker": "A Riverlands reeve",
+    "place": "The ford villages",
+    "text": "Fields on both banks must be sown before another company crosses them. The reeve has gathered signatures for a short local truce: no foraging, safe passage for carts, and witnesses at the crossings. It leaves the succession untouched. A rival might use the pause to organise elsewhere. Without it, next season’s shortage will belong to every banner.",
+    "choices": [
+      {
+        "id": "sign",
+        "text": "Sign the local truce and supply seed.",
+        "outcome": "The reeve marks your commitment beside those already collected. He promises an account when the carts return.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "stability",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "SOWING_TRUCE"
+          },
+          {
+            "op": "schedule",
+            "event": "sowing_return",
+            "delay": 5
+          }
+        ],
+        "requires": {
+          "min_gold": 60,
+          "min_rations": 2
+        }
+      },
+      {
+        "id": "passage",
+        "text": "Guarantee cart passage without committing your field companies.",
+        "outcome": "The crossings open where your officers can protect them. The wider truce remains uncertain.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "foreign",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "SOWING_PASSAGE"
+          }
+        ],
+        "requires": {
+          "min_gold": 20
+        }
+      },
+      {
+        "id": "priority",
+        "text": "Reserve the crossings for military traffic.",
+        "outcome": "Your host keeps its route. The sowing schedule bends around another campaign.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "rations",
+            "amount": 2
+          },
+          {
+            "op": "stability",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "SOWING_MILITARY"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "min_turn": 18
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road"
+  },
+  {
+    "id": "sowing_return",
+    "title": "The Fields Between Claims",
+    "speaker": "The ford reeve",
+    "place": "The Riverlands",
+    "text": "The sowing carts returned without losing their seed to a requisition. Your officers and the rival’s local captain have both kept the narrow agreement. The reeve offers a share of an early delivery and asks to use the arrangement for the next harvest. A small truce has proved easier to trust because it never pretended to end the whole war.",
+    "choices": [
+      {
+        "id": "renew",
+        "text": "Renew protection through the harvest.",
+        "outcome": "The narrow agreement survives another campaign order.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 9
+          },
+          {
+            "op": "gold",
+            "amount": 90
+          },
+          {
+            "op": "stability",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "FIELDS_PROTECTED"
+          }
+        ]
+      },
+      {
+        "id": "release",
+        "text": "Complete the commitment and release your companies.",
+        "outcome": "The fields keep this season’s benefit; your companies return to the campaign.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 7
+          },
+          {
+            "op": "forces",
+            "amount": 50
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "FIELDS_COMMITMENT_COMPLETE"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "SOWING_TRUCE"
+      ],
+      "min_turn": 1
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "scheduled_only": true
+  },
+  {
+    "id": "nessa_afterlife",
+    "title": "A Witness’s Other Tomorrow",
+    "speaker": "Nessa Grey",
+    "place": "A quiet riverside house",
+    "text": "Your people have recorded Nessa’s account. She asks what happens when it is no longer useful. Her brother still needs an apprenticeship, and she still needs a life that is not spent repeating a king’s last hour. Protecting her without owning her could give future witnesses a reason to answer your summons. Keeping her close would preserve access at a human cost.",
+    "choices": [
+      {
+        "id": "release",
+        "text": "Provide independent protection and let her leave your service.",
+        "outcome": "Nessa chooses where to live. Copies of her testimony remain available without requiring her presence at court.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "political": 0,
+            "amount": 10
+          },
+          {
+            "op": "reputation",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_INDEPENDENT_LIFE"
+          },
+          {
+            "op": "npc_state",
+            "id": "nessa_grey",
+            "state": "missing"
+          }
+        ],
+        "requires": {
+          "min_gold": 50
+        }
+      },
+      {
+        "id": "office",
+        "text": "Offer a paid office she may freely refuse.",
+        "outcome": "Nessa accepts clerical work on terms that include the right to leave.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "political": 0,
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_PAID_OFFICE"
+          }
+        ],
+        "requires": {
+          "min_gold": 30
+        }
+      },
+      {
+        "id": "retain",
+        "text": "Keep her under household protection until the succession ends.",
+        "outcome": "Nessa understands the protection is also a restriction. Her testimony stays near the seal.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "political": 0,
+            "amount": -6
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_RETAINED"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "flags": [
+        "NESSA_TESTIFIED"
+      ],
+      "not_flags": [
+        "NESSA_BOUGHT"
+      ],
+      "min_turn": 20,
+      "npc_alive": [
+        "nessa_grey"
+      ],
+      "npc_state": {
+        "nessa_grey": "free"
+      }
+    },
+    "priority": 75,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "road",
+    "speaker_id": "nessa_grey"
+  },
+  {
+    "id": "fortieth_week",
+    "title": "The Council’s Last Winter",
+    "speaker": "A Council messenger",
+    "place": "The Hall of Petitions",
+    "text": "Forty weeks have passed beneath disputed seals. Towns need contracts for the next season; garrisons need to know which authority can promise their pay. The council will recognise a final succession attempt during the coming weeks, but will not fund indefinite campaigning. You may press a viable claim, accept a smaller future, or seek one last period of negotiation. The kingdom will not remain suspended forever.",
+    "choices": [
+      {
+        "id": "press",
+        "text": "Continue the campaign and prepare a final throne attempt.",
+        "outcome": "The council records that you will attempt a settlement before its final deadline. The available throne methods remain yours to choose.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "FINAL_SETTLEMENT_ACCEPTED"
+          }
+        ],
+        "requires": {
+          "min_claim": 65
+        }
+      },
+      {
+        "id": "negotiate",
+        "text": "Seek another short period to finish negotiations.",
+        "outcome": "The messenger takes the request. The final council deadline still approaches.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "stability",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "FINAL_NEGOTIATIONS"
+          }
+        ],
+        "requires": {
+          "min_claim": 40,
+          "min_gold": 80
+        }
+      },
+      {
+        "id": "withdraw",
+        "text": "Accept safe withdrawal and abandon the claim.",
+        "outcome": "The council guarantees a journey away from the last contest. Your campaign closes with a life still to be lived.",
+        "effects": [
+          {
+            "op": "defeat",
+            "reason": "exile"
+          }
+        ]
+      }
+    ],
+    "requires": {
+      "min_turn": 40
+    },
+    "priority": 98,
+    "weight": 12,
+    "one_time": true,
+    "tags": [],
+    "scene": "court"
+  }
+]

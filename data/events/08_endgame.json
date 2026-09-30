@@ -1,7 +1,7 @@
 [
   {
     "id": "the_boy_in_the_vale",
-    "title": "A Boy the King Visited",
+    "title": "The Nephew in the Vale",
     "speaker": "An old spearman",
     "place": "The camp",
     "portrait": "#6a7a3a",
@@ -17,12 +17,15 @@
         "BROTHERS_PACT",
         "ARLO_PAID_OFF",
         "ARLO_REFUSED"
+      ],
+      "rival_alive": [
+        "arlo"
       ]
     },
     "choices": [
       {
         "id": "recognise",
-        "text": "Recognise him, and offer to be Protector rather than rival.",
+        "text": "Offer recognition and a written Protector’s office, rather than a rival claim.",
         "effects": [
           {
             "op": "flag",
@@ -71,7 +74,10 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 30
+        }
       },
       {
         "id": "refuse",
@@ -94,7 +100,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "open_council",
@@ -113,7 +120,19 @@
       "not_flags": [
         "COUNCIL_OF_FOUR",
         "COUNCIL_SCORNED"
-      ]
+      ],
+      "rival_alive": [
+        "mira",
+        "ethan",
+        "arlo",
+        "alistair"
+      ],
+      "npc_alive": [
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free"
+      }
     },
     "choices": [
       {
@@ -182,7 +201,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "tomas_maren",
+    "scene": "court"
   },
   {
     "id": "weak_rival_kneel",
@@ -274,7 +295,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "shared_rule",
@@ -282,7 +304,7 @@
     "speaker": "Chancellor Lucan Rook",
     "place": "A side chamber",
     "portrait": "#4a4038",
-    "text": "Someone you have not quite destroyed offers a regency: one name on the coin, two hands on the seal. It saves a battle. It condemns two households to a careful life. The court understands this language better than it understands mercy.",
+    "text": "Lucan proposes a provisional settlement while the crown remains disputed. Your claim would supply the public authority, while a council of surviving rival households supplies ministers under written limits. This is a regency of the unsettled Crown, not authority over a child. It could replace a battle with a government that must keep negotiating.",
     "weight": 8,
     "priority": 54,
     "one_time": true,
@@ -293,7 +315,13 @@
         "REGENCY_OFFERED",
         "REGENCY_REFUSED"
       ],
-      "min_claim": 16
+      "min_claim": 16,
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
     },
     "choices": [
       {
@@ -339,7 +367,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "lucan_rook",
+    "scene": "court"
   },
   {
     "id": "a_political_match",
@@ -347,7 +377,7 @@
     "speaker": "Lady Celene Veyne",
     "place": "The Veyne coast",
     "portrait": "#3d6b6b",
-    "text": "House Veyne will bind a claim to its ships if the ceremony is dull and the tariffs are kind. It is not Mira and it is not love. It is a way to make two fears sit in one household.",
+    "text": "Celene proposes a marriage alliance between your household and the adult widowed head of House Veyne: herself. She would retain control of the coastal estates, and you would publish fixed tariffs before the ceremony. Neither consent nor governance can be reduced to the flourish of a seal. The pact offers ships and recognition at the price of sharing decisions.",
     "weight": 9,
     "priority": 46,
     "one_time": true,
@@ -362,12 +392,18 @@
         "mira",
         "alistair"
       ],
-      "min_claim": 20
+      "min_claim": 20,
+      "npc_alive": [
+        "celene_veyne"
+      ],
+      "npc_state": {
+        "celene_veyne": "free"
+      }
     },
     "choices": [
       {
         "id": "bind",
-        "text": "Bind the house. Sign the dull ceremony.",
+        "text": "Accept Celene’s terms and the marriage alliance.",
         "effects": [
           {
             "op": "flag",
@@ -396,8 +432,15 @@
             "op": "bloc",
             "bloc": "nobility",
             "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MARRIED_CELENE_VEYNE"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 100
+        }
       },
       {
         "id": "decline",
@@ -419,7 +462,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "celene_veyne",
+    "scene": "coast"
   },
   {
     "id": "no_crown_at_all",
@@ -492,7 +537,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "the_claim_thins",
@@ -553,7 +599,10 @@
             "op": "flag",
             "flag": "SOLD_THE_SWORD"
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 30
+        }
       },
       {
         "id": "exile",
@@ -566,7 +615,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "forgotten_passage",
@@ -609,7 +659,10 @@
             "op": "news",
             "text": "You know a way into Caerlyn that is not a gate."
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 30
+        }
       },
       {
         "id": "ignore",
@@ -621,7 +674,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "rumour_of_a_tutor",
@@ -629,7 +683,7 @@
     "speaker": "A horse-seller",
     "place": "A market",
     "portrait": "#6a7a3a",
-    "text": "A man who sold horses to Maren says the boy's tutor was called Ren, and that Ren had a king's hands. He does not know he is repeating a secret from another life of the realm. He thinks he is gossiping.",
+    "text": "A horse-seller remembers a quiet visitor called Ren at the Maren estate. Years later he recognised the same hands and scar in a royal procession. He offers an uncertain memory with dates that could be checked. If it is true, the stable manager’s tutor was the king.",
     "weight": 8,
     "priority": 36,
     "one_time": true,
@@ -668,7 +722,10 @@
             "op": "chronicle",
             "id": "ab_ren"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 20
+        }
       },
       {
         "id": "dismiss",
@@ -680,7 +737,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "the_northern_clerk",
@@ -688,7 +746,7 @@
     "speaker": "A drunken clerk",
     "place": "Caerlyn offices",
     "portrait": "#4e5966",
-    "text": "A frightened clerk in a Caerlyn office has been copying the king's decline into letters that went to Stormhold. You did not learn this from Alistair. You learned it because the man drinks, and because history has already loosened his name.",
+    "text": "A household clerk has been sending reports of Erol’s decline to Stormhold. A missed account entry and an anxious conversation led your people to him. He fears both the lord who received the letters and the court that never saw them.",
     "weight": 8,
     "priority": 38,
     "one_time": true,
@@ -747,9 +805,13 @@
             "op": "flag",
             "flag": "SHIELDED_CLERK"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "kinder_version",
@@ -757,7 +819,7 @@
     "speaker": "A corridor guard",
     "place": "An inn",
     "portrait": "#3d5a73",
-    "text": "A guard who was never important says he heard the corridor: an argument, a bastard, a queen who struck first. He does not know Ethan. He knows a story that has started to travel without its owner.",
+    "text": "A former corridor guard recalls shouting about a child and a letter on the night of Ethan’s disgrace. He was outside the room. He can challenge the official account’s completeness, but cannot certify what happened beyond the door. The claimants would all prefer a witness with fewer limits.",
     "weight": 7,
     "priority": 34,
     "one_time": true,
@@ -816,9 +878,13 @@
             "op": "flag",
             "flag": "PAID_KINDER"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 30
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bandits_at_the_crossing",
@@ -860,7 +926,10 @@
             "bloc": "people",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 70
+        }
       },
       {
         "id": "fight",
@@ -923,9 +992,13 @@
             "op": "flag",
             "flag": "BANDITS_HIRED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "white_company",
@@ -980,7 +1053,10 @@
             "op": "flag",
             "flag": "WHITE_HIRED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 420
+        }
       },
       {
         "id": "fight",
@@ -1032,7 +1108,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "flame_demands",
@@ -1055,7 +1132,10 @@
         "FLAME_PAID",
         "FLAME_REFUSED"
       ],
-      "min_claim": 16
+      "min_claim": 16,
+      "npc_state": {
+        "aldren_veil": "free"
+      }
     },
     "choices": [
       {
@@ -1114,7 +1194,10 @@
             "op": "flag",
             "flag": "FLAME_PAID"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "refuse",
@@ -1141,7 +1224,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "aldren_veil",
+    "scene": "temple"
   },
   {
     "id": "foreign_purse",
@@ -1239,7 +1324,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "three_papers",
@@ -1360,9 +1446,13 @@
             "op": "flag",
             "flag": "KEPT_ALL_DOCS"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 90
+        }
       }
-    ]
+    ],
+    "scene": "court"
   },
   {
     "id": "caerlyn_gate_rumble",
@@ -1449,6 +1539,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

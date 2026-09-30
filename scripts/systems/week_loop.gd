@@ -49,8 +49,8 @@ static func forecast(state: CampaignState, db: ContentDB) -> PackedStringArray:
 		lines.append("You have no host to feed or pay.")
 	else:
 		lines.append("The host will eat %d rations and is owed %s gold." % [meals, Balance.comma(pay)])
-		if state.rations < meals:
-			lines.append("The stores are short by %d rations. Soldiers will leave if that stands." % (meals - state.rations))
-		if state.gold < pay:
-			lines.append("The purse is short by %s gold. Unpaid soldiers stop obeying." % Balance.comma(pay - state.gold))
+		if state.rations + food_in < meals:
+			lines.append("After the expected harvest, the stores remain short by %d rations. Soldiers will leave if that stands." % (meals - state.rations - food_in))
+		if state.gold + gold_in < pay:
+			lines.append("After expected taxes, the purse remains short by %s gold. Unpaid soldiers stop obeying." % Balance.comma(pay - state.gold - gold_in))
 	return lines

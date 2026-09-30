@@ -42,7 +42,14 @@ func load_slot(slot: int) -> bool:
 	if loaded == null:
 		return false
 	state = loaded
-	ending = {}
+	ending = state.ending_data.duplicate(true)
+	battle_setup = {}
+	if not ending.is_empty():
+		_go(SCENE_ENDING)
+		return true
+	if not state.pending_battle.is_empty():
+		launch_battle()
+		return true
 	_go(SCENE_CAMPAIGN)
 	return true
 
@@ -63,12 +70,14 @@ func launch_battle() -> void:
 	if state == null:
 		return
 	battle_setup = CampaignRules.build_battle(state, db)
+	SaveManager.save_campaign(state, 0, "Before battle")
 	_go(SCENE_BATTLE)
 
 
 func finish_battle(result: Dictionary) -> void:
 	if state != null:
 		CampaignRules.apply_battle_return(state, db, result)
+		SaveManager.save_campaign(state, 0, "After battle")
 	battle_setup = {}
 	_go(SCENE_CAMPAIGN)
 
@@ -76,9 +85,12 @@ func finish_battle(result: Dictionary) -> void:
 func show_ending(data: Dictionary) -> void:
 	ending = data
 	if state != null:
+		state.ending_data = data.duplicate(true)
+		state.phase = "ending"
 		for raw in data.get("chronicle", []):
 			MetaProgress.unlock(str(raw))
 		MetaProgress.record_campaign({
+			"campaign_id": state.campaign_id,
 			"claimant": state.claimant_id,
 			"ending": str(data.get("ending_id", "")),
 			"legacy": str(data.get("legacy", "")),
@@ -87,6 +99,7 @@ func show_ending(data: Dictionary) -> void:
 			"victory": not bool(data.get("defeat", false)),
 			"kingdom": str(data.get("kingdom", "")),
 		})
+		SaveManager.save_campaign(state, 0, "Campaign complete")
 	_go(SCENE_ENDING)
 
 

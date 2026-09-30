@@ -9,13 +9,18 @@ static func ambient(state: CampaignState, db: ContentDB) -> Array:
 		if typeof(rumour) != TYPE_DICTIONARY:
 			continue
 		if ConditionChecker.met(rumour.get("requires", {}), state, db):
-			pool.append(str(rumour.get("text", "")))
+			var text := str(rumour.get("text", ""))
+			if not state.news.has(text):
+				pool.append(text)
 	_shuffle(pool, state.rng)
 	for text in pool:
 		if lines.size() >= 2:
 			break
 		if text != "":
 			lines.append(text)
+			state.news.append(text)
+			while state.news.size() > 8:
+				state.news.pop_front()
 	if state.foreign >= 8:
 		lines.append("Merchants from Varos are pricing grain as if Nezrel will not finish the year intact.")
 	if state.fear >= 55:
@@ -23,7 +28,7 @@ static func ambient(state: CampaignState, db: ContentDB) -> Array:
 	var strongest := ""
 	var best := -1
 	for rid in state.rivals:
-		if not bool(state.rivals[rid].get("alive", false)):
+		if not bool(state.rivals[rid].get("alive", false)) or str(state.npcs.get(rid, {}).get("state", "free")) != "free":
 			continue
 		var claim := int(state.rivals[rid].get("claim", 0))
 		if claim > best:

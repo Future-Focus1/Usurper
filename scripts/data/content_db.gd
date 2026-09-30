@@ -23,6 +23,8 @@ var chronicle := {}
 var chronicle_entries := {}
 var defeats := {}
 var rumours: Array = []
+var lore := {}
+var epilogues := {}
 var load_errors: PackedStringArray = []
 
 
@@ -46,6 +48,8 @@ func load_all() -> void:
 	chronicle_entries.clear()
 	defeats.clear()
 	rumours.clear()
+	lore.clear()
+	epilogues.clear()
 	load_errors = PackedStringArray()
 
 	for row in _array("res://data/claimants.json"):
@@ -81,6 +85,14 @@ func load_all() -> void:
 	defeats = defeat_raw if typeof(defeat_raw) == TYPE_DICTIONARY else {}
 	rumours = _array("res://data/rumours.json")
 	actions = _array("res://data/actions.json")
+	# These catalogues hold journal entries and conditional aftermaths separately
+	# from mutable campaign state.
+	if FileAccess.file_exists("res://data/lore.json"):
+		var lore_raw = _read("res://data/lore.json")
+		lore = lore_raw if typeof(lore_raw) == TYPE_DICTIONARY else {}
+	if FileAccess.file_exists("res://data/epilogues.json"):
+		var epilogue_raw = _read("res://data/epilogues.json")
+		epilogues = epilogue_raw if typeof(epilogue_raw) == TYPE_DICTIONARY else {}
 	_load_events()
 
 
@@ -160,6 +172,7 @@ func validate() -> PackedStringArray:
 		if not action.has("generator"):
 			_walk_effects(action.get("effects", []), errors, "action " + str(action.get("id", "?")))
 	for route in routes:
+		_check_requires(route.get("requires", {}), errors, "route " + str(route.get("id", "?")))
 		if str(route.get("id", "")) == "":
 			errors.append("Route missing id")
 		var battle_id := str(route.get("battle_id", ""))
@@ -202,7 +215,15 @@ func _check_requires(requires, errors: PackedStringArray, context: String) -> vo
 	_check_id_list(requires.get("has_ledger", null), ledger, errors, context, "ledger", false)
 	_check_id_list(requires.get("missing_ledger", null), ledger, errors, context, "ledger", false)
 	_check_id_list(requires.get("has_ledger_any", null), ledger, errors, context, "ledger", false)
+	_check_id_list(requires.get("ledger_count_ids", null), ledger, errors, context, "ledger", false)
 	_check_id_list(requires.get("rival_alive", null), claimants, errors, context, "rival", false)
+	_check_id_list(requires.get("rival_dead", null), claimants, errors, context, "rival", false)
+	_check_id_list(requires.get("elite", null), units, errors, context, "elite", false)
+	if requires.has("ledger_count"):
+		_check_id_list(requires["ledger_count"].get("ids", []), ledger, errors, context, "ledger", false)
+	for key in ["any", "all"]:
+		for child in requires.get(key, []):
+			_check_requires(child, errors, context)
 	_check_map_keys(requires.get("relation_min", {}), characters, errors, context, "npc")
 	_check_map_keys(requires.get("political_min", {}), characters, errors, context, "npc")
 	_check_map_keys(requires.get("min_bloc", {}), _bloc_set(), errors, context, "bloc")
@@ -254,7 +275,7 @@ func _walk_effects(effects, errors: PackedStringArray, context: String) -> void:
 		elif op == "territory" or op == "loyalty" or op == "unrest" or op == "fort":
 			if not territories.has(str(effect.get("id", ""))):
 				errors.append("%s territory missing %s" % [context, effect.get("id", "")])
-		elif op in ["kill", "capture", "free_npc", "memory", "grudge", "promise", "break_promise", "relation", "political", "commander_add"]:
+		elif op in ["kill", "capture", "free_npc", "memory", "grudge", "promise", "clear_promise", "break_promise", "relation", "political", "commander_add"]:
 			if not characters.has(str(effect.get("id", ""))):
 				errors.append("%s npc missing %s" % [context, effect.get("id", "")])
 		elif op == "chronicle":

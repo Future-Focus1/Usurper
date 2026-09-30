@@ -1,19 +1,19 @@
 class_name GameTheme
 extends RefCounted
 
-const INK := Color("101820")
-const PANEL := Color("1a2733")
-const PANEL_RAISED := Color("243646")
-const PANEL_SUNKEN := Color("0e161e")
-const LINE := Color("6d8eab")
-const LINE_DIM := Color("314556")
-const GOLD := Color("d5e6f2")
-const CREAM := Color("e7eef5")
-const MUTED := Color("93a4b5")
-const GOOD := Color("7dcea0")
-const BAD := Color("e07a86")
-const CLAIM := Color("7eb6d9")
-const COLD := Color("d4a3b0")
+const INK := Color("10100f")
+const PANEL := Color("1c1c19")
+const PANEL_RAISED := Color("292923")
+const PANEL_SUNKEN := Color("141513")
+const LINE := Color("716044")
+const LINE_DIM := Color("393a31")
+const GOLD := Color("dfbf7d")
+const CREAM := Color("eee5d3")
+const MUTED := Color("b4b2a3")
+const GOOD := Color("9bc7a4")
+const BAD := Color("e19b8e")
+const CLAIM := Color("dfbf7d")
+const COLD := Color("c7a3aa")
 
 static var theme: Theme
 static var display_font: Font
@@ -29,12 +29,12 @@ static func get_theme() -> Theme:
 		theme.default_font = body_font
 	theme.default_font_size = 16
 
-	var panel := _box(PANEL, LINE, 2, 4, 12)
+	var panel := _box(Color(PANEL, 0.96), LINE_DIM, 1, 3, 16)
 	var panel_flat := _box(PANEL_SUNKEN, LINE_DIM, 1, 2, 10)
-	var button := _box(Color("1e3142"), LINE, 1, 3, 8)
-	var hover := _box(Color("2c4a63"), GOLD, 1, 3, 8)
-	var pressed := _box(Color("14202b"), GOLD, 1, 3, 8)
-	var disabled := _box(Color("172029"), LINE_DIM, 1, 3, 8)
+	var button := _box(Color("26271f"), LINE, 1, 2, 14)
+	var hover := _box(Color("39392b"), GOLD, 1, 2, 14)
+	var pressed := _box(Color("1c1d17"), GOLD, 1, 2, 14)
+	var disabled := _box(Color("1a1b18"), LINE_DIM, 1, 2, 14)
 
 	theme.set_stylebox("panel", "PanelContainer", panel)
 	theme.set_stylebox("normal", "Button", button)
@@ -45,7 +45,7 @@ static func get_theme() -> Theme:
 	theme.set_color("font_color", "Button", CREAM)
 	theme.set_color("font_hover_color", "Button", GOLD)
 	theme.set_color("font_pressed_color", "Button", GOLD)
-	theme.set_color("font_disabled_color", "Button", Color("6d7d8c"))
+	theme.set_color("font_disabled_color", "Button", Color("9b9b8b"))
 	theme.set_font_size("font_size", "Button", 15)
 
 	theme.set_color("font_color", "Label", CREAM)
@@ -110,8 +110,8 @@ static func _box(fill: Color, border: Color, border_w: int, radius: int, margin:
 	box.set_corner_radius_all(radius)
 	box.content_margin_left = margin
 	box.content_margin_right = margin
-	box.content_margin_top = 6
-	box.content_margin_bottom = 6
+	box.content_margin_top = mini(margin, 10)
+	box.content_margin_bottom = mini(margin, 10)
 	return box
 
 

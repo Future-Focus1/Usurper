@@ -53,7 +53,10 @@
             "op": "elite_add",
             "id": "veteran_band"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "refuse",
@@ -96,9 +99,13 @@
             "bloc": "people",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 25
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "the_charge_again",
@@ -207,9 +214,13 @@
               }
             ]
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 15
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "a_sergeant_speaks",
@@ -307,7 +318,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bren_at_the_ford",
@@ -330,7 +342,10 @@
         "BREN_COURTED",
         "BREN_CHALLENGED",
         "BREN_UNASKED"
-      ]
+      ],
+      "npc_state": {
+        "bren_tal": "free"
+      }
     },
     "choices": [
       {
@@ -397,7 +412,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "bren_tal",
+    "scene": "road"
   },
   {
     "id": "bren_answers",
@@ -417,7 +434,10 @@
       ],
       "npc_alive": [
         "bren_tal"
-      ]
+      ],
+      "npc_state": {
+        "bren_tal": "free"
+      }
     },
     "choices": [
       {
@@ -477,7 +497,10 @@
             "op": "flag",
             "flag": "BREN_COMMAND"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "later",
@@ -494,7 +517,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "bren_tal",
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "prisoners_at_dusk",
@@ -600,7 +626,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "village_that_fed_you",
@@ -648,7 +675,10 @@
             "op": "reputation",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "son",
@@ -693,7 +723,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "mira_writes",
@@ -713,7 +744,13 @@
         "MIRA_ETHAN_RECONCILIATION",
         "MIRA_ANSWERED_COLD",
         "MIRA_LETTER_BURNED"
-      ]
+      ],
+      "npc_alive": [
+        "mira"
+      ],
+      "npc_state": {
+        "mira": "free"
+      }
     },
     "choices": [
       {
@@ -779,7 +816,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "mira",
+    "scene": "road"
   },
   {
     "id": "debt_on_the_road",
@@ -858,7 +897,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "garran_on_the_wall",
@@ -881,7 +921,10 @@
         "GARRAN_REMEMBERS",
         "GARRAN_CROSSED",
         "GARRAN_RELEASED"
-      ]
+      ],
+      "npc_state": {
+        "garran_vale": "free"
+      }
     },
     "choices": [
       {
@@ -968,7 +1011,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "garran_vale",
+    "scene": "road"
   },
   {
     "id": "market_name",
@@ -1059,9 +1104,13 @@
             "op": "flag",
             "flag": "MARKET_BREAD"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 20
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "honour_frays",
@@ -1173,6 +1222,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

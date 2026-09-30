@@ -1,30 +1,629 @@
 [
-  {"id": "erol_illness", "kind": "secret", "title": "The King's Illness", "text": "Erol was not taken by a brief fever. For months his mind was failing. Mira knew. The court did not.", "sell_gold": 180, "reveal": [{"op": "claim", "amount": 2}, {"op": "bloc", "bloc": "court", "amount": -4}, {"op": "bloc", "bloc": "people", "amount": 3}, {"op": "chronicle", "id": "kd_illness"}]},
-  {"id": "final_night_mercy", "kind": "secret", "title": "A Request for Mercy", "text": "On the last night Erol asked not to become the man the illness was making. What Mira did with that request is the argument.", "sell_gold": 260, "reveal": [{"op": "fear", "amount": 4}, {"op": "bloc", "bloc": "flame", "amount": -6}, {"op": "bloc", "bloc": "people", "amount": 4}, {"op": "chronicle", "id": "kd_mercy"}]},
-  {"id": "ethan_in_chambers", "kind": "secret", "title": "Ethan Was in the Room", "text": "On the night of the accusation, Ethan was inside Mira's chambers. He will not say why. The official story does not survive that fact whole.", "sell_gold": 200, "reveal": [{"op": "claim", "amount": -2}, {"op": "bloc", "bloc": "court", "amount": -3}, {"op": "chronicle", "id": "ee_in_chambers"}]},
-  {"id": "chambers_argument", "kind": "secret", "title": "It Was an Argument", "text": "The night was about Erol's bastard, not a seduction. Mira says Ethan seized her. Ethan says he stopped her striking him. Both know the sexual charge was not the whole truth.", "sell_gold": 240, "target": "mira", "reveal": [{"op": "bloc", "bloc": "people", "amount": 4}, {"op": "relation", "id": "mira", "amount": -8, "political": -6}, {"op": "chronicle", "id": "ee_argument"}], "blackmail": [{"op": "relation", "id": "mira", "amount": -14, "political": 6}, {"op": "fear", "amount": 3}, {"op": "claim", "amount": 2}]},
-  {"id": "maren_payments", "kind": "evidence", "title": "The Maren Payments", "text": "For twenty-three years an obscure royal account paid House Maren. The payments stopped the month Erol died.", "sell_gold": 160, "reveal": [{"op": "claim", "amount": 3}, {"op": "bloc", "bloc": "nobility", "amount": 2}, {"op": "chronicle", "id": "ab_payments"}]},
-  {"id": "master_ren_is_erol", "kind": "secret", "title": "Master Ren", "text": "The old man who taught Arlo history and chess was King Erol. Neither of them said so aloud.", "sell_gold": 220, "reveal": [{"op": "claim", "amount": 4}, {"op": "bloc", "bloc": "people", "amount": 4}, {"op": "chronicle", "id": "ab_ren"}]},
-  {"id": "arlo_birth_witness", "kind": "evidence", "title": "A Witness from the Lodge", "text": "Someone who served at the hunting lodge remembers Lysa, the king's visit, and a pregnancy the household was paid to keep quiet.", "sell_gold": 150, "reveal": [{"op": "claim", "amount": 3}, {"op": "chronicle", "id": "ab_lodge"}]},
-  {"id": "sealed_letter", "kind": "document", "title": "Erol's Sealed Letter", "text": "A letter in the king's hand, sealed, delivered to Maren before the death. It does not say 'son'. It refuses to say 'nothing'.", "sell_gold": 100, "reveal": [{"op": "claim", "amount": 2}, {"op": "chronicle", "id": "ab_nothing"}]},
-  {"id": "surviving_letter", "kind": "document", "title": "The Letter Alistair Kept", "text": "Every letter from the informant in Caerlyn was burned except one. It proves Alistair knew the king was dying.", "sell_gold": 200, "target": "alistair", "reveal": [{"op": "bloc", "bloc": "court", "amount": 3}, {"op": "rival", "id": "alistair", "field": "hostility", "amount": 8}, {"op": "chronicle", "id": "hs_one_letter"}], "blackmail": [{"op": "rival", "id": "alistair", "field": "hostility", "amount": -8}, {"op": "fear", "amount": 2}, {"op": "claim", "amount": 2}]},
-  {"id": "informant_in_caerlyn", "kind": "secret", "title": "A Clerk in the Castle", "text": "Someone inside Caerlyn wrote to Stormhold for months about the king's decline. Alistair destroyed the correspondence. He did not destroy the fact.", "sell_gold": 180, "reveal": [{"op": "chronicle", "id": "hs_informant"}, {"op": "bloc", "bloc": "court", "amount": -2}]},
-  {"id": "harrow_debts", "kind": "secret", "title": "Harrow's Debts", "text": "Osric Harrow has been paying bands on the western road to keep them off his villages and on other people's.", "target": "osric_harrow", "sell_gold": 140, "reveal": [{"op": "relation", "id": "osric_harrow", "amount": -10}, {"op": "house_opinion", "id": "harrow", "amount": -8}], "blackmail": [{"op": "house_opinion", "id": "harrow", "amount": 8}, {"op": "relation", "id": "osric_harrow", "amount": -12}, {"op": "fear", "amount": 3}, {"op": "bloc", "bloc": "nobility", "amount": 2}]},
-  {"id": "edric_hedging", "kind": "secret", "title": "Edric's Other Letter", "text": "Mira's nephew has drafted a letter offering House Edevane to whoever looks likely to win. He has not sent it. He has not burned it.", "target": "edric_edevane", "sell_gold": 120, "reveal": [{"op": "relation", "id": "edric_edevane", "amount": -8}, {"op": "relation", "id": "mira", "amount": 4}], "blackmail": [{"op": "relation", "id": "edric_edevane", "amount": -10, "political": 8}, {"op": "house_opinion", "id": "edevane", "amount": 6}]},
-  {"id": "pell_oath", "kind": "secret", "title": "Pell's Oath", "text": "The physician will not describe the dose because Erol forbade him. Silence, in this case, is evidence of a promise.", "sell_gold": 80, "reveal": [{"op": "chronicle", "id": "kd_oath"}, {"op": "relation", "id": "oren_pell", "amount": -6}]},
-  {"id": "nessa_last_line", "kind": "evidence", "title": "The Last Line", "text": "Nessa remembers the testament's ending: the crown belongs not to the one born nearest it, but to the one who can keep Nezrel whole.", "sell_gold": 100, "reveal": [{"op": "claim", "amount": 3}, {"op": "chronicle", "id": "tt_line"}]},
-  {"id": "doc_ethan", "kind": "document", "title": "A Paper for Ethan", "text": "In Erol's own hand, one instruction names his brother. It is authentic. It is not the only one.", "sell_gold": 80, "reveal": [{"op": "claim", "amount": 3}, {"op": "bloc", "bloc": "nobility", "amount": 3}, {"op": "chronicle", "id": "tt_three_docs"}]},
-  {"id": "doc_arlo", "kind": "document", "title": "A Paper about Legitimacy", "text": "Erol asked, in writing, how a bastard son might be legitimised. He did not finish the act.", "sell_gold": 80, "reveal": [{"op": "claim", "amount": 3}, {"op": "chronicle", "id": "ab_legitimization"}]},
-  {"id": "doc_mira", "kind": "document", "title": "Emergency Powers", "text": "Another authentic paper grants Mira extraordinary authority if the king cannot rule. It reads like fear. It can be made to read like a will.", "sell_gold": 80, "reveal": [{"op": "bloc", "bloc": "court", "amount": 4}, {"op": "claim", "amount": 2}]},
-  {"id": "aria_parentage", "kind": "secret", "title": "Aria's Blood", "text": "A dangerous rumour with a scrap of paper behind it: Queen Aria may not have been her father's daughter. If true, the great exception was also a lie, or a better argument than anyone wanted.", "sell_gold": 200, "reveal": [{"op": "bloc", "bloc": "flame", "amount": -4}, {"op": "bloc", "bloc": "nobility", "amount": -3}, {"op": "chronicle", "id": "qa_parentage"}]},
-  {"id": "varos_offer", "kind": "document", "title": "Varos Gold", "text": "A foreign purse is available to the claimant willing to discuss the lands Erol took twenty years ago.", "sell_gold": 60, "reveal": [{"op": "foreign", "amount": 4}, {"op": "bloc", "bloc": "people", "amount": -4}]},
-  {"id": "will_fragment", "kind": "document", "title": "Fragment of the Testament", "text": "Not the whole missing will. Enough of the hand, and the last sentence, to make every claimant hopeful.", "sell_gold": 120, "reveal": [{"op": "claim", "amount": 4}, {"op": "flag", "flag": "WILL_READY"}, {"op": "chronicle", "id": "tt_anyone"}]},
-  {"id": "full_testament", "kind": "document", "title": "Erol's Testament", "text": "The vanished document. It refuses to name a single heir cleanly. It demands that Nezrel be kept whole, and leaves the method to the living.", "sell_gold": 300, "reveal": [{"op": "claim", "amount": 8}, {"op": "flag", "flag": "WILL_READY"}, {"op": "chronicle", "id": "tt_authenticity"}, {"op": "bloc", "bloc": "court", "amount": 6}]},
-  {"id": "celene_routes", "kind": "secret", "title": "Celene's Quiet Ships", "text": "House Veyne has been moving grain off the books. Not treason. Not innocent.", "target": "celene_veyne", "sell_gold": 160, "blackmail": [{"op": "relation", "id": "celene_veyne", "amount": -8, "political": 6}, {"op": "gold", "amount": 120}]},
-  {"id": "favour_celene", "kind": "favour", "title": "Celene's Favour", "text": "Lady Veyne owes one political act. She will pay it once, exactly, and then the ledger is clean.", "call": [{"op": "bloc", "bloc": "nobility", "amount": 6}, {"op": "gold", "amount": 200}, {"op": "news", "text": "Veyne ships move because Celene said they should."}]},
-  {"id": "favour_tomas", "kind": "favour", "title": "Tomas Maren's Favour", "text": "The lord who raised Arlo will spend himself once for you, and hate the spending.", "call": [{"op": "rations", "amount": 8}, {"op": "forces", "amount": 80}, {"op": "house_opinion", "id": "maren", "amount": 4}]},
-  {"id": "favour_aldren", "kind": "favour", "title": "The Keeper's Favour", "text": "Father Aldren will speak a blessing he can still square with his conscience. Once.", "call": [{"op": "bloc", "bloc": "flame", "amount": 10}, {"op": "claim", "amount": 3}]},
-  {"id": "osric_bandit_pact", "kind": "secret", "title": "Osric and the Road", "text": "Harrow did not hire the raiders to burn the west. He paid them to burn someone else's west. The distinction will not survive daylight.", "target": "osric_harrow", "sell_gold": 130, "blackmail": [{"op": "house_declare", "id": "harrow", "declared": "player"}, {"op": "relation", "id": "osric_harrow", "amount": -16}, {"op": "fear", "amount": 4}]},
-  {"id": "garran_divided", "kind": "rumour", "title": "The Guard Is Split", "text": "Soldiers say Garran still stands up when Ethan's name is used. They say it softly."},
-  {"id": "rumour_will", "kind": "rumour", "title": "Talk of a Will", "text": "Taverns have already decided what Erol's missing testament says. They do not agree with each other."}
+  {
+    "id": "erol_illness",
+    "kind": "secret",
+    "title": "The King's Illness",
+    "text": "Erol was not taken by a brief fever. For months his mind was failing. Mira knew. The court did not.",
+    "sell_gold": 180,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": -4
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 3
+      },
+      {
+        "op": "chronicle",
+        "id": "kd_illness"
+      }
+    ]
+  },
+  {
+    "id": "final_night_mercy",
+    "kind": "secret",
+    "title": "A Request for Mercy",
+    "text": "On the last night Erol asked not to become the man the illness was making. What Mira did with that request is the argument.",
+    "sell_gold": 260,
+    "reveal": [
+      {
+        "op": "fear",
+        "amount": 4
+      },
+      {
+        "op": "bloc",
+        "bloc": "flame",
+        "amount": -6
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 4
+      },
+      {
+        "op": "chronicle",
+        "id": "kd_mercy"
+      }
+    ]
+  },
+  {
+    "id": "ethan_in_chambers",
+    "kind": "secret",
+    "title": "Ethan Was in the Room",
+    "text": "On the night of the accusation, Ethan was inside Mira's chambers. He will not say why. The official story does not survive that fact whole.",
+    "sell_gold": 200,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": -2
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": -3
+      },
+      {
+        "op": "chronicle",
+        "id": "ee_in_chambers"
+      }
+    ]
+  },
+  {
+    "id": "chambers_argument",
+    "kind": "secret",
+    "title": "It Was an Argument",
+    "text": "The night was about Erol's bastard, not a seduction. Mira says Ethan seized her. Ethan says he stopped her striking him. Both know the sexual charge was not the whole truth.",
+    "sell_gold": 240,
+    "target": "mira",
+    "reveal": [
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 4
+      },
+      {
+        "op": "relation",
+        "id": "mira",
+        "amount": -8,
+        "political": -6
+      },
+      {
+        "op": "chronicle",
+        "id": "ee_argument"
+      }
+    ],
+    "blackmail": [
+      {
+        "op": "relation",
+        "id": "mira",
+        "amount": -14,
+        "political": 6
+      },
+      {
+        "op": "fear",
+        "amount": 3
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "maren_payments",
+    "kind": "evidence",
+    "title": "The Maren Payments",
+    "text": "For twenty-three years an obscure royal account paid House Maren. The payments stopped the month Erol died.",
+    "sell_gold": 160,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 2
+      },
+      {
+        "op": "chronicle",
+        "id": "ab_payments"
+      }
+    ]
+  },
+  {
+    "id": "master_ren_is_erol",
+    "kind": "secret",
+    "title": "Master Ren",
+    "text": "The old man who taught Arlo history and chess was King Erol. Neither of them said so aloud.",
+    "sell_gold": 220,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 4
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 4
+      },
+      {
+        "op": "chronicle",
+        "id": "ab_ren"
+      }
+    ]
+  },
+  {
+    "id": "arlo_birth_witness",
+    "kind": "evidence",
+    "title": "A Witness from the Lodge",
+    "text": "Someone who served at the hunting lodge remembers Lysa, the king's visit, and a pregnancy the household was paid to keep quiet.",
+    "sell_gold": 150,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 3
+      },
+      {
+        "op": "chronicle",
+        "id": "ab_lodge"
+      }
+    ]
+  },
+  {
+    "id": "sealed_letter",
+    "kind": "document",
+    "title": "Erol's Sealed Letter",
+    "text": "A letter in the king's hand, sealed, delivered to Maren before the death. It does not say 'son'. It refuses to say 'nothing'.",
+    "sell_gold": 100,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "chronicle",
+        "id": "ab_nothing"
+      }
+    ]
+  },
+  {
+    "id": "surviving_letter",
+    "kind": "document",
+    "title": "The Letter Alistair Kept",
+    "text": "Every letter from the informant in Caerlyn was burned except one. It proves Alistair knew the king was dying.",
+    "sell_gold": 200,
+    "target": "alistair",
+    "reveal": [
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 3
+      },
+      {
+        "op": "rival",
+        "id": "alistair",
+        "field": "hostility",
+        "amount": 8
+      },
+      {
+        "op": "chronicle",
+        "id": "hs_one_letter"
+      }
+    ],
+    "blackmail": [
+      {
+        "op": "rival",
+        "id": "alistair",
+        "field": "hostility",
+        "amount": -8
+      },
+      {
+        "op": "fear",
+        "amount": 2
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "informant_in_caerlyn",
+    "kind": "secret",
+    "title": "A Clerk in the Castle",
+    "text": "Someone inside Caerlyn wrote to Stormhold for months about the king's decline. Alistair destroyed the correspondence. He did not destroy the fact.",
+    "sell_gold": 180,
+    "reveal": [
+      {
+        "op": "chronicle",
+        "id": "hs_informant"
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": -2
+      }
+    ]
+  },
+  {
+    "id": "harrow_debts",
+    "kind": "secret",
+    "title": "Harrow's Debts",
+    "text": "Osric Harrow has been paying bands on the western road to keep them off his villages and on other people's.",
+    "target": "osric_harrow",
+    "sell_gold": 140,
+    "reveal": [
+      {
+        "op": "relation",
+        "id": "osric_harrow",
+        "amount": -10
+      },
+      {
+        "op": "house_opinion",
+        "id": "harrow",
+        "amount": -8
+      }
+    ],
+    "blackmail": [
+      {
+        "op": "house_opinion",
+        "id": "harrow",
+        "amount": 8
+      },
+      {
+        "op": "relation",
+        "id": "osric_harrow",
+        "amount": -12
+      },
+      {
+        "op": "fear",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "edric_hedging",
+    "kind": "secret",
+    "title": "Edric's Other Letter",
+    "text": "Mira's nephew has drafted a letter offering House Edevane to whoever looks likely to win. He has not sent it. He has not burned it.",
+    "target": "edric_edevane",
+    "sell_gold": 120,
+    "reveal": [
+      {
+        "op": "relation",
+        "id": "edric_edevane",
+        "amount": -8
+      },
+      {
+        "op": "relation",
+        "id": "mira",
+        "amount": 4
+      }
+    ],
+    "blackmail": [
+      {
+        "op": "relation",
+        "id": "edric_edevane",
+        "amount": -10,
+        "political": 8
+      },
+      {
+        "op": "house_opinion",
+        "id": "edevane",
+        "amount": 6
+      }
+    ]
+  },
+  {
+    "id": "pell_oath",
+    "kind": "secret",
+    "title": "Pell's Oath",
+    "text": "The physician will not describe the dose because Erol forbade him. Silence, in this case, is evidence of a promise.",
+    "sell_gold": 80,
+    "reveal": [
+      {
+        "op": "chronicle",
+        "id": "kd_oath"
+      },
+      {
+        "op": "relation",
+        "id": "oren_pell",
+        "amount": -6
+      }
+    ]
+  },
+  {
+    "id": "nessa_last_line",
+    "kind": "evidence",
+    "title": "The Last Line",
+    "text": "Nessa remembers the testament's ending: the crown belongs not to the one born nearest it, but to the one who can keep Nezrel whole.",
+    "sell_gold": 100,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 3
+      },
+      {
+        "op": "chronicle",
+        "id": "tt_line"
+      }
+    ]
+  },
+  {
+    "id": "doc_ethan",
+    "kind": "document",
+    "title": "A Paper for Ethan",
+    "text": "In Erol's own hand, one instruction names his brother. It is authentic. It is not the only one.",
+    "sell_gold": 80,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 3
+      },
+      {
+        "op": "chronicle",
+        "id": "tt_three_docs"
+      }
+    ]
+  },
+  {
+    "id": "doc_arlo",
+    "kind": "document",
+    "title": "A Paper about Legitimacy",
+    "text": "Erol asked, in writing, how a bastard son might be legitimised. He did not finish the act.",
+    "sell_gold": 80,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 3
+      },
+      {
+        "op": "chronicle",
+        "id": "ab_legitimization"
+      }
+    ]
+  },
+  {
+    "id": "doc_mira",
+    "kind": "document",
+    "title": "Emergency Powers",
+    "text": "Another authentic paper grants Mira extraordinary authority if the king cannot rule. It reads like fear. It can be made to read like a will.",
+    "sell_gold": 80,
+    "reveal": [
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 4
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "aria_parentage",
+    "kind": "secret",
+    "title": "Aria's Blood",
+    "text": "A dangerous rumour with a scrap of paper behind it: Queen Aria may not have been her father's daughter. If true, the great exception was also a lie, or a better argument than anyone wanted.",
+    "sell_gold": 200,
+    "reveal": [
+      {
+        "op": "bloc",
+        "bloc": "flame",
+        "amount": -4
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": -3
+      },
+      {
+        "op": "chronicle",
+        "id": "qa_parentage"
+      }
+    ]
+  },
+  {
+    "id": "varos_offer",
+    "kind": "document",
+    "title": "Varos Gold",
+    "text": "A foreign purse is available to the claimant willing to discuss the lands Erol took twenty years ago.",
+    "sell_gold": 60,
+    "reveal": [
+      {
+        "op": "foreign",
+        "amount": 4
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": -4
+      }
+    ]
+  },
+  {
+    "id": "will_fragment",
+    "kind": "document",
+    "title": "Fragment of the Testament",
+    "text": "Not the whole missing will. Enough of the hand, and the last sentence, to make every claimant hopeful.",
+    "sell_gold": 120,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 4
+      },
+      {
+        "op": "chronicle",
+        "id": "tt_anyone"
+      },
+      {
+        "op": "flag",
+        "flag": "KNOWN_WILL_FRAGMENT"
+      },
+      {
+        "op": "flag",
+        "flag": "WILL_FRAGMENT_HELD"
+      }
+    ]
+  },
+  {
+    "id": "full_testament",
+    "kind": "document",
+    "title": "Erol's Testament",
+    "text": "The vanished document. It refuses to name a single heir cleanly. It demands that Nezrel be kept whole, and leaves the method to the living.",
+    "sell_gold": 300,
+    "reveal": [
+      {
+        "op": "claim",
+        "amount": 8
+      },
+      {
+        "op": "flag",
+        "flag": "WILL_READY"
+      },
+      {
+        "op": "chronicle",
+        "id": "tt_authenticity"
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 6
+      }
+    ]
+  },
+  {
+    "id": "celene_routes",
+    "kind": "secret",
+    "title": "Celene's Quiet Ships",
+    "text": "House Veyne has been moving grain off the books. Not treason. Not innocent.",
+    "target": "celene_veyne",
+    "sell_gold": 160,
+    "blackmail": [
+      {
+        "op": "relation",
+        "id": "celene_veyne",
+        "amount": -8,
+        "political": 6
+      },
+      {
+        "op": "gold",
+        "amount": 120
+      }
+    ]
+  },
+  {
+    "id": "favour_celene",
+    "kind": "favour",
+    "title": "Celene's Favour",
+    "text": "Lady Veyne owes one political act. She will pay it once, exactly, and then the ledger is clean.",
+    "call": [
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 6
+      },
+      {
+        "op": "gold",
+        "amount": 200
+      },
+      {
+        "op": "news",
+        "text": "Veyne ships move because Celene said they should."
+      }
+    ]
+  },
+  {
+    "id": "favour_tomas",
+    "kind": "favour",
+    "title": "Tomas Maren's Favour",
+    "text": "The lord who raised Arlo will spend himself once for you, and hate the spending.",
+    "call": [
+      {
+        "op": "rations",
+        "amount": 8
+      },
+      {
+        "op": "forces",
+        "amount": 80
+      },
+      {
+        "op": "house_opinion",
+        "id": "maren",
+        "amount": 4
+      }
+    ]
+  },
+  {
+    "id": "favour_aldren",
+    "kind": "favour",
+    "title": "The Keeper's Favour",
+    "text": "Father Aldren will speak a blessing he can still square with his conscience. Once.",
+    "call": [
+      {
+        "op": "bloc",
+        "bloc": "flame",
+        "amount": 10
+      },
+      {
+        "op": "claim",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "id": "osric_bandit_pact",
+    "kind": "secret",
+    "title": "Osric and the Road",
+    "text": "Harrow did not hire the raiders to burn the west. He paid them to burn someone else's west. The distinction will not survive daylight.",
+    "target": "osric_harrow",
+    "sell_gold": 130,
+    "blackmail": [
+      {
+        "op": "house_declare",
+        "id": "harrow",
+        "declared": "player"
+      },
+      {
+        "op": "relation",
+        "id": "osric_harrow",
+        "amount": -16
+      },
+      {
+        "op": "fear",
+        "amount": 4
+      }
+    ]
+  },
+  {
+    "id": "garran_divided",
+    "kind": "rumour",
+    "title": "The Guard Is Split",
+    "text": "Soldiers say Garran still stands up when Ethan's name is used. They say it softly."
+  },
+  {
+    "id": "rumour_will",
+    "kind": "rumour",
+    "title": "Talk of a Will",
+    "text": "Taverns have already decided what Erol's missing testament says. They do not agree with each other."
+  }
 ]

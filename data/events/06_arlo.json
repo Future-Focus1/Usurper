@@ -87,7 +87,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "maren"
   },
   {
     "id": "the_tutor",
@@ -107,7 +108,13 @@
         "REN_KNOWN",
         "REN_QUIET",
         "REN_FROM_TOMAS"
-      ]
+      ],
+      "npc_alive": [
+        "evelyne_maren"
+      ],
+      "npc_state": {
+        "evelyne_maren": "free"
+      }
     },
     "choices": [
       {
@@ -187,9 +194,19 @@
             "op": "claim",
             "amount": 3
           }
-        ]
+        ],
+        "requires": {
+          "npc_alive": [
+            "tomas_maren"
+          ],
+          "npc_state": {
+            "tomas_maren": "free"
+          }
+        }
       }
-    ]
+    ],
+    "speaker_id": "evelyne_maren",
+    "scene": "maren"
   },
   {
     "id": "maren_stands",
@@ -209,7 +226,13 @@
         "MAREN_STOOD",
         "MAREN_WAITED",
         "MAREN_EXCUSED"
-      ]
+      ],
+      "npc_alive": [
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free"
+      }
     },
     "choices": [
       {
@@ -299,7 +322,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "tomas_maren",
+    "scene": "maren"
   },
   {
     "id": "common_speech",
@@ -390,9 +415,13 @@
             "op": "flag",
             "flag": "BOUGHT_BREAD"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 15
+        }
       }
-    ]
+    ],
+    "scene": "maren"
   },
   {
     "id": "brothers_letter",
@@ -400,7 +429,7 @@
     "speaker": "You",
     "place": "A writing table",
     "portrait": "#3d5a73",
-    "text": "If Ethan is Erol's brother, he is the nearest thing you have to blood that is not a corpse. You can ask him to recognise you, or you can become his rival before he has decided you exist. Both are ways of being a Valen.",
+    "text": "Ethan may be your uncle, and he may possess the strongest traditional claim against yours. You can ask him to consider the evidence without asking him to kneel. The household has begun calling the possibility a brotherhood of banners: a political promise, not your literal kinship.",
     "weight": 10,
     "priority": 48,
     "one_time": true,
@@ -411,6 +440,9 @@
       "not_flags": [
         "BROTHERS_OFFERED",
         "NO_LETTER_TO_ETHAN"
+      ],
+      "rival_alive": [
+        "ethan"
       ]
     },
     "choices": [
@@ -440,7 +472,7 @@
       },
       {
         "id": "rival",
-        "text": "Do not write. A brother who wants the same chair is not a brother yet.",
+        "text": "Keep your own claim separate. Kinship does not settle authority.",
         "effects": [
           {
             "op": "rival",
@@ -454,7 +486,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "lodge_road",
@@ -504,7 +537,10 @@
             "op": "flag",
             "flag": "LODGE_WITNESS"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 25
+        }
       },
       {
         "id": "send",
@@ -540,7 +576,10 @@
               }
             ]
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 15
+        }
       },
       {
         "id": "no",
@@ -557,7 +596,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "evelyne_afraid",
@@ -577,7 +617,13 @@
         "STAYED_FOR_EVELYNE",
         "LEFT_EVELYNE",
         "PROMISED_EVELYNE"
-      ]
+      ],
+      "npc_alive": [
+        "evelyne_maren"
+      ],
+      "npc_state": {
+        "evelyne_maren": "free"
+      }
     },
     "choices": [
       {
@@ -639,7 +685,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "evelyne_maren",
+    "scene": "maren"
   },
   {
     "id": "tomas_warning",
@@ -659,7 +707,13 @@
         "WANTS_TRUTH",
         "WANTS_CROWN",
         "WANTS_HOUSE_SAFE"
-      ]
+      ],
+      "npc_alive": [
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free"
+      }
     },
     "choices": [
       {
@@ -734,7 +788,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "tomas_maren",
+    "scene": "road"
   },
   {
     "id": "what_the_blood_means",
@@ -760,6 +816,14 @@
       "not_flags": [
         "BLOOD_PROVEN",
         "PROOFS_HELD"
+      ],
+      "min_ledger_count": 2,
+      "ledger_count_ids": [
+        "sealed_letter",
+        "maren_payments",
+        "arlo_birth_witness",
+        "master_ren_is_erol",
+        "doc_arlo"
       ]
     },
     "choices": [
@@ -819,7 +883,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "court"
   },
   {
     "id": "vale_riders",
@@ -866,7 +931,10 @@
             "bloc": "military",
             "amount": 3
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 2
+        }
       },
       {
         "id": "no",
@@ -887,7 +955,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "maren"
   },
   {
     "id": "ren_in_public",
@@ -957,6 +1026,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

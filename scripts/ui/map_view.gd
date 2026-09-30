@@ -35,8 +35,9 @@ func present(state: CampaignState, db: ContentDB) -> void:
 	board.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	board.size_flags_stretch_ratio = 1.7
 	board.custom_minimum_size = Vector2(420, 280)
-	board.clip_contents = false
+	board.clip_contents = true
 	body.add_child(board)
+	UiFactory.backdrop(board, "map", 0.22)
 	var detail := UiFactory.vbox(6)
 	var detail_scroll := UiFactory.scroll(detail)
 	detail_scroll.custom_minimum_size = Vector2(220, 0)
@@ -50,16 +51,16 @@ func present(state: CampaignState, db: ContentDB) -> void:
 		button.text = str(data.get("name", tid))
 		button.tooltip_text = db.controller_name(str(spot.get("controller", "")), state.claimant_id)
 		var point := Vector2(float(data.get("x", 0.5)), float(data.get("y", 0.5)))
-		var x := lerpf(0.16, 0.84, clampf(point.x, 0.0, 1.0))
-		var y := lerpf(0.16, 0.84, clampf(point.y, 0.0, 1.0))
+		var x := clampf(point.x, 0.10, 0.88)
+		var y := lerpf(0.08, 0.92, clampf(point.y, 0.0, 1.0))
 		button.anchor_left = x
 		button.anchor_top = y
 		button.anchor_right = x
 		button.anchor_bottom = y
-		button.offset_left = -74
-		button.offset_top = -22
-		button.offset_right = 74
-		button.offset_bottom = 22
+		button.offset_left = -53
+		button.offset_top = -23
+		button.offset_right = 53
+		button.offset_bottom = 23
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.clip_text = false
 		button.add_theme_font_size_override("font_size", 13)
@@ -91,11 +92,11 @@ func _show_detail(detail: VBoxContainer, state: CampaignState, db: ContentDB, ti
 func _tint(button: Button, controller: String, state: CampaignState) -> void:
 	var color := GameTheme.PANEL_RAISED
 	if controller == "player" or controller == state.claimant_id:
-		color = Color("2c5d82")
+		color = Color("355445")
 	elif state.rivals.has(controller):
-		color = Color("6d3a4a")
+		color = Color("5b3332")
 	elif controller == "neutral":
-		color = Color("2a3542")
+		color = Color("33342b")
 	var box := StyleBoxFlat.new()
 	box.bg_color = color
 	box.border_color = GameTheme.LINE

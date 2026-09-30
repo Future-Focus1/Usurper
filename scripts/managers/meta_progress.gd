@@ -39,6 +39,12 @@ func unlocked_count() -> int:
 
 
 func record_campaign(entry: Dictionary) -> void:
+	# Continuing a finished save must not inflate Chronicle completion counts.
+	var id := str(entry.get("campaign_id", ""))
+	if id != "":
+		for completed in campaigns:
+			if str(completed.get("campaign_id", "")) == id:
+				return
 	entry["at"] = Time.get_datetime_string_from_system()
 	campaigns.append(entry)
 	_write()

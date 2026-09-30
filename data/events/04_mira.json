@@ -102,9 +102,18 @@
             "op": "flag",
             "flag": "ASKED_PELL_PRIVATE"
           }
-        ]
+        ],
+        "requires": {
+          "npc_alive": [
+            "oren_pell"
+          ],
+          "npc_state": {
+            "oren_pell": "free"
+          }
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "pell_private",
@@ -124,7 +133,10 @@
       ],
       "npc_alive": [
         "oren_pell"
-      ]
+      ],
+      "npc_state": {
+        "oren_pell": "free"
+      }
     },
     "choices": [
       {
@@ -201,7 +213,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "oren_pell",
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "forgotten_drain",
@@ -267,7 +282,10 @@
             "op": "flag",
             "flag": "PASSAGE_WALLED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "keep",
@@ -283,7 +301,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "aria_in_the_stacks",
@@ -302,7 +321,13 @@
       "not_flags": [
         "ARIA_READ",
         "ARIA_LEFT"
-      ]
+      ],
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
     },
     "choices": [
       {
@@ -344,7 +369,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "lucan_rook",
+    "scene": "court"
   },
   {
     "id": "aria_deeper",
@@ -352,7 +379,7 @@
     "speaker": "Chancellor Lucan Rook",
     "place": "The royal archive",
     "portrait": "#4a4038",
-    "text": "The writ says Aria ruled because the alternative was a battlefield. A later hand has added a scrap: that her father may not have been her father. Lucan looks ill. Precedents are not supposed to have bodies.",
+    "text": "Lucan lays Aria’s original writ beside a later scrap that questions her parentage. The writ is authentic. The scrap preserves an allegation, not proof of its truth. You can argue from a queen’s actual government or choose to make a doubtful rumour part of the succession debate.",
     "weight": 3,
     "priority": 73,
     "one_time": true,
@@ -361,7 +388,13 @@
       "claimant": "mira",
       "flags": [
         "ARIA_READ"
-      ]
+      ],
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
     },
     "choices": [
       {
@@ -425,7 +458,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "lucan_rook",
+    "scene": "court",
+    "scheduled_only": true
   },
   {
     "id": "aria_proclaimed",
@@ -500,7 +536,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "court"
   },
   {
     "id": "the_old_charge",
@@ -508,7 +545,7 @@
     "speaker": "A lord who enjoys weather",
     "place": "The gallery",
     "portrait": "#3d5a73",
-    "text": "A lord repeats the accusation as if it were weather: Ethan assaulted you, Erol was merciful, exile was the kind version. You were there. The sexual charge was the weapon. The argument was about a bastard and a crown.",
+    "text": "A lord repeats the account of Ethan’s exile as a settled judgment. You remember a private argument about Erol’s hidden child and an encounter that neither of you describes the same way. The official accusation left those facts outside the public record. Correcting it now could protect the realm from one lie and expose it to another fight.",
     "weight": 11,
     "priority": 37,
     "one_time": true,
@@ -605,7 +642,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "court"
   },
   {
     "id": "guard_whispers",
@@ -669,7 +707,15 @@
             "op": "flag",
             "flag": "ASKED_ABOUT_WHISPER"
           }
-        ]
+        ],
+        "requires": {
+          "npc_alive": [
+            "garran_vale"
+          ],
+          "npc_state": {
+            "garran_vale": "free"
+          }
+        }
       },
       {
         "id": "raise",
@@ -688,9 +734,13 @@
             "op": "flag",
             "flag": "GUARD_PAID"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 90
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "treasury_short",
@@ -698,7 +748,7 @@
     "speaker": "A treasury clerk",
     "place": "The counting room",
     "portrait": "#4a4038",
-    "text": "The books show gifts, pensions, and a quiet account that paid a western house for twenty years. The realm thinks you are sitting on a dragon's hoard. The dragon was already spending itself.",
+    "text": "The treasury books contain pensions, diplomatic gifts and an obscure annual account paid to the eastern House Maren for twenty-three years. Caerlyn imagines an untouched hoard. In fact, every reserve has an obligation written against it. Cancelling a payment can produce ready coin and a witness willing to explain what it bought.",
     "weight": 10,
     "priority": 31,
     "one_time": true,
@@ -782,7 +832,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "court_and_flame",
@@ -802,7 +853,13 @@
         "TOLD_ALDREN",
         "ALDREN_SNUBBED",
         "HEARTH_ENDOWED"
-      ]
+      ],
+      "npc_alive": [
+        "aldren_veil"
+      ],
+      "npc_state": {
+        "aldren_veil": "free"
+      }
     },
     "choices": [
       {
@@ -881,9 +938,14 @@
             "op": "flag",
             "flag": "HEARTH_ENDOWED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 150
+        }
       }
-    ]
+    ],
+    "speaker_id": "aldren_veil",
+    "scene": "temple"
   },
   {
     "id": "edric_at_supper",
@@ -906,7 +968,10 @@
         "EDRIC_USED",
         "EDRIC_CUT",
         "EDRIC_PROMISED"
-      ]
+      ],
+      "npc_state": {
+        "edric_edevane": "free"
+      }
     },
     "choices": [
       {
@@ -980,9 +1045,14 @@
             "op": "flag",
             "flag": "EDRIC_PROMISED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "speaker_id": "edric_edevane",
+    "scene": "road"
   },
   {
     "id": "alistair_to_mira",
@@ -1083,6 +1153,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

@@ -1,44 +1,1416 @@
 [
-  {"id": "recruit_soldiers", "category": "Military", "claimants": ["ethan"], "title": "Recruit soldiers", "summary": "Pay men who remember the exile, or their sons, to walk with the few who already do. Coin can start a company. It cannot yet start an army.", "effects": [{"op": "recruit", "amount": 80, "gold_each": 2}, {"op": "bloc", "bloc": "military", "amount": 2}]},
-  {"id": "pay_spears", "category": "Military", "claimants": ["alistair"], "title": "Pay for more spears", "summary": "The northern host is already yours. Coin makes the Reach send the next company sooner, and those men will eat with the rest.", "effects": [{"op": "recruit", "amount": 400, "gold_each": 2}, {"op": "bloc", "bloc": "military", "amount": 2}]},
-  {"id": "hire_guard", "category": "Military", "claimants": ["mira"], "title": "Hire more of the Guard", "summary": "Caerlyn will sell the queen more spears. Dozens, not thousands. The north is not for sale.", "effects": [{"op": "recruit", "amount": 160, "gold_each": 3}, {"op": "bloc", "bloc": "military", "amount": 2}]},
-  {"id": "ask_vale_riders", "category": "Military", "claimants": ["arlo"], "title": "Ask the vale for riders", "summary": "These are Tomas's people. They will ride only if the house believes the risk is yours to take.", "requires": {"min_claim": 18}, "effects": [{"op": "recruit", "amount": 40, "gold_each": 1}, {"op": "house_opinion", "id": "maren", "amount": -2}, {"op": "bloc", "bloc": "military", "amount": 2}]},
-  {"id": "buy_rations", "category": "Economy", "title": "Buy food", "summary": "Buy food for the people who eat because of you. A few riders, a household, or a host: hunger is the same size as the company.", "effects": [{"op": "buy_rations", "amount": 12, "gold_each": 18}]},
-  {"id": "raise_taxes", "category": "Economy", "title": "Raise taxes", "summary": "The lands you hold can be squeezed. The people who live on them will know whose hand did it.", "requires": {"min_player_territories": 1}, "effects": [{"op": "gold", "amount": 180}, {"op": "bloc", "bloc": "people", "amount": -6}, {"op": "fear", "amount": 2}, {"op": "modifier", "id": "harsh_tax", "name": "Harsh taxes", "turns": 3, "gold": 40, "blocs": {"people": -1}}]},
-  {"id": "lower_taxes", "category": "Economy", "title": "Ease the tax", "summary": "A week of mercy on lands that already pay you. The ledgers will call it weakness or wisdom, depending on the year.", "requires": {"min_player_territories": 1}, "effects": [{"op": "bloc", "bloc": "people", "amount": 6}, {"op": "claim", "amount": 1}, {"op": "modifier", "id": "eased_tax", "name": "Eased taxes", "turns": 3, "gold": -30}]},
-  {"id": "spread_word", "category": "Diplomacy", "title": "Spread your name", "summary": "Pay criers, priests, and liars who prefer to be called messengers.", "requires": {"min_gold": 80, "min_claim": 14, "not_claimant": "ethan"}, "effects": [{"op": "gold", "amount": -80}, {"op": "claim", "amount": 2}, {"op": "bloc", "bloc": "people", "amount": 3}]},
-  {"id": "spread_word_ethan", "category": "Diplomacy", "claimants": ["ethan"], "title": "Spread your name", "summary": "You are Ethan Valen in the open now. Pay the road to say so, accusation and all.", "requires": {"min_gold": 80, "flags": ["ETHAN_REVEALED"]}, "effects": [{"op": "gold", "amount": -80}, {"op": "claim", "amount": 2}, {"op": "bloc", "bloc": "people", "amount": 3}]},
-  {"id": "host_feast", "category": "Diplomacy", "title": "Host a feast", "summary": "Lords eat at a table you control, and rent you an evening of courtesy.", "requires": {"min_gold": 160, "min_rations": 2, "min_player_territories": 1}, "effects": [{"op": "gold", "amount": -160}, {"op": "rations", "amount": -2}, {"op": "bloc", "bloc": "nobility", "amount": 5}, {"op": "bloc", "bloc": "court", "amount": 3}, {"op": "reputation", "amount": 1}]},
-  {"id": "train_forces", "category": "Military", "title": "Drill the host", "summary": "Fewer men will run if they have practised not running. This is for a company that already exists.", "requires": {"min_forces": 200}, "effects": [{"op": "morale", "amount": 6}, {"op": "rations", "amount": -1}, {"op": "bloc", "bloc": "military", "amount": 2}]},
-  {"id": "address_troops", "category": "Military", "title": "Address the troops", "summary": "Stand where a real host can see your face. A handful of riders does not need a speech. An army does.", "requires": {"min_forces": 250}, "effects": [{"op": "morale", "amount": 4}, {"op": "bloc", "bloc": "military", "amount": 3}, {"op": "claim", "amount": 1}]},
-  {"id": "public_audience", "category": "Diplomacy", "title": "Hold a public audience", "summary": "Let the people of a land you hold bring their small disasters. Some of them will leave believing you listened.", "requires": {"min_player_territories": 1}, "effects": [{"op": "bloc", "bloc": "people", "amount": 5}, {"op": "reputation", "amount": 2}, {"op": "gold", "amount": -40}]},
-  {"id": "seek_flame", "category": "Diplomacy", "claimants": ["mira", "alistair"], "title": "Seek the Flame", "summary": "Ask Father Aldren, carefully, what a coronation would require of your soul.", "effects": [{"op": "relation", "id": "aldren_veil", "amount": 4, "political": 3}, {"op": "bloc", "bloc": "flame", "amount": 4}, {"op": "gold", "amount": -30}]},
-  {"id": "seek_flame_ethan", "category": "Diplomacy", "claimants": ["ethan"], "title": "Seek the Flame", "summary": "You are Ethan Valen again, in the open. Ask Father Aldren what a coronation would require of a man the court already condemned.", "requires": {"flags": ["ETHAN_REVEALED"]}, "effects": [{"op": "relation", "id": "aldren_veil", "amount": 4, "political": 3}, {"op": "bloc", "bloc": "flame", "amount": 4}, {"op": "gold", "amount": -30}]},
-  {"id": "seek_flame_arlo", "category": "Diplomacy", "claimants": ["arlo"], "title": "Seek the Flame", "summary": "The blood is no longer only a letter. Ask Father Aldren whether a stable-born claim can be blessed without becoming a joke.", "requires": {"min_claim": 24}, "effects": [{"op": "relation", "id": "aldren_veil", "amount": 4, "political": 3}, {"op": "bloc", "bloc": "flame", "amount": 4}, {"op": "gold", "amount": -30}]},
-  {"id": "bribe_clerk", "category": "Intrigue", "title": "Bribe a clerk", "summary": "The realm is indexed by people who are underpaid.", "requires": {"min_gold": 100, "min_claim": 14}, "effects": [{"op": "gold", "amount": -100}, {"op": "grant_first_missing", "ids": ["doc_ethan", "doc_arlo", "doc_mira", "rumour_will"]}, {"op": "bloc", "bloc": "court", "amount": 1}]},
-  {"id": "trade_compact", "category": "Economy", "claimants": ["mira", "alistair"], "title": "Offer Veyne a compact", "summary": "Lower a tariff you have the power to lower. Celene understands this language, and she does not bargain with men who hold no ports and no seal.", "requires": {"min_gold": 50}, "effects": [{"op": "gold", "amount": 140}, {"op": "house_opinion", "id": "veyne", "amount": 6}, {"op": "relation", "id": "celene_veyne", "amount": 3}, {"op": "modifier", "id": "low_tariff", "name": "Open ports", "turns": 4, "gold": -20}]},
-  {"id": "mercenaries", "category": "Military", "title": "Hire mercenaries", "summary": "The White Company does not care who Erol was. They care that you already have a following, and that you pay.", "requires": {"min_gold": 500, "min_forces": 200}, "effects": [{"op": "gold", "amount": -500}, {"op": "forces", "amount": 400}, {"op": "fear", "amount": 3}, {"op": "bloc", "bloc": "people", "amount": -3}, {"op": "bloc", "bloc": "military", "amount": 2}]},
-  {"id": "wait_listen", "category": "Personal", "title": "Wait and listen", "summary": "Spend the week on other people's words. Sometimes that is the whole strategy.", "effects": [{"op": "news", "text": "You let the week speak before you do."}, {"op": "reputation", "amount": 1}]},
-  {"id": "search_chambers", "category": "Intrigue", "claimants": ["mira"], "title": "Search Erol's chambers", "summary": "You already hold the keys. The question is which paper you are willing to find.", "effects": [{"op": "grant_first_missing", "ids": ["doc_mira", "doc_ethan", "doc_arlo", "final_night_mercy"]}, {"op": "fear", "amount": 1}]},
-  {"id": "seal_records", "category": "Intrigue", "claimants": ["mira"], "title": "Seal the royal records", "summary": "Lock the archive. Lucan will object in a tone reserved for disasters.", "effects": [{"op": "bloc", "bloc": "court", "amount": -3}, {"op": "relation", "id": "lucan_rook", "amount": -4}, {"op": "flag", "flag": "RECORDS_SEALED"}, {"op": "claim", "amount": 1}, {"op": "news", "text": "The royal archive is shut. Curiosity becomes a profession."}]},
-  {"id": "summon_official", "category": "Diplomacy", "claimants": ["mira"], "title": "Summon the Chancellor", "summary": "Make Lucan Rook say, in front of you, what the law will bear.", "effects": [{"op": "relation", "id": "lucan_rook", "amount": 2, "political": 4}, {"op": "bloc", "bloc": "court", "amount": 4}, {"op": "claim", "amount": 1}]},
-  {"id": "guard_investigation", "category": "Intrigue", "claimants": ["mira"], "title": "Send the Queen's Guard", "summary": "Garran's soldiers ask questions that sound like orders.", "requires": {"not_flags": ["GARRAN_DEAD"]}, "effects": [{"op": "fear", "amount": 2}, {"op": "chance", "p": 0.6, "success_text": "The Guard returns with a name.", "fail_text": "The trail is cold, and louder for being walked.", "success": [{"op": "ledger_add", "id": "edric_hedging"}, {"op": "claim", "amount": 1}], "fail": [{"op": "bloc", "bloc": "court", "amount": -2}]}]},
-  {"id": "rally_veterans", "category": "Military", "claimants": ["ethan"], "title": "Rally old veterans", "summary": "You ride with only a few loyal men. Others still straighten when your name is whispered. Find which of them will leave their captains.", "effects": [{"op": "forces", "amount": 160}, {"op": "rations", "amount": -2}, {"op": "bloc", "bloc": "military", "amount": 4}, {"op": "claim", "amount": 2}, {"op": "elite_add", "id": "veteran_band"}]},
-  {"id": "reveal_identity", "category": "Personal", "claimants": ["ethan"], "title": "Speak your name", "summary": "Stop being a hired sword. Become the king's brother again, accusation and all.", "requires": {"not_flags": ["ETHAN_REVEALED"]}, "effects": [{"op": "flag", "flag": "ETHAN_REVEALED"}, {"op": "claim", "amount": 8}, {"op": "bloc", "bloc": "people", "amount": 6}, {"op": "bloc", "bloc": "court", "amount": -4}, {"op": "rival", "id": "mira", "field": "hostility", "amount": 12}, {"op": "news", "text": "Ethan Valen is no longer a rumour. He is on the road with his own face."}]},
-  {"id": "visit_regiment", "category": "Military", "claimants": ["ethan"], "title": "Visit a former regiment", "summary": "A company you once led is within a week's ride. Ask whether their oath was to Erol, or to the man they still measure other captains against.", "effects": [{"op": "forces", "amount": 90}, {"op": "relation", "id": "bren_tal", "amount": 3}, {"op": "bloc", "bloc": "military", "amount": 3}]},
-  {"id": "appeal_people", "category": "Diplomacy", "claimants": ["ethan"], "title": "Appeal in the market", "summary": "No feast. No seal. Just a man the villages used to feed.", "effects": [{"op": "bloc", "bloc": "people", "amount": 6}, {"op": "claim", "amount": 2}, {"op": "reputation", "amount": 2}]},
-  {"id": "trace_payments", "category": "Intrigue", "claimants": ["arlo"], "title": "Trace the royal payments", "summary": "Follow the money that raised you. Tomas will feel the footsteps.", "effects": [{"op": "ledger_add", "id": "maren_payments"}, {"op": "relation", "id": "tomas_maren", "amount": -4}, {"op": "claim", "amount": 2}, {"op": "chronicle", "id": "ab_payments"}]},
-  {"id": "seek_witness", "category": "Intrigue", "claimants": ["arlo"], "title": "Seek a witness to your birth", "summary": "The lodge is three hundred miles and twenty-four years away. Someone is still alive.", "requires": {"min_gold": 30}, "effects": [{"op": "gold", "amount": -30}, {"op": "chance", "p": 0.65, "success_text": "An old under-cook remembers Lysa.", "fail_text": "The lodge has been emptied of people who remember anything useful.", "success": [{"op": "ledger_add", "id": "arlo_birth_witness"}, {"op": "chronicle", "id": "ab_lysa"}], "fail": [{"op": "news", "text": "The hunting lodge keeps its mouth shut."}]}]},
-  {"id": "ask_maren", "category": "Personal", "claimants": ["arlo"], "title": "Ask House Maren outright", "summary": "Tomas and Evelyne have been your parents. Today you ask them to be witnesses.", "effects": [{"op": "relation", "id": "tomas_maren", "amount": -2, "political": 4}, {"op": "relation", "id": "evelyne_maren", "amount": -3}, {"op": "house_opinion", "id": "maren", "amount": 4}, {"op": "flag", "flag": "ASKED_MAREN"}, {"op": "news", "text": "You ask the only family you have whether they have been lying kindly."}]},
-  {"id": "present_proofs", "category": "Diplomacy", "claimants": ["arlo"], "title": "Present the proofs", "summary": "Lay the letters, the payments, and the witness where a lord cannot pretend to be confused.", "effects": [{"op": "prove_blood", "ids": ["sealed_letter", "maren_payments", "arlo_birth_witness", "master_ren_is_erol", "doc_arlo"], "need": 2, "claim": 12}]},
-  {"id": "demand_submission", "category": "Diplomacy", "claimants": ["alistair"], "title": "Demand submission", "summary": "Send terms. Call them peace. Mean the army behind them.", "effects": [{"op": "fear", "amount": 4}, {"op": "bloc", "bloc": "nobility", "amount": 2}, {"op": "bloc", "bloc": "people", "amount": -3}, {"op": "claim", "amount": 2}, {"op": "flag", "flag": "DEMANDS_SENT"}]},
-  {"id": "call_levies", "category": "Military", "claimants": ["alistair"], "title": "Call the northern levies", "summary": "More spears. More mouths. The Reach answers because it has been trained to.", "effects": [{"op": "forces", "amount": 600}, {"op": "rations", "amount": -6}, {"op": "bloc", "bloc": "military", "amount": 3}, {"op": "fear", "amount": 1}]},
-  {"id": "issue_ultimatum", "category": "Diplomacy", "claimants": ["alistair"], "title": "Renew the marriage ultimatum", "summary": "Mira may crown you, or meet you on the road. You let her hear both sentences in the same letter.", "effects": [{"op": "flag", "flag": "ULTIMATUM_SENT"}, {"op": "rival", "id": "mira", "field": "hostility", "amount": 6}, {"op": "fear", "amount": 3}, {"op": "claim", "amount": 1}, {"op": "schedule", "event": "ultimatum_reply", "delay": 2}]},
-  {"id": "intimidate_lord", "category": "Intrigue", "claimants": ["alistair"], "title": "Frighten a lesser lord", "summary": "A visit from Storm is rarely social.", "effects": [{"op": "fear", "amount": 5}, {"op": "bloc", "bloc": "nobility", "amount": 3}, {"op": "bloc", "bloc": "people", "amount": -4}, {"op": "house_opinion", "id": "harrow", "amount": -6}]},
-  {"id": "raid_territory", "generator": "raid_territory", "category": "Military", "title": "Raid", "summary": "Strike a land you do not hold.", "requires": {"min_forces": 200}},
-  {"id": "spy_rival", "generator": "spy_rival", "category": "Intrigue", "title": "Spy", "summary": "Buy a look at a rival.", "requires": {"min_gold": 80, "min_claim": 14}},
-  {"id": "envoy_house", "generator": "envoy_house", "category": "Diplomacy", "title": "Envoy", "summary": "Visit a house.", "requires": {"min_gold": 150, "min_claim": 14}},
-  {"id": "assassinate_rival", "generator": "assassinate_rival", "category": "Intrigue", "title": "Assassinate", "summary": "A knife instead of a war.", "requires": {"min_gold": 400, "min_claim": 20, "min_forces": 200}},
-  {"id": "fortify_territory", "generator": "fortify_territory", "category": "Military", "title": "Fortify", "summary": "Spend coin on walls.", "requires": {"min_gold": 200, "min_player_territories": 1}},
-  {"id": "occupy_territory", "generator": "occupy_territory", "category": "Military", "title": "Occupy", "summary": "Take a land because you can.", "claimants": ["alistair"], "requires": {"min_forces": 800}}
+  {
+    "id": "recruit_soldiers",
+    "category": "Military",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Recruit soldiers",
+    "summary": "Pay men who remember the exile, or their sons, to walk with the few who already do. Coin can start a company. It cannot yet start an army.",
+    "effects": [
+      {
+        "op": "recruit",
+        "amount": 80,
+        "gold_each": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 2
+      }
+    ],
+    "requires": {
+      "min_gold": 2
+    }
+  },
+  {
+    "id": "pay_spears",
+    "category": "Military",
+    "claimants": [
+      "alistair"
+    ],
+    "title": "Pay for more spears",
+    "summary": "The northern host is already yours. Coin makes the Reach send the next company sooner, and those men will eat with the rest.",
+    "effects": [
+      {
+        "op": "recruit",
+        "amount": 400,
+        "gold_each": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 2
+      }
+    ],
+    "requires": {
+      "min_gold": 2
+    }
+  },
+  {
+    "id": "hire_guard",
+    "category": "Military",
+    "claimants": [
+      "mira"
+    ],
+    "title": "Hire palace auxiliaries",
+    "summary": "Hire city spears to reinforce the forty-eight Queen's Guard. They receive wages and wear your colours; they do not inherit the Guard's training or personal oath.",
+    "effects": [
+      {
+        "op": "recruit",
+        "amount": 160,
+        "gold_each": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 2
+      }
+    ],
+    "requires": {
+      "min_gold": 3
+    }
+  },
+  {
+    "id": "ask_vale_riders",
+    "category": "Military",
+    "claimants": [
+      "arlo"
+    ],
+    "title": "Ask the vale for riders",
+    "summary": "These are Tomas's people. They will ride only if the house believes the risk is yours to take.",
+    "requires": {
+      "min_claim": 18,
+      "min_gold": 1
+    },
+    "effects": [
+      {
+        "op": "recruit",
+        "amount": 40,
+        "gold_each": 1
+      },
+      {
+        "op": "house_opinion",
+        "id": "maren",
+        "amount": -2
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "buy_rations",
+    "category": "Economy",
+    "title": "Buy food",
+    "summary": "Buy food for the people who eat because of you. A few riders, a household, or a host: hunger is the same size as the company.",
+    "effects": [
+      {
+        "op": "buy_rations",
+        "amount": 12,
+        "gold_each": 18
+      }
+    ],
+    "requires": {
+      "min_gold": 18
+    }
+  },
+  {
+    "id": "raise_taxes",
+    "category": "Economy",
+    "title": "Raise taxes",
+    "summary": "The lands you hold can be squeezed. The people who live on them will know whose hand did it.",
+    "requires": {
+      "min_player_territories": 1
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": 180
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": -6
+      },
+      {
+        "op": "fear",
+        "amount": 2
+      },
+      {
+        "op": "modifier",
+        "id": "harsh_tax",
+        "name": "Harsh taxes",
+        "turns": 3,
+        "gold": 40,
+        "blocs": {
+          "people": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "lower_taxes",
+    "category": "Economy",
+    "title": "Ease the tax",
+    "summary": "A week of mercy on lands that already pay you. The ledgers will call it weakness or wisdom, depending on the year.",
+    "requires": {
+      "min_player_territories": 1
+    },
+    "effects": [
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 6
+      },
+      {
+        "op": "claim",
+        "amount": 1
+      },
+      {
+        "op": "modifier",
+        "id": "eased_tax",
+        "name": "Eased taxes",
+        "turns": 3,
+        "gold": -30
+      }
+    ]
+  },
+  {
+    "id": "spread_word",
+    "category": "Diplomacy",
+    "title": "Spread your name",
+    "summary": "Pay criers, priests, and liars who prefer to be called messengers.",
+    "requires": {
+      "min_gold": 80,
+      "min_claim": 14,
+      "not_claimant": "ethan"
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -80
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "id": "spread_word_ethan",
+    "category": "Diplomacy",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Spread your name",
+    "summary": "You are Ethan Valen in the open now. Pay the road to say so, accusation and all.",
+    "requires": {
+      "min_gold": 80,
+      "flags": [
+        "ETHAN_REVEALED"
+      ]
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -80
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "id": "host_feast",
+    "category": "Diplomacy",
+    "title": "Host a feast",
+    "summary": "Lords eat at a table you control, and rent you an evening of courtesy.",
+    "requires": {
+      "min_gold": 160,
+      "min_rations": 2,
+      "min_player_territories": 1
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -160
+      },
+      {
+        "op": "rations",
+        "amount": -2
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 5
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 3
+      },
+      {
+        "op": "reputation",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "train_forces",
+    "category": "Military",
+    "title": "Drill the host",
+    "summary": "Fewer men will run if they have practised not running. This is for a company that already exists.",
+    "requires": {
+      "min_forces": 200,
+      "min_rations": 1
+    },
+    "effects": [
+      {
+        "op": "morale",
+        "amount": 6
+      },
+      {
+        "op": "rations",
+        "amount": -1
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "address_troops",
+    "category": "Military",
+    "title": "Address the troops",
+    "summary": "Stand where a real host can see your face. A handful of riders does not need a speech. An army does.",
+    "requires": {
+      "min_forces": 250
+    },
+    "effects": [
+      {
+        "op": "morale",
+        "amount": 4
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 3
+      },
+      {
+        "op": "claim",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "public_audience",
+    "category": "Diplomacy",
+    "title": "Hold a public audience",
+    "summary": "Let the people of a land you hold bring their small disasters. Some of them will leave believing you listened.",
+    "requires": {
+      "min_player_territories": 1,
+      "min_gold": 40
+    },
+    "effects": [
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 5
+      },
+      {
+        "op": "reputation",
+        "amount": 2
+      },
+      {
+        "op": "gold",
+        "amount": -40
+      }
+    ]
+  },
+  {
+    "id": "seek_flame",
+    "category": "Diplomacy",
+    "claimants": [
+      "mira",
+      "alistair"
+    ],
+    "title": "Seek the Flame",
+    "summary": "Ask Father Aldren, carefully, what a coronation would require of your soul.",
+    "effects": [
+      {
+        "op": "relation",
+        "id": "aldren_veil",
+        "amount": 4,
+        "political": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "flame",
+        "amount": 4
+      },
+      {
+        "op": "gold",
+        "amount": -30
+      }
+    ],
+    "requires": {
+      "min_gold": 30,
+      "npc_alive": [
+        "aldren_veil"
+      ],
+      "npc_state": {
+        "aldren_veil": "free"
+      }
+    }
+  },
+  {
+    "id": "seek_flame_ethan",
+    "category": "Diplomacy",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Seek the Flame",
+    "summary": "You are Ethan Valen again, in the open. Ask Father Aldren what a coronation would require of a man the court already condemned.",
+    "requires": {
+      "flags": [
+        "ETHAN_REVEALED"
+      ],
+      "min_gold": 30,
+      "npc_alive": [
+        "aldren_veil"
+      ],
+      "npc_state": {
+        "aldren_veil": "free"
+      }
+    },
+    "effects": [
+      {
+        "op": "relation",
+        "id": "aldren_veil",
+        "amount": 4,
+        "political": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "flame",
+        "amount": 4
+      },
+      {
+        "op": "gold",
+        "amount": -30
+      }
+    ]
+  },
+  {
+    "id": "seek_flame_arlo",
+    "category": "Diplomacy",
+    "claimants": [
+      "arlo"
+    ],
+    "title": "Seek the Flame",
+    "summary": "The blood is no longer only a letter. Ask Father Aldren whether a stable-born claim can be blessed without becoming a joke.",
+    "requires": {
+      "min_claim": 24,
+      "min_gold": 30,
+      "npc_alive": [
+        "aldren_veil"
+      ],
+      "npc_state": {
+        "aldren_veil": "free"
+      }
+    },
+    "effects": [
+      {
+        "op": "relation",
+        "id": "aldren_veil",
+        "amount": 4,
+        "political": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "flame",
+        "amount": 4
+      },
+      {
+        "op": "gold",
+        "amount": -30
+      }
+    ]
+  },
+  {
+    "id": "bribe_clerk",
+    "category": "Intrigue",
+    "title": "Bribe a clerk",
+    "summary": "The realm is indexed by people who are underpaid.",
+    "requires": {
+      "min_gold": 100,
+      "min_claim": 14
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -100
+      },
+      {
+        "op": "grant_first_missing",
+        "ids": [
+          "doc_ethan",
+          "doc_arlo",
+          "doc_mira",
+          "rumour_will"
+        ]
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "trade_compact",
+    "category": "Economy",
+    "claimants": [
+      "mira",
+      "alistair"
+    ],
+    "title": "Offer Veyne a compact",
+    "summary": "Lower a tariff you have the power to lower. Celene understands this language, and she does not bargain with men who hold no ports and no seal.",
+    "requires": {
+      "min_gold": 50,
+      "npc_alive": [
+        "celene_veyne"
+      ],
+      "npc_state": {
+        "celene_veyne": "free"
+      },
+      "not_flags": [
+        "TRADE_COMPACT_SIGNED"
+      ]
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": 140
+      },
+      {
+        "op": "house_opinion",
+        "id": "veyne",
+        "amount": 6
+      },
+      {
+        "op": "relation",
+        "id": "celene_veyne",
+        "amount": 3
+      },
+      {
+        "op": "modifier",
+        "id": "low_tariff",
+        "name": "Open ports",
+        "turns": 4,
+        "gold": -20
+      },
+      {
+        "op": "flag",
+        "flag": "TRADE_COMPACT_SIGNED"
+      }
+    ]
+  },
+  {
+    "id": "mercenaries",
+    "category": "Military",
+    "title": "Hire mercenaries",
+    "summary": "The White Company does not care who Erol was. They care that you already have a following, and that you pay.",
+    "requires": {
+      "min_gold": 500,
+      "min_forces": 200
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -500
+      },
+      {
+        "op": "forces",
+        "amount": 400
+      },
+      {
+        "op": "fear",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": -3
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "wait_listen",
+    "category": "Personal",
+    "title": "Wait and listen",
+    "summary": "Spend the week on other people's words. Sometimes that is the whole strategy.",
+    "effects": [
+      {
+        "op": "news",
+        "text": "You let the week speak before you do."
+      },
+      {
+        "op": "reputation",
+        "amount": 1
+      }
+    ],
+    "requires": {}
+  },
+  {
+    "id": "search_chambers",
+    "category": "Intrigue",
+    "claimants": [
+      "mira"
+    ],
+    "title": "Search Erol's chambers",
+    "summary": "You already hold the keys. The question is which paper you are willing to find.",
+    "effects": [
+      {
+        "op": "grant_first_missing",
+        "ids": [
+          "doc_mira",
+          "doc_ethan",
+          "doc_arlo",
+          "final_night_mercy"
+        ]
+      },
+      {
+        "op": "fear",
+        "amount": 1
+      }
+    ],
+    "requires": {
+      "controls": [
+        "caerlyn"
+      ]
+    }
+  },
+  {
+    "id": "seal_records",
+    "category": "Intrigue",
+    "claimants": [
+      "mira"
+    ],
+    "title": "Seal the royal records",
+    "summary": "Lock the archive. Lucan will object in a tone reserved for disasters.",
+    "effects": [
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": -3
+      },
+      {
+        "op": "relation",
+        "id": "lucan_rook",
+        "amount": -4
+      },
+      {
+        "op": "flag",
+        "flag": "RECORDS_SEALED"
+      },
+      {
+        "op": "claim",
+        "amount": 1
+      },
+      {
+        "op": "news",
+        "text": "The royal archive is shut. Curiosity becomes a profession."
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "RECORDS_SEALED"
+      ]
+    }
+  },
+  {
+    "id": "summon_official",
+    "category": "Diplomacy",
+    "claimants": [
+      "mira"
+    ],
+    "title": "Summon the Chancellor",
+    "summary": "Make Lucan Rook say, in front of you, what the law will bear.",
+    "effects": [
+      {
+        "op": "relation",
+        "id": "lucan_rook",
+        "amount": 2,
+        "political": 4
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 4
+      },
+      {
+        "op": "claim",
+        "amount": 1
+      }
+    ],
+    "requires": {
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
+    }
+  },
+  {
+    "id": "guard_investigation",
+    "category": "Intrigue",
+    "claimants": [
+      "mira"
+    ],
+    "title": "Send the Queen's Guard",
+    "summary": "Garran's soldiers ask questions that sound like orders.",
+    "requires": {
+      "not_flags": [
+        "GARRAN_DEAD"
+      ],
+      "npc_alive": [
+        "garran_vale"
+      ],
+      "npc_state": {
+        "garran_vale": "free"
+      }
+    },
+    "effects": [
+      {
+        "op": "fear",
+        "amount": 2
+      },
+      {
+        "op": "chance",
+        "p": 0.6,
+        "success_text": "The Guard returns with a name.",
+        "fail_text": "The trail is cold, and louder for being walked.",
+        "success": [
+          {
+            "op": "ledger_add",
+            "id": "edric_hedging"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ],
+        "fail": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rally_veterans",
+    "category": "Military",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Rally old veterans",
+    "summary": "You ride with only a few loyal men. Others still straighten when your name is whispered. Find which of them will leave their captains.",
+    "effects": [
+      {
+        "op": "forces",
+        "amount": 160
+      },
+      {
+        "op": "rations",
+        "amount": -2
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 4
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "elite_add",
+        "id": "veteran_band"
+      },
+      {
+        "op": "flag",
+        "flag": "VETERANS_RALLIED"
+      }
+    ],
+    "requires": {
+      "min_rations": 2,
+      "not_flags": [
+        "VETERANS_RALLIED"
+      ]
+    }
+  },
+  {
+    "id": "reveal_identity",
+    "category": "Personal",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Speak your name",
+    "summary": "Stop being a hired sword. Become the king's brother again, accusation and all.",
+    "requires": {
+      "not_flags": [
+        "ETHAN_REVEALED"
+      ]
+    },
+    "effects": [
+      {
+        "op": "flag",
+        "flag": "ETHAN_REVEALED"
+      },
+      {
+        "op": "claim",
+        "amount": 8
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 6
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": -4
+      },
+      {
+        "op": "rival",
+        "id": "mira",
+        "field": "hostility",
+        "amount": 12
+      },
+      {
+        "op": "news",
+        "text": "Ethan Valen is no longer a rumour. He is on the road with his own face."
+      }
+    ]
+  },
+  {
+    "id": "visit_regiment",
+    "category": "Military",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Visit a former regiment",
+    "summary": "A company you once led is within a week's ride. Ask whether their oath was to Erol, or to the man they still measure other captains against.",
+    "effects": [
+      {
+        "op": "forces",
+        "amount": 90
+      },
+      {
+        "op": "relation",
+        "id": "bren_tal",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 3
+      },
+      {
+        "op": "flag",
+        "flag": "REGIMENT_VISITED"
+      }
+    ],
+    "requires": {
+      "npc_alive": [
+        "bren_tal"
+      ],
+      "npc_state": {
+        "bren_tal": "free"
+      },
+      "not_flags": [
+        "REGIMENT_VISITED"
+      ]
+    }
+  },
+  {
+    "id": "appeal_people",
+    "category": "Diplomacy",
+    "claimants": [
+      "ethan"
+    ],
+    "title": "Appeal in the market",
+    "summary": "No feast. No seal. Just a man the villages used to feed.",
+    "effects": [
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 6
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "reputation",
+        "amount": 2
+      }
+    ],
+    "requires": {}
+  },
+  {
+    "id": "trace_payments",
+    "category": "Intrigue",
+    "claimants": [
+      "arlo"
+    ],
+    "title": "Trace the royal payments",
+    "summary": "Follow the money that raised you. Tomas will feel the footsteps.",
+    "effects": [
+      {
+        "op": "ledger_add",
+        "id": "maren_payments"
+      },
+      {
+        "op": "relation",
+        "id": "tomas_maren",
+        "amount": -4
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "chronicle",
+        "id": "ab_payments"
+      },
+      {
+        "op": "flag",
+        "flag": "PAYMENTS_TRACED"
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "PAYMENTS_TRACED"
+      ]
+    }
+  },
+  {
+    "id": "seek_witness",
+    "category": "Intrigue",
+    "claimants": [
+      "arlo"
+    ],
+    "title": "Seek a witness to your birth",
+    "summary": "The lodge is three hundred miles and twenty-four years away. Someone is still alive.",
+    "requires": {
+      "min_gold": 30,
+      "missing_ledger": [
+        "arlo_birth_witness"
+      ]
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -30
+      },
+      {
+        "op": "chance",
+        "p": 0.65,
+        "success_text": "An old under-cook remembers Lysa.",
+        "fail_text": "The lodge has been emptied of people who remember anything useful.",
+        "success": [
+          {
+            "op": "ledger_add",
+            "id": "arlo_birth_witness"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_lysa"
+          }
+        ],
+        "fail": [
+          {
+            "op": "news",
+            "text": "The hunting lodge keeps its mouth shut."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ask_maren",
+    "category": "Personal",
+    "claimants": [
+      "arlo"
+    ],
+    "title": "Ask House Maren outright",
+    "summary": "Tomas and Evelyne have been your parents. Today you ask them to be witnesses.",
+    "effects": [
+      {
+        "op": "relation",
+        "id": "tomas_maren",
+        "amount": -2,
+        "political": 4
+      },
+      {
+        "op": "relation",
+        "id": "evelyne_maren",
+        "amount": -3
+      },
+      {
+        "op": "house_opinion",
+        "id": "maren",
+        "amount": 4
+      },
+      {
+        "op": "flag",
+        "flag": "ASKED_MAREN"
+      },
+      {
+        "op": "news",
+        "text": "You ask the only family you have whether they have been lying kindly."
+      }
+    ],
+    "requires": {
+      "npc_alive": [
+        "evelyne_maren",
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free",
+        "evelyne_maren": "free"
+      },
+      "not_flags": [
+        "ASKED_MAREN"
+      ]
+    }
+  },
+  {
+    "id": "present_proofs",
+    "category": "Diplomacy",
+    "claimants": [
+      "arlo"
+    ],
+    "title": "Present the proofs",
+    "summary": "Lay the letters, the payments, and the witness where a lord cannot pretend to be confused.",
+    "effects": [
+      {
+        "op": "prove_blood",
+        "ids": [
+          "sealed_letter",
+          "maren_payments",
+          "arlo_birth_witness",
+          "master_ren_is_erol",
+          "doc_arlo"
+        ],
+        "need": 2,
+        "claim": 12
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "BLOOD_PROVEN"
+      ],
+      "ledger_count": {
+        "ids": [
+          "sealed_letter",
+          "maren_payments",
+          "arlo_birth_witness",
+          "master_ren_is_erol",
+          "doc_arlo"
+        ],
+        "min": 2
+      }
+    }
+  },
+  {
+    "id": "demand_submission",
+    "category": "Diplomacy",
+    "claimants": [
+      "alistair"
+    ],
+    "title": "Demand submission",
+    "summary": "Send terms. Call them peace. Mean the army behind them.",
+    "effects": [
+      {
+        "op": "fear",
+        "amount": 4
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": -3
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "flag",
+        "flag": "DEMANDS_SENT"
+      }
+    ],
+    "requires": {}
+  },
+  {
+    "id": "call_levies",
+    "category": "Military",
+    "claimants": [
+      "alistair"
+    ],
+    "title": "Call the northern levies",
+    "summary": "More spears. More mouths. The Reach answers because it has been trained to.",
+    "effects": [
+      {
+        "op": "forces",
+        "amount": 600
+      },
+      {
+        "op": "rations",
+        "amount": -6
+      },
+      {
+        "op": "bloc",
+        "bloc": "military",
+        "amount": 3
+      },
+      {
+        "op": "fear",
+        "amount": 1
+      },
+      {
+        "op": "flag",
+        "flag": "NORTHERN_LEVIES_CALLED"
+      }
+    ],
+    "requires": {
+      "min_rations": 6,
+      "not_flags": [
+        "NORTHERN_LEVIES_CALLED"
+      ]
+    }
+  },
+  {
+    "id": "issue_ultimatum",
+    "category": "Diplomacy",
+    "claimants": [
+      "alistair"
+    ],
+    "title": "Renew the marriage ultimatum",
+    "summary": "Mira may crown you, or meet you on the road. You let her hear both sentences in the same letter.",
+    "effects": [
+      {
+        "op": "flag",
+        "flag": "ULTIMATUM_SENT"
+      },
+      {
+        "op": "rival",
+        "id": "mira",
+        "field": "hostility",
+        "amount": 6
+      },
+      {
+        "op": "fear",
+        "amount": 3
+      },
+      {
+        "op": "claim",
+        "amount": 1
+      },
+      {
+        "op": "schedule",
+        "event": "ultimatum_reply",
+        "delay": 2
+      }
+    ],
+    "requires": {
+      "not_flags": [
+        "ULTIMATUM_SENT"
+      ],
+      "npc_alive": [
+        "mira"
+      ],
+      "npc_state": {
+        "mira": "free"
+      }
+    }
+  },
+  {
+    "id": "intimidate_lord",
+    "category": "Intrigue",
+    "claimants": [
+      "alistair"
+    ],
+    "title": "Frighten a lesser lord",
+    "summary": "A visit from Storm is rarely social.",
+    "effects": [
+      {
+        "op": "fear",
+        "amount": 5
+      },
+      {
+        "op": "bloc",
+        "bloc": "nobility",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": -4
+      },
+      {
+        "op": "house_opinion",
+        "id": "harrow",
+        "amount": -6
+      }
+    ],
+    "requires": {}
+  },
+  {
+    "id": "raid_territory",
+    "generator": "raid_territory",
+    "category": "Military",
+    "title": "Raid",
+    "summary": "Strike a land you do not hold.",
+    "requires": {
+      "min_forces": 200
+    }
+  },
+  {
+    "id": "spy_rival",
+    "generator": "spy_rival",
+    "category": "Intrigue",
+    "title": "Spy",
+    "summary": "Buy a look at a rival.",
+    "requires": {
+      "min_gold": 120,
+      "min_claim": 14
+    }
+  },
+  {
+    "id": "envoy_house",
+    "generator": "envoy_house",
+    "category": "Diplomacy",
+    "title": "Envoy",
+    "summary": "Visit a house.",
+    "requires": {
+      "min_gold": 150,
+      "min_claim": 14
+    }
+  },
+  {
+    "id": "assassinate_rival",
+    "generator": "assassinate_rival",
+    "category": "Intrigue",
+    "title": "Assassinate",
+    "summary": "A knife instead of a war.",
+    "requires": {
+      "min_gold": 400,
+      "min_claim": 20,
+      "min_forces": 200
+    }
+  },
+  {
+    "id": "fortify_territory",
+    "generator": "fortify_territory",
+    "category": "Military",
+    "title": "Fortify",
+    "summary": "Spend coin on walls.",
+    "requires": {
+      "min_gold": 200,
+      "min_player_territories": 1
+    }
+  },
+  {
+    "id": "occupy_territory",
+    "generator": "occupy_territory",
+    "category": "Military",
+    "title": "Occupy",
+    "summary": "Take a land because you can.",
+    "requires": {
+      "min_forces": 800
+    }
+  },
+  {
+    "id": "charter_territory",
+    "generator": "charter_territory",
+    "category": "Diplomacy",
+    "title": "Grant a local charter",
+    "summary": "Win unaligned land by protecting its local rights.",
+    "requires": {
+      "min_gold": 100,
+      "min_claim": 20,
+      "min_bloc": {
+        "people": 10
+      }
+    }
+  },
+  {
+    "id": "reconcile_rival",
+    "generator": "reconcile_rival",
+    "category": "Diplomacy",
+    "title": "Negotiate safe passage",
+    "summary": "Invest in a peace that costs less than the next war.",
+    "requires": {
+      "min_gold": 90,
+      "min_rations": 2,
+      "min_claim": 24,
+      "max_fear": 65
+    }
+  },
+  {
+    "id": "relief_granaries",
+    "category": "Economy",
+    "title": "Open relief granaries",
+    "summary": "Purchase a reserve for the villages and protect the next harvest. Relief restores order, but the money cannot also pay your soldiers.",
+    "requires": {
+      "min_gold": 120,
+      "min_player_territories": 1
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -120
+      },
+      {
+        "op": "rations",
+        "amount": 6
+      },
+      {
+        "op": "stability",
+        "amount": 6
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 4
+      },
+      {
+        "op": "fear",
+        "amount": -2
+      },
+      {
+        "op": "flag",
+        "flag": "RELIEF_GRANARIES"
+      }
+    ]
+  },
+  {
+    "id": "honour_oaths",
+    "category": "Personal",
+    "title": "Review the public oaths",
+    "summary": "Bring unpaid petitions back before the council. Keeping your word needs clerks, witnesses and grain.",
+    "requires": {
+      "min_gold": 70,
+      "min_rations": 1,
+      "min_claim": 30
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -70
+      },
+      {
+        "op": "rations",
+        "amount": -1
+      },
+      {
+        "op": "claim",
+        "amount": 2
+      },
+      {
+        "op": "reputation",
+        "amount": 3
+      },
+      {
+        "op": "stability",
+        "amount": 3
+      },
+      {
+        "op": "bloc",
+        "bloc": "court",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "border_watch",
+    "category": "Military",
+    "title": "Fund the border watch",
+    "summary": "Pay the watchtowers and the eastern patrols. A guarded border leaves foreign agents fewer roads into the succession.",
+    "requires": {
+      "min_gold": 80,
+      "min_forces": 100,
+      "min_foreign": 1,
+      "min_bloc": {
+        "military": 10
+      }
+    },
+    "effects": [
+      {
+        "op": "gold",
+        "amount": -80
+      },
+      {
+        "op": "foreign",
+        "amount": -4
+      },
+      {
+        "op": "stability",
+        "amount": 3
+      },
+      {
+        "op": "morale",
+        "amount": 2
+      },
+      {
+        "op": "bloc",
+        "bloc": "people",
+        "amount": 1
+      },
+      {
+        "op": "flag",
+        "flag": "BORDER_SECURED"
+      }
+    ]
+  },
+  {
+    "id": "prisoner_settlement",
+    "generator": "prisoner_settlement",
+    "category": "Personal",
+    "title": "Settle a prisoner's fate",
+    "summary": "Choose what your custody means for the person held in it."
+  }
 ]

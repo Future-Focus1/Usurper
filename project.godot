@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Usurper"
-config/description="A turn-based succession game in the kingdom of Nezrel."
+config/description="Four lives. One crown. A political chronicle in the kingdom of Nezrel."
+config/version="1.0.0"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -36,5 +37,5 @@ window/size/min_height=576
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=1
 renderer/rendering_method="gl_compatibility"

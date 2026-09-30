@@ -3,7 +3,9 @@ extends RefCounted
 
 ## Mutable campaign. Static lore stays in ContentDB. This object is what saves.
 
-var version := 1
+var version := 2
+var campaign_id := ""
+var ending_data := {}
 var claimant_id := ""
 var turn := 1
 var gold := 0
@@ -51,6 +53,27 @@ var rng := RandomNumberGenerator.new()
 
 
 func setup(id: String, db: ContentDB) -> void:
+	version = 2
+	ending_data = {}
+	news = []
+	log = []
+	ledger_archive = []
+	wounded = {}
+	scheduled = []
+	modifiers = []
+	forced_events = []
+	seen_events = {}
+	event_queue = []
+	event_index = 0
+	action_taken = ""
+	pending_battle = {}
+	pending_throne_route = ""
+	post_battle = ""
+	defeat_reason = ""
+	banner = ""
+	decisions = []
+	chronicle_this_run = []
+	last_battle = {}
 	claimant_id = id
 	var claimant: Dictionary = db.claimants[id]
 	var start: Dictionary = claimant.get("start", {})
@@ -96,6 +119,7 @@ func setup(id: String, db: ContentDB) -> void:
 		week_report.append(str(line))
 	week_title = "The bells have already rung"
 	rng.randomize()
+	campaign_id = "%s_%d_%d" % [id, Time.get_unix_time_from_system(), rng.randi()]
 	clamp_resources()
 
 
@@ -178,6 +202,12 @@ func has_ledger(id: String) -> bool:
 	return ledger.has(id)
 
 
+func has_proof(id: String) -> bool:
+	# A document formally read into the public record remains evidence even
+	# after it leaves the private ledger. Selling or burning a secret does not.
+	return has_ledger(id) or (ledger_archive.has(id) and bool(flags.get("REVEALED_" + id.to_upper(), false)))
+
+
 func remove_ledger(id: String) -> void:
 	if ledger.has(id):
 		ledger.erase(id)
@@ -238,11 +268,33 @@ func clamp_resources() -> void:
 	army_morale = clampi(army_morale, 0, 100)
 	for key in blocs.keys():
 		blocs[key] = clampi(int(blocs[key]), -100, 100)
+	for id in territories:
+		territories[id]["loyalty"] = clampi(int(territories[id].get("loyalty", 50)), 0, 100)
+		territories[id]["unrest"] = clampi(int(territories[id].get("unrest", 0)), 0, 100)
+		territories[id]["fort"] = clampi(int(territories[id].get("fort", 0)), 0, 12)
+	for id in npcs:
+		npcs[id]["personal"] = clampi(int(npcs[id].get("personal", 0)), -100, 100)
+		npcs[id]["political"] = clampi(int(npcs[id].get("political", 0)), -100, 100)
+		if str(npcs[id].get("state", "")) == "dead":
+			npcs[id]["alive"] = false
+		if not bool(npcs[id].get("alive", false)):
+			npcs[id]["state"] = "dead"
+			commanders.erase(id)
+			if rivals.has(id):
+				rivals[id]["alive"] = false
+				rivals[id]["forces"] = 0
+	for id in rivals:
+		for field in ["gold", "rations", "forces", "cooldown", "temper"]:
+			rivals[id][field] = maxi(0, int(rivals[id].get(field, 0)))
+		for field in ["claim", "fear", "hostility"]:
+			rivals[id][field] = clampi(int(rivals[id].get(field, 0)), 0, 100)
 
 
 func to_dict() -> Dictionary:
 	return {
 		"version": version,
+		"campaign_id": campaign_id,
+		"ending_data": ending_data.duplicate(true),
 		"claimant_id": claimant_id,
 		"turn": turn,
 		"gold": gold,
@@ -286,8 +338,9 @@ func to_dict() -> Dictionary:
 		"decisions": decisions.duplicate(true),
 		"chronicle_this_run": chronicle_this_run.duplicate(),
 		"last_battle": last_battle.duplicate(true),
-		"rng_seed": rng.seed,
-		"rng_state": rng.state,
+		# JSON numbers cannot preserve the RNG's full 64-bit state.
+		"rng_seed": str(rng.seed),
+		"rng_state": str(rng.state),
 	}
 
 
@@ -297,8 +350,11 @@ static func from_dict(data: Dictionary, db: ContentDB) -> CampaignState:
 	if not db.claimants.has(state.claimant_id):
 		state.claimant_id = "mira"
 	state.setup(state.claimant_id, db)
-	state.version = int(data.get("version", 1))
-	state.turn = int(data.get("turn", 1))
+	state.version = 2
+	state.campaign_id = str(data.get("campaign_id", "%s_legacy_%s" % [state.claimant_id, str(data.get("rng_seed", "1"))]))
+	var saved_ending = data.get("ending_data", {})
+	state.ending_data = saved_ending.duplicate(true) if typeof(saved_ending) == TYPE_DICTIONARY else {}
+	state.turn = maxi(1, int(data.get("turn", 1)))
 	state.gold = int(data.get("gold", 0))
 	state.rations = int(data.get("rations", 0))
 	state.forces = int(data.get("forces", 0))
@@ -326,21 +382,30 @@ static func from_dict(data: Dictionary, db: ContentDB) -> CampaignState:
 	state.npcs = _merge_npcs(data.get("npcs", {}), state.npcs)
 	state.rivals = _merge_rivals(data.get("rivals", {}), state.rivals)
 	state.ledger = _string_list(data.get("ledger", []))
+	state.ledger = state.ledger.filter(func(id): return db.ledger.has(str(id)))
 	state.ledger_archive = _string_list(data.get("ledger_archive", []))
+	state.ledger_archive = state.ledger_archive.filter(func(id): return db.ledger.has(str(id)))
 	state.houses = _merge_houses(data.get("houses", {}), state.houses)
 	state.elites = _string_list(data.get("elites", []))
+	state.elites = state.elites.filter(func(id): return db.units.has(str(id)))
 	state.commanders = _string_list(data.get("commanders", []))
+	state.commanders = state.commanders.filter(func(id): return db.characters.has(str(id)))
 	state.wounded = _int_map(data.get("wounded", {}))
 	state.scheduled = _dict_list(data.get("scheduled", []))
 	state.modifiers = _dict_list(data.get("modifiers", []))
 	state.forced_events = _string_list(data.get("forced_events", []))
 	state.seen_events = _int_map(data.get("seen_events", {}))
 	state.event_queue = _string_list(data.get("event_queue", []))
-	state.event_index = int(data.get("event_index", 0))
+	state.event_queue = state.event_queue.filter(func(id): return db.events_by_id.has(str(id)))
+	state.event_index = clampi(int(data.get("event_index", 0)), 0, state.event_queue.size())
 	state.phase = str(data.get("phase", "overview"))
+	if not ["overview", "event", "action", "response", "ending"].has(state.phase):
+		state.phase = "overview"
 	state.action_taken = str(data.get("action_taken", ""))
 	var pending = data.get("pending_battle", {})
 	state.pending_battle = pending.duplicate(true) if typeof(pending) == TYPE_DICTIONARY else {}
+	if not state.pending_battle.is_empty() and not db.battles.has(str(state.pending_battle.get("battle_id", ""))):
+		state.pending_battle = {}
 	state.pending_throne_route = str(data.get("pending_throne_route", ""))
 	state.post_battle = str(data.get("post_battle", ""))
 	state.defeat_reason = str(data.get("defeat_reason", ""))
@@ -391,7 +456,7 @@ static func _merge_territories(raw, fallback: Dictionary) -> Dictionary:
 	if typeof(raw) != TYPE_DICTIONARY:
 		return out
 	for key in raw:
-		if typeof(raw[key]) != TYPE_DICTIONARY:
+		if typeof(raw[key]) != TYPE_DICTIONARY or not out.has(str(key)):
 			continue
 		var row: Dictionary = raw[key]
 		out[str(key)] = {

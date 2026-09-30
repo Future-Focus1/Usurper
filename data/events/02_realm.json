@@ -5,7 +5,7 @@
     "speaker": "Ethan Valen, by letter",
     "place": "Maren hall",
     "portrait": "#3d5a73",
-    "text": "The reply is in a soldier's hand, short of ornaments. He will look at the proofs. He will not kneel to a story. If the blood is real, he says, then one of you should wear the crown and the other should keep it from being a child's mistake.",
+    "text": "Ethan’s reply contains no ornaments. He will examine the evidence of your birth. If it stands, he offers to be Protector beside an adult monarch, with his powers written and limited. You would be uncle and nephew choosing a common government, rather than rivals repeating the damage of the previous generation.",
     "weight": 3,
     "priority": 82,
     "one_time": true,
@@ -13,7 +13,16 @@
     "requires": {
       "flags": [
         "BROTHERS_OFFERED"
-      ]
+      ],
+      "rival_alive": [
+        "ethan"
+      ],
+      "npc_alive": [
+        "ethan"
+      ],
+      "npc_state": {
+        "ethan": "free"
+      }
     },
     "choices": [
       {
@@ -90,7 +99,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "ethan",
+    "scene": "maren",
+    "scheduled_only": true
   },
   {
     "id": "miller_tithe",
@@ -131,7 +143,10 @@
             "op": "flag",
             "flag": "MILLER_EASED"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "keep",
@@ -177,7 +192,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "relic_procession",
@@ -217,7 +233,10 @@
             "op": "flag",
             "flag": "RELIC_WALKED"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "stop",
@@ -255,9 +274,13 @@
             "op": "flag",
             "flag": "RELIC_SMALL"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "murdered_messenger",
@@ -318,7 +341,10 @@
               }
             ]
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 30
+        }
       },
       {
         "id": "reprisal",
@@ -363,7 +389,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "salt_shortage",
@@ -402,7 +429,10 @@
             "op": "flag",
             "flag": "SALT_BOUGHT"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 80
+        }
       },
       {
         "id": "seize",
@@ -451,7 +481,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bard_in_the_yard",
@@ -489,7 +520,10 @@
             "op": "flag",
             "flag": "BARD_KIND"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 35
+        }
       },
       {
         "id": "silence",
@@ -503,7 +537,10 @@
             "op": "flag",
             "flag": "BARD_SILENCED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 20
+        }
       },
       {
         "id": "whip",
@@ -524,7 +561,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "armoury_leak",
@@ -559,7 +597,10 @@
             "op": "flag",
             "flag": "ARMOURY_AUDITED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 10
+        }
       },
       {
         "id": "hang",
@@ -595,7 +636,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "widow_of_the_gate",
@@ -635,7 +677,10 @@
             "op": "flag",
             "flag": "WIDOW_PAID"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 25
+        }
       },
       {
         "id": "name",
@@ -675,7 +720,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "horse_sickness",
@@ -728,7 +774,10 @@
             "bloc": "military",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 40
+        }
       },
       {
         "id": "maren",
@@ -747,9 +796,13 @@
             "op": "flag",
             "flag": "MAREN_FARRIER"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "tavern_knives",
@@ -788,7 +841,11 @@
             "op": "flag",
             "flag": "TAVERN_SOLDIER"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 20,
+          "min_forces": 15
+        }
       },
       {
         "id": "town",
@@ -833,7 +890,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "forged_warrant",
@@ -872,7 +930,10 @@
             "op": "flag",
             "flag": "SEAL_HUNTED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "amnesty",
@@ -916,7 +977,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bridge_dorn",
@@ -956,7 +1018,10 @@
             "bloc": "people",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 110
+        }
       },
       {
         "id": "break",
@@ -992,7 +1057,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "census_men",
@@ -1068,7 +1134,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "winter_count",
@@ -1102,7 +1169,10 @@
             "op": "flag",
             "flag": "WINTER_BOUGHT"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 100
+        }
       },
       {
         "id": "seize",
@@ -1147,7 +1217,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "pilgrim_tax",
@@ -1187,7 +1258,10 @@
             "op": "flag",
             "flag": "PILGRIMS_FED"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 2
+        }
       },
       {
         "id": "tax",
@@ -1227,7 +1301,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "temple"
   },
   {
     "id": "accused_witch",
@@ -1312,7 +1387,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "knight_no_house",
@@ -1383,7 +1459,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "orphan_company",
@@ -1442,7 +1519,10 @@
             "op": "flag",
             "flag": "ORPHANS_TRAINED"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "front",
@@ -1467,7 +1547,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "grain_cart",
@@ -1501,7 +1582,10 @@
             "op": "flag",
             "flag": "CART_REPLACED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 60
+        }
       },
       {
         "id": "find",
@@ -1559,7 +1643,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "smugglers_coast",
@@ -1599,7 +1684,10 @@
             "bloc": "court",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 50
+        }
       },
       {
         "id": "hang",
@@ -1623,7 +1711,15 @@
             "op": "flag",
             "flag": "SMUGGLERS_HUNG"
           }
-        ]
+        ],
+        "requires": {
+          "npc_alive": [
+            "celene_veyne"
+          ],
+          "npc_state": {
+            "celene_veyne": "free"
+          }
+        }
       },
       {
         "id": "fine",
@@ -1639,7 +1735,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "coast"
   },
   {
     "id": "mine_breath",
@@ -1704,7 +1801,10 @@
             "op": "flag",
             "flag": "SHAFT_OPEN"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "both",
@@ -1721,7 +1821,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "deserter_banner",
@@ -1760,7 +1861,10 @@
             "bloc": "military",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 2
+        }
       },
       {
         "id": "return",
@@ -1805,7 +1909,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "plague_talk",
@@ -1844,7 +1949,10 @@
             "op": "gold",
             "amount": -20
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 20
+        }
       },
       {
         "id": "open",
@@ -1887,9 +1995,13 @@
             "op": "flag",
             "flag": "FEVER_GRAIN"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "scene": "coast"
   },
   {
     "id": "feast_or_stores",
@@ -1933,7 +2045,11 @@
             "op": "flag",
             "flag": "FEAST_HELD"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40,
+          "min_rations": 3
+        }
       },
       {
         "id": "cancel",
@@ -1981,9 +2097,13 @@
             "op": "flag",
             "flag": "FEAST_THIN"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       }
-    ]
+    ],
+    "scene": "court"
   },
   {
     "id": "black_market_arms",
@@ -2061,9 +2181,13 @@
             "op": "flag",
             "flag": "STALL_BOUGHT"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 45
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "grain_prices",
@@ -2100,7 +2224,10 @@
             "op": "flag",
             "flag": "BREAD_SUBSIDY"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 50
+        }
       },
       {
         "id": "rage",
@@ -2136,7 +2263,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "sermon_in_square",
@@ -2196,7 +2324,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "hungry_mouths",
@@ -2249,7 +2378,10 @@
             "bloc": "people",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 35
+        }
       },
       {
         "id": "take",
@@ -2270,7 +2402,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "camp_quarrel",
@@ -2330,7 +2463,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "rumour_market",
@@ -2394,9 +2528,13 @@
             "bloc": "court",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 25
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "levy_complaint",
@@ -2454,7 +2592,10 @@
             "op": "reputation",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 60
+        }
       },
       {
         "id": "pay",
@@ -2469,9 +2610,13 @@
             "bloc": "military",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 70
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "night_watch",
@@ -2518,7 +2663,10 @@
             "op": "fear",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 30
+        }
       },
       {
         "id": "accept",
@@ -2531,7 +2679,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "merchant_caravan",
@@ -2566,7 +2715,10 @@
             "id": "veyne",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 20
+        }
       },
       {
         "id": "refuse",
@@ -2598,6 +2750,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

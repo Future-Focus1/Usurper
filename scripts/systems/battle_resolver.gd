@@ -28,6 +28,7 @@ var start_player_strength := 1
 var start_enemy_strength := 1
 var destroyed: Array = []
 var max_rounds := 8
+var _cached_result := {}
 
 
 func setup(setup: Dictionary) -> void:
@@ -48,6 +49,12 @@ func setup(setup: Dictionary) -> void:
 	player_reserve = []
 	enemy_reserve = []
 	destroyed = []
+	log_lines = []
+	finished = false
+	outcome = ""
+	round_no = 1
+	deployment_open = true
+	_cached_result = {}
 	_deploy(setup.get("player_units", []), "player")
 	_deploy(setup.get("enemy_units", []), "enemy")
 	start_player_strength = maxi(1, _strength("player"))
@@ -186,6 +193,8 @@ func snapshot() -> Dictionary:
 
 
 func result() -> Dictionary:
+	if not _cached_result.is_empty():
+		return _cached_result.duplicate(true)
 	var remain_player := _strength("player")
 	var remain_enemy := _strength("enemy")
 	var player_ratio := 1.0 - float(remain_player) / float(maxi(1, start_player_strength))
@@ -197,20 +206,24 @@ func result() -> Dictionary:
 		var elite_id := str(unit.get("elite_id", ""))
 		if bool(unit.get("elite", false)) and elite_id != "" and not elites_lost.has(elite_id):
 			elites_lost.append(elite_id)
-	return {
+	var fates := _fates() if finished else []
+	var summary := {
 		"outcome": outcome if outcome != "" else "stalemate",
 		"forces_lost": clampi(int(float(player_forces) * player_ratio), 0, player_forces),
 		"enemy_lost": clampi(int(float(enemy_forces) * enemy_ratio), 0, enemy_forces),
 		"player_morale": player_morale,
 		"enemy_morale": enemy_morale,
 		"log": log_lines.duplicate(),
-		"commanders": _fates(),
+		"commanders": fates,
 		"elites_lost": elites_lost,
 		"title": title,
 		"rounds": round_no,
 		"battle_id": battle_id,
 		"rival_id": rival_id,
 	}
+	if finished:
+		_cached_result = summary.duplicate(true)
+	return summary
 
 
 func _deploy(units: Array, side: String) -> void:
@@ -222,6 +235,8 @@ func _deploy(units: Array, side: String) -> void:
 		unit["side"] = side
 		if str(unit.get("uid", "")) == "":
 			unit["uid"] = "%s_%d" % [side, index]
+		else:
+			unit["uid"] = side + "_" + str(unit["uid"])
 		var base := str(unit.get("base", unit.get("type", "")))
 		var hold_back := base == "cavalry" and units.size() >= 4 and index == units.size() - 1
 		if hold_back:

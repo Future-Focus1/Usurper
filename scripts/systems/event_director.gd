@@ -51,6 +51,12 @@ static func pick_audience(state: CampaignState, db: ContentDB) -> Array:
 		var fallback: Dictionary = db.event_by_id("quiet_week")
 		if not fallback.is_empty():
 			chosen.append(fallback)
+	# An overcrowded week must not erase a promised consequence.
+	for event in forced:
+		if not _contains(chosen, event):
+			var deferred_id := str(event.get("id", ""))
+			if not state.forced_events.has(deferred_id):
+				state.forced_events.append(deferred_id)
 	state.event_queue = []
 	for event in chosen:
 		var id := str(event.get("id", ""))
@@ -61,9 +67,16 @@ static func pick_audience(state: CampaignState, db: ContentDB) -> Array:
 
 
 static func current(state: CampaignState, db: ContentDB) -> Dictionary:
-	if state.event_index < 0 or state.event_index >= state.event_queue.size():
-		return {}
-	return db.event_by_id(str(state.event_queue[state.event_index]))
+	while state.event_index >= 0 and state.event_index < state.event_queue.size():
+		var id := str(state.event_queue[state.event_index])
+		var event := db.event_by_id(id)
+		# Earlier petitions can kill or imprison the next speaker, destroy proof,
+		# or change control. Never present a scene whose premise has ceased to exist.
+		if not event.is_empty() and ConditionChecker.met(event.get("requires", {}), state, db):
+			return event
+		state.seen_events[id] = maxi(0, int(state.seen_events.get(id, 1)) - 1)
+		state.event_index += 1
+	return {}
 
 
 static func _take_forced(state: CampaignState, db: ContentDB) -> Array:
@@ -77,6 +90,16 @@ static func _take_forced(state: CampaignState, db: ContentDB) -> Array:
 		var id := str(event.get("id", ""))
 		if bool(event.get("one_time", true)) and int(state.seen_events.get(id, 0)) > 0:
 			continue
+		if not ConditionChecker.met(event.get("requires", {}), state, db):
+			# Retain delayed scenes whose prerequisites may return; terminally
+			# impossible scenes are discarded when their characters have died.
+			var terminal := false
+			for npc in event.get("requires", {}).get("npc_alive", []):
+				if not state.npc_alive(str(npc)):
+					terminal = true
+			if not terminal and not state.forced_events.has(id):
+				state.forced_events.append(id)
+			continue
 		found.append(event)
 	return found
 
@@ -85,6 +108,8 @@ static func _available(state: CampaignState, db: ContentDB) -> Array:
 	var pool: Array = []
 	for event in db.events:
 		if bool(event.get("fallback", false)):
+			continue
+		if bool(event.get("scheduled_only", false)):
 			continue
 		var id := str(event.get("id", ""))
 		if bool(event.get("one_time", true)) and int(state.seen_events.get(id, 0)) > 0:

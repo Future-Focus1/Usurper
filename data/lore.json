@@ -1,0 +1,150 @@
+{
+  "title": "THE ATLAS OF NEZREL",
+  "subtitle": "Places, customs, and the lives behind the banners. Secrets belong to the Chronicle.",
+  "categories": [
+    {
+      "id": "realm",
+      "title": "A Kingdom Made of Many Lands",
+      "entries": [
+        {
+          "id": "nezrel",
+          "title": "Nezrel",
+          "text": "The Crown has joined Nezrel’s old tribes, towns and petty kingdoms for roughly six hundred years. It has never made them identical. Northern miners bargain in iron, eastern farmers in harvests, southern merchants in cargo space and western families in obligations older than a royal writ. Erol II kept those bargains working for nearly forty years. His death at seventy leaves no publicly acknowledged heir and no simple law capable of replacing him."
+        },
+        {
+          "id": "caerlyn",
+          "title": "Caerlyn and the River Vey",
+          "text": "Nearly sixty thousand people live around the rocky hill of Castle Caerlyn. The King’s Road and Temple Quarter house wealth and influence; the riverside houses trade; the lower districts house the labour that makes both possible. Bells are heard across all of them. Crowns are taken in the Hall of Kings, but bread comes through the river quays. The city’s oldest warning says a wise king fears his bedroom. Its newest fear is an empty granary."
+        },
+        {
+          "id": "dorn",
+          "title": "The River Dorn",
+          "text": "The Dorn marks a practical boundary between the northern roads and the central grain routes. A bridge here can move an army or feed a capital. Each of the bank villages remembers a different lord claiming the toll. Repairing a crossing benefits whoever travels tomorrow, which makes engineering a political argument. Floods recognise no claimant’s seal."
+        },
+        {
+          "id": "reach",
+          "title": "The Reach of Storms",
+          "text": "Iron seams, pine forests and mountain passes make the Reach difficult to invade and costly to govern. Stormhold has never been captured. Northern families admire the maintained roads and regular soldiers’ wages of House Storm, but they also remember the magistrates who collect every debt. The northern host can march south quickly; supplying it beyond its own valleys is another matter."
+        },
+        {
+          "id": "maren",
+          "title": "Maren Vale",
+          "text": "The eastern vale grows wheat and breeds horses renowned throughout Nezrel. House Maren’s prosperity depends on healthy animals, water rights and tenants keeping seed for another season. Tomas administers contracts; Evelyne administers the household that makes the contracts possible. Arlo has worked among its grooms since childhood. A declaration from Maren supplies more than a banner: it risks the farms behind it."
+        },
+        {
+          "id": "veyne",
+          "title": "The Veyne Coast",
+          "text": "Salt flats, grain quays and deep-water harbours support the southern coast. Celene Veyne’s ships carry goods inland along the River Vey and out to foreign ports. A closed harbour may look like leverage from a council chamber. From the riverside it looks like lost work and an empty market. Pirates and foreign customs make the coast vulnerable even when every claimant agrees to peace."
+        },
+        {
+          "id": "harrow",
+          "title": "The Harrowlands and Western Forest",
+          "text": "Ruined forts mark older borders among western woods. Harrow tenants supply longbows and timber, but poor roads and exhausted fields have weakened their house. Beyond the managed woodland, isolated settlements accept the Crown when its roads and courts help them. Raiders make use of every argument about which lord should pay for protection."
+        },
+        {
+          "id": "march",
+          "title": "The Eastern March and Varos",
+          "text": "Twenty years ago Erol defeated Varos and took disputed border land. Peace changed the maps more quickly than the loyalties of the villages on them. Varos still considers the settlement temporary. An envoy’s purse may purchase supplies today and foreign rights tomorrow. The eastern forts exist because succession quarrels do not suspend the ambitions of neighbouring kings."
+        }
+      ]
+    },
+    {
+      "id": "institutions",
+      "title": "The Work of Power",
+      "entries": [
+        {
+          "id": "succession",
+          "title": "A Crown Without One Law",
+          "text": "Nezrel generally favours legitimate sons, then brothers and their descendants. Tradition carries almost as much weight as written law, and exceptions survive as arguments rather than a reliable order. A recognised illegitimate child is not automatically a lawful heir. A lawful heir is not automatically able to rule. The crisis concerns blood, authority and the people who must make either effective."
+        },
+        {
+          "id": "pillars",
+          "title": "The Three Pillars",
+          "text": "The Crown is represented by possession of Caerlyn and the royal regalia. The Great Houses speak through the Council of Lords. The Flame gives recognition through the High Keeper’s coronation rite. All three can make a reign seem inevitable; two can sustain a disputed monarch; one usually makes a civil war. None removes the need to feed soldiers and towns."
+        },
+        {
+          "id": "flame",
+          "title": "The Faith of the Flame",
+          "text": "Every person is believed to carry a spark of the divine fire. The ruler is the Keeper of the Hearth, charged with preserving the peace in which those sparks survive. At coronation the High Keeper lights the Crown Candle from the ancient flame in Caerlyn’s Great Temple. Scripture does not exclude women from rule. Provincial teachings and noble interests have made the practical question less clear."
+        },
+        {
+          "id": "guard",
+          "title": "The Forty-Eight",
+          "text": "The Queen’s Guard numbers forty-eight selected soldiers trained in escort, investigation and palace security. They guard the royal household rather than the kingdom. Their loyalty traditionally belongs to the queen. Ordinary garrison soldiers and allied companies make up the rest of Mira’s forces; the Guard itself is not an army. Garran Vale learned his profession under Ethan before accepting command from Mira."
+        },
+        {
+          "id": "army",
+          "title": "The Royal Army",
+          "text": "The royal military establishment numbers roughly twenty thousand across border forts, provincial garrisons and the field army. Marshal Bren Tal commands it in the name of the Crown. Its oath is an institution, not a personal promise to any claimant. A pledge from Bren can release a field detachment; it does not teleport every border soldier into a camp. Pay, supply and lawful orders hold the army together."
+        },
+        {
+          "id": "council",
+          "title": "The Council of Nine",
+          "text": "The King’s Council combines permanent offices and political appointments. Lucan Rook keeps royal law and records; Bren Tal represents military command; Celene Veyne represents maritime trade; Oren Pell advises on the sovereign’s health; Aldren Veil represents the Flame. Other seats concern the treasury, roads and provincial petitions. With no monarch, the council can issue a compromise or become another battlefield."
+        },
+        {
+          "id": "aria",
+          "title": "Queen Aria the First Flame",
+          "text": "More than two centuries ago Aria Valen took the crown at twenty-six after a plague killed her father and two brothers. Several lords rebelled against a queen; she defeated them. Her twenty-seven-year reign built roads, standardised courts and restricted private noble armies. Later writers called her an exception. People still use the roads. Whether her example extends to a widow without direct royal descent remains fiercely disputed."
+        },
+        {
+          "id": "calendar",
+          "title": "Weeks of the Empty Crown",
+          "text": "The campaign begins with the bells announcing Erol’s death. Each turn represents roughly one week, moving from the first uncertainty through gathering armies, fractured loyalties and the attempt to settle the crown. The seasonal titles mark the pressures of that campaign rather than a precise historical calendar. A delayed decision gives other households time to act; a hurried one may leave promises unpaid."
+        }
+      ]
+    },
+    {
+      "id": "houses",
+      "title": "The Great Houses",
+      "entries": [
+        {
+          "id": "house_storm",
+          "title": "Storm — We Do Not Bend",
+          "text": "House Storm claims an ancestry older than Nezrel. Its documented northern rule extends for more than four hundred years. Iron, timber and professional soldiers underpin its authority. Alistair’s administration is respected where its severity has bought safety and feared where it has bought submission. Storm’s challenge is to make northern order acceptable to people who have never asked for it."
+        },
+        {
+          "id": "house_maren",
+          "title": "Maren — What We Sow Endures",
+          "text": "The Marens are landowners, horse breeders and cautious keepers of eastern prosperity. Their influence grows from predictable grain and honest contracts. Taking sides endangers both. Tomas and Evelyne’s care for Arlo predates his possible claim, and any alliance that uses him must account for that history."
+        },
+        {
+          "id": "house_veyne",
+          "title": "Veyne — All Rivers Reach Us",
+          "text": "House Veyne governs through ports, ships and agreements made reliable by self-interest. Celene’s support is valuable because traders can deliver food and money when noble promises remain ink. Her tariffs are a way of paying for security, and a way of deciding who pays most. Political friendship with Veyne is best read twice."
+        },
+        {
+          "id": "house_harrow",
+          "title": "Harrow — Remember the Old Blood",
+          "text": "Harrow preserves western names and obligations at a cost its declining estates can barely meet. Osric’s hatred of Storm mixes old rivalry with the humiliation of watching a neighbouring house prosper. Harrow can supply longbows and stubborn loyalty. The lives behind that loyalty deserve more than a lord’s nostalgia."
+        },
+        {
+          "id": "house_edevane",
+          "title": "Edevane — Wisdom Before Steel",
+          "text": "Mira’s birth family gained wealth and access through her marriage. Edric now leads the house with charm and an accountant’s knowledge of how much depends on his aunt. Edevane’s connections can open a council door or quietly close it. A family that fears losing everything may mistake prudence for betrayal."
+        }
+      ]
+    },
+    {
+      "id": "lives",
+      "title": "Lives at the Edge of the Throne",
+      "entries": [
+        {
+          "id": "lysa",
+          "title": "Lysa of the Hunting Lodge",
+          "text": "Lysa worked in the royal hunting lodge and refused to name the father of the child she carried. She died giving birth to Arlo. Her silence has been discussed by powerful people for twenty-four years; her life deserves to be remembered as more than evidence. Those who knew her describe a practical woman who kept wages, letters and small plans for an independent household."
+        },
+        {
+          "id": "erol",
+          "title": "Erol II — The Cost of Delay",
+          "text": "For almost forty years Erol kept roads safer, borders defended and rival houses contained. In private he allowed difficult family decisions to remain unfinished. His last public absence lasted twenty-three days. An official account calls his death a brief illness. The claims that follow it are also arguments over what the kingdom should inherit from a dependable ruler who never settled his own succession."
+        },
+        {
+          "id": "witnesses",
+          "title": "Witnesses and What They Can Know",
+          "text": "A witness can remember a voice without seeing a hand, a medicine without measuring it, or a letter without reading every line. The records of Nezrel contain those limits. Discoveries belong to the person and campaign that found them. The persistent Chronicle lets the reader compare accounts; it does not give a future claimant memories from another life."
+        }
+      ]
+    }
+  ]
+}

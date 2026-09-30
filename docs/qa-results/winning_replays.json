@@ -1,0 +1,1673 @@
+{
+	"alistair": {
+		"claimant": "alistair",
+		"ending": "alistair_conquest_triumph_recovering_feared",
+		"policy": "legitimacy",
+		"seed": 20260930,
+		"steps": [
+			{
+				"choice": "march",
+				"claim_before": 18,
+				"event": "stormhold_messengers",
+				"kind": "petition",
+				"week": 1
+			},
+			{
+				"action": "buy_rations",
+				"claim_before": 20,
+				"kind": "decree",
+				"week": 1
+			},
+			{
+				"choice": "subsidy",
+				"claim_before": 20,
+				"event": "grain_prices",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "food",
+				"claim_before": 20,
+				"event": "northern_refugees",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "buy",
+				"claim_before": 20,
+				"event": "hungry_mouths",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"action": "buy_rations",
+				"claim_before": 20,
+				"kind": "decree",
+				"week": 2
+			},
+			{
+				"choice": "repairs",
+				"claim_before": 19,
+				"event": "storm_shaft",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "move",
+				"claim_before": 19,
+				"event": "camp_quarrel",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "correct",
+				"claim_before": 19,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"action": "occupy_caerlyn",
+				"claim_before": 20,
+				"kind": "decree",
+				"week": 3
+			},
+			{
+				"choice": "talk",
+				"claim_before": 30,
+				"event": "dorn_watch",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "soldier",
+				"claim_before": 31,
+				"event": "tavern_knives",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "pay",
+				"claim_before": 31,
+				"event": "widow_of_the_gate",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"action": "occupy_western_forest",
+				"claim_before": 31,
+				"kind": "decree",
+				"week": 4
+			},
+			{
+				"choice": "look",
+				"claim_before": 33,
+				"event": "osric_road",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "subsidy",
+				"claim_before": 33,
+				"event": "grain_prices",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "audit",
+				"claim_before": 33,
+				"event": "armoury_leak",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"action": "occupy_harrowlands",
+				"claim_before": 33,
+				"kind": "decree",
+				"week": 5
+			},
+			{
+				"choice": "right",
+				"claim_before": 35,
+				"event": "storm_shaft_findings",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "say",
+				"claim_before": 40,
+				"event": "order_at_stormhold",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "stop",
+				"claim_before": 42,
+				"event": "accused_witch",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"action": "occupy_larkspool",
+				"claim_before": 42,
+				"kind": "decree",
+				"week": 6
+			},
+			{
+				"choice": "subsidy",
+				"claim_before": 44,
+				"event": "grain_prices",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "protect",
+				"claim_before": 44,
+				"event": "a_clerk_named",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "no",
+				"claim_before": 45,
+				"event": "hungry_mouths",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"action": "occupy_southern_ports",
+				"claim_before": 45,
+				"kind": "decree",
+				"week": 7
+			},
+			{
+				"choice": "refuse",
+				"claim_before": 47,
+				"event": "salt_contract",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "move",
+				"claim_before": 47,
+				"event": "camp_quarrel",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "grain",
+				"claim_before": 47,
+				"event": "iron_and_mouths",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"action": "occupy_crownlands",
+				"claim_before": 48,
+				"kind": "decree",
+				"week": 8
+			},
+			{
+				"choice": "compact",
+				"claim_before": 49,
+				"event": "storm_compact",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "return",
+				"claim_before": 53,
+				"event": "deserter_banner",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "share",
+				"claim_before": 53,
+				"event": "camp_quarrel",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"action": "occupy_eastern_march",
+				"claim_before": 53,
+				"kind": "decree",
+				"week": 9
+			},
+			{
+				"choice": "use",
+				"claim_before": 55,
+				"event": "refugee_return",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "guild",
+				"claim_before": 56,
+				"event": "orphan_workshop",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "chase",
+				"claim_before": 56,
+				"event": "rumour_of_a_tutor",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"action": "occupy_riverlands",
+				"claim_before": 58,
+				"kind": "decree",
+				"week": 10
+			},
+			{
+				"choice": "road",
+				"claim_before": 67,
+				"event": "storm_mine_return",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "correct",
+				"claim_before": 74,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "hunt",
+				"claim_before": 75,
+				"event": "forged_warrant",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"action": "occupy_old_borderlands",
+				"claim_before": 75,
+				"kind": "decree",
+				"week": 11
+			},
+			{
+				"choice": "leave",
+				"claim_before": 77,
+				"event": "nessa_rumour",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "refuse",
+				"claim_before": 77,
+				"event": "merchant_caravan",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "buy",
+				"claim_before": 77,
+				"event": "the_south_watches",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"action": "occupy_veyne_coast",
+				"claim_before": 77,
+				"kind": "decree",
+				"week": 12
+			},
+			{
+				"choice": "uphold",
+				"claim_before": 79,
+				"event": "storm_compact_test",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "mercy",
+				"claim_before": 84,
+				"event": "census_men",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "use",
+				"claim_before": 84,
+				"event": "forgotten_passage",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"action": "occupy_dorn_crossing",
+				"claim_before": 86,
+				"kind": "decree",
+				"week": 13
+			},
+			{
+				"choice": "close",
+				"claim_before": 88,
+				"event": "mine_breath",
+				"kind": "petition",
+				"week": 14
+			},
+			{
+				"choice": "buy",
+				"claim_before": 88,
+				"event": "black_market_arms",
+				"kind": "petition",
+				"week": 14
+			},
+			{
+				"choice": "ease",
+				"claim_before": 88,
+				"event": "fear_comes_home",
+				"kind": "petition",
+				"week": 14
+			},
+			{
+				"action": "occupy_maren_vale",
+				"claim_before": 88,
+				"kind": "decree",
+				"week": 14
+			},
+			{
+				"choice": "parole",
+				"claim_before": 89,
+				"event": "shared_infirmary",
+				"kind": "petition",
+				"week": 15
+			},
+			{
+				"choice": "fight",
+				"claim_before": 92,
+				"event": "white_company",
+				"kind": "petition",
+				"week": 15
+			},
+			{
+				"choice": "spare",
+				"claim_before": 97,
+				"event": "harrow_in_the_yard",
+				"kind": "petition",
+				"week": 15
+			},
+			{
+				"action": "reveal_master_ren_is_erol",
+				"claim_before": 99,
+				"kind": "decree",
+				"week": 15
+			},
+			{
+				"choice": "feed",
+				"claim_before": 100,
+				"event": "pilgrim_tax",
+				"kind": "petition",
+				"week": 16
+			},
+			{
+				"choice": "rest",
+				"claim_before": 100,
+				"event": "horse_sickness",
+				"kind": "petition",
+				"week": 16
+			},
+			{
+				"choice": "no",
+				"claim_before": 100,
+				"event": "hungry_mouths",
+				"kind": "petition",
+				"week": 16
+			},
+			{
+				"blocs": {
+					"court": -18,
+					"flame": 13,
+					"military": 93,
+					"nobility": 20,
+					"people": 18
+				},
+				"claim": 100,
+				"ending": "alistair_conquest_triumph_recovering_feared",
+				"forces": 7388,
+				"kind": "throne",
+				"rations": 602,
+				"route": "conquest",
+				"stability": 45,
+				"week": 16
+			}
+		],
+		"weeks": 16
+	},
+	"arlo": {
+		"claimant": "arlo",
+		"ending": "arlo_blood_of_erol_triumph_prosperous_beloved",
+		"policy": "legitimacy",
+		"seed": 20260930,
+		"steps": [
+			{
+				"choice": "open",
+				"claim_before": 8,
+				"event": "letter_on_the_table",
+				"kind": "petition",
+				"week": 1
+			},
+			{
+				"action": "trace_payments",
+				"claim_before": 10,
+				"kind": "decree",
+				"week": 1
+			},
+			{
+				"choice": "correct",
+				"claim_before": 12,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "work",
+				"claim_before": 13,
+				"event": "stables_after",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "stand",
+				"claim_before": 14,
+				"event": "sermon_in_square",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"action": "present_proofs",
+				"claim_before": 14,
+				"kind": "decree",
+				"week": 2
+			},
+			{
+				"choice": "stand",
+				"claim_before": 26,
+				"event": "sermon_in_square",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "correct",
+				"claim_before": 26,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "leave",
+				"claim_before": 27,
+				"event": "nessa_rumour",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"action": "reveal_maren_payments",
+				"claim_before": 27,
+				"kind": "decree",
+				"week": 3
+			},
+			{
+				"choice": "proof",
+				"claim_before": 30,
+				"event": "arlo_lysa_box",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "silence",
+				"claim_before": 33,
+				"event": "bard_in_the_yard",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "them",
+				"claim_before": 33,
+				"event": "common_speech",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"action": "reveal_sealed_letter",
+				"claim_before": 35,
+				"kind": "decree",
+				"week": 4
+			},
+			{
+				"choice": "name",
+				"claim_before": 37,
+				"event": "the_tutor",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "stand",
+				"claim_before": 41,
+				"event": "sermon_in_square",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "fight",
+				"claim_before": 41,
+				"event": "osric_road",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"action": "reveal_master_ren_is_erol",
+				"claim_before": 40,
+				"kind": "decree",
+				"week": 5
+			},
+			{
+				"choice": "bury",
+				"claim_before": 43,
+				"event": "murdered_messenger",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "no",
+				"claim_before": 43,
+				"event": "lodge_road",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "correct",
+				"claim_before": 43,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"action": "wait_listen",
+				"claim_before": 44,
+				"kind": "decree",
+				"week": 6
+			},
+			{
+				"choice": "witness",
+				"claim_before": 44,
+				"event": "arlo_lysa_friend",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "stop",
+				"claim_before": 48,
+				"event": "accused_witch",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "take",
+				"claim_before": 48,
+				"event": "the_northern_clerk",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"action": "reveal_arlo_birth_witness",
+				"claim_before": 49,
+				"kind": "decree",
+				"week": 7
+			},
+			{
+				"choice": "lord",
+				"claim_before": 51,
+				"event": "arlo_water",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "refuse",
+				"claim_before": 53,
+				"event": "salt_contract",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "ask",
+				"claim_before": 53,
+				"event": "maren_stands",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"action": "sell_informant_in_caerlyn",
+				"claim_before": 57,
+				"kind": "decree",
+				"week": 8
+			},
+			{
+				"choice": "take",
+				"claim_before": 57,
+				"event": "forged_warrant",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "food",
+				"claim_before": 57,
+				"event": "northern_refugees",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "subsidy",
+				"claim_before": 57,
+				"event": "grain_prices",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"action": "charter_dorn_crossing",
+				"claim_before": 57,
+				"kind": "decree",
+				"week": 9
+			},
+			{
+				"choice": "guild",
+				"claim_before": 60,
+				"event": "orphan_workshop",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "crown",
+				"claim_before": 60,
+				"event": "tomas_warning",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "refuse",
+				"claim_before": 63,
+				"event": "white_company",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"action": "charter_riverlands",
+				"claim_before": 63,
+				"kind": "decree",
+				"week": 10
+			},
+			{
+				"choice": "stand",
+				"claim_before": 66,
+				"event": "sermon_in_square",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "subsidy",
+				"claim_before": 66,
+				"event": "grain_prices",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "mercy",
+				"claim_before": 66,
+				"event": "census_men",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"action": "charter_western_forest",
+				"claim_before": 66,
+				"kind": "decree",
+				"week": 11
+			},
+			{
+				"choice": "thin",
+				"claim_before": 69,
+				"event": "feast_or_stores",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "compact",
+				"claim_before": 69,
+				"event": "celene_grain",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "allow",
+				"claim_before": 69,
+				"event": "relic_procession",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"action": "charter_eastern_march",
+				"claim_before": 69,
+				"kind": "decree",
+				"week": 12
+			},
+			{
+				"choice": "accept",
+				"claim_before": 72,
+				"event": "arlo_first_office",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "audit",
+				"claim_before": 76,
+				"event": "armoury_leak",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "pray",
+				"claim_before": 76,
+				"event": "winter_count",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"action": "charter_old_borderlands",
+				"claim_before": 76,
+				"kind": "decree",
+				"week": 13
+			},
+			{
+				"choice": "spare",
+				"claim_before": 79,
+				"event": "flame_demands",
+				"kind": "petition",
+				"week": 14
+			},
+			{
+				"choice": "hear",
+				"claim_before": 81,
+				"event": "kinder_version",
+				"kind": "petition",
+				"week": 14
+			},
+			{
+				"choice": "pay",
+				"claim_before": 82,
+				"event": "bandits_at_the_crossing",
+				"kind": "petition",
+				"week": 14
+			},
+			{
+				"action": "call_favour_aldren",
+				"claim_before": 82,
+				"kind": "decree",
+				"week": 14
+			},
+			{
+				"choice": "parole",
+				"claim_before": 85,
+				"event": "shared_infirmary",
+				"kind": "petition",
+				"week": 15
+			},
+			{
+				"choice": "house",
+				"claim_before": 88,
+				"event": "knight_no_house",
+				"kind": "petition",
+				"week": 15
+			},
+			{
+				"choice": "feed",
+				"claim_before": 88,
+				"event": "pilgrim_tax",
+				"kind": "petition",
+				"week": 15
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 88,
+				"kind": "decree",
+				"week": 15
+			},
+			{
+				"choice": "buy",
+				"claim_before": 90,
+				"event": "black_market_arms",
+				"kind": "petition",
+				"week": 16
+			},
+			{
+				"choice": "laugh",
+				"claim_before": 90,
+				"event": "ren_in_public",
+				"kind": "petition",
+				"week": 16
+			},
+			{
+				"choice": "correct",
+				"claim_before": 90,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 16
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 91,
+				"kind": "decree",
+				"week": 16
+			},
+			{
+				"choice": "use",
+				"claim_before": 92,
+				"event": "refugee_return",
+				"kind": "petition",
+				"week": 17
+			},
+			{
+				"choice": "go",
+				"claim_before": 93,
+				"event": "evelyne_afraid",
+				"kind": "petition",
+				"week": 17
+			},
+			{
+				"choice": "open",
+				"claim_before": 95,
+				"event": "plague_talk",
+				"kind": "petition",
+				"week": 17
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 95,
+				"kind": "decree",
+				"week": 17
+			},
+			{
+				"choice": "sign",
+				"claim_before": 96,
+				"event": "sowing_truce",
+				"kind": "petition",
+				"week": 18
+			},
+			{
+				"choice": "fine",
+				"claim_before": 96,
+				"event": "smugglers_coast",
+				"kind": "petition",
+				"week": 18
+			},
+			{
+				"choice": "stand",
+				"claim_before": 96,
+				"event": "sermon_in_square",
+				"kind": "petition",
+				"week": 18
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 96,
+				"kind": "decree",
+				"week": 18
+			},
+			{
+				"choice": "extend",
+				"claim_before": 97,
+				"event": "infirmary_parole",
+				"kind": "petition",
+				"week": 19
+			},
+			{
+				"choice": "offer",
+				"claim_before": 100,
+				"event": "shared_rule",
+				"kind": "petition",
+				"week": 19
+			},
+			{
+				"choice": "bind",
+				"claim_before": 100,
+				"event": "a_political_match",
+				"kind": "petition",
+				"week": 19
+			},
+			{
+				"blocs": {
+					"court": -6,
+					"flame": 50,
+					"military": -13,
+					"nobility": -14,
+					"people": 79
+				},
+				"claim": 100,
+				"ending": "arlo_blood_of_erol_triumph_prosperous_beloved",
+				"forces": 198,
+				"kind": "throne",
+				"rations": 481,
+				"route": "blood_of_erol",
+				"stability": 97,
+				"week": 19
+			}
+		],
+		"weeks": 19
+	},
+	"ethan": {
+		"claimant": "ethan",
+		"ending": "ethan_peoples_crown_brittle_prosperous_beloved",
+		"policy": "legitimacy",
+		"seed": 20260930,
+		"steps": [
+			{
+				"choice": "name",
+				"claim_before": 30,
+				"event": "news_on_the_road",
+				"kind": "petition",
+				"week": 1
+			},
+			{
+				"action": "appeal_people",
+				"claim_before": 36,
+				"kind": "decree",
+				"week": 1
+			},
+			{
+				"choice": "stand",
+				"claim_before": 38,
+				"event": "sermon_in_square",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "correct",
+				"claim_before": 38,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "drink",
+				"claim_before": 39,
+				"event": "veterans_inn",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"action": "appeal_people",
+				"claim_before": 41,
+				"kind": "decree",
+				"week": 2
+			},
+			{
+				"choice": "audit",
+				"claim_before": 43,
+				"event": "ethan_pension_roll",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "leave",
+				"claim_before": 46,
+				"event": "nessa_rumour",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "correct",
+				"claim_before": 46,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"action": "appeal_people",
+				"claim_before": 47,
+				"kind": "decree",
+				"week": 3
+			},
+			{
+				"choice": "correct",
+				"claim_before": 48,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "fight",
+				"claim_before": 49,
+				"event": "bandits_at_the_crossing",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "bury",
+				"claim_before": 45,
+				"event": "murdered_messenger",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"action": "appeal_people",
+				"claim_before": 45,
+				"kind": "decree",
+				"week": 4
+			},
+			{
+				"choice": "version",
+				"claim_before": 47,
+				"event": "the_charge_again",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "house",
+				"claim_before": 49,
+				"event": "knight_no_house",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "ease",
+				"claim_before": 49,
+				"event": "village_that_fed_you",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"action": "appeal_people",
+				"claim_before": 51,
+				"kind": "decree",
+				"week": 5
+			},
+			{
+				"choice": "recover",
+				"claim_before": 53,
+				"event": "ethan_pension_accounts",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "fight",
+				"claim_before": 58,
+				"event": "osric_road",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "chase",
+				"claim_before": 57,
+				"event": "rumour_of_a_tutor",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"action": "charter_riverlands",
+				"claim_before": 59,
+				"kind": "decree",
+				"week": 6
+			},
+			{
+				"choice": "take",
+				"claim_before": 62,
+				"event": "forged_warrant",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "feed",
+				"claim_before": 62,
+				"event": "pilgrim_tax",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "thin",
+				"claim_before": 62,
+				"event": "feast_or_stores",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"action": "charter_old_borderlands",
+				"claim_before": 62,
+				"kind": "decree",
+				"week": 7
+			},
+			{
+				"choice": "refuse",
+				"claim_before": 65,
+				"event": "salt_contract",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "stop",
+				"claim_before": 65,
+				"event": "accused_witch",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "saviour",
+				"claim_before": 65,
+				"event": "bard_in_the_yard",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"action": "reveal_master_ren_is_erol",
+				"claim_before": 66,
+				"kind": "decree",
+				"week": 8
+			},
+			{
+				"choice": "record",
+				"claim_before": 70,
+				"event": "ethan_hearing",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "audit",
+				"claim_before": 73,
+				"event": "armoury_leak",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "spare",
+				"claim_before": 73,
+				"event": "flame_demands",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"action": "call_favour_aldren",
+				"claim_before": 75,
+				"kind": "decree",
+				"week": 9
+			},
+			{
+				"choice": "home",
+				"claim_before": 77,
+				"event": "ethan_households_return",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "guild",
+				"claim_before": 83,
+				"event": "orphan_workshop",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "correct",
+				"claim_before": 83,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"action": "charter_eastern_march",
+				"claim_before": 84,
+				"kind": "decree",
+				"week": 10
+			},
+			{
+				"choice": "arlo_doc",
+				"claim_before": 86,
+				"event": "three_papers",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "mercy",
+				"claim_before": 87,
+				"event": "census_men",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "correct",
+				"claim_before": 87,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"action": "charter_western_forest",
+				"claim_before": 88,
+				"kind": "decree",
+				"week": 11
+			},
+			{
+				"choice": "spend",
+				"claim_before": 91,
+				"event": "market_name",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "pray",
+				"claim_before": 94,
+				"event": "winter_count",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "cold",
+				"claim_before": 94,
+				"event": "mira_writes",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"action": "appeal_people",
+				"claim_before": 96,
+				"kind": "decree",
+				"week": 12
+			},
+			{
+				"choice": "reconsider",
+				"claim_before": 98,
+				"event": "ethan_hearing_result",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "destroy",
+				"claim_before": 100,
+				"event": "ethan_shelter_register",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "recruit",
+				"claim_before": 100,
+				"event": "garran_on_the_wall",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"blocs": {
+					"court": -17,
+					"flame": 32,
+					"military": 30,
+					"nobility": -26,
+					"people": 100
+				},
+				"claim": 100,
+				"ending": "ethan_peoples_crown_brittle_prosperous_beloved",
+				"forces": 1,
+				"kind": "throne",
+				"rations": 156,
+				"route": "peoples_crown",
+				"stability": 76,
+				"week": 13
+			}
+		],
+		"weeks": 13
+	},
+	"mira": {
+		"claimant": "mira",
+		"ending": "mira_peoples_crown_triumph_prosperous_beloved",
+		"policy": "legitimacy",
+		"seed": 20260930,
+		"steps": [
+			{
+				"choice": "council",
+				"claim_before": 36,
+				"event": "morning_of_bells",
+				"kind": "petition",
+				"week": 1
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 37,
+				"kind": "decree",
+				"week": 1
+			},
+			{
+				"choice": "food",
+				"claim_before": 39,
+				"event": "northern_refugees",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "correct",
+				"claim_before": 39,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"choice": "pell",
+				"claim_before": 40,
+				"event": "wing_of_the_dead",
+				"kind": "petition",
+				"week": 2
+			},
+			{
+				"action": "charter_riverlands",
+				"claim_before": 40,
+				"kind": "decree",
+				"week": 2
+			},
+			{
+				"choice": "flame",
+				"claim_before": 42,
+				"event": "council_morning",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "account",
+				"claim_before": 43,
+				"event": "mira_open_stores",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"choice": "saviour",
+				"claim_before": 46,
+				"event": "bard_in_the_yard",
+				"kind": "petition",
+				"week": 3
+			},
+			{
+				"action": "charter_western_forest",
+				"claim_before": 47,
+				"kind": "decree",
+				"week": 3
+			},
+			{
+				"choice": "papers",
+				"claim_before": 50,
+				"event": "pell_private",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "send",
+				"claim_before": 51,
+				"event": "levy_complaint",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"choice": "walk",
+				"claim_before": 51,
+				"event": "night_watch",
+				"kind": "petition",
+				"week": 4
+			},
+			{
+				"action": "charter_eastern_march",
+				"claim_before": 51,
+				"kind": "decree",
+				"week": 4
+			},
+			{
+				"choice": "honest",
+				"claim_before": 54,
+				"event": "treasury_short",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "split",
+				"claim_before": 55,
+				"event": "miller_tithe",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"choice": "pay",
+				"claim_before": 55,
+				"event": "bandits_at_the_crossing",
+				"kind": "petition",
+				"week": 5
+			},
+			{
+				"action": "charter_dorn_crossing",
+				"claim_before": 55,
+				"kind": "decree",
+				"week": 5
+			},
+			{
+				"choice": "right",
+				"claim_before": 58,
+				"event": "mira_receipts",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "correct",
+				"claim_before": 63,
+				"event": "rumour_market",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"choice": "soldier",
+				"claim_before": 64,
+				"event": "tavern_knives",
+				"kind": "petition",
+				"week": 6
+			},
+			{
+				"action": "charter_old_borderlands",
+				"claim_before": 64,
+				"kind": "decree",
+				"week": 6
+			},
+			{
+				"choice": "fund",
+				"claim_before": 67,
+				"event": "mira_mothers",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "pay",
+				"claim_before": 67,
+				"event": "widow_of_the_gate",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"choice": "feed",
+				"claim_before": 67,
+				"event": "pilgrim_tax",
+				"kind": "petition",
+				"week": 7
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 67,
+				"kind": "decree",
+				"week": 7
+			},
+			{
+				"choice": "refuse",
+				"claim_before": 69,
+				"event": "salt_contract",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "allow",
+				"claim_before": 69,
+				"event": "relic_procession",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"choice": "hunt",
+				"claim_before": 69,
+				"event": "forged_warrant",
+				"kind": "petition",
+				"week": 8
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 69,
+				"kind": "decree",
+				"week": 8
+			},
+			{
+				"choice": "ignore",
+				"claim_before": 71,
+				"event": "aria_in_the_stacks",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "mercy",
+				"claim_before": 71,
+				"event": "census_men",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"choice": "bury",
+				"claim_before": 71,
+				"event": "murdered_messenger",
+				"kind": "petition",
+				"week": 9
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 71,
+				"kind": "decree",
+				"week": 9
+			},
+			{
+				"choice": "use",
+				"claim_before": 73,
+				"event": "refugee_return",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "confirm",
+				"claim_before": 74,
+				"event": "mira_charter_return",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"choice": "guild",
+				"claim_before": 81,
+				"event": "orphan_workshop",
+				"kind": "petition",
+				"week": 10
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 81,
+				"kind": "decree",
+				"week": 10
+			},
+			{
+				"choice": "no",
+				"claim_before": 83,
+				"event": "knight_no_house",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "buy",
+				"claim_before": 83,
+				"event": "black_market_arms",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"choice": "map",
+				"claim_before": 83,
+				"event": "forgotten_drain",
+				"kind": "petition",
+				"week": 11
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 84,
+				"kind": "decree",
+				"week": 11
+			},
+			{
+				"choice": "all",
+				"claim_before": 86,
+				"event": "mira_mothers_return",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "deposit",
+				"claim_before": 92,
+				"event": "mira_inquest",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"choice": "pray",
+				"claim_before": 96,
+				"event": "winter_count",
+				"kind": "petition",
+				"week": 12
+			},
+			{
+				"action": "honour_oaths",
+				"claim_before": 96,
+				"kind": "decree",
+				"week": 12
+			},
+			{
+				"choice": "spare",
+				"claim_before": 98,
+				"event": "flame_demands",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "look",
+				"claim_before": 100,
+				"event": "osric_road",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"choice": "rest",
+				"claim_before": 100,
+				"event": "horse_sickness",
+				"kind": "petition",
+				"week": 13
+			},
+			{
+				"blocs": {
+					"court": 55,
+					"flame": 25,
+					"military": 0,
+					"nobility": -6,
+					"people": 80
+				},
+				"claim": 100,
+				"ending": "mira_peoples_crown_triumph_prosperous_beloved",
+				"forces": 905,
+				"kind": "throne",
+				"rations": 547,
+				"route": "peoples_crown",
+				"stability": 100,
+				"week": 13
+			}
+		],
+		"weeks": 13
+	}
+}

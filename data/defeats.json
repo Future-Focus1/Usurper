@@ -1,29 +1,98 @@
 {
   "battle_death": {
-    "default": {"title": "The Banner Falls", "text": "You die in the press of your own soldiers. The crown, which was an argument, becomes a corpse."},
-    "mira": {"title": "The Queen on the Field", "text": "Mira dies where she was never supposed to stand. Caerlyn will say the Guard failed. The Guard will say the queen would not leave."},
-    "ethan": {"title": "The Exile's End", "text": "Ethan dies with a sword in his hand, which is the death his enemies always found easiest to respect."},
-    "arlo": {"title": "A Name Unfinished", "text": "Arlo dies before most of Nezrel has agreed he was anyone. The vale will bury him as a son."},
-    "alistair": {"title": "Stormhold's Lord", "text": "Alistair dies in the front rank because he would not send men into a place he would not stand. The North calls it proof. It is also an ending."}
+    "default": {
+      "title": "The Banner Falls",
+      "text": "You die in the press of your own soldiers. The crown, which was an argument, becomes a corpse."
+    },
+    "mira": {
+      "title": "The Queen on the Field",
+      "text": "Mira dies where she was never supposed to stand. Caerlyn will say the Guard failed. The Guard will say the queen would not leave."
+    },
+    "ethan": {
+      "title": "The Exile's End",
+      "text": "Ethan dies with a sword in his hand, which is the death his enemies always found easiest to respect."
+    },
+    "arlo": {
+      "title": "A Name Unfinished",
+      "text": "Arlo dies before most of Nezrel has agreed he was anyone. The vale will bury him as a son."
+    },
+    "alistair": {
+      "title": "Stormhold's Lord",
+      "text": "Alistair dies in the front rank because he would not send men into a place he would not stand. The North calls it proof. It is also an ending."
+    }
   },
   "captured": {
-    "default": {"title": "Taken Alive", "text": "You are a prisoner. The realm will now be governed by whoever thinks a living claimant is more useful than a dead one."},
-    "mira": {"title": "The Queen in Her Own Tower", "text": "They lock Mira in rooms she used to lock. The seal is taken off her belt while she is still breathing."},
-    "ethan": {"title": "The Chains He Refused", "text": "Exile was the mercy last time. This time they keep him where the court can see the lesson."},
-    "arlo": {"title": "Back to Obscurity, Under Guard", "text": "Arlo is not executed. He is explained. A stable boy who reached too far makes a comforting story."},
-    "alistair": {"title": "The Lord in a Southern Cell", "text": "Alistair alive is a hostage the North will not stop paying for. The war does not end. It changes address."}
+    "default": {
+      "title": "Taken Alive",
+      "text": "You are a prisoner. The realm will now be governed by whoever thinks a living claimant is more useful than a dead one."
+    },
+    "mira": {
+      "title": "The Queen in Her Own Tower",
+      "text": "They lock Mira in rooms she used to lock. The seal is taken off her belt while she is still breathing."
+    },
+    "ethan": {
+      "title": "The Chains He Refused",
+      "text": "Exile was the mercy last time. This time they keep him where the court can see the lesson."
+    },
+    "arlo": {
+      "title": "Back to Obscurity, Under Guard",
+      "text": "Arlo is not executed. He is explained. A stable boy who reached too far makes a comforting story."
+    },
+    "alistair": {
+      "title": "The Lord in a Southern Cell",
+      "text": "Alistair alive is a hostage the North will not stop paying for. The war does not end. It changes address."
+    }
   },
   "assassination": {
-    "default": {"title": "A Quiet Ending", "text": "The knife finds you the way you were warned it might. No battle. No speech. A corridor."}
+    "default": {
+      "title": "A Quiet Ending",
+      "text": "The knife finds you the way you were warned it might. No battle. No speech. A corridor."
+    }
   },
   "exile": {
-    "default": {"title": "You Leave", "text": "The claim is laid down, or taken. You ride out of Nezrel with whatever name you can still use."},
-    "ethan": {"title": "The Road Again", "text": "Ethan becomes what he was. A man on a horse, unrecognised on purpose."},
-    "arlo": {"title": "The Vale Takes Him Back", "text": "Arlo returns to horses and harvests. Evelyne does not say she is glad. She cooks as if she is."},
-    "mira": {"title": "A Queen Without a Castle", "text": "Mira is permitted to leave if she does not take the seal, the Guard, or the story."},
-    "alistair": {"title": "Stormhold, Last", "text": "Alistair is pushed back into his own fortress. The North still holds. The crown does not."}
+    "default": {
+      "title": "You Leave",
+      "text": "The claim is laid down, or taken. You ride out of Nezrel with whatever name you can still use."
+    },
+    "ethan": {
+      "title": "The Road Again",
+      "text": "Ethan becomes what he was. A man on a horse, unrecognised on purpose."
+    },
+    "arlo": {
+      "title": "The Vale Takes Him Back",
+      "text": "Arlo returns to horses and harvests. Evelyne does not say she is glad. She cooks as if she is."
+    },
+    "mira": {
+      "title": "A Queen Without a Castle",
+      "text": "Mira is permitted to leave if she does not take the seal, the Guard, or the story."
+    },
+    "alistair": {
+      "title": "Stormhold, Last",
+      "text": "Alistair is pushed back into his own fortress. The North still holds. The crown does not."
+    }
   },
   "collapse": {
-    "default": {"title": "The Claim Comes Apart", "text": "There is no final battle. There is an empty purse, an empty camp, and a kingdom that has stopped repeating your name."}
+    "default": {
+      "title": "The Claim Comes Apart",
+      "text": "There is no final battle. There is an empty purse, an empty camp, and a kingdom that has stopped repeating your name."
+    }
+  },
+  "council_settlement": {
+    "mira": {
+      "title": "The Queen of the Quiet Rooms",
+      "text": "After a year of empty coronations, the Council seals a settlement without Mira. She keeps the apartments where she learned every name in the kingdom, but no petition reaches them now. Erol's last request remains hers to carry; governing beside a king never guaranteed a kingdom would let her govern alone."
+    },
+    "ethan": {
+      "title": "The Last Road",
+      "text": "The Council chooses a settlement before another winter can swallow the roads. Ethan refuses to spend a second lifetime fighting his own name. He rides out with the veterans who chose the man before the title. In the villages they remember which soldier ate beside them, even if Caerlyn writes him out of its roll."
+    },
+    "arlo": {
+      "title": "The Orchards of Maren",
+      "text": "The lords settle the succession without the stable boy. Arlo returns to Maren with documents the court could dismiss but never erase. At dawn he opens the stable doors. The horses do not ask whose blood he carries. His family is still something he can choose to keep."
+    },
+    "alistair": {
+      "title": "The Unbroken North",
+      "text": "The Council bargains past the northern host and closes the succession. Alistair withdraws behind the mountains before Nezrel can make his men pay for another winter. Stormhold remains untaken. The Reach can call him undefeated; the empty space where the crown should have been calls him something else."
+    }
   }
 }

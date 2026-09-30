@@ -1,0 +1,938 @@
+[
+  {
+    "resolution": "1280x720",
+    "screen": "01_main_menu",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 13
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "02_settings",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "03_claimant_select",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 40
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "04_mira_briefing",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "05_mira_petition",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "06_mira_decision_receipt",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 47
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "07_mira_decrees",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "08_mira_response",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "09_map",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 66
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "10_court",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "11_court_character_details",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "12_court_character_details_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "13_army",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 65
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "14_ledger",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 54
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "15_world",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 82
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "16_throne",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 79
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "17_pause",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 54
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "18_ethan_briefing",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "19_ethan_petition",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "20_ethan_decision_receipt",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 46
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "21_ethan_decrees",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 47
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "22_ethan_response",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 46
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "23_arlo_briefing",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 50
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "24_arlo_petition",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 53
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "25_arlo_decision_receipt",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "26_arlo_decrees",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "27_arlo_response",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 49
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "28_alistair_briefing",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 49
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "29_alistair_petition",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 52
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "30_alistair_decision_receipt",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 47
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "31_alistair_decrees",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 52
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "32_alistair_response",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "33_tactical_battle",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 39
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "34_complete_ending",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "35_complete_ending_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "36_chronicle",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 110
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "37_arlo_biography_public",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 73
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "38_arlo_biography_revealed",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 73
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "39_oren_pell_biography_public",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "40_oren_pell_biography_revealed",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "41_nessa_grey_biography_public",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "42_nessa_grey_biography_revealed",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "43_mira_peoples_crown_ending",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "44_mira_peoples_crown_ending_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "45_ethan_peoples_crown_ending",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "46_ethan_peoples_crown_ending_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "47_arlo_blood_of_erol_ending",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "48_arlo_blood_of_erol_ending_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "49_mira_no_king_ending",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "50_mira_no_king_ending_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "51_mira_regency_ending",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1280x720",
+    "screen": "52_mira_regency_ending_bottom",
+    "pixels": [
+      1280,
+      720
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "01_main_menu",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 13
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "02_settings",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "03_claimant_select",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 40
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "04_mira_briefing",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "05_mira_petition",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "06_mira_decision_receipt",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 47
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "07_mira_decrees",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "08_mira_response",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "09_map",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 66
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "10_court",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "11_court_character_details",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "12_court_character_details_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "13_army",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 65
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "14_ledger",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 54
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "15_world",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 82
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "16_throne",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 79
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "17_pause",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 54
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "18_ethan_briefing",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "19_ethan_petition",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "20_ethan_decision_receipt",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 46
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "21_ethan_decrees",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 47
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "22_ethan_response",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 46
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "23_arlo_briefing",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 50
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "24_arlo_petition",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 53
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "25_arlo_decision_receipt",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "26_arlo_decrees",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 48
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "27_arlo_response",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 49
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "28_alistair_briefing",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 49
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "29_alistair_petition",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 52
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "30_alistair_decision_receipt",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 47
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "31_alistair_decrees",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 52
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "32_alistair_response",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 51
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "33_tactical_battle",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 39
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "34_complete_ending",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "35_complete_ending_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "36_chronicle",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 110
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "37_arlo_biography_public",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 73
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "38_arlo_biography_revealed",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 73
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "39_oren_pell_biography_public",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "40_oren_pell_biography_revealed",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "41_nessa_grey_biography_public",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "42_nessa_grey_biography_revealed",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 72
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "43_mira_peoples_crown_ending",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "44_mira_peoples_crown_ending_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "45_ethan_peoples_crown_ending",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "46_ethan_peoples_crown_ending_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "47_arlo_blood_of_erol_ending",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "48_arlo_blood_of_erol_ending_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "49_mira_no_king_ending",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "50_mira_no_king_ending_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "51_mira_regency_ending",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  },
+  {
+    "resolution": "1920x1080",
+    "screen": "52_mira_regency_ending_bottom",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "text_controls": 25
+  }
+]

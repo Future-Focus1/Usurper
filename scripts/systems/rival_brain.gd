@@ -16,6 +16,14 @@ static func _one(id: String, state: CampaignState, db: ContentDB) -> Array:
 	var rival: Dictionary = state.rivals[id]
 	if not bool(rival.get("alive", false)):
 		return lines
+	if str(state.npcs.get(id, {}).get("state", "free")) != "free":
+		return lines
+	var bound_by_pact := bool(state.flags.get("COUNCIL_OF_FOUR", false))
+	bound_by_pact = bound_by_pact or bool(state.flags.get("ALLY_" + id.to_upper(), false))
+	bound_by_pact = bound_by_pact or (bool(state.flags.get("BROTHERS_PACT", false)) and id in ["ethan", "arlo"])
+	bound_by_pact = bound_by_pact or (bool(state.flags.get("MARRIAGE_MIRA_ALISTAIR", false)) and id in ["mira", "alistair"])
+	if bound_by_pact or bool(state.flags.get("MARRIED_" + id.to_upper(), false)):
+		rival["hostility"] = mini(25, int(rival.get("hostility", 25)))
 	var name := str(db.claimants[id].get("short", id))
 	var need := Balance.ration_need(int(rival.get("forces", 0)))
 	if int(rival.get("rations", 0)) >= need:
@@ -31,6 +39,11 @@ static func _one(id: String, state: CampaignState, db: ContentDB) -> Array:
 	var lands := _lands(id, state)
 	rival["gold"] = int(rival["gold"]) + 40 + lands * 50
 	rival["rations"] = int(rival["rations"]) + 3 + lands * 3
+	if bound_by_pact:
+		if state.turn % 4 == 0:
+			state.stability += 1
+			lines.append("%s honours the compact: the shared road remains open." % name)
+		return lines
 	if int(rival.get("cooldown", 0)) > 0:
 		rival["cooldown"] = int(rival["cooldown"]) - 1
 	_drift(id, rival, name, lines)
@@ -152,6 +165,9 @@ static func _sway(id: String, rival: Dictionary, name: String, state: CampaignSt
 		return "%s finds no lord willing to move this week." % name
 	var tid := str(options[state.rng.randi_range(0, options.size() - 1)])
 	var chance := 0.22 + float(int(rival.get("claim", 0))) / 350.0
+	var house_id := str(db.territories[tid].get("house", ""))
+	if house_id != "" and str(state.houses.get(house_id, {}).get("declared", "")) == "player":
+		return "%s's overture to %s is rejected: the house keeps its oath to you." % [name, db.territories[tid].get("name", tid)]
 	if state.rng.randf() > chance:
 		return "%s courts %s and is told to wait." % [name, db.territories[tid].get("name", tid)]
 	state.territories[tid]["controller"] = id

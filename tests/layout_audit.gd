@@ -1,10 +1,21 @@
 extends Node
 
 var _failures: Array[String] = []
+var _scans: Array = []
+var _resolution := "1280x720"
 
 
 func _ready() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("viewport="):
+			_resolution = argument.trim_prefix("viewport=")
+			var dimensions := _resolution.split("x")
+			get_window().content_scale_size = Vector2i(int(dimensions[0]), int(dimensions[1]))
+			get_window().size = Vector2i(int(dimensions[0]), int(dimensions[1]))
+	await get_tree().process_frame
 	await _run()
+	var report := FileAccess.open("res://tests/.artifacts/layout_audit-" + _resolution + ".json", FileAccess.WRITE)
+	report.store_string(JSON.stringify({"resolution": _resolution, "scans": _scans, "failures": _failures}, "\t"))
 	if _failures.is_empty():
 		print("LAYOUT_OK")
 		get_tree().quit(0)
@@ -69,6 +80,49 @@ func _run() -> void:
 	gm.ending = {"title": "A Quiet Crown", "subtitle": "The bells were wrong.", "paragraphs": ["The city kept the story it could live with."]}
 	await _mount("ending", load("res://scenes/ending/ending.tscn").instantiate())
 	await _mount("chronicle", load("res://scenes/chronicle/chronicle.tscn").instantiate())
+	await _all_event_layouts(db, gm)
+	await _all_ending_layouts(db, gm)
+
+
+func _all_event_layouts(db: ContentDB, gm: Node) -> void:
+	var audit = load("res://tests/release_audit.gd").new()
+	audit.db = db
+	var campaign = load("res://scenes/campaign/campaign.tscn").instantiate()
+	gm.state = audit._fresh()
+	add_child(campaign)
+	_fill(campaign)
+	await get_tree().process_frame
+	for event in db.events:
+		var state: CampaignState = audit._witness(event.get("requires", {}))
+		if state == null:
+			_failures.append("event has no layout witness " + str(event.get("id", "")))
+			continue
+		state.event_queue = [str(event.id)]
+		state.event_index = 0
+		state.phase = "event"
+		gm.state = state
+		campaign.call("_refresh")
+		await get_tree().process_frame
+		await get_tree().process_frame
+		await _scan("event_" + str(event.id), campaign)
+	campaign.queue_free()
+	audit.free()
+	await get_tree().process_frame
+
+
+func _all_ending_layouts(db: ContentDB, gm: Node) -> void:
+	var audit = load("res://tests/release_audit.gd").new()
+	audit.db = db
+	for claimant in db.claimant_order:
+		for route in db.routes:
+			var state: CampaignState = audit._witness(route.get("requires", {}), {"claimant": claimant})
+			if state == null:
+				continue
+			for band in ["triumph", "brittle", "pyrrhic", "failure", "disaster"]:
+				gm.state = state
+				gm.ending = EndingDirector.resolve(state, db, str(route.id), {"outcome": "victory"}, band)
+				await _mount("ending_%s_%s_%s" % [claimant, route.id, band], load(GameManager.SCENE_ENDING).instantiate())
+	audit.free()
 
 
 func _mount(name: String, node: Node) -> void:
@@ -93,7 +147,9 @@ func _fill(node: Control) -> void:
 func _scan(name: String, root: Node) -> void:
 	var view := get_viewport().get_visible_rect()
 	var count := 0
+	var previous_failures := _failures.size()
 	_walk(name, root, view, count)
+	_scans.append({"screen": name, "failures": _failures.size() - previous_failures})
 	print("SCAN %s viewport=%s fails_so_far=%d" % [name, view.size, _failures.size()])
 
 

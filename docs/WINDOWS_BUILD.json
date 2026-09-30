@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "verified_at_utc": "2026-09-30T21:29:29.9623714Z",
+  "godot": "4.6.3.stable.official.7d41c59c4",
+  "platform": "Windows x86-64",
+  "debug_tools": false,
+  "audio_assets_added": false,
+  "embedded_pck": true,
+  "executable": {
+    "path": "build/windows/Usurper.exe",
+    "bytes": 130859800,
+    "sha256": "5712b6b9b34de0b7736c757fa7ffa31e13f5141c2bf598cf38294fd8b93fb888"
+  },
+  "archive": {
+    "path": "build/Usurper-Windows-1.0.0.zip",
+    "bytes": 62946489,
+    "sha256": "99189f3a8718b131529170f66ace362289477e6a844061ba5303dd094ba6d4ef",
+    "verified_embedded_executable_hash": true,
+    "entries": [
+      "Usurper.exe",
+      "READ_ME.txt",
+      "GODOT-LICENSE.txt",
+      "GODOT-COPYRIGHT.txt",
+      "FONT-LICENSE.txt",
+      "SHA256.txt"
+    ]
+  },
+  "runtime": {
+    "tested_exported_executable": true,
+    "isolated_player_data": true,
+    "frames": 60,
+    "exit_code": 0,
+    "script_or_resource_errors": 0,
+    "renderer": "OpenGL3.3 Compatibility",
+    "graphics_device": "NVIDIA GeForce RTX3090",
+    "scope": "Exported title screen startup; full campaign UI and branch coverage are recorded separately in docs/qa-results."
+  }
+}

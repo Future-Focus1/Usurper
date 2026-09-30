@@ -7,10 +7,7 @@ func _ready() -> void:
 
 
 func _build() -> void:
-	var backdrop := ColorRect.new()
-	backdrop.color = GameTheme.INK
-	backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(backdrop)
+	UiFactory.backdrop(self, "throne", 0.78)
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.add_theme_constant_override("margin_left", 20)
@@ -27,7 +24,7 @@ func _build() -> void:
 	var back := UiFactory.chip("Back")
 	back.pressed.connect(func(): GameManager.to_menu())
 	header.add_child(back)
-	column.add_child(UiFactory.muted("Each campaign begins in a different life. None of them is told the whole truth."))
+	column.add_child(UiFactory.muted("Experience. Honour. Blood. Steel. Four answers to what makes a ruler rightful."))
 	var row := UiFactory.flow(12)
 	column.add_child(UiFactory.scroll(row))
 	for id in GameManager.db.claimant_order:
@@ -36,7 +33,7 @@ func _build() -> void:
 
 func _card(claimant: Dictionary) -> Control:
 	var panel := UiFactory.panel()
-	panel.custom_minimum_size = Vector2(280, 0)
+	panel.custom_minimum_size = Vector2(290, 0)
 	panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var column := UiFactory.vbox(6)
 	panel.add_child(column)
@@ -44,9 +41,7 @@ func _card(claimant: Dictionary) -> Control:
 	band.custom_minimum_size = Vector2(0, 8)
 	band.color = Color(str(claimant.get("color", "#5d7c99")))
 	column.add_child(band)
-	var portrait := ColorRect.new()
-	portrait.custom_minimum_size = Vector2(0, 72)
-	portrait.color = Color(str(claimant.get("color", "#3d5166")))
+	var portrait := UiFactory.portrait(str(claimant.get("id", "")), 178)
 	column.add_child(portrait)
 	column.add_child(UiFactory.title(str(claimant.get("name", "")), 22))
 	column.add_child(UiFactory.muted("Age %d  ·  %s" % [int(claimant.get("age", 0)), str(claimant.get("difficulty", ""))]))
@@ -62,7 +57,7 @@ func _card(claimant: Dictionary) -> Control:
 	for strength in claimant.get("strengths", []):
 		column.add_child(UiFactory.muted("· " + str(strength)))
 	column.add_child(UiFactory.filler())
-	var begin := UiFactory.button("Begin as %s" % str(claimant.get("short", "them")))
+	var begin := UiFactory.primary("Begin as %s" % str(claimant.get("short", "them")))
 	begin.alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var claimant_id := str(claimant.get("id", ""))
 	begin.pressed.connect(func():

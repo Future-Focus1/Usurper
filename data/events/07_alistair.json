@@ -92,7 +92,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "order_at_stormhold",
@@ -166,9 +167,13 @@
             "op": "rations",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "harrow_in_the_yard",
@@ -190,7 +195,13 @@
         "ALISTAIR_SPARED_HARROW",
         "HARROW_KNELT",
         "HARROW_BROKEN"
-      ]
+      ],
+      "npc_alive": [
+        "osric_harrow"
+      ],
+      "npc_state": {
+        "osric_harrow": "free"
+      }
     },
     "choices": [
       {
@@ -301,7 +312,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "osric_harrow",
+    "scene": "stormhold"
   },
   {
     "id": "marriage_or_march",
@@ -410,7 +423,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "fear_comes_home",
@@ -516,7 +530,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "iron_and_mouths",
@@ -563,7 +578,10 @@
             "op": "flag",
             "flag": "TOOK_SPEARS"
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 5
+        }
       },
       {
         "id": "grain",
@@ -614,9 +632,13 @@
             "op": "flag",
             "flag": "PAID_REACH"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 200
+        }
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "bren_and_the_north",
@@ -639,7 +661,10 @@
         "BREN_ROADS",
         "BREN_THREATENED",
         "BREN_IGNORED"
-      ]
+      ],
+      "npc_state": {
+        "bren_tal": "free"
+      }
     },
     "choices": [
       {
@@ -669,7 +694,10 @@
             "op": "claim",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 80
+        }
       },
       {
         "id": "threat",
@@ -710,7 +738,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "bren_tal",
+    "scene": "stormhold"
   },
   {
     "id": "a_clerk_named",
@@ -757,7 +787,10 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 100
+        }
       },
       {
         "id": "use",
@@ -800,7 +833,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "the_south_watches",
@@ -852,7 +886,10 @@
             "op": "flag",
             "flag": "VEYNE_GRAIN"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 180
+        }
       },
       {
         "id": "tax",
@@ -901,7 +938,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "mutiny_of_fear",
@@ -982,7 +1020,10 @@
             "op": "flag",
             "flag": "FEAR_LIMITED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "blame",
@@ -1007,7 +1048,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "occupy_echo",
@@ -1056,7 +1098,10 @@
             "bloc": "military",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 80
+        }
       },
       {
         "id": "buy",
@@ -1080,7 +1125,10 @@
             "op": "flag",
             "flag": "BOUGHT_LAND"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 160
+        }
       },
       {
         "id": "return",
@@ -1104,6 +1152,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

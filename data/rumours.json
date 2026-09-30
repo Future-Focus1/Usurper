@@ -1,14 +1,436 @@
 [
-  {"text": "A priest in a river village says the Flame went out for a heartbeat during the king's last hour.", "requires": {"max_turn": 16}},
-  {"text": "Grain carts are arriving late. The drivers blame the roads and look at the soldiers.", "requires": {}},
-  {"text": "Someone is selling 'the king's true will' in three different handwritings.", "requires": {"min_turn": 4}},
-  {"text": "Varos merchants are asking, politely, who will honour Erol's border.", "requires": {"min_turn": 6}},
-  {"text": "A company of unpaid spears was seen eating a lord's orchard.", "requires": {"min_turn": 3}},
-  {"text": "The west says Harrow will kneel to anyone who is not Storm.", "requires": {}},
-  {"text": "Sailors claim Celene Veyne already knows the winner and is only waiting to be paid for the knowledge.", "requires": {"min_turn": 5}},
-  {"text": "Children in Caerlyn are playing four crowns and a knife.", "requires": {"min_turn": 8}},
-  {"text": "An old sergeant drank to Ethan and was not arrested, which is its own news.", "requires": {"max_turn": 20}},
-  {"text": "The eastern forts are counting Varos fires at night and pretending they are shepherds.", "requires": {"min_turn": 10}},
-  {"text": "A Maren horse-trader says the vale is feeding more soldiers than it admits.", "requires": {"min_turn": 7}},
-  {"text": "People who saw the covered bier disagree about whether the body was the king's height.", "requires": {"max_turn": 12}}
+  {
+    "text": "A priest in a river village says the Flame went out for a heartbeat during the king's last hour.",
+    "requires": {
+      "max_turn": 16
+    }
+  },
+  {
+    "text": "Grain carts are arriving late. The drivers blame the roads and look at the soldiers.",
+    "requires": {}
+  },
+  {
+    "text": "Someone is selling 'the king's true will' in three different handwritings.",
+    "requires": {
+      "min_turn": 4
+    }
+  },
+  {
+    "text": "Varos merchants are asking, politely, who will honour Erol's border.",
+    "requires": {
+      "min_turn": 6
+    }
+  },
+  {
+    "text": "A company of unpaid spears was seen eating a lord's orchard.",
+    "requires": {
+      "min_turn": 3
+    }
+  },
+  {
+    "text": "The west says Harrow will kneel to anyone who is not Storm.",
+    "requires": {}
+  },
+  {
+    "text": "Sailors claim Celene Veyne already knows the winner and is only waiting to be paid for the knowledge.",
+    "requires": {
+      "min_turn": 5,
+      "npc_alive": [
+        "celene_veyne"
+      ],
+      "npc_state": {
+        "celene_veyne": "free"
+      }
+    }
+  },
+  {
+    "text": "Children in Caerlyn are playing four crowns and a knife.",
+    "requires": {
+      "min_turn": 8
+    }
+  },
+  {
+    "text": "An old sergeant drank to Ethan and was not arrested, which is its own news.",
+    "requires": {
+      "max_turn": 20
+    }
+  },
+  {
+    "text": "The eastern forts are counting Varos fires at night and pretending they are shepherds.",
+    "requires": {
+      "min_turn": 10
+    }
+  },
+  {
+    "text": "A Maren horse-trader says the vale is feeding more soldiers than it admits.",
+    "requires": {
+      "min_turn": 7
+    }
+  },
+  {
+    "text": "People who saw the covered bier disagree about whether the body was the king's height.",
+    "requires": {
+      "max_turn": 12
+    }
+  },
+  {
+    "text": "At the ferry below Caerlyn, a child has tied four scraps of cloth to the same reed. The boatman refuses to choose a colour.",
+    "requires": {
+      "min_turn": 2,
+      "max_turn": 12
+    }
+  },
+  {
+    "text": "The castle laundries have returned the black mourning cloth. No one has agreed what colour comes after it.",
+    "requires": {
+      "min_turn": 5,
+      "max_turn": 14
+    }
+  },
+  {
+    "text": "A cooper in Larkspool refuses a military contract until the buyer writes down who will pay if the king changes.",
+    "requires": {
+      "min_turn": 4,
+      "max_turn": 20
+    }
+  },
+  {
+    "text": "The fish market keeps the first catch for widows whose men are on the road. The second catch is sold to those men's captains.",
+    "requires": {
+      "min_turn": 6
+    }
+  },
+  {
+    "text": "Riders at Maren are arguing about the price of oats. They agree that horses have no interest in the succession.",
+    "requires": {}
+  },
+  {
+    "text": "An inn on the western road accepts flour in payment. It turns away banners that demand a room for nothing.",
+    "requires": {
+      "min_turn": 8
+    }
+  },
+  {
+    "text": "Caerlyn's printers have scraped another claimant's name off a proclamation block. The old letters still show in wet ink.",
+    "requires": {
+      "min_turn": 12
+    }
+  },
+  {
+    "text": "The bell-founders keep a spare crown candle beside the forge. They say a kingdom should always expect repairs.",
+    "requires": {
+      "min_turn": 16
+    }
+  },
+  {
+    "text": "A notary in the Riverlands charges the same fee to all four households. His apprentices are learning to write quickly.",
+    "requires": {
+      "min_turn": 10
+    }
+  },
+  {
+    "text": "The first snow reaches the northern watchposts. Men who argue about heirs share the same fire.",
+    "requires": {
+      "min_turn": 20,
+      "max_turn": 34
+    }
+  },
+  {
+    "text": "The masons have covered their unfinished work before the frost. The stones can wait; the wages cannot.",
+    "requires": {
+      "min_turn": 20,
+      "max_turn": 36
+    }
+  },
+  {
+    "text": "Harrow longbow makers now stamp the village as well as the lord's name on their bows. A weapon has more than one maker.",
+    "requires": {
+      "min_turn": 10
+    }
+  },
+  {
+    "text": "A river pilot has painted the safe depth marks twice, once for merchants and once for soldiers who cannot read.",
+    "requires": {
+      "min_turn": 8
+    }
+  },
+  {
+    "text": "The Temple Quarter has begun keeping a second register of the dead. Names arrive faster than the official messengers.",
+    "requires": {
+      "min_turn": 16,
+      "max_stability": 45
+    }
+  },
+  {
+    "text": "Wedding contracts in the south now include an escape clause for a second siege. The notaries call this prudence.",
+    "requires": {
+      "min_turn": 18,
+      "max_stability": 40
+    }
+  },
+  {
+    "text": "Flour costs less at the capital gates this week. Bakers leave their shutters open after dusk.",
+    "requires": {
+      "min_stability": 65,
+      "min_rations": 10,
+      "max_foreign": 15
+    }
+  },
+  {
+    "text": "The northern roads are carrying carts as well as companies. There is room to step aside without being ordered.",
+    "requires": {
+      "min_stability": 65,
+      "max_fear": 40
+    }
+  },
+  {
+    "text": "A schoolmaster has resumed lessons interrupted by the succession. His pupils have learned more heraldry than he intended.",
+    "requires": {
+      "min_stability": 70,
+      "max_fear": 40,
+      "min_turn": 18
+    }
+  },
+  {
+    "text": "Merchants are offering contracts that run beyond the coronation. Confidence is beginning to appear in the small print.",
+    "requires": {
+      "min_stability": 65,
+      "max_foreign": 12,
+      "min_turn": 20
+    }
+  },
+  {
+    "text": "The guard at the eastern tollhouse finds Varosi coin sewn into a grain sack. It buys the carrier a hearing, not a road.",
+    "requires": {
+      "flags": [
+        "BORDER_SECURED"
+      ],
+      "max_foreign": 15
+    }
+  },
+  {
+    "text": "At the Queen's new witness office, a carter corrects a clerk's arithmetic and lives to be proved right.",
+    "requires": {
+      "flags": [
+        "MIRA_CIVIC_PAYOFF"
+      ],
+      "claimant": "mira"
+    }
+  },
+  {
+    "text": "A midwife in the lower city has crossed out the word noble on a requisition. The same clean linen serves every mother.",
+    "requires": {
+      "flags": [
+        "MIRA_CARE_EQUAL"
+      ],
+      "claimant": "mira"
+    }
+  },
+  {
+    "text": "The royal granary posts its receipts at eye level. Neighbours argue over the figures instead of over whose cousin has the key.",
+    "requires": {
+      "flags": [
+        "OPEN_GRANARY_CHARTER"
+      ],
+      "claimant": "mira"
+    }
+  },
+  {
+    "text": "The palace inquest remains open to another petition. A kitchen servant has come with a name instead of a rumour.",
+    "requires": {
+      "flags": [
+        "MIRA_RECORD_ACCEPTED"
+      ],
+      "claimant": "mira"
+    }
+  },
+  {
+    "text": "At a roadside pension office, a veteran counts the payment twice, then buys boots for his daughter.",
+    "requires": {
+      "flags": [
+        "ETHAN_PENSIONS_PAID"
+      ],
+      "claimant": "ethan"
+    }
+  },
+  {
+    "text": "The new wardens escort a market cart without collecting a private toll. People are beginning to recognise their old regimental badges.",
+    "requires": {
+      "flags": [
+        "ETHAN_VETERAN_WARDENS"
+      ],
+      "claimant": "ethan"
+    }
+  },
+  {
+    "text": "A veteran has reached the end of his service term. His captain signs the discharge rather than inventing another emergency.",
+    "requires": {
+      "flags": [
+        "ETHAN_TERM_SERVICE"
+      ],
+      "claimant": "ethan"
+    }
+  },
+  {
+    "text": "A shelter clerk returns a list of names to the families who wrote it. No recruiter keeps a copy.",
+    "requires": {
+      "flags": [
+        "ETHAN_CHOSEN_LOYALTY"
+      ],
+      "claimant": "ethan"
+    }
+  },
+  {
+    "text": "At Maren's sluice, the chalk marks show when the smaller fields are owed their water. Someone has left fresh bread for the keeper.",
+    "requires": {
+      "flags": [
+        "ARLO_WATER_SHARED"
+      ],
+      "claimant": "arlo"
+    }
+  },
+  {
+    "text": "The vale has set aside grain for seed before anyone calculates a profit. Even the poorest tenants are discussing next year.",
+    "requires": {
+      "flags": [
+        "ARLO_VALE_RESERVE"
+      ],
+      "claimant": "arlo"
+    }
+  },
+  {
+    "text": "An apprentice at Lysa's workshop carries a new pair of shoes home. Her master knows whose savings made them possible.",
+    "requires": {
+      "flags": [
+        "ARLO_LYSA_LEGACY"
+      ],
+      "claimant": "arlo"
+    }
+  },
+  {
+    "text": "A stable ledger bears Arlo's own signature beneath a disputed wage. He has paid it before asking anyone to call him royal.",
+    "requires": {
+      "flags": [
+        "ARLO_EARNED_OFFICE"
+      ],
+      "claimant": "arlo"
+    }
+  },
+  {
+    "text": "The Storm mines post the names of the shift inspectors. A worker points out a bad brace before the bell sends anyone underground.",
+    "requires": {
+      "flags": [
+        "STORM_ACCOUNTABLE_ORDER"
+      ],
+      "claimant": "alistair"
+    }
+  },
+  {
+    "text": "A northern widow reads the mine's compensation notice aloud. This time the promised sum is on the table beside it.",
+    "requires": {
+      "flags": [
+        "STORM_SHAFT_REPARATION"
+      ],
+      "claimant": "alistair"
+    }
+  },
+  {
+    "text": "A southern magistrate rules against a northern officer and keeps her chair. The compact has survived its first serious test.",
+    "requires": {
+      "flags": [
+        "STORM_COMPACT_PAYOFF"
+      ],
+      "claimant": "alistair"
+    }
+  },
+  {
+    "text": "Storm's quartermasters have marked the reserve stores paid. The men know they will not have to collect their wages from a village.",
+    "requires": {
+      "flags": [
+        "STORM_PAID_RESERVE"
+      ],
+      "claimant": "alistair"
+    }
+  },
+  {
+    "text": "The bargemen honour a delivery whose first cargo was lost. They remember who paid the widows without arguing over the seal.",
+    "requires": {
+      "flags": [
+        "RIVER_TRUST_PAYOFF"
+      ]
+    }
+  },
+  {
+    "text": "A guild cart carries tools instead of levies. The apprentices beside it are arguing about their first wages.",
+    "requires": {
+      "flags": [
+        "APPRENTICE_TRANSPORT"
+      ]
+    }
+  },
+  {
+    "text": "At the shared infirmary, the cots are numbered. The banners have been left at the door.",
+    "requires": {
+      "flags": [
+        "COMMON_INFIRMARY"
+      ]
+    }
+  },
+  {
+    "text": "Prisoners under the sowing truce return the borrowed ploughs. The repaired handles show which ones were used.",
+    "requires": {
+      "flags": [
+        "FIELDS_PROTECTED"
+      ]
+    }
+  },
+  {
+    "text": "A parole clerk closes a case because the man came back when he said he would. Keeping a promise has become news.",
+    "requires": {
+      "flags": [
+        "PAROLE_COMPLETED"
+      ]
+    }
+  },
+  {
+    "text": "Nessa Grey has signed a lease in her own name. The neighbours know her as the woman who pays on time.",
+    "requires": {
+      "flags": [
+        "NESSA_INDEPENDENT_LIFE"
+      ],
+      "npc_alive": [
+        "nessa_grey"
+      ]
+    }
+  },
+  {
+    "text": "The relief grain arrives under the same seals as the tax carts. At last the villages have seen those wagons coming both ways.",
+    "requires": {
+      "flags": [
+        "RELIEF_GRANARIES"
+      ],
+      "min_rations": 5
+    }
+  },
+  {
+    "text": "The Council has sent fresh copies of the final summons. Innkeepers are reserving rooms for witnesses as well as lords.",
+    "requires": {
+      "min_turn": 40,
+      "max_turn": 48
+    }
+  },
+  {
+    "text": "The coronation tailors ask for payment before cutting the cloth. They have fitted too many futures on credit.",
+    "requires": {
+      "min_turn": 42,
+      "max_turn": 52
+    }
+  },
+  {
+    "text": "A Riverlands family buries its winter seed in a sealed jar. The new ruler will have to earn the right to open it.",
+    "requires": {
+      "min_turn": 44,
+      "max_stability": 45
+    }
+  }
 ]

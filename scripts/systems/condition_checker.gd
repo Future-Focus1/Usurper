@@ -6,10 +6,35 @@ static func met(requires, state: CampaignState, db: ContentDB) -> bool:
 	return failures(requires, state, db).is_empty()
 
 
+static func choice_failures(choice: Dictionary, state: CampaignState, db: ContentDB) -> PackedStringArray:
+	var out := failures(choice.get("requires", {}), state, db)
+	# Content authors cannot accidentally offer a payment the player cannot make.
+	var balance := {"gold": state.gold, "rations": state.rations, "forces": state.forces}
+	for effect in choice.get("effects", []):
+		var op := str(effect.get("op", ""))
+		if balance.has(op):
+			balance[op] = int(balance[op]) + int(effect.get("amount", 0))
+			if int(balance[op]) < 0:
+				out.append("Need more %s to honour this decision" % op)
+		elif op in ["recruit", "buy_rations"] and int(balance["gold"]) < maxi(1, int(effect.get("gold_each", 1))):
+			out.append("Cannot afford even one %s" % ("soldier" if op == "recruit" else "ration"))
+	return out
+
+
 static func failures(requires, state: CampaignState, db: ContentDB) -> PackedStringArray:
 	var out := PackedStringArray()
 	if typeof(requires) != TYPE_DICTIONARY or requires.is_empty():
 		return out
+	for child in requires.get("all", []):
+		out.append_array(failures(child, state, db))
+	if requires.has("any"):
+		var found := false
+		for child in requires["any"]:
+			if met(child, state, db):
+				found = true
+				break
+		if not found:
+			out.append("None of the necessary agreements are in place")
 	_claimant(requires, state, out)
 	if requires.has("min_turn") and state.turn < int(requires["min_turn"]):
 		out.append("Too early")
@@ -35,6 +60,7 @@ static func failures(requires, state: CampaignState, db: ContentDB) -> PackedStr
 	_at_least("min_reputation", state.reputation, "reputation", requires, out)
 	_at_most("max_reputation", state.reputation, "reputation", requires, out)
 	_at_least("min_stability", state.stability, "stability", requires, out)
+	_at_most("max_stability", state.stability, "stability", requires, out)
 	_at_least("min_foreign", state.foreign, "foreign pressure", requires, out)
 	_at_most("max_foreign", state.foreign, "foreign pressure", requires, out)
 	if requires.has("max_forces") and state.forces > int(requires["max_forces"]):
@@ -57,6 +83,21 @@ static func failures(requires, state: CampaignState, db: ContentDB) -> PackedStr
 	_ledger_all(requires.get("has_ledger", null), state, db, out)
 	_ledger_missing(requires.get("missing_ledger", null), state, db, out)
 	_ledger_any(requires.get("has_ledger_any", null), state, db, out)
+	if requires.has("ledger_count"):
+		var proof: Dictionary = requires["ledger_count"]
+		var count := 0
+		for id in proof.get("ids", []):
+			if state.has_proof(str(id)):
+				count += 1
+		if count < int(proof.get("min", 1)):
+			out.append("Need %d independent proofs; you hold %d" % [int(proof.get("min", 1)), count])
+	if requires.has("min_ledger_count"):
+		var count := 0
+		for id in requires.get("ledger_count_ids", []):
+			if state.has_proof(str(id)):
+				count += 1
+		if count < int(requires["min_ledger_count"]):
+			out.append("Need %d independent proofs; you hold %d" % [int(requires["min_ledger_count"]), count])
 	_houses(requires.get("house_declared", {}), state, out, db)
 	_house_opinion(requires.get("house_opinion_min", {}), state, out, db)
 	if requires.has("min_houses_player") and state.houses_declared_for_player() < int(requires["min_houses_player"]):

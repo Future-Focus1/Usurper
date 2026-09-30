@@ -29,10 +29,7 @@ func _abort() -> void:
 
 
 func _build() -> void:
-	var backdrop := ColorRect.new()
-	backdrop.color = GameTheme.INK
-	backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(backdrop)
+	UiFactory.backdrop(self, "battle", 0.35)
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.add_theme_constant_override("margin_left", 12)
@@ -170,7 +167,17 @@ func _reserve(snap: Dictionary) -> Control:
 
 func _token(unit: Dictionary, yours: bool) -> Button:
 	var button := UiFactory.button("%s\n%s" % [unit.get("name", "Company"), Balance.comma(int(unit.get("strength", 0)))])
-	button.disabled = not yours
+	var type_id := str(unit.get("elite_id", ""))
+	if type_id == "":
+		type_id = str(unit.get("type", "infantry"))
+	button.icon = ArtLibrary.texture(type_id)
+	button.expand_icon = true
+	button.add_theme_constant_override("icon_max_width", 54)
+	button.custom_minimum_size.y = 68
+	button.tooltip_text = "Attack %s • Defence %s • %s" % [unit.get("attack", 0), unit.get("defense", 0), "ranged" if bool(unit.get("ranged", false)) else "melee"]
+	button.disabled = not yours or _battle.finished
+	button.add_theme_color_override("font_disabled_color", GameTheme.CREAM)
+	button.add_theme_color_override("icon_disabled_color", Color(0.85, 0.85, 0.85))
 	if yours and str(unit.get("uid", "")) == _commit_uid:
 		button.add_theme_color_override("font_color", GameTheme.GOLD)
 	return button

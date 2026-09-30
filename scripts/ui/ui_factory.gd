@@ -152,3 +152,51 @@ static func rich(text: String, size := 17) -> RichTextLabel:
 	node.add_theme_color_override("default_color", GameTheme.CREAM)
 	node.text = text
 	return node
+
+
+static func artwork(id: String, height: float, width: float = 0) -> TextureRect:
+	var node := TextureRect.new()
+	node.texture = ArtLibrary.texture(id)
+	node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	node.custom_minimum_size = Vector2(width, height)
+	node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	node.clip_contents = true
+	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return node
+
+
+static func backdrop(root: Control, id := "throne", darkness := 0.5) -> void:
+	var art := artwork(id, 0)
+	art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.add_child(art)
+	var shade := ColorRect.new()
+	shade.color = Color(0.035, 0.04, 0.035, darkness)
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(shade)
+
+
+static func primary(text: String) -> Button:
+	var node := button(text)
+	node.custom_minimum_size.y = 44
+	var box := StyleBoxFlat.new()
+	box.bg_color = Color("54462d")
+	box.border_color = GameTheme.GOLD
+	box.set_border_width_all(1)
+	box.set_corner_radius_all(2)
+	box.content_margin_left = 16
+	box.content_margin_right = 16
+	box.content_margin_top = 10
+	box.content_margin_bottom = 10
+	node.add_theme_stylebox_override("normal", box)
+	node.add_theme_color_override("font_color", GameTheme.CREAM)
+	return node
+
+
+static func portrait(id: String, height: float, width: float = 0) -> PortraitFrame:
+	var node := PortraitFrame.new()
+	node.texture = ArtLibrary.texture(id)
+	node.custom_minimum_size = Vector2(width, height)
+	node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	return node

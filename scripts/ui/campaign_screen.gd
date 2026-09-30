@@ -18,6 +18,7 @@ var _primary: Button
 var _throne: Button
 var _overlay: Control
 var _debug: DebugPanel
+var _scene_art: TextureRect
 
 
 func _ready() -> void:
@@ -31,7 +32,10 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		_open_pause()
+		if _overlay != null and _overlay.visible:
+			_close_overlay()
+		else:
+			_open_pause()
 		get_viewport().set_input_as_handled()
 	elif event is InputEventKey and event.pressed and event.keycode == KEY_F12 and Balance.DEBUG_ENABLED:
 		_toggle_debug()
@@ -45,6 +49,12 @@ func _leave() -> void:
 func _resume() -> void:
 	var state := GameManager.state
 	if state == null:
+		return
+	if not state.ending_data.is_empty():
+		GameManager.show_ending(state.ending_data)
+		return
+	if not state.pending_battle.is_empty():
+		GameManager.launch_battle()
 		return
 	if state.defeat_reason != "":
 		var reason := state.defeat_reason
@@ -69,10 +79,8 @@ func _resume() -> void:
 
 
 func _build() -> void:
-	var backdrop := ColorRect.new()
-	backdrop.color = GameTheme.INK
-	backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(backdrop)
+	UiFactory.backdrop(self, "throne", 0.85)
+	_scene_art = get_child(0) as TextureRect
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.add_theme_constant_override("margin_left", 12)
@@ -171,8 +179,9 @@ func _footer() -> Control:
 	row.add_child(_nav("Court", _open_court))
 	row.add_child(_nav("Ledger", _open_ledger))
 	row.add_child(_nav("Army", _open_army))
+	row.add_child(_nav("World", _open_world))
 	row.add_child(_nav("Chronicle", func(): GameManager.open_chronicle()))
-	_primary = UiFactory.button("Continue")
+	_primary = UiFactory.primary("Continue")
 	_primary.pressed.connect(_on_primary)
 	row.add_child(_primary)
 	return row
@@ -195,13 +204,33 @@ func _refresh() -> void:
 	_claim_bar.value = state.claim
 	var fear := Balance.fear_label(state.fear)
 	_fear.text = "Fear %s" % fear
+	for stat in [_gold, _rations, _forces, _claim, _fear]:
+		stat.custom_minimum_size = Vector2(UiFactory._text_width(stat.text, 15) + 8, 24)
 	_fear.add_theme_color_override("font_color", UiFactory.support_color(fear))
 	_date.text = "%s  ·  %s" % [Balance.date_line(state.turn), Balance.act_name(state.turn)]
-	_throne.visible = state.claim >= 100
+	_throne.visible = true
+	_throne.text = "Take the Throne" if state.claim >= 100 else "Paths to the crown"
 	_fill_left(state)
 	_fill_right(state)
 	UiFactory.clear(_center)
+	var scene := "throne"
+	if state.claimant_id == "arlo":
+		scene = "maren"
+	elif state.claimant_id == "alistair":
+		scene = "stormhold"
+	elif state.claimant_id == "ethan":
+		scene = "battle"
+	if state.phase == "event":
+		var event := EventDirector.current(state, GameManager.db)
+		var setting := str(event.get("scene", ""))
+		if setting in ["maren", "stormhold", "temple", "coast", "battle"]:
+			scene = setting
+		elif setting in ["caerlyn", "court"]:
+			scene = "throne"
+	if _scene_art != null and ArtLibrary.texture(scene) != null:
+		_scene_art.texture = ArtLibrary.texture(scene)
 	_phase.text = WeekLoop.phase_title(state.phase)
+	_phase.custom_minimum_size.x = UiFactory._text_width(_phase.text, 14) + 8
 	match state.phase:
 		"event":
 			_show_event(state)
@@ -215,6 +244,9 @@ func _refresh() -> void:
 
 func _fill_left(state: CampaignState) -> void:
 	UiFactory.clear(_left)
+	_left.add_child(UiFactory.portrait(state.claimant_id, 132))
+	_left.add_child(UiFactory.title(str(GameManager.db.claimants[state.claimant_id].get("short", "")), 20))
+	_left.add_child(UiFactory.rule())
 	_left.add_child(UiFactory.muted("SUPPORT"))
 	for bloc in Balance.BLOCS:
 		var value := int(state.blocs.get(bloc, 0))
@@ -222,6 +254,13 @@ func _fill_left(state: CampaignState) -> void:
 		var line := UiFactory.label("%s\n%s" % [Balance.bloc_title(str(bloc)), word], 14)
 		line.add_theme_color_override("font_color", UiFactory.support_color(word))
 		_left.add_child(line)
+		var bar := ProgressBar.new()
+		bar.min_value = -100
+		bar.max_value = 100
+		bar.value = value
+		bar.show_percentage = false
+		bar.custom_minimum_size.y = 4
+		_left.add_child(bar)
 	_left.add_child(UiFactory.rule())
 	_left.add_child(UiFactory.muted("HOUSES"))
 	for hid in GameManager.db.house_order:
@@ -279,6 +318,7 @@ func _show_overview(state: CampaignState) -> void:
 	if state.banner != "":
 		_center.add_child(UiFactory.label(state.banner, 15, GameTheme.CLAIM))
 	_center.add_child(UiFactory.title("The week ahead", 24))
+	_center.add_child(UiFactory.artwork("map", 136))
 	_center.add_child(UiFactory.muted("%d lands held. Hear the petitioners, then issue one decree." % state.player_territories().size()))
 	if state.turn == 1:
 		var hint := str(GameManager.db.claimants[state.claimant_id].get("hint", ""))
@@ -306,18 +346,24 @@ func _show_event(state: CampaignState) -> void:
 		_center.add_child(UiFactory.muted(state.banner))
 	var place := str(event.get("place", "NEZREL")).to_upper()
 	_center.add_child(UiFactory.muted(place))
-	var portrait := ColorRect.new()
-	portrait.custom_minimum_size = Vector2(0, 8)
-	portrait.color = Color(str(event.get("portrait", "#5d7c99")))
-	_center.add_child(portrait)
-	_center.add_child(UiFactory.title(str(event.get("title", "Audience")), 24))
-	_center.add_child(UiFactory.muted(str(event.get("speaker", ""))))
+	var heading := UiFactory.hbox(16)
+	_center.add_child(heading)
+	var speaker_id := ArtLibrary.speaker(event, GameManager.db)
+	if ArtLibrary.texture(speaker_id) != null:
+		var portrait := UiFactory.portrait(speaker_id, 112, 104)
+		portrait.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		heading.add_child(portrait)
+	var title_column := UiFactory.vbox(6)
+	heading.add_child(title_column)
+	title_column.add_child(UiFactory.title(str(event.get("title", "Audience")), 26))
+	title_column.add_child(UiFactory.muted(str(event.get("speaker", "")), 16))
+	title_column.add_child(UiFactory.muted("Petition %d of %d" % [state.event_index + 1, state.event_queue.size()], 13))
+	_center.add_child(UiFactory.rule())
 	_center.add_child(UiFactory.rich(str(event.get("text", ""))))
-	_center.add_child(UiFactory.muted("Matter %d of %d" % [state.event_index + 1, state.event_queue.size()]))
 	var any_open := false
 	var index := 0
 	for choice in event.get("choices", []):
-		var fails := ConditionChecker.failures(choice.get("requires", {}), state, GameManager.db)
+		var fails := ConditionChecker.choice_failures(choice, state, GameManager.db)
 		var button := UiFactory.button(str(choice.get("text", "...")))
 		button.disabled = not fails.is_empty()
 		if fails.is_empty():
@@ -400,6 +446,9 @@ func _on_primary() -> void:
 				return
 			_commit_action(_selected)
 		"response":
+			if state.defeat_reason != "":
+				GameManager.show_ending(EndingDirector.resolve_defeat(state, GameManager.db, state.defeat_reason))
+				return
 			state.phase = "overview"
 			state.banner = ""
 			state.week_report = []
@@ -421,7 +470,7 @@ func _choose(index: int) -> void:
 	if index >= choices.size():
 		return
 	var choice: Dictionary = choices[index]
-	if not ConditionChecker.met(choice.get("requires", {}), state, GameManager.db):
+	if not ConditionChecker.choice_failures(choice, state, GameManager.db).is_empty():
 		return
 	_busy = true
 	var result := EffectResolver.apply(state, choice.get("effects", []), GameManager.db)
@@ -439,7 +488,30 @@ func _choose(index: int) -> void:
 		GameManager.launch_battle()
 		return
 	_busy = false
-	_advance_event()
+	_show_choice_result(choice, result)
+
+
+func _show_choice_result(choice: Dictionary, result: Dictionary) -> void:
+	var state := GameManager.state
+	# Commit the decision before showing its receipt, so a save cannot repeat it.
+	state.event_index += 1
+	if state.event_index >= state.event_queue.size():
+		state.phase = "action"
+		_selected = {}
+	UiFactory.clear(_center)
+	_primary.visible = false
+	_center.add_child(UiFactory.muted("YOUR WORD BECOMES POLICY", 13))
+	_center.add_child(UiFactory.title("The court remembers", 26))
+	_center.add_child(UiFactory.rule())
+	_center.add_child(UiFactory.label(str(choice.get("text", "")), 19, GameTheme.GOLD))
+	var outcome := str(choice.get("outcome", ""))
+	if outcome != "":
+		_center.add_child(UiFactory.rich(outcome, 18))
+	for line in result.get("log", []):
+		_center.add_child(UiFactory.label(str(line), 16))
+	var next := UiFactory.primary("Continue the audience")
+	next.pressed.connect(_refresh)
+	_center.add_child(next)
 
 
 func _advance_event() -> void:
@@ -455,6 +527,19 @@ func _advance_event() -> void:
 func _commit_action(action: Dictionary) -> void:
 	var state := GameManager.state
 	if state.action_taken != "":
+		return
+	if not ConditionChecker.choice_failures(action, state, GameManager.db).is_empty():
+		_selected = {}
+		_refresh()
+		return
+	var available := false
+	for fresh in ActionBoard.available(state, GameManager.db):
+		if str(fresh.get("id", "")) == str(action.get("id", "")):
+			available = true
+			break
+	if not available:
+		_selected = {}
+		_refresh()
 		return
 	_busy = true
 	state.action_taken = str(action.get("id", "action"))
@@ -546,11 +631,13 @@ func _open_throne() -> void:
 	header.add_child(close)
 	column.add_child(header)
 	column.add_child(UiFactory.muted("Claim is not victory. The method has to survive the kingdom you actually built."))
+	if state.claim < 100:
+		column.add_child(UiFactory.label("Your claim is %d/100. Build it to 100 before attempting a settlement." % state.claim, 17, GameTheme.GOLD))
 	for row in EndingDirector.list_routes(state, GameManager.db):
 		var route: Dictionary = row["route"]
 		var open := bool(row["open"])
 		var button := UiFactory.button(str(route.get("title", "Route")))
-		button.disabled = not open
+		button.disabled = not open or state.claim < 100
 		if open:
 			button.pressed.connect(_attempt_route.bind(str(route.get("id", ""))))
 		column.add_child(button)
@@ -562,6 +649,8 @@ func _open_throne() -> void:
 func _attempt_route(route_id: String) -> void:
 	var state := GameManager.state
 	var route := EndingDirector._route(GameManager.db, route_id)
+	if state.claim < 100 or route.is_empty() or not ConditionChecker.met(route.get("requires", {}), state, GameManager.db):
+		return
 	_close_overlay()
 	var battle_id := str(route.get("battle_id", ""))
 	if battle_id != "":
@@ -571,6 +660,13 @@ func _attempt_route(route_id: String) -> void:
 		GameManager.launch_battle()
 		return
 	GameManager.show_ending(EndingDirector.resolve(state, GameManager.db, route_id))
+
+
+func _open_world() -> void:
+	var view := CodexView.new()
+	view.dismissed.connect(_close_overlay)
+	_show_overlay(view)
+	view.present(GameManager.db)
 
 
 func _overlay_margin() -> MarginContainer:

@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Named campaign constants. Tune here rather than inside content or UI.
 
-const DEBUG_ENABLED := true
+const DEBUG_ENABLED := false
 
 const RATION_FORCE_DIVISOR := 500
 const GOLD_UPKEEP_DIVISOR := 80
@@ -71,9 +71,11 @@ static func act_name(turn: int) -> String:
 
 static func date_line(turn: int) -> String:
 	var idx := maxi(0, turn - 1)
-	var season: String = SEASONS[(idx / 4) % SEASONS.size()]
-	var week := (idx % 4) + 1
-	var year_index := int(idx / 32) + 1
+	var within_year := idx % 52
+	var season_index := mini(SEASONS.size() - 1, int(float(within_year) * 8.0 / 52.0))
+	var season: String = SEASONS[season_index]
+	var week := within_year - int(ceil(float(season_index) * 52.0 / 8.0)) + 1
+	var year_index := int(idx / 52) + 1
 	var year_name := "Year of the Empty Crown" if year_index == 1 else "Year %d of the Empty Crown" % year_index
 	return "Week %d of %s, %s" % [week, season, year_name]
 

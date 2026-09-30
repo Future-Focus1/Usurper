@@ -12,7 +12,7 @@ static func available(state: CampaignState, db: ContentDB) -> Array:
 		elif _allowed(action, state, db):
 			rows.append(action)
 	rows.append_array(_ledger_plays(state, db))
-	return rows
+	return rows.filter(func(action): return ConditionChecker.choice_failures(action, state, db).is_empty())
 
 
 static func column(state: CampaignState, db: ContentDB, category: String) -> Array:
@@ -69,7 +69,26 @@ static func _for_claimant(action: Dictionary, state: CampaignState) -> bool:
 static func _allowed(action: Dictionary, state: CampaignState, db: ContentDB) -> bool:
 	if not _for_claimant(action, state):
 		return false
-	return ConditionChecker.met(action.get("requires", {}), state, db)
+	var id := str(action.get("id", ""))
+	if id in ["spread_word", "spread_word_ethan", "appeal_people"] and state.claim >= 100 and int(state.blocs.get("people", 0)) >= 100:
+		return false
+	if id == "public_audience" and state.reputation >= 100 and int(state.blocs.get("people", 0)) >= 100:
+		return false
+	if id in ["train_forces", "address_troops"] and state.army_morale >= 100 and int(state.blocs.get("military", 0)) >= 100 and (id == "train_forces" or state.claim >= 100):
+		return false
+	if id in ["seek_flame", "seek_flame_ethan", "seek_flame_arlo"] and int(state.blocs.get("flame", 0)) >= 100 and int(state.npcs.get("aldren_veil", {}).get("personal", 0)) >= 100 and int(state.npcs.get("aldren_veil", {}).get("political", 0)) >= 100:
+		return false
+	if id == "summon_official" and state.claim >= 100 and int(state.blocs.get("court", 0)) >= 100 and int(state.npcs.get("lucan_rook", {}).get("personal", 0)) >= 100 and int(state.npcs.get("lucan_rook", {}).get("political", 0)) >= 100:
+		return false
+	for effect in action.get("effects", []):
+		if str(effect.get("op", "")) == "grant_first_missing":
+			var has_new := false
+			for proof_id in effect.get("ids", []):
+				if not state.has_ledger(str(proof_id)) and not state.ledger_archive.has(str(proof_id)):
+					has_new = true
+			if not has_new:
+				return false
+	return ConditionChecker.choice_failures(action, state, db).is_empty()
 
 
 static func _generate(template: Dictionary, state: CampaignState, db: ContentDB) -> Array:
@@ -87,6 +106,12 @@ static func _generate(template: Dictionary, state: CampaignState, db: ContentDB)
 			return _fortify(template, state, db)
 		"occupy_territory":
 			return _occupy(template, state, db)
+		"charter_territory":
+			return _charter(template, state, db)
+		"reconcile_rival":
+			return _reconcile(template, state, db)
+		"prisoner_settlement":
+			return _prisoners(template, state, db)
 		_:
 			return []
 
@@ -128,7 +153,7 @@ static func _spy(template: Dictionary, state: CampaignState, db: ContentDB) -> A
 		return []
 	var rows: Array = []
 	for rid in state.rivals:
-		if not bool(state.rivals[rid].get("alive", false)):
+		if not bool(state.rivals[rid].get("alive", false)) or str(state.npcs.get(rid, {}).get("state", "free")) != "free":
 			continue
 		var name := str(db.claimants[rid].get("short", rid))
 		rows.append({
@@ -166,6 +191,20 @@ static func _envoy(template: Dictionary, state: CampaignState, db: ContentDB) ->
 			continue
 		var house: Dictionary = db.houses[hid]
 		var name := str(house.get("name", hid))
+		var leader := str(house.get("leader", ""))
+		if leader != "" and (not state.npc_alive(leader) or str(state.npcs.get(leader, {}).get("state", "free")) != "free"):
+			continue
+		if state.rivals.has(leader) and (int(state.rivals[leader].get("hostility", 100)) >= 35 or int(state.npcs[leader].get("personal", 0)) < 35):
+			continue
+		if int(state.houses[hid].get("opinion", 0)) >= 25:
+			rows.append({
+				"id": "recognition_" + str(hid), "category": "Diplomacy",
+				"title": "Accept %s's recognition" % name,
+				"summary": "%s trusts your conduct. Confirm its local rights in exchange for a public oath and its unoccupied estates." % name,
+				"requires": {"min_gold": 150, "house_opinion_min": {hid: 25}},
+				"effects": [{"op": "gold", "amount": -150}, {"op": "house_declare", "id": hid}, {"op": "claim", "amount": 6}, {"op": "bloc", "bloc": "nobility", "amount": 5}, {"op": "stability", "amount": 4}, {"op": "flag", "flag": "RIGHTS_" + str(hid).to_upper()}],
+			})
+			continue
 		rows.append({
 			"id": "envoy_" + hid,
 			"category": "Diplomacy",
@@ -195,7 +234,7 @@ static func _assassinate(template: Dictionary, state: CampaignState, db: Content
 		return []
 	var rows: Array = []
 	for rid in state.rivals:
-		if not bool(state.rivals[rid].get("alive", false)):
+		if not bool(state.rivals[rid].get("alive", false)) or str(state.npcs.get(rid, {}).get("state", "free")) != "free":
 			continue
 		var name := str(db.claimants[rid].get("name", rid))
 		rows.append({
@@ -233,6 +272,8 @@ static func _fortify(template: Dictionary, state: CampaignState, db: ContentDB) 
 		return []
 	var rows: Array = []
 	for tid in state.player_territories():
+		if int(state.territories[tid].get("fort", 0)) >= 12:
+			continue
 		var name := str(db.territories[tid].get("name", tid))
 		rows.append({
 			"id": "fortify_" + tid,
@@ -307,7 +348,8 @@ static func _ledger_plays(state: CampaignState, db: ContentDB) -> Array:
 				{"op": "ledger_remove", "id": str(id)},
 			]
 			reveal_effects.append_array(item.get("reveal", []))
-			rows.append(_play("reveal_" + str(id), "Intrigue", "Reveal: " + title, str(item.get("text", "")), reveal_effects, {"not_flags": ["REVEALED_" + str(id).to_upper()]}))
+			if not bool(state.flags.get("REVEALED_" + str(id).to_upper(), false)):
+				rows.append(_play("reveal_" + str(id), "Intrigue", "Reveal: " + title, str(item.get("text", "")), reveal_effects, {"not_flags": ["REVEALED_" + str(id).to_upper()]}))
 		if int(item.get("sell_gold", 0)) > 0:
 			rows.append({
 				"id": "sell_" + str(id),
@@ -323,7 +365,7 @@ static func _ledger_plays(state: CampaignState, db: ContentDB) -> Array:
 			})
 		if typeof(item.get("blackmail", null)) == TYPE_ARRAY:
 			var target := str(item.get("target", ""))
-			if target == "" or state.npc_alive(target):
+			if not bool(state.flags.get("BLACKMAIL_" + str(id).to_upper(), false)) and (target == "" or (state.npc_alive(target) and str(state.npcs.get(target, {}).get("state", "free")) == "free")):
 				var effects: Array = [{"op": "flag", "flag": "BLACKMAIL_" + str(id).to_upper()}]
 				effects.append_array(item.get("blackmail", []))
 				rows.append(_play(
@@ -335,6 +377,9 @@ static func _ledger_plays(state: CampaignState, db: ContentDB) -> Array:
 					{"not_flags": ["BLACKMAIL_" + str(id).to_upper()]},
 				))
 		if kind == "favour":
+			var benefactor := str(item.get("target", ""))
+			if benefactor != "" and not state.npc_alive(benefactor):
+				continue
 			var call_effects: Array = [{"op": "ledger_remove", "id": str(id)}]
 			call_effects.append_array(item.get("call", []))
 			rows.append({
@@ -355,6 +400,74 @@ static func _ledger_plays(state: CampaignState, db: ContentDB) -> Array:
 					{"op": "news", "text": title + " is ash."},
 				],
 			})
+	return rows
+
+
+static func _charter(template: Dictionary, state: CampaignState, db: ContentDB) -> Array:
+	if not _allowed(template, state, db):
+		return []
+	var rows: Array = []
+	for tid in db.territory_order:
+		if str(state.territories[tid].get("controller", "")) != "neutral":
+			continue
+		var name := str(db.territories[tid].get("name", tid))
+		rows.append({
+			"id": "charter_" + str(tid), "category": "Diplomacy", "title": "Charter for %s" % name,
+			"summary": "Guarantee the councils of %s their local courts and pay for their roads. They will collect grain and taxes in your name; the lords will resent the precedent." % name,
+			"requires": template.get("requires", {}),
+			"effects": [{"op": "gold", "amount": -100}, {"op": "territory", "id": tid}, {"op": "loyalty", "id": tid, "amount": 12}, {"op": "unrest", "id": tid, "amount": -10}, {"op": "claim", "amount": 3}, {"op": "bloc", "bloc": "people", "amount": 3}, {"op": "bloc", "bloc": "nobility", "amount": -2}, {"op": "stability", "amount": 3}, {"op": "flag", "flag": "CHARTER_" + str(tid).to_upper()}],
+		})
+	return rows
+
+
+static func _reconcile(template: Dictionary, state: CampaignState, db: ContentDB) -> Array:
+	if not _allowed(template, state, db):
+		return []
+	var rows: Array = []
+	for rid in state.rivals:
+		if not state.npc_alive(rid) or str(state.npcs.get(rid, {}).get("state", "free")) != "free":
+			continue
+		if int(state.rivals[rid].get("hostility", 0)) <= 10 and int(state.npcs[rid].get("personal", 0)) >= 35:
+			continue
+		var name := str(db.claimants[rid].get("short", rid))
+		rows.append({
+			"id": "reconcile_" + str(rid), "category": "Diplomacy", "title": "Parley with %s" % name,
+			"summary": "Offer safe passage, exchange prisoners and fund grain for %s's camp. Trust returns slowly. An army kept alive today may stand beside you tomorrow." % name,
+			"requires": template.get("requires", {}),
+			"effects": [{"op": "gold", "amount": -90}, {"op": "rations", "amount": -2}, {"op": "relation", "id": rid, "amount": 6, "political": 4}, {"op": "rival", "id": rid, "field": "hostility", "amount": -12}, {"op": "rival", "id": rid, "field": "rations", "amount": 2}, {"op": "stability", "amount": 3}, {"op": "fear", "amount": -1}, {"op": "flag", "flag": "PARLEY_" + str(rid).to_upper()}],
+		})
+	return rows
+
+
+static func _prisoners(_template: Dictionary, state: CampaignState, db: ContentDB) -> Array:
+	var rows: Array = []
+	for id in db.character_order:
+		if id == state.claimant_id or not state.npc_alive(id) or str(state.npcs[id].get("state", "")) != "captured":
+			continue
+		var name := str(db.characters[id].get("name", id))
+		var condition := {"npc_alive": [id], "npc_state": {id: "captured"}}
+		var release_condition: Dictionary = condition.duplicate(true)
+		release_condition["min_gold"] = 30
+		rows.append({
+			"id": "release_" + str(id), "category": "Diplomacy", "title": "Release %s under oath" % name,
+			"summary": "Pay for safe passage and record the terms before witnesses. The prisoner returns to public life; gratitude offers no guarantee against a renewed claim.",
+			"requires": release_condition,
+			"effects": [{"op": "gold", "amount": -30}, {"op": "free_npc", "id": id}, {"op": "relation", "id": id, "amount": 8, "political": 5}, {"op": "rival", "id": id, "field": "hostility", "amount": -20}, {"op": "reputation", "amount": 2}, {"op": "fear", "amount": -3}, {"op": "memory", "id": id, "text": "You released me under a witnessed oath."}],
+		})
+		rows.append({
+			"id": "ransom_" + str(id), "category": "Economy", "title": "Ransom %s" % name,
+			"summary": "The household pays to recover its own. Your treasury gains a purse and your reputation gains a price.",
+			"requires": condition,
+			"effects": [{"op": "gold", "amount": 150}, {"op": "free_npc", "id": id}, {"op": "relation", "id": id, "amount": -8, "political": -4}, {"op": "rival", "id": id, "field": "hostility", "amount": 10}, {"op": "reputation", "amount": -3}, {"op": "flag", "flag": "RANSOMED_" + str(id).to_upper()}],
+		})
+		rows.append({
+			"id": "execute_" + str(id), "category": "Intrigue", "title": "Condemn %s" % name,
+			"summary": "Use the power of confinement to impose a death sentence. Their household, the Flame and the public will remember that the verdict came from your seal.",
+			"requires": condition,
+			"effects": [{"op": "fear", "amount": 5}, {"op": "reputation", "amount": -8}, {"op": "bloc", "bloc": "people", "amount": -5}, {"op": "bloc", "bloc": "flame", "amount": -5}, {"op": "flag", "flag": "EXECUTED_" + str(id).to_upper()}, {"op": "kill", "id": id}],
+		})
+	for row in rows:
+		row["effects"] = row["effects"].filter(func(effect): return str(effect.get("op", "")) != "rival" or state.rivals.has(str(effect.get("id", ""))))
 	return rows
 
 

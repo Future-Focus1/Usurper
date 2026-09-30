@@ -8,7 +8,12 @@ static func compose_player(state: CampaignState, db: ContentDB) -> Array:
 	var claimant: Dictionary = db.claimants.get(state.claimant_id, {})
 	var bias = claimant.get("army_bias", ["infantry", "spears", "archers", "cavalry"])
 	var short := str(claimant.get("short", "Your"))
-	return _compose(db, state.forces, bias, state.elites, state.commanders, state.claimant_id, short)
+	var ready: Array = []
+	for id in state.commanders:
+		if state.npc_alive(str(id)) and str(state.npcs[str(id)].get("state", "free")) == "free" and not state.wounded.has(str(id)):
+			ready.append(id)
+	var banner := "" if state.wounded.has(state.claimant_id) else state.claimant_id
+	return _compose(db, state.forces, bias, state.elites, ready, banner, short)
 
 
 static func compose_custom(db: ContentDB, forces: int, types, elites: Array, label: String) -> Array:
@@ -22,8 +27,20 @@ static func _compose(db: ContentDB, forces: int, types, elites: Array, commander
 	var type_list: Array = types if typeof(types) == TYPE_ARRAY and not types.is_empty() else ["infantry", "spears", "archers"]
 	var units: Array = []
 	var used := 0
-	if banner_id != "":
-		var banner_size := clampi(int(float(forces) * 0.16), 30, mini(420, forces))
+	if forces < 100 and not elites.is_empty() and db.units.has(str(elites[0])):
+		var elite_id := str(elites[0])
+		var household_size := mini(forces, int(db.units[elite_id].get("company", forces)))
+		var household := _from_data(db.units[elite_id], household_size, "household")
+		household["elite"] = true
+		household["elite_id"] = elite_id
+		household["commander_id"] = banner_id
+		household["commander_name"] = label
+		units.append(household)
+		used = household_size
+		if used >= forces:
+			return units
+	if banner_id != "" and used == 0:
+		var banner_size := clampi(int(float(forces) * 0.16), mini(30, forces), mini(420, forces))
 		var banner := _make(db, "infantry", banner_size, "%s's Banner" % label, "banner")
 		banner["commander_id"] = banner_id
 		banner["commander_name"] = label
@@ -31,6 +48,12 @@ static func _compose(db: ContentDB, forces: int, types, elites: Array, commander
 		units.append(banner)
 		used += banner_size
 	for elite_id in elites:
+		var already_deployed := false
+		for unit in units:
+			if str(unit.get("elite_id", "")) == str(elite_id):
+				already_deployed = true
+		if already_deployed:
+			continue
 		if used >= forces - 20:
 			break
 		var data: Dictionary = db.units.get(str(elite_id), {})

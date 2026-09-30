@@ -1,0 +1,37 @@
+USURPER — THE CROWN IS EMPTY
+
+Extract the entire archive, then run Usurper.exe.
+
+Choose one of four claimants. Each week, review your position, answer the
+petitions, issue one decree, and read the realm's response. The Map, Court,
+Ledger, Army and World screens do not spend a decree.
+
+Read the forecast before recruiting. Gold pays troops; rations feed them.
+Protect witnesses, keep promises, and find evidence inside this campaign.
+Support and alliances can turn an estate into part of your economy.
+
+Claim 100 permits an attempt to settle the succession. Each throne route
+also has its own conditions. Common routes show their missing requirements;
+unusual settlements appear when discovered. A failed attempt ends the claim.
+The succession is finite: a Council can settle a campaign that remains open.
+
+In battle, choose a lane and an order. Commit reserves to reinforce weak
+positions. You can move companies before the opening clash. The seven orders
+have different risks; tooltips explain them. Retreat can preserve your host.
+
+Press Esc during a campaign to pause and save. There is an autosave and three
+manual slots. Continue resumes the latest save, including a pending battle
+or a completed epilogue. Fullscreen is available under Settings.
+
+Saves, Chronicle and preferences live in:
+%APPDATA%\Godot\app_userdata\Usurper\
+
+The Chronicle remembers completed campaigns and discovered stories. A new
+claimant must still uncover the truth personally. The public World atlas
+contains the history and geography everyone in Nezrel could know.
+
+This version contains no music or sound effects; the owner will supply audio
+for a later update. It includes textual political violence, bereavement,
+disputed assault allegations, coercion, and end-of-life mercy.
+
+Godot and font dependency notices are included beside the executable.

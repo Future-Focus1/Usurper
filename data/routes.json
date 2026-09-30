@@ -7,7 +7,13 @@
     "difficulty": 64,
     "battle_id": "throne_conquest",
     "summary": "Take Caerlyn with soldiers and dare the realm to call it anything else.",
-    "requires": {"min_claim": 100, "min_forces": 1800, "min_bloc": {"military": 10}},
+    "requires": {
+      "min_claim": 100,
+      "min_forces": 1800,
+      "min_bloc": {
+        "military": 10
+      }
+    },
     "prose": {
       "triumph": "The gate breaks and the city understands the new facts before the speeches do. You are crowned with smoke still in the banners, and the army is proud enough to be gentle.",
       "brittle": "You take the castle. The streets do not cheer so much as make room. The reign begins with a garrison on every corner and a promise to send them away later.",
@@ -23,7 +29,14 @@
     "method": "Acclamation",
     "difficulty": 58,
     "summary": "Let the great houses and the court say the crown aloud before anyone has to die for it.",
-    "requires": {"min_claim": 100, "min_bloc": {"nobility": 35, "court": 18}, "min_houses_player": 2},
+    "requires": {
+      "min_claim": 100,
+      "min_bloc": {
+        "nobility": 35,
+        "court": 18
+      },
+      "min_houses_player": 2
+    },
     "prose": {
       "triumph": "The lords stand, not quite together and not quite by accident. Lucan reads a formula old enough to sound inevitable. The cheer is thin and real.",
       "brittle": "You are acclaimed by a council that has already priced the favour. The crown fits. The invoices arrive the same week.",
@@ -39,7 +52,21 @@
     "method": "The Flame",
     "difficulty": 60,
     "summary": "Ask the High Keeper to make you monarch in the sight of the hearth.",
-    "requires": {"min_claim": 100, "min_bloc": {"flame": 40}, "relation_min": {"aldren_veil": 15}},
+    "requires": {
+      "min_claim": 100,
+      "min_bloc": {
+        "flame": 40
+      },
+      "relation_min": {
+        "aldren_veil": 15
+      },
+      "npc_alive": [
+        "aldren_veil"
+      ],
+      "npc_state": {
+        "aldren_veil": "free"
+      }
+    },
     "prose": {
       "triumph": "Aldren lights the Crown Candle and does not look away. For a season, Nezrel is willing to believe the blessing and the ruler are the same thing.",
       "brittle": "The rite is perfect. The High Keeper's face is not. You are sacred enough to rule and not enough to be forgiven in advance.",
@@ -55,7 +82,13 @@
     "method": "The people",
     "difficulty": 62,
     "summary": "Be carried into the capital by the commons and see whether the castle yields to a crowd.",
-    "requires": {"min_claim": 100, "min_bloc": {"people": 50}, "max_fear": 48},
+    "requires": {
+      "min_claim": 100,
+      "min_bloc": {
+        "people": 50
+      },
+      "max_fear": 48
+    },
     "prose": {
       "triumph": "Markets empty into the road. The gates open because the people holding them live in the city. You are crowned by consent that did not ask the lords first.",
       "brittle": "The crowd puts you on the throne and then asks, immediately, to be fed. Love has a ledger.",
@@ -70,10 +103,16 @@
     "failure_title": "A Bastard's Story",
     "method": "Blood",
     "difficulty": 57,
-    "summary": "Put the proofs of Arlo's birth where the law has to look at them.",
-    "requires": {"min_claim": 100, "claimant": "arlo", "flags": ["BLOOD_PROVEN"]},
+    "summary": "Present proof of Arlo’s parentage and obtain a lawful settlement of his disputed status.",
+    "requires": {
+      "min_claim": 100,
+      "claimant": "arlo",
+      "flags": [
+        "BLOOD_PROVEN"
+      ]
+    },
     "prose": {
-      "triumph": "The payments, the witness, and the king's own unfinished mercy are read in order. Arlo stops being a rumour. The vale's boy is named Erol's son in a voice that has to be answered.",
+      "triumph": "The evidence of Arlo’s parentage is heard, then public recognition settles the lawful claim blood alone could not create. He takes the crown with the names of the people who raised him preserved beside it.",
       "brittle": "They accept the blood and not the person. You are legitimate enough to be used by men who still think of you as a stable.",
       "pyrrhic": "The proof wins. Tomas looks like a man attending a funeral that he paid for. The crown is real and it has already cost the house that hid you.",
       "failure": "The papers are called forgery by people who would call the sun a rumour if it threatened them. Blood, without enough swords or friends, is only a story.",
@@ -87,7 +126,24 @@
     "method": "Erol's will",
     "difficulty": 55,
     "summary": "Produce the testament and survive what it actually says.",
-    "requires": {"min_claim": 100, "flags": ["WILL_READY"]},
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "WILL_READY"
+      ],
+      "any": [
+        {
+          "has_ledger": [
+            "full_testament"
+          ]
+        },
+        {
+          "flags": [
+            "REVEALED_FULL_TESTAMENT"
+          ]
+        }
+      ]
+    },
     "prose": {
       "triumph": "The missing testament is read. It refuses a single heir and demands a whole kingdom. You are the reading the room can live with, and for once the paper and the power agree.",
       "brittle": "The will is authentic and inconvenient. You take the crown as its least disastrous interpretation, which is not the same as its love.",
@@ -102,8 +158,39 @@
     "failure_title": "The Vows Fail",
     "method": "Marriage",
     "difficulty": 56,
-    "summary": "Join two claims in one household and hope the household survives the week.",
-    "requires": {"min_claim": 100, "flags": ["MARRIAGE_PACT"]},
+    "summary": "Bind two households through a consenting political marriage with public terms for authority and inheritance.",
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "MARRIAGE_PACT"
+      ],
+      "any": [
+        {
+          "flags": [
+            "MARRIAGE_MIRA_ALISTAIR"
+          ],
+          "npc_alive": [
+            "mira",
+            "alistair"
+          ],
+          "npc_state": {
+            "mira": "free",
+            "alistair": "free"
+          }
+        },
+        {
+          "flags": [
+            "MARRIED_CELENE_VEYNE"
+          ],
+          "npc_alive": [
+            "celene_veyne"
+          ],
+          "npc_state": {
+            "celene_veyne": "free"
+          }
+        }
+      ]
+    },
     "prose": {
       "triumph": "The marriage is political and, against the odds, workable. Two claims enter the hall. One crown leaves it, with both people still alive.",
       "brittle": "You are married into the throne. Love is not required. Vigilance is. The court applauds a solution it intends to pry open later.",
@@ -119,7 +206,12 @@
     "method": "Abdication",
     "difficulty": 54,
     "summary": "Force a weakened rival to lay the crown down in public.",
-    "requires": {"min_claim": 100, "flags": ["ABDICATION_OFFERED"]},
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "ABDICATION_OFFERED"
+      ]
+    },
     "prose": {
       "triumph": "A rival kneels, or at least stops standing. The abdication is signed where people can see it. The war loses its favourite excuse.",
       "brittle": "They abdicate and you spend the reign wondering which of their friends signed in pencil.",
@@ -134,8 +226,13 @@
     "failure_title": "The Arrangement Snaps",
     "method": "Regency",
     "difficulty": 52,
-    "summary": "Rule beside another claimant, or over them, and call the compromise a peace.",
-    "requires": {"min_claim": 100, "flags": ["REGENCY_OFFERED"]},
+    "summary": "Establish a provisional Crown government under shared offices and written limits while succession remains unsettled.",
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "REGENCY_OFFERED"
+      ]
+    },
     "prose": {
       "triumph": "A regency is announced that does not insult either of you in public. Nezrel gets a government instead of a winner, and for a while that is enough.",
       "brittle": "You rule in someone else's name, or they in yours. The seals are shared. The bedchambers are not.",
@@ -150,8 +247,32 @@
     "failure_title": "The Council of Rivals",
     "method": "A shared crown",
     "difficulty": 70,
-    "summary": "Keep all four claimants alive and make a government none of them can quite own.",
-    "requires": {"min_claim": 100, "flags": ["COUNCIL_OF_FOUR"], "max_fear": 40, "rival_alive": ["mira", "ethan", "arlo", "alistair"]},
+    "summary": "Keep all four claimants alive and establish a common government whose constitution can restrain every household.",
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "COUNCIL_OF_FOUR"
+      ],
+      "max_fear": 40,
+      "rival_alive": [
+        "mira",
+        "ethan",
+        "arlo",
+        "alistair"
+      ],
+      "npc_alive": [
+        "mira",
+        "ethan",
+        "arlo",
+        "alistair"
+      ],
+      "npc_state": {
+        "mira": "free",
+        "ethan": "free",
+        "arlo": "free",
+        "alistair": "free"
+      }
+    },
     "prose": {
       "triumph": "Four banners hang in one hall. It looks impossible and then, for a season, it works. Nezrel is ruled by a quarrel that has agreed to eat at the same table.",
       "brittle": "The four of you share a seal and four different definitions of loyalty. The peace is real. It is also a job.",
@@ -167,7 +288,13 @@
     "method": "Aria's precedent",
     "difficulty": 60,
     "summary": "Use Queen Aria, carefully, to make a woman's rule law instead of scandal.",
-    "requires": {"min_claim": 100, "claimant": "mira", "flags": ["ARIA_PRECEDENT_PROVEN"]},
+    "requires": {
+      "min_claim": 100,
+      "claimant": "mira",
+      "flags": [
+        "ARIA_PRECEDENT_PROVEN"
+      ]
+    },
     "prose": {
       "triumph": "The reign of Aria is read as law, not as a mistake. Mira is crowned as queen in her own right, and the old exception becomes a door.",
       "brittle": "They accept the precedent and mutter that exceptions should not be allowed to breed. You rule a kingdom that is still surprised by you.",
@@ -182,14 +309,31 @@
     "failure_title": "Blood Will Not Share",
     "method": "Protector, not king",
     "difficulty": 58,
-    "summary": "Ethan recognises Arlo. One wears the crown. The other keeps it from being a child's mistake.",
-    "requires": {"min_claim": 100, "flags": ["BROTHERS_PACT"], "claimant": ["ethan", "arlo"]},
+    "summary": "Ethan recognises his nephew Arlo and serves as Protector under written limits. The name is a brotherhood of banners, not literal kinship.",
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "BROTHERS_PACT"
+      ],
+      "claimant": [
+        "ethan",
+        "arlo"
+      ],
+      "npc_alive": [
+        "ethan",
+        "arlo"
+      ],
+      "npc_state": {
+        "ethan": "free",
+        "arlo": "free"
+      }
+    },
     "prose": {
-      "triumph": "Ethan names Arlo Erol's son and takes the harder title: Protector. The boy is king. The old soldier is the wall. For once the Valens choose not to finish each other.",
-      "brittle": "The pact holds in public. In private, one of you is already tired of being the reasonable one.",
-      "pyrrhic": "Nezrel gets a king and a protector and a story that will be romantic only after both of you are dead.",
-      "failure": "Recognition comes too late, or too publicly. The pact is called a trick by everyone it was meant to calm.",
-      "disaster": "Brotherhood lasts until the first night in the castle. One Valen decides the other is the last obstacle."
+      "triumph": "Arlo is crowned, and his uncle Ethan accepts a written Protector’s office. Two adult claimants choose different duties. For once the Valens do not need the other’s defeat to make a future.",
+      "brittle": "Arlo governs while Ethan’s Protectorate keeps the military settlement intact. The pact holds when neither mistakes experience for ownership or authority for infallibility.",
+      "pyrrhic": "The arrangement spares a final family battle. King and Protector inherit the difficult work of showing every officer whose command applies and why.",
+      "failure": "The households cannot make recognition and military command fit one lawful government. The intended partnership remains another unresolved claim.",
+      "disaster": "The division of authority collapses under contradictory orders. Uncle and nephew lose the common protection their pact was intended to create."
     }
   },
   {
@@ -199,7 +343,24 @@
     "method": "Storm and Caerlyn",
     "difficulty": 63,
     "summary": "Mira and Alistair share a crown. One of them may not intend to share it long.",
-    "requires": {"min_claim": 100, "flags": ["MARRIAGE_MIRA_ALISTAIR"], "claimant": ["mira", "alistair"]},
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "MARRIAGE_MIRA_ALISTAIR"
+      ],
+      "claimant": [
+        "mira",
+        "alistair"
+      ],
+      "npc_alive": [
+        "mira",
+        "alistair"
+      ],
+      "npc_state": {
+        "mira": "free",
+        "alistair": "free"
+      }
+    },
     "prose": {
       "triumph": "The spider and the wolf make a government that frightens the realm into one piece. It is not kind. It is, briefly, whole.",
       "brittle": "You rule together with the door barred. Affection is optional. Survival is a shared hobby.",
@@ -214,15 +375,60 @@
     "failure_title": "The Throne Remains",
     "method": "An end to the crown",
     "difficulty": 78,
-    "summary": "Refuse the monarchy itself. This is the hardest thing the game will let you attempt.",
-    "requires": {"min_claim": 100, "flags": ["NO_KING_PATH"], "min_bloc": {"people": 55, "court": 25, "nobility": 15}, "max_fear": 25, "min_turn": 24},
-    "chronicle": ["tt_anyone"],
+    "summary": "Transfer the Crown’s authority to a chartered government strong enough to endure without a monarch.",
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "NO_KING_PATH"
+      ],
+      "min_bloc": {
+        "people": 55,
+        "court": 25,
+        "nobility": 15
+      },
+      "max_fear": 25,
+      "min_turn": 24
+    },
+    "chronicle": [
+      "tt_anyone"
+    ],
     "prose": {
       "triumph": "The crown is set down in front of witnesses who do not pick it up. A council, ugly and argumentative, begins the work of being a realm without a single throat to cut.",
       "brittle": "You abolish the easy story. What replaces it is a quarrel with rules. People will miss the crown the first time the quarrel fails them.",
       "pyrrhic": "There is no king. There is also no peace yet. You have removed the prize and left the players holding knives.",
       "failure": "The idea is called madness by the same people who are destroying the kingdom to own it. The throne stays in the room like a habit.",
       "disaster": "You try to end the crown and the crown's friends end you. Nezrel learns that refusing power is not the same as escaping it."
+    }
+  },
+  {
+    "id": "last_words",
+    "title": "The Last Words",
+    "failure_title": "A Sentence Without a Seal",
+    "method": "Sworn testimony",
+    "difficulty": 64,
+    "summary": "Ask the Council to recognise the settlement Erol requested in Nessa's hearing. Without the parchment, her testimony needs independent support.",
+    "requires": {
+      "min_claim": 100,
+      "flags": [
+        "WILL_READY"
+      ],
+      "npc_alive": [
+        "nessa_grey"
+      ],
+      "npc_state": {
+        "nessa_grey": "free"
+      },
+      "min_bloc": {
+        "court": 25,
+        "nobility": 20
+      }
+    },
+    "prose": {
+      "triumph": "Nessa speaks the sentence she remembers under the protection you secured. No parchment appears. The Council recognises a settlement that keeps Nezrel whole, and binds the new government to public promises.",
+      "brittle": "Nessa's testimony carries the vote by a narrow margin. The surviving lords accept your reading of Erol's last words while preparing their own. Your rule begins with an oath that anyone may quote.",
+      "pyrrhic": "The Council chooses your interpretation of a dead man's last sentence. The witness survives. The original will remains missing, and uncertainty is written into the settlement itself.",
+      "failure": "Nessa tells the truth she heard. The lords agree that she heard it, and refuse to agree on what it means. The words cannot carry your claim without more living friends.",
+      "disaster": "The hearing becomes a quarrel over the witness instead of the will. The Council refuses the testimony, and your enemies turn its uncertainty into a public defeat."
     }
   }
 ]

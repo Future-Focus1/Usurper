@@ -1,13 +1,107 @@
 {
-  "infantry": {"name": "Infantry", "attack": 8, "defense": 8, "ranged": false, "base": "infantry"},
-  "spears": {"name": "Spears", "attack": 7, "defense": 9, "ranged": false, "base": "spears", "vs": {"cavalry": 1.45, "storm_knights": 1.35, "maren_riders": 1.35}},
-  "archers": {"name": "Archers", "attack": 8, "defense": 4, "ranged": true, "base": "archers"},
-  "cavalry": {"name": "Cavalry", "attack": 10, "defense": 5, "ranged": false, "base": "cavalry", "vs": {"archers": 1.4, "skirmishers": 1.35, "harrow_longbows": 1.3}},
-  "heavy": {"name": "Heavy Infantry", "attack": 7, "defense": 12, "ranged": false, "base": "heavy"},
-  "skirmishers": {"name": "Skirmishers", "attack": 6, "defense": 4, "ranged": true, "base": "skirmishers"},
-  "queens_guard": {"name": "Queen's Guard", "attack": 12, "defense": 11, "ranged": false, "base": "infantry", "elite": true, "company": 450},
-  "storm_knights": {"name": "Storm Knights", "attack": 13, "defense": 8, "ranged": false, "base": "cavalry", "elite": true, "company": 800, "vs": {"archers": 1.35, "skirmishers": 1.3}},
-  "harrow_longbows": {"name": "Harrow Longbows", "attack": 11, "defense": 4, "ranged": true, "base": "archers", "elite": true, "company": 500},
-  "maren_riders": {"name": "Maren Riders", "attack": 12, "defense": 6, "ranged": false, "base": "cavalry", "elite": true, "company": 400, "vs": {"archers": 1.35, "skirmishers": 1.3}},
-  "veteran_band": {"name": "Ethan's Veterans", "attack": 11, "defense": 9, "ranged": false, "base": "infantry", "elite": true, "company": 350}
+  "infantry": {
+    "name": "Infantry",
+    "attack": 8,
+    "defense": 8,
+    "ranged": false,
+    "base": "infantry"
+  },
+  "spears": {
+    "name": "Spears",
+    "attack": 7,
+    "defense": 9,
+    "ranged": false,
+    "base": "spears",
+    "vs": {
+      "cavalry": 1.45,
+      "storm_knights": 1.35,
+      "maren_riders": 1.35
+    }
+  },
+  "archers": {
+    "name": "Archers",
+    "attack": 8,
+    "defense": 4,
+    "ranged": true,
+    "base": "archers"
+  },
+  "cavalry": {
+    "name": "Cavalry",
+    "attack": 10,
+    "defense": 5,
+    "ranged": false,
+    "base": "cavalry",
+    "vs": {
+      "archers": 1.4,
+      "skirmishers": 1.35,
+      "harrow_longbows": 1.3
+    }
+  },
+  "heavy": {
+    "name": "Heavy Infantry",
+    "attack": 7,
+    "defense": 12,
+    "ranged": false,
+    "base": "heavy"
+  },
+  "skirmishers": {
+    "name": "Skirmishers",
+    "attack": 6,
+    "defense": 4,
+    "ranged": true,
+    "base": "skirmishers"
+  },
+  "queens_guard": {
+    "name": "Queen's Guard",
+    "attack": 12,
+    "defense": 11,
+    "ranged": false,
+    "base": "infantry",
+    "elite": true,
+    "company": 48
+  },
+  "storm_knights": {
+    "name": "Storm Knights",
+    "attack": 13,
+    "defense": 8,
+    "ranged": false,
+    "base": "cavalry",
+    "elite": true,
+    "company": 800,
+    "vs": {
+      "archers": 1.35,
+      "skirmishers": 1.3
+    }
+  },
+  "harrow_longbows": {
+    "name": "Harrow Longbows",
+    "attack": 11,
+    "defense": 4,
+    "ranged": true,
+    "base": "archers",
+    "elite": true,
+    "company": 500
+  },
+  "maren_riders": {
+    "name": "Maren Riders",
+    "attack": 12,
+    "defense": 6,
+    "ranged": false,
+    "base": "cavalry",
+    "elite": true,
+    "company": 400,
+    "vs": {
+      "archers": 1.35,
+      "skirmishers": 1.3
+    }
+  },
+  "veteran_band": {
+    "name": "Ethan's Veterans",
+    "attack": 11,
+    "defense": 9,
+    "ranged": false,
+    "base": "infantry",
+    "elite": true,
+    "company": 350
+  }
 }

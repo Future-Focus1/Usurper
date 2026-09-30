@@ -5,6 +5,8 @@ extends RefCounted
 
 
 static func close_week(state: CampaignState, db: ContentDB) -> Array:
+	if not state.ending_data.is_empty() or state.defeat_reason != "":
+		return []
 	var closing_turn := state.turn
 	var report: Array = []
 	report.append_array(_upkeep(state, db))
@@ -16,6 +18,9 @@ static func close_week(state: CampaignState, db: ContentDB) -> Array:
 	if _fractured(state):
 		state.foreign += 1
 		report.append("Word of the fracture reaches Varos. Foreign interest rises.")
+	elif state.stability >= 60 and state.foreign > 0 and state.turn % 2 == 0:
+		state.foreign -= 1
+		report.append("The steady courts and open roads make foreign agents less welcome. Varos's influence recedes.")
 	if int(state.blocs.get("people", 0)) < -20:
 		state.stability -= 1
 	elif int(state.blocs.get("people", 0)) > 40:
@@ -23,6 +28,13 @@ static func close_week(state: CampaignState, db: ContentDB) -> Array:
 	if state.fear > 65:
 		state.stability -= 1
 	state.turn += 1
+	if state.turn == 36:
+		report.append("The Council calls for a final settlement by the end of the first year. Seventeen weeks remain to make your claim.")
+	if state.turn == 44 or state.turn == 48:
+		report.append("The Council's deadline draws close. You have %d weeks before the surviving houses settle the throne without you." % (53 - state.turn))
+	if state.turn > 52:
+		state.defeat_reason = "council_settlement"
+		report.append("The year of succession ends. The Council seals a settlement before another winter can begin.")
 	state.event_queue = []
 	state.event_index = 0
 	state.action_taken = ""
@@ -51,6 +63,11 @@ static func build_battle(state: CampaignState, db: ContentDB) -> Dictionary:
 	if str(definition.get("enemy_elite", "")) != "":
 		elites.append(str(definition.get("enemy_elite", "")))
 	var rival_id := str(definition.get("use_rival", ""))
+	var battle_title := str(definition.get("title", "Battle"))
+	if battle_id == "throne_conquest" and str(state.territories.get("caerlyn", {}).get("controller", "")) == "player":
+		battle_title = "The Last Siege of Caerlyn"
+		enemy_name = "Coalition outside the Crown Gate"
+		state.pending_battle["defending_capital"] = true
 	if rival_id != "" and state.rivals.has(rival_id) and bool(state.rivals[rival_id].get("alive", false)):
 		enemy_forces = maxi(180, int(state.rivals[rival_id].get("forces", enemy_forces)))
 		enemy_name = str(db.claimants[rival_id].get("name", enemy_name))
@@ -61,9 +78,11 @@ static func build_battle(state: CampaignState, db: ContentDB) -> Dictionary:
 			if not elites.has(str(elite)):
 				elites.append(str(elite))
 	var player_morale := clampi(state.army_morale + int(state.reputation / 12) - (10 if state.rations <= 0 else 0), 20, 96)
+	if not state.pending_battle.has("seed"):
+		state.pending_battle["seed"] = str(state.rng.randi())
 	return {
 		"battle_id": battle_id,
-		"title": str(definition.get("title", "Battle")),
+		"title": battle_title,
 		"enemy_name": enemy_name,
 		"player_name": str(db.claimants.get(state.claimant_id, {}).get("name", "You")),
 		"player_units": ArmyComposer.compose_player(state, db),
@@ -73,11 +92,15 @@ static func build_battle(state: CampaignState, db: ContentDB) -> Dictionary:
 		"player_forces": state.forces,
 		"enemy_forces": enemy_forces,
 		"rival_id": rival_id,
-		"seed": state.rng.randi(),
+		"seed": int(state.pending_battle["seed"]),
 	}
 
 
 static func apply_battle_return(state: CampaignState, db: ContentDB, battle_result: Dictionary) -> void:
+	# The pending handoff is consumed once. Duplicate UI callbacks cannot spend
+	# the same soldiers twice or grant another victory.
+	if state.pending_battle.is_empty():
+		return
 	var outcome := str(battle_result.get("outcome", "stalemate"))
 	var lost := maxi(0, int(battle_result.get("forces_lost", 0)))
 	state.forces = maxi(0, state.forces - lost)
@@ -108,9 +131,9 @@ static func apply_battle_return(state: CampaignState, db: ContentDB, battle_resu
 		state.elites.erase(str(elite_id))
 	for fate in battle_result.get("commanders", []):
 		_commander_fate(state, db, fate)
-	var title := str(definition.get("title", battle_result.get("title", "Battle")))
+	var title := str(battle_result.get("title", definition.get("title", "Battle")))
 	var line := "%s — %s. Lost %s soldiers. Claim %s." % [title, outcome, Balance.comma(lost), Balance.signed(claim_delta)]
-	state.last_battle = {"outcome": outcome, "forces_lost": lost, "title": title, "battle_id": battle_id}
+	state.last_battle = {"outcome": outcome, "forces_lost": lost, "title": title, "battle_id": battle_id, "defending_capital": bool(state.pending_battle.get("defending_capital", false))}
 	state.banner = line
 	state.add_log(line)
 	for entry in battle_result.get("log", []):
@@ -191,6 +214,7 @@ static func _upkeep(state: CampaignState, db: ContentDB) -> Array:
 	var food_need := Balance.ration_need(state.forces)
 	if state.rations >= food_need:
 		state.rations -= food_need
+		state.flags.erase("STARVING")
 		if food_need > 0:
 			report.append("The host eats %d rations." % food_need)
 	elif state.forces > 0:
@@ -204,6 +228,7 @@ static func _upkeep(state: CampaignState, db: ContentDB) -> Array:
 		report.append("The stores fail. %s soldiers desert or die." % Balance.comma(loss))
 		if short >= 3:
 			state.flags["STARVING"] = true
+			state.flags["HAD_STARVATION"] = true
 	var cost := Balance.gold_upkeep(state.forces)
 	if state.gold >= cost:
 		state.gold -= cost
@@ -259,6 +284,8 @@ static func _fractured(state: CampaignState) -> bool:
 		return true
 	for rid in state.rivals:
 		var rival: Dictionary = state.rivals[rid]
+		if bool(state.flags.get("ALLY_" + str(rid).to_upper(), false)) or bool(state.flags.get("COUNCIL_OF_FOUR", false)):
+			continue
 		if bool(rival.get("alive", false)) and int(rival.get("claim", 0)) >= state.claim + 8:
 			return true
 	return false

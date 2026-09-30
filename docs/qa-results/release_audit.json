@@ -1,0 +1,688 @@
+{
+	"campaign_week_limit": 80,
+	"catalogue_choices": 521,
+	"catalogue_events": 178,
+	"checked_at_utc": "2026-09-30T21:28:14",
+	"checks": 802772,
+	"choices_seen_in_campaigns": 477,
+	"coverage_note": "Every authored choice receives a valid contextual condition witness, and every success/failure/battle-return effect branch is executed independently. Seeded campaign policies explore connected play. This does not prove all combinatorial decision sequences or validate prose meaning automatically.",
+	"effect_branches_executed": 1200,
+	"ending_counts": {
+		"alistair": {
+			"alistair_conquest_brittle_stable_feared": 1,
+			"alistair_conquest_brittle_under_shadow_feared": 3,
+			"alistair_conquest_pyrrhic_rebellious_feared": 1,
+			"alistair_conquest_pyrrhic_under_shadow_feared": 5,
+			"alistair_conquest_triumph_prosperous_beloved": 8,
+			"alistair_conquest_triumph_prosperous_legendary": 2,
+			"alistair_conquest_triumph_rebellious_feared": 12,
+			"alistair_conquest_triumph_recovering_feared": 6,
+			"alistair_conquest_triumph_stable_feared": 19,
+			"alistair_conquest_triumph_stable_legendary": 5,
+			"alistair_conquest_triumph_stable_mysterious": 6,
+			"alistair_conquest_triumph_under_shadow_feared": 17,
+			"alistair_four_banners_triumph_prosperous_beloved": 2,
+			"alistair_kings_will_brittle_under_shadow_feared": 1,
+			"alistair_kings_will_triumph_rebellious_feared": 2,
+			"alistair_marriage_failure_under_shadow_feared": 1,
+			"alistair_marriage_triumph_prosperous_beloved": 3,
+			"alistair_marriage_triumph_rebellious_feared": 1,
+			"alistair_marriage_triumph_stable_feared": 1,
+			"alistair_marriage_triumph_under_shadow_feared": 1,
+			"alistair_peoples_crown_triumph_prosperous_beloved": 3,
+			"alistair_peoples_crown_triumph_prosperous_legendary": 2,
+			"alistair_peoples_crown_triumph_stable_legendary": 1,
+			"alistair_regency_failure_under_shadow_feared": 1,
+			"alistair_regency_pyrrhic_under_shadow_feared": 1,
+			"alistair_regency_triumph_rebellious_feared": 3,
+			"alistair_regency_triumph_stable_legendary": 1,
+			"alistair_regency_triumph_under_shadow_feared": 9,
+			"alistair_wolf_and_spider_brittle_rebellious_feared": 1,
+			"alistair_wolf_and_spider_failure_under_shadow_feared": 3,
+			"alistair_wolf_and_spider_triumph_prosperous_beloved": 4,
+			"alistair_wolf_and_spider_triumph_rebellious_feared": 1,
+			"alistair_wolf_and_spider_triumph_stable_feared": 3,
+			"alistair_wolf_and_spider_triumph_stable_legendary": 1,
+			"alistair_wolf_and_spider_triumph_stable_mysterious": 1,
+			"alistair_wolf_and_spider_triumph_under_shadow_feared": 2,
+			"defeat_council_settlement": 6,
+			"defeat_exile": 4
+		},
+		"arlo": {
+			"arlo_blood_of_erol_brittle_prosperous_beloved": 1,
+			"arlo_blood_of_erol_triumph_prosperous_beloved": 26,
+			"arlo_brothers_triumph_prosperous_beloved": 11,
+			"arlo_four_banners_brittle_prosperous_beloved": 4,
+			"arlo_marriage_triumph_prosperous_beloved": 17,
+			"arlo_peoples_crown_brittle_prosperous_beloved": 1,
+			"arlo_peoples_crown_triumph_prosperous_beloved": 37,
+			"arlo_regency_triumph_prosperous_beloved": 10,
+			"arlo_the_flame_triumph_prosperous_beloved": 3,
+			"defeat_battle_death": 9,
+			"defeat_captured": 10,
+			"defeat_council_settlement": 7,
+			"defeat_exile": 8
+		},
+		"ethan": {
+			"defeat_battle_death": 16,
+			"defeat_captured": 16,
+			"defeat_council_settlement": 1,
+			"defeat_exile": 8,
+			"ethan_brothers_pyrrhic_starving_beloved": 1,
+			"ethan_brothers_triumph_prosperous_beloved": 10,
+			"ethan_marriage_brittle_prosperous_beloved": 1,
+			"ethan_marriage_triumph_prosperous_beloved": 11,
+			"ethan_peoples_crown_brittle_prosperous_beloved": 30,
+			"ethan_peoples_crown_pyrrhic_starving_mysterious": 1,
+			"ethan_peoples_crown_triumph_prosperous_beloved": 39,
+			"ethan_regency_triumph_prosperous_beloved": 2,
+			"ethan_the_flame_brittle_prosperous_beloved": 4,
+			"ethan_the_flame_triumph_prosperous_beloved": 4
+		},
+		"mira": {
+			"defeat_battle_death": 8,
+			"defeat_captured": 7,
+			"defeat_council_settlement": 4,
+			"defeat_exile": 6,
+			"mira_four_banners_triumph_prosperous_beloved": 3,
+			"mira_kings_will_triumph_prosperous_beloved": 2,
+			"mira_marriage_triumph_prosperous_beloved": 9,
+			"mira_peoples_crown_triumph_prosperous_beloved": 71,
+			"mira_regency_brittle_stable_mysterious": 1,
+			"mira_regency_triumph_prosperous_beloved": 7,
+			"mira_the_flame_triumph_prosperous_beloved": 4,
+			"mira_wolf_and_spider_triumph_prosperous_beloved": 22
+		}
+	},
+	"ending_fixture_variants": 250,
+	"engine": "4.6.3-stable (official)",
+	"events_seen_in_campaigns": 170,
+	"failures": [],
+	"personal_prose_counts": {
+		"alistair": {
+			"distinct_route_band_paragraphs": 55,
+			"eligible_routes": 12,
+			"route_band_paragraphs": 60
+		},
+		"arlo": {
+			"distinct_route_band_paragraphs": 65,
+			"eligible_routes": 13,
+			"route_band_paragraphs": 65
+		},
+		"ethan": {
+			"distinct_route_band_paragraphs": 60,
+			"eligible_routes": 12,
+			"route_band_paragraphs": 60
+		},
+		"mira": {
+			"distinct_route_band_paragraphs": 60,
+			"eligible_routes": 13,
+			"route_band_paragraphs": 65
+		}
+	},
+	"policies": [
+		"random",
+		"legitimacy",
+		"benevolent",
+		"ruthless",
+		"diplomacy",
+		"military"
+	],
+	"policy_counts": {
+		"alistair": {
+			"benevolent": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"conquest",
+					"wolf_and_spider",
+					"peoples_crown",
+					"four_banners",
+					"marriage"
+				],
+				"total_weeks": 541,
+				"victories": 24
+			},
+			"diplomacy": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"conquest",
+					"peoples_crown",
+					"regency",
+					"wolf_and_spider",
+					"marriage"
+				],
+				"total_weeks": 446,
+				"victories": 24
+			},
+			"legitimacy": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"conquest",
+					"wolf_and_spider",
+					"kings_will"
+				],
+				"total_weeks": 394,
+				"victories": 24
+			},
+			"military": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"conquest",
+					"kings_will",
+					"regency"
+				],
+				"total_weeks": 723,
+				"victories": 24
+			},
+			"random": {
+				"campaigns": 24,
+				"defeats": 15,
+				"routes": [
+					"conquest",
+					"wolf_and_spider",
+					"marriage",
+					"regency"
+				],
+				"total_weeks": 941,
+				"victories": 9
+			},
+			"ruthless": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"conquest",
+					"regency",
+					"marriage",
+					"wolf_and_spider"
+				],
+				"total_weeks": 562,
+				"victories": 24
+			}
+		},
+		"arlo": {
+			"benevolent": {
+				"campaigns": 24,
+				"defeats": 5,
+				"routes": [
+					"marriage",
+					"brothers",
+					"peoples_crown",
+					"four_banners",
+					"regency",
+					"blood_of_erol"
+				],
+				"total_weeks": 463,
+				"victories": 19
+			},
+			"diplomacy": {
+				"campaigns": 24,
+				"defeats": 1,
+				"routes": [
+					"the_flame",
+					"regency",
+					"blood_of_erol",
+					"peoples_crown",
+					"brothers",
+					"marriage",
+					"four_banners"
+				],
+				"total_weeks": 483,
+				"victories": 23
+			},
+			"legitimacy": {
+				"campaigns": 24,
+				"defeats": 4,
+				"routes": [
+					"blood_of_erol",
+					"peoples_crown",
+					"four_banners",
+					"brothers",
+					"regency",
+					"marriage"
+				],
+				"total_weeks": 419,
+				"victories": 20
+			},
+			"military": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"marriage",
+					"peoples_crown",
+					"blood_of_erol",
+					"brothers",
+					"four_banners",
+					"regency"
+				],
+				"total_weeks": 545,
+				"victories": 24
+			},
+			"random": {
+				"campaigns": 24,
+				"defeats": 24,
+				"routes": [],
+				"total_weeks": 746,
+				"victories": 0
+			},
+			"ruthless": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"blood_of_erol",
+					"marriage",
+					"peoples_crown",
+					"regency",
+					"brothers"
+				],
+				"total_weeks": 445,
+				"victories": 24
+			}
+		},
+		"ethan": {
+			"benevolent": {
+				"campaigns": 24,
+				"defeats": 7,
+				"routes": [
+					"peoples_crown",
+					"marriage"
+				],
+				"total_weeks": 289,
+				"victories": 17
+			},
+			"diplomacy": {
+				"campaigns": 24,
+				"defeats": 3,
+				"routes": [
+					"marriage",
+					"the_flame",
+					"brothers",
+					"peoples_crown"
+				],
+				"total_weeks": 404,
+				"victories": 21
+			},
+			"legitimacy": {
+				"campaigns": 24,
+				"defeats": 6,
+				"routes": [
+					"peoples_crown",
+					"the_flame"
+				],
+				"total_weeks": 275,
+				"victories": 18
+			},
+			"military": {
+				"campaigns": 24,
+				"defeats": 3,
+				"routes": [
+					"peoples_crown",
+					"regency",
+					"the_flame",
+					"marriage",
+					"brothers"
+				],
+				"total_weeks": 401,
+				"victories": 21
+			},
+			"random": {
+				"campaigns": 24,
+				"defeats": 22,
+				"routes": [
+					"peoples_crown",
+					"brothers"
+				],
+				"total_weeks": 620,
+				"victories": 2
+			},
+			"ruthless": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"marriage",
+					"peoples_crown",
+					"brothers",
+					"the_flame"
+				],
+				"total_weeks": 394,
+				"victories": 24
+			}
+		},
+		"mira": {
+			"benevolent": {
+				"campaigns": 24,
+				"defeats": 2,
+				"routes": [
+					"peoples_crown",
+					"regency",
+					"the_flame",
+					"four_banners"
+				],
+				"total_weeks": 434,
+				"victories": 22
+			},
+			"diplomacy": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"peoples_crown",
+					"marriage",
+					"wolf_and_spider",
+					"regency",
+					"four_banners",
+					"the_flame"
+				],
+				"total_weeks": 538,
+				"victories": 24
+			},
+			"legitimacy": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"peoples_crown",
+					"wolf_and_spider",
+					"the_flame",
+					"marriage"
+				],
+				"total_weeks": 324,
+				"victories": 24
+			},
+			"military": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"regency",
+					"peoples_crown",
+					"wolf_and_spider",
+					"marriage",
+					"kings_will",
+					"four_banners"
+				],
+				"total_weeks": 554,
+				"victories": 24
+			},
+			"random": {
+				"campaigns": 24,
+				"defeats": 23,
+				"routes": [
+					"regency"
+				],
+				"total_weeks": 741,
+				"victories": 1
+			},
+			"ruthless": {
+				"campaigns": 24,
+				"defeats": 0,
+				"routes": [
+					"marriage",
+					"peoples_crown",
+					"wolf_and_spider",
+					"regency"
+				],
+				"total_weeks": 460,
+				"victories": 24
+			}
+		}
+	},
+	"producer_deliveries": {
+		"after_garran": {
+			"source": "death/garran_vale",
+			"week": 2
+		},
+		"aria_deeper": {
+			"source": "aria_in_the_stacks/study",
+			"week": 9
+		},
+		"arlo_lysa_friend": {
+			"source": "arlo_lysa_box/proof",
+			"week": 7
+		},
+		"arlo_lysa_payoff": {
+			"source": "arlo_lysa_friend/work",
+			"week": 6
+		},
+		"arlo_mother_heard": {
+			"source": "evelyne_afraid/promise",
+			"week": 16
+		},
+		"arlo_water_harvest": {
+			"source": "arlo_water_result/reduce",
+			"week": 6
+		},
+		"arlo_water_result": {
+			"source": "arlo_water/measure",
+			"week": 12
+		},
+		"bid_alistair": {
+			"source": "RivalBrain/bid",
+			"week": 2
+		},
+		"bid_arlo": {
+			"source": "RivalBrain/bid",
+			"week": 2
+		},
+		"bid_ethan": {
+			"source": "RivalBrain/bid",
+			"week": 2
+		},
+		"bid_mira": {
+			"source": "RivalBrain/bid",
+			"week": 2
+		},
+		"bren_answers": {
+			"source": "bren_at_the_ford/ask",
+			"week": 10
+		},
+		"brothers_reply": {
+			"source": "brothers_letter/send",
+			"week": 17
+		},
+		"clash_alistair": {
+			"source": "RivalBrain/clash",
+			"week": 2
+		},
+		"clash_arlo": {
+			"source": "RivalBrain/clash",
+			"week": 2
+		},
+		"clash_ethan": {
+			"source": "RivalBrain/clash",
+			"week": 2
+		},
+		"clash_mira": {
+			"source": "RivalBrain/clash",
+			"week": 2
+		},
+		"council_morning": {
+			"source": "morning_of_bells/council",
+			"week": 3
+		},
+		"dorn_watch": {
+			"source": "stormhold_messengers/march",
+			"week": 4
+		},
+		"ethan_hearing_result": {
+			"source": "ethan_hearing/record",
+			"week": 13
+		},
+		"ethan_households_return": {
+			"source": "ethan_pension_accounts/recover",
+			"week": 5
+		},
+		"ethan_pension_accounts": {
+			"source": "ethan_pension_roll/sponsor",
+			"week": 7
+		},
+		"ethan_shelter_return": {
+			"source": "ethan_shelter_register/consent",
+			"week": 17
+		},
+		"evelyne_truth": {
+			"source": "letter_on_the_table/evelyne",
+			"week": 3
+		},
+		"garran_answers": {
+			"source": "news_on_the_road/garran",
+			"week": 3
+		},
+		"garran_choice": {
+			"source": "garran_oath/ask",
+			"week": 6
+		},
+		"infirmary_parole": {
+			"source": "shared_infirmary/parole",
+			"week": 19
+		},
+		"knife_in_yard": {
+			"source": "actual failed assassination",
+			"week": 3
+		},
+		"lesser_oaths_answer": {
+			"source": "stormhold_messengers/oaths",
+			"week": 4
+		},
+		"mira_charter_return": {
+			"source": "mira_receipts/right",
+			"week": 5
+		},
+		"mira_garrison_payment": {
+			"source": "mira_open_stores/garrison",
+			"week": 6
+		},
+		"mira_inquest_result": {
+			"source": "mira_inquest/deposit",
+			"week": 16
+		},
+		"mira_mothers_return": {
+			"source": "mira_mothers/fund",
+			"week": 12
+		},
+		"mira_receipts": {
+			"source": "mira_open_stores/account",
+			"week": 6
+		},
+		"mira_refuses": {
+			"source": "stormhold_messengers/marriage",
+			"week": 3
+		},
+		"nessa_found": {
+			"source": "nessa_trail/threat",
+			"week": 3
+		},
+		"nessa_trail": {
+			"source": "nessa_rumour/price",
+			"week": 5
+		},
+		"orphan_workshop_return": {
+			"source": "orphan_workshop/workshop",
+			"week": 15
+		},
+		"pell_night": {
+			"source": "pell_audience/listen",
+			"week": 7
+		},
+		"pell_private": {
+			"source": "wing_of_the_dead/pell",
+			"week": 4
+		},
+		"quiet_week": {
+			"source": "EventDirector/fallback",
+			"week": 1
+		},
+		"refugee_mutiny": {
+			"source": "northern_refugees/recruit",
+			"week": 9
+		},
+		"refugee_resentment": {
+			"source": "northern_refugees/away",
+			"week": 8
+		},
+		"refugee_return": {
+			"source": "northern_refugees/food",
+			"week": 10
+		},
+		"salt_delivery": {
+			"source": "salt_contract/contract",
+			"week": 11
+		},
+		"salt_trade_returns": {
+			"source": "salt_delivery/pay",
+			"week": 5
+		},
+		"sowing_return": {
+			"source": "sowing_truce/sign",
+			"week": 23
+		},
+		"storm_compact_return": {
+			"source": "storm_compact_test/uphold",
+			"week": 5
+		},
+		"storm_compact_test": {
+			"source": "storm_compact/service",
+			"week": 13
+		},
+		"storm_mine_return": {
+			"source": "storm_shaft_findings/replace",
+			"week": 6
+		},
+		"storm_shaft_cost": {
+			"source": "storm_shaft/output",
+			"week": 7
+		},
+		"storm_shaft_findings": {
+			"source": "storm_shaft/repairs",
+			"week": 6
+		},
+		"tomas_explains": {
+			"source": "letter_on_the_table/tomas",
+			"week": 3
+		},
+		"ultimatum_reply": {
+			"source": "generated/issue_ultimatum",
+			"week": 3
+		}
+	},
+	"routes_reached_in_campaigns": [
+		"mira/regency",
+		"mira/peoples_crown",
+		"mira/wolf_and_spider",
+		"mira/the_flame",
+		"mira/marriage",
+		"mira/four_banners",
+		"mira/kings_will",
+		"ethan/peoples_crown",
+		"ethan/brothers",
+		"ethan/the_flame",
+		"ethan/marriage",
+		"ethan/regency",
+		"arlo/blood_of_erol",
+		"arlo/peoples_crown",
+		"arlo/four_banners",
+		"arlo/brothers",
+		"arlo/regency",
+		"arlo/marriage",
+		"arlo/the_flame",
+		"alistair/conquest",
+		"alistair/wolf_and_spider",
+		"alistair/marriage",
+		"alistair/regency",
+		"alistair/kings_will",
+		"alistair/peoples_crown",
+		"alistair/four_banners"
+	],
+	"seeded_campaigns": 576,
+	"seeds_per_policy_per_claimant": 24,
+	"unseen_campaign_events": [
+		"quiet_week",
+		"clash_mira",
+		"clash_arlo",
+		"bid_mira",
+		"bid_ethan",
+		"bid_arlo",
+		"bid_alistair",
+		"arlo_mother_heard"
+	]
+}

@@ -46,6 +46,8 @@ func present(state: CampaignState, db: ContentDB) -> void:
 		var who := str(id)
 		button.pressed.connect(func(): _detail(detail, state, db, who))
 		list.add_child(button)
+	if db.characters.has("garran_vale"):
+		_detail(detail, state, db, "garran_vale")
 
 
 func _row_label(state: CampaignState, db: ContentDB, id: String) -> String:
@@ -59,13 +61,21 @@ func _detail(detail: VBoxContainer, state: CampaignState, db: ContentDB, id: Str
 	UiFactory.clear(detail)
 	var who: Dictionary = db.characters[id]
 	var row: Dictionary = state.npcs.get(id, {})
-	var portrait := ColorRect.new()
-	portrait.custom_minimum_size = Vector2(0, 64)
-	portrait.color = Color(str(who.get("color", "#3d5166")))
+	var portrait := UiFactory.portrait(id, 210, 180)
+	portrait.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	if not bool(row.get("alive", true)):
+		portrait.modulate = Color(0.45, 0.45, 0.45)
 	detail.add_child(portrait)
 	detail.add_child(UiFactory.title(str(who.get("name", id)), 26))
-	detail.add_child(UiFactory.muted("%s  ·  Age %s" % [who.get("role", ""), str(who.get("age", ""))]))
+	detail.add_child(UiFactory.muted("%s  ·  Age %d" % [who.get("role", ""), int(who.get("age", 0))]))
 	detail.add_child(UiFactory.label(str(who.get("summary", ""))))
+	var biography := str(who.get("biography", who.get("backstory", "")))
+	if who.has("public_biography") and not ConditionChecker.met(who.get("biography_requires", {}), state, db):
+		biography = str(who["public_biography"])
+	if biography != "":
+		detail.add_child(UiFactory.rich(biography, 16))
+	if str(who.get("allegiance", "")) != "":
+		detail.add_child(UiFactory.muted("Beliefs: " + str(who["allegiance"]), 15))
 	var personal := Balance.relation_label(int(row.get("personal", 0)))
 	var political := Balance.relation_label(int(row.get("political", 0)))
 	var personal_label := UiFactory.label("Personal: %s (%d)" % [personal, int(row.get("personal", 0))])

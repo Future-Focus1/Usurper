@@ -7,12 +7,29 @@ extends RefCounted
 static func list_routes(state: CampaignState, db: ContentDB) -> Array:
 	var rows: Array = []
 	for route in db.routes:
+		if not _route_visible(route, state):
+			continue
 		var open := ConditionChecker.met(route.get("requires", {}), state, db)
 		var reason := ""
 		if not open:
 			reason = "\n".join(ConditionChecker.failures(route.get("requires", {}), state, db))
 		rows.append({"route": route, "open": open, "reason": reason})
 	return rows
+
+
+static func _route_visible(route: Dictionary, state: CampaignState) -> bool:
+	var requires: Dictionary = route.get("requires", {})
+	if requires.has("claimant") and not ConditionChecker._id_match(requires["claimant"], state.claimant_id):
+		return false
+	if requires.has("not_claimant") and ConditionChecker._id_match(requires["not_claimant"], state.claimant_id):
+		return false
+	# Secret constitutions and personal settlements are revealed by discoveries
+	# made in this campaign. A completed Chronicle is never character knowledge.
+	if str(route.get("id", "")) in ["four_banners", "arias_heir", "brothers", "wolf_and_spider", "no_king"] or bool(route.get("hidden", false)):
+		for flag in requires.get("flags", []):
+			if not bool(state.flags.get(str(flag), false)):
+				return false
+	return true
 
 
 static func resolve(state: CampaignState, db: ContentDB, route_id: String, battle_result: Dictionary = {}, force_band := "") -> Dictionary:
@@ -25,25 +42,49 @@ static func resolve(state: CampaignState, db: ContentDB, route_id: String, battl
 	paragraphs.append(_method_text(route, band, state, db))
 	paragraphs.append(kingdom["text"])
 	paragraphs.append(legacy["text"])
+	var milestones := _conditional_lines(db.epilogues.get("milestones", []), state, db, 3, victory)
+	paragraphs.append_array(milestones)
+	paragraphs.append_array(_conditional_lines(db.epilogues.get("world", []), state, db, 2, victory))
 	for line in _rival_lines(state, db, band, victory):
 		paragraphs.append(line)
-	for line in _npc_lines(state, db):
+	for line in _npc_lines(state, db, victory):
 		paragraphs.append(line)
 	if state.broken_promise_count() > 0:
-		paragraphs.append("Broken promises outlived the coronation. %d of them are still being counted by people who do not forget." % state.broken_promise_count())
+		var aftermath := "Broken promises outlived the coronation." if victory else "Broken promises survived the failed claim."
+		paragraphs.append("%s %d of them are still being counted by people who do not forget." % [aftermath, state.broken_promise_count()])
 	var title := str(route.get("title", "The Crown"))
 	if not victory:
 		title = str(route.get("failure_title", "The Crown Refuses"))
+	var personal_titles: Dictionary = db.epilogues.get("claimants", {}).get(state.claimant_id, {}).get("titles", {}).get(route_id, {})
+	if personal_titles.has(band):
+		title = str(personal_titles[band])
+	var headline := "THE CROWN IS YOURS • NEZREL REMEMBERS" if victory else "YOUR CLAIM ENDS • NEZREL REMEMBERS"
+	if victory:
+		match route_id:
+			"no_king":
+				headline = "A NEW REALM • NEZREL REMEMBERS"
+			"four_banners":
+				headline = "FOUR BANNERS • NEZREL REMEMBERS"
+			"brothers":
+				if state.claimant_id == "ethan":
+					headline = "THE PROTECTOR’S OATH • NEZREL REMEMBERS"
+			"regency":
+				headline = "THE SETTLEMENT HOLDS • NEZREL REMEMBERS"
+			"marriage", "wolf_and_spider":
+				headline = "THE CROWN IS SHARED • NEZREL REMEMBERS"
+	var band_labels := {"triumph": "Triumph", "brittle": "A fragile settlement", "pyrrhic": "A costly victory", "failure": "Failed claim", "disaster": "Ruin"}
 	return {
 		"title": title,
-		"subtitle": "%s — %s" % [str(route.get("method", title)), legacy["name"]],
+		"headline": headline,
+		"subtitle": "%s • %s • %s" % [str(db.claimants.get(state.claimant_id, {}).get("short", state.claimant_id.capitalize())), str(band_labels.get(band, band.capitalize())), legacy["name"]],
 		"paragraphs": paragraphs,
 		"legacy": legacy["name"],
 		"kingdom": kingdom["name"],
 		"method": str(route.get("method", route_id)),
 		"band": band,
 		"defeat": not victory,
-		"ending_id": "%s_%s" % [route_id, band],
+		"ending_id": "%s_%s_%s_%s_%s" % [state.claimant_id, route_id, band, str(kingdom["name"]).to_snake_case(), str(legacy["name"]).to_snake_case()],
+		"milestones": milestones,
 		"chronicle": route.get("chronicle", []),
 	}
 
@@ -56,10 +97,16 @@ static func resolve_defeat(state: CampaignState, db: ContentDB, reason: String) 
 	var paragraphs: Array = [lead, _kingdom(state)["text"]]
 	var legacy := _legacy(state, false)
 	paragraphs.append(legacy["text"])
+	var milestones := _conditional_lines(db.epilogues.get("milestones", []), state, db, 3)
+	paragraphs.append_array(milestones)
+	paragraphs.append_array(_conditional_lines(db.epilogues.get("world", []), state, db, 2))
+	for line in _rival_lines(state, db, "defeat", false):
+		paragraphs.append(line)
 	for line in _npc_lines(state, db):
 		paragraphs.append(line)
 	return {
 		"title": title,
+		"headline": "YOUR CLAIM ENDS • NEZREL REMEMBERS",
 		"subtitle": legacy["name"],
 		"paragraphs": paragraphs,
 		"legacy": legacy["name"],
@@ -68,6 +115,7 @@ static func resolve_defeat(state: CampaignState, db: ContentDB, reason: String) 
 		"band": "defeat",
 		"defeat": true,
 		"ending_id": "defeat_%s_%s" % [reason, state.claimant_id],
+		"milestones": milestones,
 		"chronicle": [],
 	}
 
@@ -95,6 +143,23 @@ static func _band(state: CampaignState, route: Dictionary, battle_result: Dictio
 		if bool(state.rivals[id].get("alive", false)) and int(state.rivals[id].get("hostility", 0)) >= 55:
 			hostile += 1
 	score -= float(hostile) * 7.0
+	# The method must have the strength it claims. Good governance does not
+	# turn a lost siege into possession of the capital.
+	if str(route.get("battle_id", "")) != "" and not battle_result.is_empty() and str(battle_result.get("outcome", "")) != "victory":
+		return "disaster" if state.forces < 150 or state.stability < 25 else "failure"
+	var id := str(route.get("id", ""))
+	if id in ["acclamation", "kings_will", "arias_heir"]:
+		score += float(state.houses_declared_for_player()) * 3.0
+	elif id == "the_flame":
+		score += float(int(state.blocs.get("flame", 0))) * 0.12
+	elif id in ["peoples_crown", "no_king"]:
+		score += float(int(state.blocs.get("people", 0))) * 0.13
+	elif id == "last_words":
+		score += float(int(state.blocs.get("court", 0))) * 0.12
+	elif id == "blood_of_erol":
+		score += 8.0 if bool(state.flags.get("BLOOD_PROVEN", false)) else 0.0
+	elif id in ["marriage", "wolf_and_spider", "regency", "brothers", "four_banners"]:
+		score += 6.0 if state.broken_promise_count() == 0 else -6.0
 	if not battle_result.is_empty():
 		match str(battle_result.get("outcome", "")):
 			"victory":
@@ -116,6 +181,19 @@ static func _band(state: CampaignState, route: Dictionary, battle_result: Dictio
 
 
 static func _method_text(route: Dictionary, band: String, state: CampaignState, db: ContentDB) -> String:
+	if str(route.get("id", "")) == "conquest" and bool(state.last_battle.get("defending_capital", false)):
+		var defence := {
+			"triumph": "The coalition breaks outside the Crown Gate. You already held Caerlyn; now the soldiers who would have displaced you acknowledge it. The coronation follows a defence of the city, and you promise that its walls will shelter more than your household.",
+			"brittle": "The last siege ends with your banners still above Caerlyn. The Council accepts the ruler whose garrison survived. Beyond the walls, obedience depends on the troops you can afford to keep in the field.",
+			"pyrrhic": "You keep the capital and lose too many of the people who defended it. The surviving lords crown you because another assault would finish the city. Victory supplies authority; rebuilding must supply its purpose.",
+			"failure": "The coalition breaches the ring around Caerlyn. Holding the royal rooms did not mean holding the roads that fed them. Your final bid ends inside a capital you could no longer defend.",
+			"disaster": "The Crown Gate falls behind your broken host. The rooms that once gave you an advantage become the last places your enemies need to search. Caerlyn remembers the siege before it remembers your claim.",
+		}
+		return str(defence.get(band, "The siege decides the succession."))
+	var claimant: Dictionary = db.epilogues.get("claimants", {}).get(state.claimant_id, {})
+	var personal: Dictionary = claimant.get("routes", {}).get(str(route.get("id", "")), {})
+	if personal.has(band):
+		return str(personal[band])
 	var prose: Dictionary = route.get("prose", {})
 	if prose.has(band):
 		return str(prose[band])
@@ -188,13 +266,20 @@ static func _rival_lines(state: CampaignState, db: ContentDB, band: String, vict
 			lines.append("%s is dead. The claim they carried is a story other people will try to inherit." % full)
 			continue
 		var married := bool(state.flags.get("MARRIED_" + id.to_upper(), false))
+		married = married or (bool(state.flags.get("MARRIAGE_MIRA_ALISTAIR", false)) and id in ["mira", "alistair"] and state.claimant_id in ["mira", "alistair"])
+		var captured := str(state.npcs.get(id, {}).get("state", "")) == "captured" or bool(state.flags.get("IMPRISONED_" + id.to_upper(), false))
+		var allied: bool = bool(state.flags.get("COUNCIL_OF_FOUR", false)) or bool(state.flags.get("ALLY_" + str(id).to_upper(), false)) or (bool(state.flags.get("BROTHERS_PACT", false)) and id in ["ethan", "arlo"])
 		var fate := "missing"
-		if married:
+		if captured:
+			fate = "imprisoned, though the marriage still binds your households" if married else "imprisoned"
+		elif married:
 			fate = "bound to you by marriage"
-		elif str(state.npcs.get(id, {}).get("state", "")) == "captured" or bool(state.flags.get("IMPRISONED_" + id.to_upper(), false)):
-			fate = "imprisoned"
+		elif bool(state.flags.get("COUNCIL_OF_FOUR", false)):
+			fate = "seated on the Council under the compact the four of you signed" if victory else "still bound to you by the alliance, without a settled government"
+		elif bool(state.flags.get("BROTHERS_PACT", false)) and id in ["ethan", "arlo"]:
+			fate = "bound to your government by the Valen pact, with duties written beside the title" if victory else "still bound to you by the alliance, without a settled government"
 		elif personal >= 35 and int(rival.get("hostility", 100)) < 40:
-			fate = "kept close, a rival turned servant of the reign"
+			fate = "kept close, a rival turned servant of the reign" if victory else "still your ally, although the claim you shared has failed"
 		elif int(rival.get("hostility", 0)) >= 65 and victory and state.fear >= 48:
 			fate = "executed so the reign can sleep"
 		elif int(rival.get("hostility", 0)) >= 65 and victory:
@@ -205,7 +290,7 @@ static func _rival_lines(state: CampaignState, db: ContentDB, band: String, vict
 			fate = "pardoned, which is not the same as trusted"
 		else:
 			fate = "gone from court, alive somewhere the chronicle cannot yet see"
-		if not victory and int(rival.get("hostility", 0)) >= 40:
+		if not victory and not captured and not married and not allied and int(rival.get("hostility", 0)) >= 40:
 			fate = "among those who pick through what you dropped"
 		lines.append("%s is %s." % [full, fate])
 		if band == "disaster" and int(rival.get("claim", 0)) > state.claim:
@@ -213,7 +298,7 @@ static func _rival_lines(state: CampaignState, db: ContentDB, band: String, vict
 	return lines
 
 
-static func _npc_lines(state: CampaignState, db: ContentDB) -> Array:
+static func _npc_lines(state: CampaignState, db: ContentDB, victory := false) -> Array:
 	var lines: Array = []
 	var important := ["garran_vale", "celene_veyne", "oren_pell", "nessa_grey", "bren_tal", "tomas_maren", "evelyne_maren", "edric_edevane", "aldren_veil", "osric_harrow", "lucan_rook"]
 	for id in important:
@@ -221,6 +306,16 @@ static func _npc_lines(state: CampaignState, db: ContentDB) -> Array:
 			continue
 		var who: Dictionary = db.characters[id]
 		var row: Dictionary = state.npcs[id]
+		var replacement := ""
+		for rule in db.epilogues.get("npc_rules", []):
+			if (bool(rule.get("victory_only", false)) and not victory) or (bool(rule.get("defeat_only", false)) and victory):
+				continue
+			if str(rule.get("npc", "")) == id and ConditionChecker.met(rule.get("requires", {}), state, db):
+				replacement = str(rule.get("text", ""))
+				break
+		if replacement != "":
+			lines.append(replacement)
+			continue
 		var epilogue: Dictionary = who.get("epilogue", {})
 		var key := "cold"
 		if not bool(row.get("alive", false)):
@@ -237,4 +332,25 @@ static func _npc_lines(state: CampaignState, db: ContentDB) -> Array:
 		if line == "":
 			continue
 		lines.append(line)
+	return lines
+
+
+static func _conditional_lines(rows: Array, state: CampaignState, db: ContentDB, maximum: int, victory := false) -> Array:
+	var lines: Array = []
+	for row in rows:
+		if typeof(row) != TYPE_DICTIONARY:
+			continue
+		if (bool(row.get("victory_only", false)) and not victory) or (bool(row.get("defeat_only", false)) and victory):
+			continue
+		var claimants = row.get("claimant", [])
+		if typeof(claimants) == TYPE_ARRAY and not claimants.is_empty() and not claimants.has(state.claimant_id):
+			continue
+		if not ConditionChecker.met(row.get("requires", {}), state, db):
+			continue
+		var title := str(row.get("title", ""))
+		var text := str(row.get("text", ""))
+		if text != "":
+			lines.append(text if title == "" else title + ": " + text)
+		if lines.size() >= maximum:
+			break
 	return lines

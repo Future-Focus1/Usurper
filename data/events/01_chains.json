@@ -5,7 +5,7 @@
     "speaker": "A woman from the Dorn villages",
     "place": "Your gate",
     "portrait": "#5d7c99",
-    "text": "Families from the northern road are at your gate with children, a broken cart, and the story that Storm's foragers took the harvest. They want food. Your captains want to know whether pity is now a policy.",
+    "text": "Families displaced from the Dorn villages arrive with children and a broken cart. Foragers wearing several banners took the harvest; the families do not know whose orders mattered. They need food before they need a verdict. Your quartermaster has counted the stores. Your captains have counted the adults who might carry spears.",
     "weight": 14,
     "priority": 30,
     "one_time": true,
@@ -45,7 +45,10 @@
             "event": "refugee_return",
             "delay": 8
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 5
+        }
       },
       {
         "id": "coin",
@@ -64,7 +67,10 @@
             "op": "flag",
             "flag": "REFUGEES_PAID"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 100
+        }
       },
       {
         "id": "away",
@@ -118,7 +124,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "refugee_return",
@@ -164,7 +171,10 @@
             "op": "morale",
             "amount": 3
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 3
+        }
       },
       {
         "id": "bless",
@@ -183,7 +193,10 @@
             "op": "reputation",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "use",
@@ -204,7 +217,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "refugee_resentment",
@@ -247,7 +262,10 @@
             "op": "gold",
             "amount": -20
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 20
+        }
       },
       {
         "id": "punish",
@@ -288,7 +306,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "refugee_mutiny",
@@ -337,7 +357,11 @@
             "op": "flag",
             "flag": "REFUGEES_PROMISED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 80,
+          "min_rations": 2
+        }
       },
       {
         "id": "hang",
@@ -365,7 +389,10 @@
             "op": "flag",
             "flag": "REFUGEE_RINGLEADER"
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 40
+        }
       },
       {
         "id": "release",
@@ -388,9 +415,14 @@
             "op": "reputation",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_forces": 90
+        }
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "nessa_rumour",
@@ -436,7 +468,10 @@
             "op": "chronicle",
             "id": "tt_vanished"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "price",
@@ -468,7 +503,10 @@
             "bloc": "court",
             "amount": -2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 80
+        }
       },
       {
         "id": "leave",
@@ -485,7 +523,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "nessa_trail",
@@ -525,7 +564,10 @@
             "op": "flag",
             "flag": "NESSA_CLOSE"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 50
+        }
       },
       {
         "id": "threat",
@@ -578,7 +620,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "nessa_found",
@@ -597,6 +641,12 @@
       ],
       "not_flags": [
         "NESSA_FOUND"
+      ],
+      "npc_state": {
+        "nessa_grey": "missing"
+      },
+      "npc_alive": [
+        "nessa_grey"
       ]
     },
     "choices": [
@@ -721,9 +771,12 @@
           {
             "op": "npc_state",
             "id": "nessa_grey",
-            "state": "free"
+            "state": "missing"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 140
+        }
       },
       {
         "id": "accuse",
@@ -758,7 +811,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "nessa_grey",
+    "scene": "maren",
+    "scheduled_only": true
   },
   {
     "id": "pell_audience",
@@ -783,7 +839,10 @@
       ],
       "controls": [
         "caerlyn"
-      ]
+      ],
+      "npc_state": {
+        "oren_pell": "free"
+      }
     },
     "choices": [
       {
@@ -859,7 +918,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "oren_pell",
+    "scene": "road"
   },
   {
     "id": "pell_night",
@@ -881,7 +942,10 @@
       ],
       "not_flags": [
         "PELL_ARRESTED"
-      ]
+      ],
+      "npc_state": {
+        "oren_pell": "free"
+      }
     },
     "choices": [
       {
@@ -968,7 +1032,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "oren_pell",
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "will_hunt",
@@ -983,12 +1050,21 @@
     "tags": [],
     "requires": {
       "min_turn": 12,
-      "has_ledger_any": [
-        "will_fragment",
-        "nessa_last_line"
-      ],
       "not_flags": [
         "WILL_READY"
+      ],
+      "any": [
+        {
+          "has_ledger_any": [
+            "will_fragment",
+            "nessa_last_line"
+          ]
+        },
+        {
+          "flags": [
+            "KNOWN_WILL_FRAGMENT"
+          ]
+        }
       ]
     },
     "choices": [
@@ -1039,7 +1115,10 @@
               }
             ]
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 200
+        }
       },
       {
         "id": "line",
@@ -1096,7 +1175,8 @@
           ]
         }
       }
-    ]
+    ],
+    "scene": "court"
   },
   {
     "id": "council_morning",
@@ -1112,7 +1192,13 @@
     "requires": {
       "flags": [
         "COUNCIL_SUMMONED"
-      ]
+      ],
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
     },
     "choices": [
       {
@@ -1163,7 +1249,15 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "npc_alive": [
+            "aldren_veil"
+          ],
+          "npc_state": {
+            "aldren_veil": "free"
+          }
+        }
       },
       {
         "id": "adjourn",
@@ -1185,7 +1279,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "lucan_rook",
+    "scene": "court",
+    "scheduled_only": true
   },
   {
     "id": "garran_answers",
@@ -1205,7 +1302,10 @@
       ],
       "npc_alive": [
         "garran_vale"
-      ]
+      ],
+      "npc_state": {
+        "garran_vale": "free"
+      }
     },
     "choices": [
       {
@@ -1271,7 +1371,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "garran_vale",
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "tomas_explains",
@@ -1287,7 +1390,13 @@
     "requires": {
       "flags": [
         "ASKED_TOMAS"
-      ]
+      ],
+      "npc_alive": [
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free"
+      }
     },
     "choices": [
       {
@@ -1376,7 +1485,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "tomas_maren",
+    "scene": "maren",
+    "scheduled_only": true
   },
   {
     "id": "evelyne_truth",
@@ -1392,7 +1504,13 @@
     "requires": {
       "flags": [
         "EVELYNE_CONFIDED"
-      ]
+      ],
+      "npc_alive": [
+        "evelyne_maren"
+      ],
+      "npc_state": {
+        "evelyne_maren": "free"
+      }
     },
     "choices": [
       {
@@ -1469,7 +1587,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "evelyne_maren",
+    "scene": "maren",
+    "scheduled_only": true
   },
   {
     "id": "dorn_watch",
@@ -1477,7 +1598,7 @@
     "speaker": "Your van",
     "place": "The River Dorn",
     "portrait": "#4e5966",
-    "text": "Your early march has reached the water. The far bank is not empty. Local levies, and a knot of men in Storm colours who are not yours if you are not Alistair, are arguing about a bridge. A battle here would be heard in Caerlyn by nightfall.",
+    "text": "Your early march reaches the River Dorn. Local levies hold the bridge and insist their homes are not a road laid for your convenience. Their commander will talk if the host halts out of bowshot. Taking the crossing by force may save days and lose the people who maintain it.",
     "weight": 2,
     "priority": 78,
     "one_time": true,
@@ -1557,7 +1678,10 @@
             "op": "rations",
             "amount": -2
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 2
+        }
       },
       {
         "id": "talk",
@@ -1582,7 +1706,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "mira_refuses",
@@ -1681,7 +1807,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold",
+    "scheduled_only": true
   },
   {
     "id": "garran_oath",
@@ -1704,7 +1832,10 @@
         "GARRAN_DEAD",
         "GARRAN_UNPRESSED"
       ],
-      "claimant": "mira"
+      "claimant": "mira",
+      "npc_state": {
+        "garran_vale": "free"
+      }
     },
     "choices": [
       {
@@ -1774,9 +1905,14 @@
             "op": "gold",
             "amount": -30
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 30
+        }
       }
-    ]
+    ],
+    "speaker_id": "garran_vale",
+    "scene": "road"
   },
   {
     "id": "garran_choice",
@@ -1795,7 +1931,10 @@
       ],
       "npc_alive": [
         "garran_vale"
-      ]
+      ],
+      "npc_state": {
+        "garran_vale": "free"
+      }
     },
     "choices": [
       {
@@ -1877,7 +2016,10 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "garran_vale",
+    "scene": "court",
+    "scheduled_only": true
   },
   {
     "id": "edric_letter",
@@ -1967,7 +2109,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "edric_turns",
@@ -1983,12 +2126,16 @@
     "requires": {
       "min_turn": 16,
       "npc_alive": [
-        "edric_edevane"
+        "edric_edevane",
+        "celene_veyne"
       ],
       "not_flags": [
         "EDRIC_BOUND"
       ],
-      "claimant": "mira"
+      "claimant": "mira",
+      "npc_state": {
+        "celene_veyne": "free"
+      }
     },
     "choices": [
       {
@@ -2019,7 +2166,10 @@
             "bloc": "court",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "expose",
@@ -2066,9 +2216,14 @@
             "op": "flag",
             "flag": "EDRIC_WATCHED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       }
-    ]
+    ],
+    "speaker_id": "celene_veyne",
+    "scene": "road"
   },
   {
     "id": "celene_grain",
@@ -2088,7 +2243,13 @@
         "VEYNE_REFUSED",
         "CELENE_BOOKS"
       ],
-      "min_player_territories": 1
+      "min_player_territories": 1,
+      "npc_alive": [
+        "celene_veyne"
+      ],
+      "npc_state": {
+        "celene_veyne": "free"
+      }
     },
     "choices": [
       {
@@ -2181,7 +2342,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "celene_veyne",
+    "scene": "coast"
   },
   {
     "id": "osric_road",
@@ -2239,7 +2402,10 @@
               }
             ]
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 50
+        }
       },
       {
         "id": "hire",
@@ -2267,11 +2433,14 @@
             "id": "harrow",
             "amount": 5
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 180
+        }
       },
       {
         "id": "fight",
-        "text": "Burn the camp and let Osric explain the ashes.",
+        "text": "Burn the raiders’ camp and let House Harrow explain the ashes.",
         "effects": [
           {
             "op": "house_opinion",
@@ -2310,7 +2479,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "lesser_oaths_answer",
@@ -2399,6 +2569,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold",
+    "scheduled_only": true
   }
 ]

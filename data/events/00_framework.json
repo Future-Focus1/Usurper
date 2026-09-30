@@ -12,7 +12,13 @@
     "tags": [],
     "requires": {
       "claimant": "mira",
-      "max_turn": 1
+      "max_turn": 1,
+      "npc_alive": [
+        "lucan_rook"
+      ],
+      "npc_state": {
+        "lucan_rook": "free"
+      }
     },
     "choices": [
       {
@@ -154,7 +160,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "lucan_rook",
+    "scene": "road"
   },
   {
     "id": "news_on_the_road",
@@ -256,7 +264,16 @@
             "op": "gold",
             "amount": -5
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 5,
+          "npc_alive": [
+            "garran_vale"
+          ],
+          "npc_state": {
+            "garran_vale": "free"
+          }
+        }
       },
       {
         "id": "delay",
@@ -280,7 +297,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "letter_on_the_table",
@@ -288,14 +306,20 @@
     "speaker": "Lord Tomas Maren",
     "place": "Maren Estate",
     "portrait": "#6a7a3a",
-    "text": "Lord Tomas has sent the grooms out. A sealed letter sits between you and the woman who raised you. The wax is the royal stag. The monthly payment from Caerlyn did not come.",
+    "text": "Tomas has sent the grooms out. Evelyne waits beside a sealed letter bearing the royal stag. The annual remittance that has arrived for twenty-three years will not be renewed. You recognise the hand on the envelope before you recognise what the summons may cost your family.",
     "weight": 1,
     "priority": 96,
     "one_time": true,
     "tags": [],
     "requires": {
       "claimant": "arlo",
-      "max_turn": 1
+      "max_turn": 1,
+      "npc_alive": [
+        "tomas_maren"
+      ],
+      "npc_state": {
+        "tomas_maren": "free"
+      }
     },
     "choices": [
       {
@@ -368,7 +392,15 @@
             "event": "evelyne_truth",
             "delay": 2
           }
-        ]
+        ],
+        "requires": {
+          "npc_alive": [
+            "evelyne_maren"
+          ],
+          "npc_state": {
+            "evelyne_maren": "free"
+          }
+        }
       },
       {
         "id": "leave",
@@ -389,7 +421,9 @@
           }
         ]
       }
-    ]
+    ],
+    "speaker_id": "tomas_maren",
+    "scene": "maren"
   },
   {
     "id": "stormhold_messengers",
@@ -503,7 +537,10 @@
             "bloc": "military",
             "amount": 2
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 4
+        }
       },
       {
         "id": "oaths",
@@ -539,7 +576,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold"
   },
   {
     "id": "quiet_week",
@@ -590,7 +628,8 @@
         ]
       }
     ],
-    "fallback": true
+    "fallback": true,
+    "scene": "road"
   },
   {
     "id": "knife_in_yard",
@@ -605,12 +644,7 @@
     "tags": [
       "fear"
     ],
-    "requires": {
-      "flags": [
-        "KNIFE_ONLY_WHEN_FORCED"
-      ],
-      "min_turn": 999
-    },
+    "requires": {},
     "choices": [
       {
         "id": "hunt",
@@ -637,7 +671,10 @@
             "op": "reputation",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 40
+        }
       },
       {
         "id": "hang",
@@ -688,7 +725,10 @@
             "op": "flag",
             "flag": "GUARD_TIGHTENED"
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 60
+        }
       },
       {
         "id": "unbothered",
@@ -709,7 +749,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "ultimatum_reply",
@@ -830,7 +872,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "stormhold",
+    "scheduled_only": true
   },
   {
     "id": "after_garran",
@@ -948,7 +992,9 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road",
+    "scheduled_only": true
   },
   {
     "id": "clash_mira",
@@ -967,7 +1013,16 @@
       "not_claimant": "mira",
       "flags": [
         "CLASH_MIRA"
-      ]
+      ],
+      "npc_alive": [
+        "mira"
+      ],
+      "rival_alive": [
+        "mira"
+      ],
+      "npc_state": {
+        "mira": "free"
+      }
     },
     "choices": [
       {
@@ -996,7 +1051,10 @@
             "op": "news",
             "text": "The banners turn aside. Nobody calls it peace."
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "fight",
@@ -1118,7 +1176,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "clash_ethan",
@@ -1137,7 +1196,16 @@
       "not_claimant": "ethan",
       "flags": [
         "CLASH_ETHAN"
-      ]
+      ],
+      "npc_alive": [
+        "ethan"
+      ],
+      "rival_alive": [
+        "ethan"
+      ],
+      "npc_state": {
+        "ethan": "free"
+      }
     },
     "choices": [
       {
@@ -1166,7 +1234,10 @@
             "op": "news",
             "text": "The banners turn aside. Nobody calls it peace."
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "fight",
@@ -1288,7 +1359,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "clash_arlo",
@@ -1307,7 +1379,16 @@
       "not_claimant": "arlo",
       "flags": [
         "CLASH_ARLO"
-      ]
+      ],
+      "npc_alive": [
+        "arlo"
+      ],
+      "rival_alive": [
+        "arlo"
+      ],
+      "npc_state": {
+        "arlo": "free"
+      }
     },
     "choices": [
       {
@@ -1336,7 +1417,10 @@
             "op": "news",
             "text": "The banners turn aside. Nobody calls it peace."
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "fight",
@@ -1458,7 +1542,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "maren"
   },
   {
     "id": "clash_alistair",
@@ -1477,7 +1562,16 @@
       "not_claimant": "alistair",
       "flags": [
         "CLASH_ALISTAIR"
-      ]
+      ],
+      "npc_alive": [
+        "alistair"
+      ],
+      "rival_alive": [
+        "alistair"
+      ],
+      "npc_state": {
+        "alistair": "free"
+      }
     },
     "choices": [
       {
@@ -1506,7 +1600,10 @@
             "op": "news",
             "text": "The banners turn aside. Nobody calls it peace."
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 120
+        }
       },
       {
         "id": "fight",
@@ -1628,7 +1725,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bid_mira",
@@ -1645,7 +1743,16 @@
       "not_claimant": "mira",
       "flags": [
         "BID_MIRA"
-      ]
+      ],
+      "npc_alive": [
+        "mira"
+      ],
+      "rival_alive": [
+        "mira"
+      ],
+      "npc_state": {
+        "mira": "free"
+      }
     },
     "choices": [
       {
@@ -1692,7 +1799,10 @@
             "bloc": "nobility",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 150
+        }
       },
       {
         "id": "prepare",
@@ -1715,7 +1825,10 @@
             "op": "rations",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "hollow",
@@ -1739,9 +1852,13 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 60
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bid_ethan",
@@ -1758,7 +1875,16 @@
       "not_claimant": "ethan",
       "flags": [
         "BID_ETHAN"
-      ]
+      ],
+      "npc_alive": [
+        "ethan"
+      ],
+      "rival_alive": [
+        "ethan"
+      ],
+      "npc_state": {
+        "ethan": "free"
+      }
     },
     "choices": [
       {
@@ -1805,7 +1931,10 @@
             "bloc": "nobility",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 150
+        }
       },
       {
         "id": "prepare",
@@ -1828,7 +1957,10 @@
             "op": "rations",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "hollow",
@@ -1852,9 +1984,13 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 60
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bid_arlo",
@@ -1871,7 +2007,16 @@
       "not_claimant": "arlo",
       "flags": [
         "BID_ARLO"
-      ]
+      ],
+      "npc_alive": [
+        "arlo"
+      ],
+      "rival_alive": [
+        "arlo"
+      ],
+      "npc_state": {
+        "arlo": "free"
+      }
     },
     "choices": [
       {
@@ -1918,7 +2063,10 @@
             "bloc": "nobility",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 150
+        }
       },
       {
         "id": "prepare",
@@ -1941,7 +2089,10 @@
             "op": "rations",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "hollow",
@@ -1965,9 +2116,13 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 60
+        }
       }
-    ]
+    ],
+    "scene": "road"
   },
   {
     "id": "bid_alistair",
@@ -1984,7 +2139,16 @@
       "not_claimant": "alistair",
       "flags": [
         "BID_ALISTAIR"
-      ]
+      ],
+      "npc_alive": [
+        "alistair"
+      ],
+      "rival_alive": [
+        "alistair"
+      ],
+      "npc_state": {
+        "alistair": "free"
+      }
     },
     "choices": [
       {
@@ -2031,7 +2195,10 @@
             "bloc": "nobility",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 150
+        }
       },
       {
         "id": "prepare",
@@ -2054,7 +2221,10 @@
             "op": "rations",
             "amount": -1
           }
-        ]
+        ],
+        "requires": {
+          "min_rations": 1
+        }
       },
       {
         "id": "hollow",
@@ -2078,8 +2248,12 @@
             "op": "claim",
             "amount": 1
           }
-        ]
+        ],
+        "requires": {
+          "min_gold": 60
+        }
       }
-    ]
+    ],
+    "scene": "road"
   }
 ]

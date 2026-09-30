@@ -38,8 +38,16 @@ func present(state: CampaignState, db: ContentDB) -> void:
 		list.add_child(UiFactory.label("You do not have enough soldiers to offer battle."))
 	for unit in ArmyComposer.compose_player(state, db):
 		var card := UiFactory.panel()
-		var inner := UiFactory.vbox(2)
-		card.add_child(inner)
+		var row := UiFactory.hbox(16)
+		card.add_child(row)
+		var type_id := str(unit.get("elite_id", ""))
+		if type_id == "":
+			type_id = str(unit.get("type", "infantry"))
+		var art := UiFactory.portrait(type_id, 100, 100)
+		art.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		row.add_child(art)
+		var inner := UiFactory.vbox(4)
+		row.add_child(inner)
 		var name := str(unit.get("name", "Company"))
 		if bool(unit.get("elite", false)):
 			name += "  ·  elite"

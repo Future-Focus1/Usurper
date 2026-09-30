@@ -1,0 +1,47 @@
+{
+	"battles_played": 5,
+	"buttons_pressed": 738,
+	"campaigns": [
+		{
+			"claimant": "mira",
+			"ending": "mira_peoples_crown_triumph_prosperous_beloved",
+			"policy": "legitimacy",
+			"saved_action": true,
+			"saved_petition": true,
+			"seed": 20260930,
+			"victory": true,
+			"weeks": 13
+		},
+		{
+			"claimant": "ethan",
+			"ending": "ethan_peoples_crown_brittle_prosperous_beloved",
+			"policy": "legitimacy",
+			"saved_action": true,
+			"saved_petition": true,
+			"seed": 20260930,
+			"victory": true,
+			"weeks": 13
+		},
+		{
+			"claimant": "arlo",
+			"ending": "arlo_blood_of_erol_triumph_prosperous_beloved",
+			"policy": "legitimacy",
+			"saved_action": true,
+			"saved_petition": true,
+			"seed": 20260930,
+			"victory": true,
+			"weeks": 19
+		},
+		{
+			"claimant": "alistair",
+			"ending": "alistair_conquest_triumph_recovering_feared",
+			"policy": "legitimacy",
+			"saved_action": true,
+			"saved_petition": true,
+			"seed": 20260930,
+			"victory": true,
+			"weeks": 16
+		}
+	],
+	"failures": []
+}

@@ -6,6 +6,8 @@ extends RefCounted
 
 static func apply(state: CampaignState, effects: Array, db: ContentDB) -> Dictionary:
 	var result := {"log": [], "battle": {}, "defeat": ""}
+	if not state.ending_data.is_empty():
+		return result
 	_apply_list(state, effects, db, result)
 	state.clamp_resources()
 	_announce_claim(state, result)
@@ -32,6 +34,18 @@ static func preview(effects: Array, db: ContentDB) -> String:
 				parts.append("Fear %s" % Balance.signed(int(effect.get("amount", 0))))
 			"reputation":
 				parts.append("Reputation %s" % Balance.signed(int(effect.get("amount", 0))))
+			"stability":
+				parts.append("Stability %s" % Balance.signed(int(effect.get("amount", 0))))
+			"foreign":
+				parts.append("Foreign pressure %s" % Balance.signed(int(effect.get("amount", 0))))
+			"morale":
+				parts.append("Morale %s" % Balance.signed(int(effect.get("amount", 0))))
+			"political":
+				var name := str(db.characters.get(str(effect.get("id", "")), {}).get("name", effect.get("id", "")))
+				parts.append("%s's recognition %s" % [name, Balance.signed(int(effect.get("amount", 0)))])
+			"house_opinion":
+				var name := str(db.houses.get(str(effect.get("id", "")), {}).get("name", effect.get("id", "")))
+				parts.append("%s %s" % [name, Balance.signed(int(effect.get("amount", 0)))])
 			"bloc":
 				parts.append("%s %s" % [Balance.bloc_title(str(effect.get("bloc", ""))), Balance.signed(int(effect.get("amount", 0)))])
 			"relation":
@@ -51,7 +65,7 @@ static func preview(effects: Array, db: ContentDB) -> String:
 				parts.append("Gain " + title)
 			"defeat":
 				parts.append("This can end your campaign")
-			"flag", "clear_flag", "schedule", "chronicle", "kill", "capture", "memory", "promise", "break_promise":
+			"flag", "clear_flag", "schedule", "chronicle", "kill", "capture", "memory", "promise", "clear_promise", "break_promise":
 				remembered = true
 			_:
 				if op in ["territory", "house_declare", "elite_add", "prove_blood"]:
@@ -111,6 +125,12 @@ static func _apply_one(state: CampaignState, effect: Dictionary, db: ContentDB, 
 		"promise":
 			_append_npc_list(state, str(effect.get("id", "")), "promises", str(effect.get("text", "")))
 			_note(state, result, "A promise is made.")
+		"clear_promise":
+			var id := str(effect.get("id", ""))
+			var text := str(effect.get("text", ""))
+			if state.npcs.has(id) and state.npcs[id]["promises"].has(text):
+				state.npcs[id]["promises"].erase(text)
+				_note(state, result, "You keep your word to %s." % str(db.characters.get(id, {}).get("name", id)))
 		"break_promise":
 			_break_promise(state, db, result, str(effect.get("id", "")), str(effect.get("text", "")))
 		"flag":
@@ -175,8 +195,8 @@ static func _apply_one(state: CampaignState, effect: Dictionary, db: ContentDB, 
 			_buy(state, result, int(effect.get("amount", 0)), int(effect.get("gold_each", 4)))
 		"chance":
 			var roll := state.rng.randf()
-			var chance := float(effect.get("p", 0.5))
-			if roll <= chance:
+			var chance := clampf(float(effect.get("p", 0.5)), 0.0, 1.0)
+			if roll < chance:
 				_note(state, result, str(effect.get("success_text", "Fortune favours the attempt.")))
 				_apply_list(state, effect.get("success", []), db, result)
 			else:
@@ -190,7 +210,9 @@ static func _apply_one(state: CampaignState, effect: Dictionary, db: ContentDB, 
 			_note(state, result, str(effect.get("text", "Your claim comes apart.")))
 		_:
 			_note(state, result, "")
-	return false
+	# A nested chance branch can open a battle or end the campaign.
+	state.clamp_resources()
+	return not result.battle.is_empty() or str(result.defeat) != ""
 
 
 static func _battle(state: CampaignState, db: ContentDB, result: Dictionary, effect: Dictionary) -> bool:
@@ -223,7 +245,7 @@ static func _note(state: CampaignState, result: Dictionary, line: String) -> voi
 
 
 static func _shift_relation(state: CampaignState, db: ContentDB, result: Dictionary, id: String, personal: int, political: int) -> void:
-	if not state.npcs.has(id):
+	if not state.npc_alive(id):
 		return
 	state.npcs[id]["personal"] = clampi(int(state.npcs[id]["personal"]) + personal, -100, 100)
 	state.npcs[id]["political"] = clampi(int(state.npcs[id]["political"]) + political, -100, 100)
@@ -259,7 +281,7 @@ static func _break_promise(state: CampaignState, db: ContentDB, result: Dictiona
 static func _ledger_add(state: CampaignState, db: ContentDB, result: Dictionary, id: String) -> void:
 	if id == "" or not db.ledger.has(id):
 		return
-	if state.has_ledger(id):
+	if state.has_ledger(id) or state.ledger_archive.has(id):
 		return
 	state.ledger.append(id)
 	_note(state, result, "Ledger: %s." % str(db.ledger[id].get("title", id)))
@@ -270,7 +292,7 @@ static func _grant_first(state: CampaignState, db: ContentDB, result: Dictionary
 		return
 	for raw in ids:
 		var id := str(raw)
-		if not state.has_ledger(id):
+		if not state.has_ledger(id) and not state.ledger_archive.has(id):
 			_ledger_add(state, db, result, id)
 			return
 	_note(state, result, "The archives yield nothing new.")
@@ -282,7 +304,7 @@ static func _prove_blood(state: CampaignState, db: ContentDB, result: Dictionary
 	var held := 0
 	if typeof(ids) == TYPE_ARRAY:
 		for raw in ids:
-			if state.has_ledger(str(raw)):
+			if state.has_proof(str(raw)):
 				held += 1
 	if held < need:
 		_note(state, result, "The proofs are too thin. You hold %d of %d." % [held, need])
@@ -327,6 +349,8 @@ static func _kill(state: CampaignState, db: ContentDB, result: Dictionary, id: S
 		return
 	if not state.npcs.has(id):
 		return
+	if not state.npc_alive(id):
+		return
 	state.npcs[id]["alive"] = false
 	state.npcs[id]["state"] = "dead"
 	state.commanders.erase(id)
@@ -344,19 +368,30 @@ static func _kill(state: CampaignState, db: ContentDB, result: Dictionary, id: S
 
 
 static func _set_npc_mode(state: CampaignState, db: ContentDB, result: Dictionary, id: String, mode: String, alive: bool) -> void:
+	if id == state.claimant_id and mode == "captured":
+		state.defeat_reason = "captured"
+		result.defeat = "captured"
+		return
 	if not state.npcs.has(id):
+		return
+	if not state.npc_alive(id) and alive:
 		return
 	state.npcs[id]["alive"] = alive
 	state.npcs[id]["state"] = mode
-	if not alive:
+	if not alive or mode != "free":
 		state.commanders.erase(id)
+	if state.rivals.has(id):
+		state.rivals[id]["alive"] = alive
+		if not alive:
+			state.rivals[id]["forces"] = 0
 	var name := str(db.characters.get(id, {}).get("name", id))
 	_note(state, result, "%s is now %s." % [name, mode])
 
 
 static func _add_modifier(state: CampaignState, effect: Dictionary) -> void:
 	var id := str(effect.get("id", "mod"))
-	state.modifiers = state.modifiers.filter(func(row): return str(row.get("id", "")) != id)
+	var contrary := "eased_tax" if id == "harsh_tax" else ("harsh_tax" if id == "eased_tax" else "")
+	state.modifiers = state.modifiers.filter(func(row): return str(row.get("id", "")) != id and (contrary == "" or str(row.get("id", "")) != contrary))
 	state.modifiers.append({
 		"id": id,
 		"name": str(effect.get("name", id)),
@@ -404,6 +439,16 @@ static func _declare_house(state: CampaignState, db: ContentDB, result: Dictiona
 	if declared == state.claimant_id:
 		declared = "player"
 	state.houses[id]["declared"] = declared
+	var leader := str(db.houses.get(id, {}).get("leader", ""))
+	if declared == "player" and state.rivals.has(leader):
+		state.rivals[leader]["hostility"] = mini(20, int(state.rivals[leader].get("hostility", 20)))
+		state.flags["ALLY_" + leader.to_upper()] = true
+	# A house's recognition must change the world, not just an invisible counter.
+	for tid in state.territories:
+		var controller := str(state.territories[tid].get("controller", ""))
+		if str(db.territories.get(tid, {}).get("house", "")) == id and (controller == id or (declared == "player" and controller == leader and state.rivals.has(leader))):
+			state.territories[tid]["controller"] = declared
+			state.territories[tid]["loyalty"] = maxi(55, int(state.territories[tid].get("loyalty", 50)))
 	var name := str(db.houses.get(id, {}).get("name", id))
 	_note(state, result, "%s declares for %s." % [name, db.controller_name(declared, state.claimant_id)])
 
@@ -431,10 +476,10 @@ static func _buy(state: CampaignState, result: Dictionary, amount: int, gold_eac
 
 
 static func _assassinate(state: CampaignState, db: ContentDB, result: Dictionary, effect: Dictionary) -> void:
-	var chance := float(effect.get("chance", 0.35))
+	var chance := clampf(float(effect.get("chance", 0.35)), 0.0, 1.0)
 	var target := str(effect.get("target", ""))
 	var name := str(db.characters.get(target, {}).get("name", target))
-	if state.rng.randf() <= chance:
+	if state.rng.randf() < chance:
 		_note(state, result, str(effect.get("success_text", "The blade finds %s." % name)))
 		_apply_list(state, effect.get("success", []), db, result)
 	else:
