@@ -1,0 +1,1770 @@
+{
+	"failures": [],
+	"resolution": "1920x1080",
+	"scans": [
+		{
+			"failures": 0,
+			"screen": "menu"
+		},
+		{
+			"failures": 0,
+			"screen": "settings"
+		},
+		{
+			"failures": 0,
+			"screen": "select"
+		},
+		{
+			"failures": 0,
+			"screen": "campaign_overview"
+		},
+		{
+			"failures": 0,
+			"screen": "campaign_event"
+		},
+		{
+			"failures": 0,
+			"screen": "campaign_action"
+		},
+		{
+			"failures": 0,
+			"screen": "map"
+		},
+		{
+			"failures": 0,
+			"screen": "court"
+		},
+		{
+			"failures": 0,
+			"screen": "pause"
+		},
+		{
+			"failures": 0,
+			"screen": "debug"
+		},
+		{
+			"failures": 0,
+			"screen": "battle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending"
+		},
+		{
+			"failures": 0,
+			"screen": "chronicle"
+		},
+		{
+			"failures": 0,
+			"screen": "event_morning_of_bells"
+		},
+		{
+			"failures": 0,
+			"screen": "event_news_on_the_road"
+		},
+		{
+			"failures": 0,
+			"screen": "event_letter_on_the_table"
+		},
+		{
+			"failures": 0,
+			"screen": "event_stormhold_messengers"
+		},
+		{
+			"failures": 0,
+			"screen": "event_quiet_week"
+		},
+		{
+			"failures": 0,
+			"screen": "event_knife_in_yard"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ultimatum_reply"
+		},
+		{
+			"failures": 0,
+			"screen": "event_after_garran"
+		},
+		{
+			"failures": 0,
+			"screen": "event_clash_mira"
+		},
+		{
+			"failures": 0,
+			"screen": "event_clash_ethan"
+		},
+		{
+			"failures": 0,
+			"screen": "event_clash_arlo"
+		},
+		{
+			"failures": 0,
+			"screen": "event_clash_alistair"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bid_mira"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bid_ethan"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bid_arlo"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bid_alistair"
+		},
+		{
+			"failures": 0,
+			"screen": "event_northern_refugees"
+		},
+		{
+			"failures": 0,
+			"screen": "event_refugee_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_refugee_resentment"
+		},
+		{
+			"failures": 0,
+			"screen": "event_refugee_mutiny"
+		},
+		{
+			"failures": 0,
+			"screen": "event_nessa_rumour"
+		},
+		{
+			"failures": 0,
+			"screen": "event_nessa_trail"
+		},
+		{
+			"failures": 0,
+			"screen": "event_nessa_found"
+		},
+		{
+			"failures": 0,
+			"screen": "event_pell_audience"
+		},
+		{
+			"failures": 0,
+			"screen": "event_pell_night"
+		},
+		{
+			"failures": 0,
+			"screen": "event_will_hunt"
+		},
+		{
+			"failures": 0,
+			"screen": "event_council_morning"
+		},
+		{
+			"failures": 0,
+			"screen": "event_garran_answers"
+		},
+		{
+			"failures": 0,
+			"screen": "event_tomas_explains"
+		},
+		{
+			"failures": 0,
+			"screen": "event_evelyne_truth"
+		},
+		{
+			"failures": 0,
+			"screen": "event_dorn_watch"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_refuses"
+		},
+		{
+			"failures": 0,
+			"screen": "event_garran_oath"
+		},
+		{
+			"failures": 0,
+			"screen": "event_garran_choice"
+		},
+		{
+			"failures": 0,
+			"screen": "event_edric_letter"
+		},
+		{
+			"failures": 0,
+			"screen": "event_edric_turns"
+		},
+		{
+			"failures": 0,
+			"screen": "event_celene_grain"
+		},
+		{
+			"failures": 0,
+			"screen": "event_osric_road"
+		},
+		{
+			"failures": 0,
+			"screen": "event_lesser_oaths_answer"
+		},
+		{
+			"failures": 0,
+			"screen": "event_brothers_reply"
+		},
+		{
+			"failures": 0,
+			"screen": "event_miller_tithe"
+		},
+		{
+			"failures": 0,
+			"screen": "event_relic_procession"
+		},
+		{
+			"failures": 0,
+			"screen": "event_murdered_messenger"
+		},
+		{
+			"failures": 0,
+			"screen": "event_salt_shortage"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bard_in_the_yard"
+		},
+		{
+			"failures": 0,
+			"screen": "event_armoury_leak"
+		},
+		{
+			"failures": 0,
+			"screen": "event_widow_of_the_gate"
+		},
+		{
+			"failures": 0,
+			"screen": "event_horse_sickness"
+		},
+		{
+			"failures": 0,
+			"screen": "event_tavern_knives"
+		},
+		{
+			"failures": 0,
+			"screen": "event_forged_warrant"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bridge_dorn"
+		},
+		{
+			"failures": 0,
+			"screen": "event_census_men"
+		},
+		{
+			"failures": 0,
+			"screen": "event_winter_count"
+		},
+		{
+			"failures": 0,
+			"screen": "event_pilgrim_tax"
+		},
+		{
+			"failures": 0,
+			"screen": "event_accused_witch"
+		},
+		{
+			"failures": 0,
+			"screen": "event_knight_no_house"
+		},
+		{
+			"failures": 0,
+			"screen": "event_orphan_company"
+		},
+		{
+			"failures": 0,
+			"screen": "event_grain_cart"
+		},
+		{
+			"failures": 0,
+			"screen": "event_smugglers_coast"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mine_breath"
+		},
+		{
+			"failures": 0,
+			"screen": "event_deserter_banner"
+		},
+		{
+			"failures": 0,
+			"screen": "event_plague_talk"
+		},
+		{
+			"failures": 0,
+			"screen": "event_feast_or_stores"
+		},
+		{
+			"failures": 0,
+			"screen": "event_black_market_arms"
+		},
+		{
+			"failures": 0,
+			"screen": "event_grain_prices"
+		},
+		{
+			"failures": 0,
+			"screen": "event_sermon_in_square"
+		},
+		{
+			"failures": 0,
+			"screen": "event_hungry_mouths"
+		},
+		{
+			"failures": 0,
+			"screen": "event_camp_quarrel"
+		},
+		{
+			"failures": 0,
+			"screen": "event_rumour_market"
+		},
+		{
+			"failures": 0,
+			"screen": "event_levy_complaint"
+		},
+		{
+			"failures": 0,
+			"screen": "event_night_watch"
+		},
+		{
+			"failures": 0,
+			"screen": "event_merchant_caravan"
+		},
+		{
+			"failures": 0,
+			"screen": "event_wing_of_the_dead"
+		},
+		{
+			"failures": 0,
+			"screen": "event_pell_private"
+		},
+		{
+			"failures": 0,
+			"screen": "event_forgotten_drain"
+		},
+		{
+			"failures": 0,
+			"screen": "event_aria_in_the_stacks"
+		},
+		{
+			"failures": 0,
+			"screen": "event_aria_deeper"
+		},
+		{
+			"failures": 0,
+			"screen": "event_aria_proclaimed"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_old_charge"
+		},
+		{
+			"failures": 0,
+			"screen": "event_guard_whispers"
+		},
+		{
+			"failures": 0,
+			"screen": "event_treasury_short"
+		},
+		{
+			"failures": 0,
+			"screen": "event_court_and_flame"
+		},
+		{
+			"failures": 0,
+			"screen": "event_edric_at_supper"
+		},
+		{
+			"failures": 0,
+			"screen": "event_alistair_to_mira"
+		},
+		{
+			"failures": 0,
+			"screen": "event_veterans_inn"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_charge_again"
+		},
+		{
+			"failures": 0,
+			"screen": "event_a_sergeant_speaks"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bren_at_the_ford"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bren_answers"
+		},
+		{
+			"failures": 0,
+			"screen": "event_prisoners_at_dusk"
+		},
+		{
+			"failures": 0,
+			"screen": "event_village_that_fed_you"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_writes"
+		},
+		{
+			"failures": 0,
+			"screen": "event_debt_on_the_road"
+		},
+		{
+			"failures": 0,
+			"screen": "event_garran_on_the_wall"
+		},
+		{
+			"failures": 0,
+			"screen": "event_market_name"
+		},
+		{
+			"failures": 0,
+			"screen": "event_honour_frays"
+		},
+		{
+			"failures": 0,
+			"screen": "event_stables_after"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_tutor"
+		},
+		{
+			"failures": 0,
+			"screen": "event_maren_stands"
+		},
+		{
+			"failures": 0,
+			"screen": "event_common_speech"
+		},
+		{
+			"failures": 0,
+			"screen": "event_brothers_letter"
+		},
+		{
+			"failures": 0,
+			"screen": "event_lodge_road"
+		},
+		{
+			"failures": 0,
+			"screen": "event_evelyne_afraid"
+		},
+		{
+			"failures": 0,
+			"screen": "event_tomas_warning"
+		},
+		{
+			"failures": 0,
+			"screen": "event_what_the_blood_means"
+		},
+		{
+			"failures": 0,
+			"screen": "event_vale_riders"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ren_in_public"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_kept_page"
+		},
+		{
+			"failures": 0,
+			"screen": "event_order_at_stormhold"
+		},
+		{
+			"failures": 0,
+			"screen": "event_harrow_in_the_yard"
+		},
+		{
+			"failures": 0,
+			"screen": "event_marriage_or_march"
+		},
+		{
+			"failures": 0,
+			"screen": "event_fear_comes_home"
+		},
+		{
+			"failures": 0,
+			"screen": "event_iron_and_mouths"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bren_and_the_north"
+		},
+		{
+			"failures": 0,
+			"screen": "event_a_clerk_named"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_south_watches"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mutiny_of_fear"
+		},
+		{
+			"failures": 0,
+			"screen": "event_occupy_echo"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_boy_in_the_vale"
+		},
+		{
+			"failures": 0,
+			"screen": "event_open_council"
+		},
+		{
+			"failures": 0,
+			"screen": "event_weak_rival_kneel"
+		},
+		{
+			"failures": 0,
+			"screen": "event_shared_rule"
+		},
+		{
+			"failures": 0,
+			"screen": "event_a_political_match"
+		},
+		{
+			"failures": 0,
+			"screen": "event_no_crown_at_all"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_claim_thins"
+		},
+		{
+			"failures": 0,
+			"screen": "event_forgotten_passage"
+		},
+		{
+			"failures": 0,
+			"screen": "event_rumour_of_a_tutor"
+		},
+		{
+			"failures": 0,
+			"screen": "event_the_northern_clerk"
+		},
+		{
+			"failures": 0,
+			"screen": "event_kinder_version"
+		},
+		{
+			"failures": 0,
+			"screen": "event_bandits_at_the_crossing"
+		},
+		{
+			"failures": 0,
+			"screen": "event_white_company"
+		},
+		{
+			"failures": 0,
+			"screen": "event_flame_demands"
+		},
+		{
+			"failures": 0,
+			"screen": "event_foreign_purse"
+		},
+		{
+			"failures": 0,
+			"screen": "event_three_papers"
+		},
+		{
+			"failures": 0,
+			"screen": "event_caerlyn_gate_rumble"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_open_stores"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_receipts"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_charter_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_garrison_payment"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_mothers"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_mothers_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_inquest"
+		},
+		{
+			"failures": 0,
+			"screen": "event_mira_inquest_result"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_pension_roll"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_pension_accounts"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_households_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_hearing"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_hearing_result"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_shelter_register"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_shelter_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_ethan_oath_test"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_lysa_box"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_lysa_friend"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_lysa_payoff"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_water"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_water_result"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_water_harvest"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_first_office"
+		},
+		{
+			"failures": 0,
+			"screen": "event_arlo_mother_heard"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_shaft"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_shaft_findings"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_mine_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_shaft_cost"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_compact"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_compact_test"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_compact_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_storm_south_court"
+		},
+		{
+			"failures": 0,
+			"screen": "event_salt_contract"
+		},
+		{
+			"failures": 0,
+			"screen": "event_salt_delivery"
+		},
+		{
+			"failures": 0,
+			"screen": "event_salt_trade_returns"
+		},
+		{
+			"failures": 0,
+			"screen": "event_orphan_workshop"
+		},
+		{
+			"failures": 0,
+			"screen": "event_orphan_workshop_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_shared_infirmary"
+		},
+		{
+			"failures": 0,
+			"screen": "event_infirmary_parole"
+		},
+		{
+			"failures": 0,
+			"screen": "event_sowing_truce"
+		},
+		{
+			"failures": 0,
+			"screen": "event_sowing_return"
+		},
+		{
+			"failures": 0,
+			"screen": "event_nessa_afterlife"
+		},
+		{
+			"failures": 0,
+			"screen": "event_fortieth_week"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_conquest_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_conquest_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_conquest_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_conquest_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_conquest_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_acclamation_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_acclamation_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_acclamation_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_acclamation_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_acclamation_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_the_flame_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_the_flame_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_the_flame_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_the_flame_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_the_flame_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_peoples_crown_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_peoples_crown_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_peoples_crown_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_peoples_crown_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_peoples_crown_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_kings_will_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_kings_will_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_kings_will_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_kings_will_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_kings_will_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_marriage_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_marriage_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_marriage_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_marriage_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_marriage_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_abdication_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_abdication_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_abdication_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_abdication_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_abdication_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_regency_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_regency_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_regency_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_regency_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_regency_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_four_banners_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_four_banners_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_four_banners_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_four_banners_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_four_banners_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_arias_heir_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_arias_heir_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_arias_heir_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_arias_heir_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_arias_heir_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_wolf_and_spider_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_wolf_and_spider_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_wolf_and_spider_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_wolf_and_spider_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_wolf_and_spider_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_no_king_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_no_king_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_no_king_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_no_king_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_no_king_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_last_words_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_last_words_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_last_words_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_last_words_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_mira_last_words_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_conquest_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_conquest_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_conquest_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_conquest_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_conquest_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_acclamation_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_acclamation_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_acclamation_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_acclamation_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_acclamation_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_the_flame_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_the_flame_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_the_flame_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_the_flame_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_the_flame_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_peoples_crown_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_peoples_crown_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_peoples_crown_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_peoples_crown_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_peoples_crown_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_kings_will_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_kings_will_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_kings_will_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_kings_will_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_kings_will_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_marriage_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_marriage_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_marriage_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_marriage_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_marriage_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_abdication_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_abdication_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_abdication_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_abdication_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_abdication_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_regency_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_regency_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_regency_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_regency_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_regency_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_four_banners_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_four_banners_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_four_banners_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_four_banners_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_four_banners_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_brothers_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_brothers_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_brothers_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_brothers_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_brothers_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_no_king_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_no_king_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_no_king_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_no_king_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_no_king_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_last_words_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_last_words_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_last_words_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_last_words_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_ethan_last_words_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_conquest_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_conquest_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_conquest_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_conquest_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_conquest_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_acclamation_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_acclamation_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_acclamation_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_acclamation_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_acclamation_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_the_flame_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_the_flame_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_the_flame_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_the_flame_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_the_flame_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_peoples_crown_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_peoples_crown_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_peoples_crown_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_peoples_crown_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_peoples_crown_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_blood_of_erol_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_blood_of_erol_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_blood_of_erol_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_blood_of_erol_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_blood_of_erol_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_kings_will_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_kings_will_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_kings_will_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_kings_will_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_kings_will_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_marriage_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_marriage_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_marriage_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_marriage_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_marriage_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_abdication_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_abdication_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_abdication_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_abdication_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_abdication_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_regency_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_regency_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_regency_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_regency_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_regency_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_four_banners_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_four_banners_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_four_banners_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_four_banners_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_four_banners_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_brothers_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_brothers_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_brothers_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_brothers_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_brothers_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_no_king_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_no_king_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_no_king_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_no_king_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_no_king_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_last_words_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_last_words_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_last_words_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_last_words_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_arlo_last_words_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_conquest_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_conquest_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_conquest_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_conquest_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_conquest_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_acclamation_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_acclamation_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_acclamation_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_acclamation_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_acclamation_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_the_flame_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_the_flame_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_the_flame_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_the_flame_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_the_flame_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_peoples_crown_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_peoples_crown_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_peoples_crown_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_peoples_crown_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_peoples_crown_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_kings_will_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_kings_will_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_kings_will_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_kings_will_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_kings_will_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_marriage_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_marriage_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_marriage_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_marriage_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_marriage_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_abdication_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_abdication_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_abdication_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_abdication_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_abdication_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_regency_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_regency_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_regency_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_regency_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_regency_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_four_banners_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_four_banners_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_four_banners_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_four_banners_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_four_banners_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_wolf_and_spider_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_wolf_and_spider_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_wolf_and_spider_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_wolf_and_spider_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_wolf_and_spider_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_no_king_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_no_king_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_no_king_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_no_king_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_no_king_disaster"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_last_words_triumph"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_last_words_brittle"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_last_words_pyrrhic"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_last_words_failure"
+		},
+		{
+			"failures": 0,
+			"screen": "ending_alistair_last_words_disaster"
+		}
+	]
+}
