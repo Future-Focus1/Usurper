@@ -1,0 +1,962 @@
+[
+  {
+    "id": "stables_after",
+    "title": "Back in the Stables",
+    "speaker": "A groom",
+    "place": "Maren stables",
+    "portrait": "#6a7a3a",
+    "text": "The grooms pretend not to stare. You slept under this roof as a servant's son and woke as a question. Evelyne has not come down. Tomas has not come out. The horses, at least, have no theory of succession.",
+    "weight": 12,
+    "priority": 28,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 2,
+      "not_flags": [
+        "STABLE_WORK",
+        "DRESSED_UP",
+        "RODE_OUT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "work",
+        "text": "Do the morning work. Let them see you are not ashamed of the straw.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "STABLE_WORK"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "lord",
+        "text": "Dress as the lord's son and stop grooming other men's horses.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "DRESSED_UP"
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "ride",
+        "text": "Take a horse and ride the vale before anyone gives you a speech.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "RODE_OUT"
+          },
+          {
+            "op": "house_opinion",
+            "id": "maren",
+            "amount": 1
+          },
+          {
+            "op": "news",
+            "text": "Arlo is seen on the vale road, alone."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the_tutor",
+    "title": "Master Ren's Chessboard",
+    "speaker": "Lady Evelyne Maren",
+    "place": "The loft",
+    "portrait": "#7a5a62",
+    "text": "An old board is still in the loft. The man who taught you to lose slowly called himself Ren and never let you win out of pity. Evelyne's mouth goes thin when you say the name. The king, it seems, had hobbies.",
+    "weight": 12,
+    "priority": 44,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 5,
+      "not_flags": [
+        "REN_KNOWN",
+        "REN_QUIET",
+        "REN_FROM_TOMAS"
+      ]
+    },
+    "choices": [
+      {
+        "id": "name",
+        "text": "Say it. Master Ren was Erol.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "master_ren_is_erol"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_ren"
+          },
+          {
+            "op": "chronicle",
+            "id": "ren_identity"
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "REN_KNOWN"
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "keep",
+        "text": "Keep the board and the name to yourself.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "REN_QUIET"
+          },
+          {
+            "op": "memory",
+            "id": "evelyne_maren",
+            "text": "You did not force the tutor's name."
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "tomas",
+        "text": "Make Tomas say it, so it is not only your guess.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": -3,
+            "political": 3
+          },
+          {
+            "op": "ledger_add",
+            "id": "master_ren_is_erol"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_ren"
+          },
+          {
+            "op": "flag",
+            "flag": "REN_FROM_TOMAS"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "maren_stands",
+    "title": "Will the House Stand",
+    "speaker": "Lord Tomas Maren",
+    "place": "Maren hall",
+    "portrait": "#6a5438",
+    "text": "Tomas can declare for you and make the vale a country instead of a nursery. He is afraid the declaration paints a target on a boy he still thinks of as a responsibility. Evelyne is less afraid, which is not the same as being safe.",
+    "weight": 12,
+    "priority": 46,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 8,
+      "not_flags": [
+        "MAREN_STOOD",
+        "MAREN_WAITED",
+        "MAREN_EXCUSED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "ask",
+        "text": "Ask them to declare, target and all.",
+        "effects": [
+          {
+            "op": "house_declare",
+            "id": "maren",
+            "declared": "player"
+          },
+          {
+            "op": "territory",
+            "id": "maren_vale",
+            "controller": "player"
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": -2,
+            "political": 6
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MAREN_STOOD"
+          },
+          {
+            "op": "elite_add",
+            "id": "maren_riders"
+          },
+          {
+            "op": "forces",
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "id": "wait",
+        "text": "Ask them to wait until you have paper, not just a feeling.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MAREN_WAITED"
+          },
+          {
+            "op": "house_opinion",
+            "id": "maren",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Leave the house out of it. You will not spend them.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "MAREN_EXCUSED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "common_speech",
+    "title": "A Speech with Straw on Your Boots",
+    "speaker": "The vale market",
+    "place": "Maren Vale",
+    "portrait": "#6a7a3a",
+    "text": "The vale market will listen to you because you are not wearing anyone's armour. That is an advantage until the day you need armour. You can sound like them, or you can start sounding like a claimant.",
+    "weight": 11,
+    "priority": 32,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 4,
+      "not_flags": [
+        "SPOKE_COMMON",
+        "SPOKE_BLOOD",
+        "BOUGHT_BREAD"
+      ]
+    },
+    "choices": [
+      {
+        "id": "them",
+        "text": "Speak as one of them. No titles.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 7
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SPOKE_COMMON"
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "blood",
+        "text": "Tell them whose son you might be.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "SPOKE_BLOOD"
+          },
+          {
+            "op": "news",
+            "text": "The vale is saying the stable boy has a king's face."
+          }
+        ]
+      },
+      {
+        "id": "quiet",
+        "text": "Buy bread and do not make a speech at all.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -15
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "BOUGHT_BREAD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "brothers_letter",
+    "title": "A Letter to the Exile",
+    "speaker": "You",
+    "place": "A writing table",
+    "portrait": "#3d5a73",
+    "text": "If Ethan is Erol's brother, he is the nearest thing you have to blood that is not a corpse. You can ask him to recognise you, or you can become his rival before he has decided you exist. Both are ways of being a Valen.",
+    "weight": 10,
+    "priority": 48,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 14,
+      "not_flags": [
+        "BROTHERS_OFFERED",
+        "NO_LETTER_TO_ETHAN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "send",
+        "text": "Send the letter. Ask for recognition, not a crown.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "BROTHERS_OFFERED"
+          },
+          {
+            "op": "schedule",
+            "event": "brothers_reply",
+            "delay": 3
+          },
+          {
+            "op": "relation",
+            "id": "ethan",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "rival",
+        "text": "Do not write. A brother who wants the same chair is not a brother yet.",
+        "effects": [
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "NO_LETTER_TO_ETHAN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lodge_road",
+    "title": "Someone from the Lodge",
+    "speaker": "A port priest",
+    "place": "The southern road",
+    "portrait": "#6a7a3a",
+    "text": "A woman who cooked at the hunting lodge is dying in a port town and is no longer interested in the money that bought her silence. She remembers Lysa. She remembers a king who did not use his name. She will remember you if you arrive before the fever does.",
+    "weight": 12,
+    "priority": 43,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 6,
+      "not_flags": [
+        "LODGE_WITNESS",
+        "LODGE_LEFT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "go",
+        "text": "Go, and pay what the road costs.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -25
+          },
+          {
+            "op": "ledger_add",
+            "id": "arlo_birth_witness"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_lysa"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_lodge"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "LODGE_WITNESS"
+          }
+        ]
+      },
+      {
+        "id": "send",
+        "text": "Send someone else. You are being watched.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -15
+          },
+          {
+            "op": "chance",
+            "p": 0.5,
+            "success_text": "She talks to a stranger.",
+            "fail_text": "She dies between the question and the answer.",
+            "success": [
+              {
+                "op": "ledger_add",
+                "id": "arlo_birth_witness"
+              },
+              {
+                "op": "chronicle",
+                "id": "ab_lodge"
+              },
+              {
+                "op": "flag",
+                "flag": "LODGE_WITNESS"
+              }
+            ],
+            "fail": [
+              {
+                "op": "news",
+                "text": "The lodge dies a second time."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "no",
+        "text": "Leave the dead to bury the dead.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "LODGE_LEFT"
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "evelyne_afraid",
+    "title": "Evelyne Locks the Door",
+    "speaker": "Lady Evelyne Maren",
+    "place": "Maren Estate",
+    "portrait": "#7a5a62",
+    "text": "Evelyne has started locking the house at dusk. She says recognition will get you killed faster than obscurity ever did. She is not wrong often. She is also not the one who has to live as nobody.",
+    "weight": 10,
+    "priority": 36,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 9,
+      "not_flags": [
+        "STAYED_FOR_EVELYNE",
+        "LEFT_EVELYNE",
+        "PROMISED_EVELYNE"
+      ]
+    },
+    "choices": [
+      {
+        "id": "stay",
+        "text": "Stay the night and let her be your mother, not your councillor.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 8
+          },
+          {
+            "op": "flag",
+            "flag": "STAYED_FOR_EVELYNE"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "go",
+        "text": "Tell her obscurity is a kind of death you have already done.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": -4
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "LEFT_EVELYNE"
+          }
+        ]
+      },
+      {
+        "id": "promise",
+        "text": "Promise you will not announce the blood until she has been heard.",
+        "effects": [
+          {
+            "op": "promise",
+            "id": "evelyne_maren",
+            "text": "You will not announce the blood until she has spoken."
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "PROMISED_EVELYNE"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tomas_warning",
+    "title": "Tomas Counts the Costs",
+    "speaker": "Lord Tomas Maren",
+    "place": "The counting room",
+    "portrait": "#6a5438",
+    "text": "Tomas lays the household books beside the royal letters. Standing with you may empty the vale. Standing against you may empty his conscience. He asks, not as a lord, what you actually want the blood to mean.",
+    "weight": 10,
+    "priority": 37,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 10,
+      "not_flags": [
+        "WANTS_TRUTH",
+        "WANTS_CROWN",
+        "WANTS_HOUSE_SAFE"
+      ]
+    },
+    "choices": [
+      {
+        "id": "justice",
+        "text": "Say you want the lie ended, even if the crown is a separate question.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 4,
+            "political": 4
+          },
+          {
+            "op": "flag",
+            "flag": "WANTS_TRUTH"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_tomas"
+          }
+        ]
+      },
+      {
+        "id": "crown",
+        "text": "Say you want the crown the lie was protecting.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": -3
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "WANTS_CROWN"
+          }
+        ]
+      },
+      {
+        "id": "protect",
+        "text": "Say you want the house safe, and you will bend the claim to that.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 6
+          },
+          {
+            "op": "house_opinion",
+            "id": "maren",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "WANTS_HOUSE_SAFE"
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "what_the_blood_means",
+    "title": "Lay the Proofs Down",
+    "speaker": "You",
+    "place": "A hall with too many chairs",
+    "portrait": "#6a7a3a",
+    "text": "You have enough paper to make a hall go quiet. Payments, a witness, a letter that refuses to say nothing, a tutor who was a king. Laying them down will change what you are allowed to be. It will also paint the house that hid you.",
+    "weight": 11,
+    "priority": 58,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 16,
+      "has_ledger_any": [
+        "sealed_letter",
+        "maren_payments",
+        "arlo_birth_witness",
+        "master_ren_is_erol",
+        "doc_arlo"
+      ],
+      "not_flags": [
+        "BLOOD_PROVEN",
+        "PROOFS_HELD"
+      ]
+    },
+    "choices": [
+      {
+        "id": "lay",
+        "text": "Lay them in order and let the room do the rest.",
+        "effects": [
+          {
+            "op": "prove_blood",
+            "ids": [
+              "sealed_letter",
+              "maren_payments",
+              "arlo_birth_witness",
+              "master_ren_is_erol",
+              "doc_arlo"
+            ],
+            "need": 2,
+            "claim": 12
+          },
+          {
+            "op": "flag",
+            "flag": "PROOFS_LAID"
+          }
+        ]
+      },
+      {
+        "id": "one",
+        "text": "Show a single paper and watch who flinches.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ONE_PAPER"
+          }
+        ]
+      },
+      {
+        "id": "wait",
+        "text": "Wait. A proof used too early is a story.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "PROOFS_HELD"
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vale_riders",
+    "title": "The Vale Wants to Ride",
+    "speaker": "A vale rider",
+    "place": "Maren Vale",
+    "portrait": "#6a7a3a",
+    "text": "Young riders who grew up knowing your name as a stable hand now want it as a banner. They are not an army. They are the start of the insult that you came from nothing, turned into horses.",
+    "weight": 10,
+    "priority": 29,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 7,
+      "not_flags": [
+        "VALE_RIDERS",
+        "RIDERS_REFUSED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "take",
+        "text": "Take them, and feed them, and do not let them loot a village to feel real.",
+        "effects": [
+          {
+            "op": "elite_add",
+            "id": "maren_riders"
+          },
+          {
+            "op": "forces",
+            "amount": 90
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "VALE_RIDERS"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "no",
+        "text": "Tell them a crown is not a raid.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "RIDERS_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ren_in_public",
+    "title": "Say the Tutor's Name Aloud",
+    "speaker": "A careless lord",
+    "place": "A supper",
+    "portrait": "#6a7a3a",
+    "text": "A lord laughs at the idea of a chess-playing king in a stable loft. You can let him laugh, or you can put Master Ren on the table beside the payments. Laughter is harder to sustain when the dates match.",
+    "weight": 9,
+    "priority": 34,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "min_turn": 11,
+      "not_flags": [
+        "REN_PUBLIC",
+        "LET_THEM_LAUGH"
+      ]
+    },
+    "choices": [
+      {
+        "id": "say",
+        "text": "Say it in the hall.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_ren"
+          },
+          {
+            "op": "flag",
+            "flag": "REN_PUBLIC"
+          }
+        ],
+        "requires": {
+          "has_ledger": [
+            "master_ren_is_erol"
+          ]
+        }
+      },
+      {
+        "id": "laugh",
+        "text": "Let the laugh stand. You will need it later as a witness to their carelessness.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "LET_THEM_LAUGH"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  }
+]

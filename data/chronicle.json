@@ -1,0 +1,87 @@
+{
+  "categories": [
+    {
+      "id": "king_death",
+      "title": "The King's Death",
+      "entries": [
+        {"id": "kd_illness", "title": "The Illness", "text": "Erol's mind had been failing for months. The official fever was a curtain."},
+        {"id": "kd_no_viewing", "title": "No Public Body", "text": "The court was not allowed to look at the king for long. What they were protected from is still argued."},
+        {"id": "kd_physicians", "title": "The Physicians Silenced", "text": "Only Pell remained in the room. The other doctors were sent away while Erol could still give orders."},
+        {"id": "kd_nessa_medicine", "title": "The Dose", "text": "Nessa Grey saw Mira with the king's medicine on the last night. She did not see what the dose was for."},
+        {"id": "kd_mercy", "title": "A Request", "text": "Erol asked not to become the man the illness was making. Whether that was a plea for mercy or a trap depends on who is speaking."},
+        {"id": "kd_oath", "title": "Pell's Silence", "text": "The physician's refusal to describe the night is itself a kind of testimony. He promised Erol."},
+        {"id": "kd_contradictions", "title": "Contradictory Orders", "text": "A dying king produced papers that cannot all be true. Fear, not a single plan, wrote them."}
+      ]
+    },
+    {
+      "id": "ethan_exile",
+      "title": "The Exile of Ethan",
+      "entries": [
+        {"id": "ee_accusation", "title": "The Accusation", "text": "Mira accused Ethan of assault. Erol offered execution or exile. Ethan chose exile and silence."},
+        {"id": "ee_in_chambers", "title": "Inside the Chambers", "text": "Ethan was in Mira's rooms that night. The official story does not explain why."},
+        {"id": "ee_argument", "title": "The Argument", "text": "They fought about Erol's bastard. Mira says Ethan seized her. Ethan says he stopped her striking him. The sexual charge was the weapon, not the whole night."},
+        {"id": "ee_erol_chose", "title": "Erol Believed Her", "text": "The king chose his wife over his brother. Whether he believed her, or needed to, is not in the sentence."},
+        {"id": "ee_exile", "title": "The Road", "text": "Ethan did not write. He became a hired sword and a story soldiers told when they were drunk."},
+        {"id": "ee_veterans", "title": "The Men Who Remember", "text": "Old companies still measure other commanders against Ethan, which is a kind of loyalty and a kind of problem."}
+      ]
+    },
+    {
+      "id": "arlo_birth",
+      "title": "The Birth of Arlo",
+      "entries": [
+        {"id": "ab_lysa", "title": "Lysa", "text": "A servant at a hunting lodge, dead in childbirth. The child lived. The payments started."},
+        {"id": "ab_payments", "title": "The Payments", "text": "House Maren received royal money for twenty-three years. It stopped when Erol died."},
+        {"id": "ab_ren", "title": "Master Ren", "text": "The tutor who visited Arlo was Erol under another name. They played chess. The king did not say he was a king."},
+        {"id": "ab_lodge", "title": "The Lodge", "text": "Someone from the old lodge remembers the pregnancy and the order to forget it."},
+        {"id": "ab_evelyne", "title": "Evelyne's Hatred", "text": "Lady Maren raised the boy and despised the king for using her house as a cupboard."},
+        {"id": "ab_nothing", "title": "The Last Words", "text": "Erol's letter to Maren refuses to call Arlo his son and refuses to call him nothing."},
+        {"id": "ab_legitimization", "title": "An Unfinished Act", "text": "Erol asked how a bastard might be legitimised. He did not complete it."},
+        {"id": "ab_tomas", "title": "Tomas's Fear", "text": "Lord Maren believes the truth will get Arlo killed faster than the lie."}
+      ]
+    },
+    {
+      "id": "queen_aria",
+      "title": "Queen Aria",
+      "entries": [
+        {"id": "qa_reign", "title": "The One Queen", "text": "Nezrel has been ruled by a woman once, two centuries ago. Aria's reign is remembered as brief and unfairly."},
+        {"id": "qa_precedent", "title": "The Precedent", "text": "Aria ruled because the alternative was a civil war. The law was stretched and then called ancient."},
+        {"id": "qa_blood_not_sex", "title": "Not Her Sex", "text": "The old argument against Mira is not only that she is a woman. It is that she is not Valen blood."},
+        {"id": "qa_parentage", "title": "Aria's Father", "text": "A buried rumour says Aria was not her father's daughter. If the great exception was also a lie, the precedent is either worthless or more honest than the crown."},
+        {"id": "qa_first_flame", "title": "The First Blessing", "text": "The Flame blessed Aria because the High Keeper of that age feared a battlefield more than a queen."}
+      ]
+    },
+    {
+      "id": "house_storm",
+      "title": "House Storm",
+      "entries": [
+        {"id": "hs_order", "title": "Order", "text": "Alistair's case is not blood. It is that Nezrel collapses when no one is willing to be hated."},
+        {"id": "hs_informant", "title": "The Informant", "text": "A clerk in Caerlyn wrote to Stormhold about the king's decline."},
+        {"id": "hs_burned", "title": "Burned Letters", "text": "Alistair burned the correspondence. He wanted the information and not the proof that he had wanted it."},
+        {"id": "hs_one_letter", "title": "One Letter Kept", "text": "A single page survived the fire. It is enough to show he knew Erol was dying."},
+        {"id": "hs_marriage", "title": "The Offer", "text": "Storm's first move was not a march. It was a marriage offer that was also a threat."}
+      ]
+    },
+    {
+      "id": "testament",
+      "title": "The Missing Testament",
+      "entries": [
+        {"id": "tt_dictated", "title": "Dictated", "text": "Erol dictated a final document. Pell heard pieces. Nessa heard the end."},
+        {"id": "tt_vanished", "title": "Vanished", "text": "The testament was not in the chamber by morning. No one agrees who took it."},
+        {"id": "tt_line", "title": "The Remembered Line", "text": "The crown must belong not to the one born nearest it, but to the one who can keep Nezrel whole."},
+        {"id": "tt_anyone", "title": "Every Claimant Hears Themselves", "text": "The line can be made to mean Mira, Ethan, Arlo, Alistair, or no king at all."},
+        {"id": "tt_three_docs", "title": "Three Papers", "text": "Separate authentic instructions favour Ethan, a legitimised Arlo, and Mira's emergency power. They were not written on the same day."},
+        {"id": "tt_authenticity", "title": "The Document Itself", "text": "The missing testament exists. It refuses to choose a single heir and demands the realm be kept whole."}
+      ]
+    },
+    {
+      "id": "echoes",
+      "title": "Echoes of Other Campaigns",
+      "entries": [
+        {"id": "passage_under_caerlyn", "title": "The Forgotten Passage", "text": "A drain under Caerlyn's east wall was used by kings who did not want to be seen leaving. Mira's people found it. Later claimants may hear of it from someone who is not Mira."},
+        {"id": "ren_identity", "title": "The Tutor's Name", "text": "Word that Master Ren was Erol can leak into a later reign as a rumour a stablehand repeats, not as stolen memory."},
+        {"id": "storm_informant", "title": "The Northern Clerk", "text": "Once Alistair's spy is known to history, a later court can stumble on the same clerk without being told the future."},
+        {"id": "ethan_innocence", "title": "A Kinder Version of the Night", "text": "If Ethan's account of the argument survives a campaign, a later court may be offered the chance to hear it from a third mouth."}
+      ]
+    }
+  ]
+}

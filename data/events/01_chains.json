@@ -1,0 +1,2404 @@
+[
+  {
+    "id": "northern_refugees",
+    "title": "Refugees at the Gate",
+    "speaker": "A woman from the Dorn villages",
+    "place": "Your gate",
+    "portrait": "#5d7c99",
+    "text": "Families from the northern road are at your gate with children, a broken cart, and the story that Storm's foragers took the harvest. They want food. Your captains want to know whether pity is now a policy.",
+    "weight": 14,
+    "priority": 30,
+    "one_time": true,
+    "tags": [
+      "food"
+    ],
+    "requires": {
+      "min_turn": 2,
+      "max_turn": 16,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "food",
+        "text": "Give them five rations and a place to camp.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": -5
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 8
+          },
+          {
+            "op": "house_opinion",
+            "id": "maren",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "REFUGEES_HELPED"
+          },
+          {
+            "op": "schedule",
+            "event": "refugee_return",
+            "delay": 8
+          }
+        ]
+      },
+      {
+        "id": "coin",
+        "text": "Give coin instead of food. It spends easier and means less.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -100
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "REFUGEES_PAID"
+          }
+        ]
+      },
+      {
+        "id": "away",
+        "text": "Turn them away. You cannot feed a kingdom and an army.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "REFUGEES_TURNED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          },
+          {
+            "op": "schedule",
+            "event": "refugee_resentment",
+            "delay": 6
+          }
+        ]
+      },
+      {
+        "id": "recruit",
+        "text": "Take the able-bodied and send the rest on.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 120
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -5
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "REFUGEES_ARMED"
+          },
+          {
+            "op": "schedule",
+            "event": "refugee_mutiny",
+            "delay": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "refugee_return",
+    "title": "They Come Back with Volunteers",
+    "speaker": "The same woman, less afraid",
+    "place": "Your gate",
+    "portrait": "#5d7c99",
+    "text": "The families you fed are back, and they did not come empty. Young men and two women who can ride are asking to be counted. They remember who opened the stores.",
+    "weight": 6,
+    "priority": 76,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "REFUGEES_HELPED"
+      ],
+      "min_turn": 8
+    },
+    "choices": [
+      {
+        "id": "take",
+        "text": "Take them into the host and feed them properly.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 160
+          },
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "morale",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "bless",
+        "text": "Thank them and send them home with a little coin.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "use",
+        "text": "Use them as mouths in the villages, not as spears.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "REFUGEES_VOICES"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "refugee_resentment",
+    "title": "A Story with Your Name in It",
+    "speaker": "A market reeve",
+    "place": "A market town",
+    "portrait": "#5d7c99",
+    "text": "The people you turned away have a story now, and it has reached a market. It says you had food and chose an army. Whether that is fair matters less than who is repeating it.",
+    "weight": 6,
+    "priority": 74,
+    "one_time": true,
+    "tags": [
+      "fear"
+    ],
+    "requires": {
+      "flags": [
+        "REFUGEES_TURNED"
+      ],
+      "min_turn": 7
+    },
+    "choices": [
+      {
+        "id": "answer",
+        "text": "Go to the market and answer it in person.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "gold",
+            "amount": -20
+          }
+        ]
+      },
+      {
+        "id": "punish",
+        "text": "Find the loudest teller and make an example.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "STORY_PUNISHED"
+          }
+        ]
+      },
+      {
+        "id": "ignore",
+        "text": "Let the story tire itself out.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "refugee_mutiny",
+    "title": "The Recruits Remember",
+    "speaker": "A sergeant",
+    "place": "The camp",
+    "portrait": "#4e5a48",
+    "text": "The men you took from the refugee carts are armed now, and they have started asking what happened to the families you did not take. A sergeant wants an order before the question becomes a refusal.",
+    "weight": 6,
+    "priority": 76,
+    "one_time": true,
+    "tags": [
+      "army",
+      "fear"
+    ],
+    "requires": {
+      "flags": [
+        "REFUGEES_ARMED"
+      ],
+      "min_turn": 8
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Pay them, feed them, and promise the families will be found.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "promise",
+            "id": "bren_tal",
+            "text": "The refugee families will be looked for."
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "REFUGEES_PROMISED"
+          }
+        ]
+      },
+      {
+        "id": "hang",
+        "text": "Hang the ringleader and keep the rest.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 5
+          },
+          {
+            "op": "forces",
+            "amount": -40
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "REFUGEE_RINGLEADER"
+          }
+        ]
+      },
+      {
+        "id": "release",
+        "text": "Let any of them leave who still want to.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": -90
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nessa_rumour",
+    "title": "A Chamber Servant, Missing",
+    "speaker": "A clerk with clean hands",
+    "place": "A side room",
+    "portrait": "#8a6a4a",
+    "text": "A stable rumour has a name now. Nessa Grey, who laid the king's fire on the last night, is not in Caerlyn. Someone in a river inn says a woman of her description paid with a royal ring.",
+    "weight": 12,
+    "priority": 40,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 3,
+      "not_flags": [
+        "NESSA_HUNT_STARTED",
+        "NESSA_FOUND",
+        "NESSA_LEFT"
+      ],
+      "npc_state": {
+        "nessa_grey": "missing"
+      }
+    },
+    "choices": [
+      {
+        "id": "search",
+        "text": "Spend coin and send someone quiet after her.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_HUNT_STARTED"
+          },
+          {
+            "op": "schedule",
+            "event": "nessa_trail",
+            "delay": 3
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_vanished"
+          }
+        ]
+      },
+      {
+        "id": "price",
+        "text": "Put a public price on her. Fear finds people faster than kindness.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_HUNT_STARTED"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_PRICE"
+          },
+          {
+            "op": "schedule",
+            "event": "nessa_trail",
+            "delay": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Leave her missing. Some witnesses are safer as rumours.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "NESSA_LEFT"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nessa_trail",
+    "title": "The Inn at Larkspool",
+    "speaker": "An innkeeper",
+    "place": "Larkspool",
+    "portrait": "#8a6a4a",
+    "text": "The trail is a frightened innkeeper and a room Nessa left before dawn. She is still ahead of you. The innkeeper will talk for coin, or for a reason to be more afraid of you than of her.",
+    "weight": 4,
+    "priority": 77,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "NESSA_HUNT_STARTED"
+      ],
+      "not_flags": [
+        "NESSA_FOUND",
+        "NESSA_ABANDONED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Pay him and keep the hunt quiet.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "schedule",
+            "event": "nessa_found",
+            "delay": 2
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_CLOSE"
+          }
+        ]
+      },
+      {
+        "id": "threat",
+        "text": "Threaten the inn and take the direction for nothing.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "chance",
+            "p": 0.55,
+            "success_text": "He points at the south road.",
+            "fail_text": "He points at the wrong road, gladly.",
+            "success": [
+              {
+                "op": "schedule",
+                "event": "nessa_found",
+                "delay": 2
+              },
+              {
+                "op": "flag",
+                "flag": "NESSA_CLOSE"
+              }
+            ],
+            "fail": [
+              {
+                "op": "gold",
+                "amount": -20
+              },
+              {
+                "op": "news",
+                "text": "The trail goes cold in a ditch that never held her."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "back",
+        "text": "Call the search off. You have made enough noise.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "NESSA_ABANDONED"
+          },
+          {
+            "op": "clear_flag",
+            "flag": "NESSA_HUNT_STARTED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nessa_found",
+    "title": "Nessa Grey",
+    "speaker": "Nessa Grey",
+    "place": "A weaver's loft",
+    "portrait": "#8a6a4a",
+    "text": "They find her in a weaver's loft, thinner and angrier than the court remembers. She saw the last night. She heard the last sentence of the testament. She has not decided which of those facts will keep her alive.",
+    "weight": 4,
+    "priority": 84,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "NESSA_CLOSE"
+      ],
+      "not_flags": [
+        "NESSA_FOUND"
+      ]
+    },
+    "choices": [
+      {
+        "id": "private",
+        "text": "Hear her alone, and promise she will not be a spectacle.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "nessa_last_line"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_TESTIFIED"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_FOUND"
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "amount": 10,
+            "political": 4
+          },
+          {
+            "op": "npc_state",
+            "id": "nessa_grey",
+            "state": "free"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_nessa_medicine"
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_line"
+          },
+          {
+            "op": "promise",
+            "id": "nessa_grey",
+            "text": "You will not be dragged into a public hall."
+          }
+        ]
+      },
+      {
+        "id": "court",
+        "text": "Bring her to be heard where the court cannot ignore her.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "nessa_last_line"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_TESTIFIED"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_FOUND"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "npc_state",
+            "id": "nessa_grey",
+            "state": "free"
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_line"
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "amount": -4
+          }
+        ]
+      },
+      {
+        "id": "buy",
+        "text": "Pay her to vanish again, and keep the line for yourself.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -140
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_BOUGHT"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_FOUND"
+          },
+          {
+            "op": "ledger_add",
+            "id": "nessa_last_line"
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "amount": -8
+          },
+          {
+            "op": "npc_state",
+            "id": "nessa_grey",
+            "state": "free"
+          }
+        ]
+      },
+      {
+        "id": "accuse",
+        "text": "Call her a thief of the king's papers and hold her.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "relation",
+            "id": "nessa_grey",
+            "amount": -12
+          },
+          {
+            "op": "capture",
+            "id": "nessa_grey"
+          },
+          {
+            "op": "flag",
+            "flag": "NESSA_FOUND"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pell_audience",
+    "title": "The Physician Asks to Speak",
+    "speaker": "Master Oren Pell",
+    "place": "A bare room",
+    "portrait": "#5c5346",
+    "text": "Master Oren Pell has asked for a room without clerks. He looks like a man who has been carrying a sentence in his mouth since the king stopped breathing. He will not start unless you promise to finish.",
+    "weight": 12,
+    "priority": 42,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 4,
+      "npc_alive": [
+        "oren_pell"
+      ],
+      "not_flags": [
+        "HEARD_PELL",
+        "PELL_DISMISSED",
+        "PRESSED_PELL"
+      ],
+      "controls": [
+        "caerlyn"
+      ]
+    },
+    "choices": [
+      {
+        "id": "listen",
+        "text": "Send the clerks out and listen.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": 6,
+            "political": 2
+          },
+          {
+            "op": "ledger_add",
+            "id": "pell_oath"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_physicians"
+          },
+          {
+            "op": "flag",
+            "flag": "HEARD_PELL"
+          },
+          {
+            "op": "schedule",
+            "event": "pell_night",
+            "delay": 3
+          }
+        ]
+      },
+      {
+        "id": "demand",
+        "text": "Demand the dose, the hour, and the names.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": -6
+          },
+          {
+            "op": "flag",
+            "flag": "PRESSED_PELL"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "away",
+        "text": "Tell him the official death is the only death you will discuss.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "PELL_DISMISSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pell_night",
+    "title": "What Pell Will Say",
+    "speaker": "Master Oren Pell",
+    "place": "The same bare room",
+    "portrait": "#5c5346",
+    "text": "Pell will describe the illness. He will not describe the cup. He says Erol forbade him, and that a physician's oath is the last intact thing in the castle. He also says the king dictated more than one ending.",
+    "weight": 4,
+    "priority": 78,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "HEARD_PELL"
+      ],
+      "npc_alive": [
+        "oren_pell"
+      ],
+      "not_flags": [
+        "PELL_ARRESTED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "will",
+        "text": "Press him for the testament, not the cup.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "will_fragment"
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_dictated"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_contradictions"
+          },
+          {
+            "op": "flag",
+            "flag": "WILL_FRAGMENT_HELD"
+          },
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "oath",
+        "text": "Let him keep the oath. Protect him for it.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": 8,
+            "political": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 3
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_oath"
+          },
+          {
+            "op": "flag",
+            "flag": "PELL_PROTECTED"
+          }
+        ]
+      },
+      {
+        "id": "arrest",
+        "text": "Arrest him. A secret in a cell is still a secret.",
+        "effects": [
+          {
+            "op": "capture",
+            "id": "oren_pell"
+          },
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "PELL_ARRESTED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "will_hunt",
+    "title": "The Missing Testament",
+    "speaker": "A careful archivist",
+    "place": "The records",
+    "portrait": "#4a4038",
+    "text": "You have a fragment, or a servant's memory of a last line. The document itself is still missing. Finding it will cost coin and will make every other claimant your enemy in a more precise way.",
+    "weight": 11,
+    "priority": 48,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 12,
+      "has_ledger_any": [
+        "will_fragment",
+        "nessa_last_line"
+      ],
+      "not_flags": [
+        "WILL_READY"
+      ]
+    },
+    "choices": [
+      {
+        "id": "fund",
+        "text": "Fund the search and accept the noise.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -200
+          },
+          {
+            "op": "chance",
+            "p": 0.5,
+            "success_text": "A chest in a clerk's wall is not empty.",
+            "fail_text": "You buy three forgeries and one humiliation.",
+            "success": [
+              {
+                "op": "ledger_add",
+                "id": "full_testament"
+              },
+              {
+                "op": "flag",
+                "flag": "WILL_READY"
+              },
+              {
+                "op": "chronicle",
+                "id": "tt_authenticity"
+              },
+              {
+                "op": "chronicle",
+                "id": "tt_vanished"
+              },
+              {
+                "op": "claim",
+                "amount": 4
+              }
+            ],
+            "fail": [
+              {
+                "op": "bloc",
+                "bloc": "court",
+                "amount": -3
+              },
+              {
+                "op": "gold",
+                "amount": -40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "line",
+        "text": "Treat Nessa's remembered line as enough to stand on.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "WILL_READY"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_anyone"
+          },
+          {
+            "op": "news",
+            "text": "You will argue from a sentence, not a parchment."
+          }
+        ],
+        "requires": {
+          "has_ledger": [
+            "nessa_last_line"
+          ]
+        }
+      },
+      {
+        "id": "sell",
+        "text": "Sell the fragment to whoever is paying this week.",
+        "effects": [
+          {
+            "op": "ledger_remove",
+            "id": "will_fragment"
+          },
+          {
+            "op": "gold",
+            "amount": 120
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          }
+        ],
+        "requires": {
+          "has_ledger": [
+            "will_fragment"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "council_morning",
+    "title": "The Council You Summoned",
+    "speaker": "Chancellor Lucan Rook",
+    "place": "The royal gallery",
+    "portrait": "#4a4038",
+    "text": "The lords you called are in the gallery, and they did not come to be reassured. Lucan has the law. Aldren has the Flame. Neither of them has brought you a crown. They have brought you an argument.",
+    "weight": 2,
+    "priority": 80,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "COUNCIL_SUMMONED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "law",
+        "text": "Ask Lucan what the law can bear, and live with the answer.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "lucan_rook",
+            "amount": 4,
+            "political": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "chronicle",
+            "id": "qa_blood_not_sex"
+          }
+        ]
+      },
+      {
+        "id": "flame",
+        "text": "Ask Aldren to bless a regency, not a coronation.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 5,
+            "political": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "REGENCY_SPOKEN"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "adjourn",
+        "text": "Adjourn them before they vote on something you cannot win.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "COUNCIL_ADJOURNED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "garran_answers",
+    "title": "Garran's Reply",
+    "speaker": "Captain Garran Vale, by letter",
+    "place": "The road",
+    "portrait": "#6e6458",
+    "text": "A rider finds you with a short letter in Garran's hand. He does not promise the Guard. He does say he trained under you, and that he has not forgotten the difference between an order and a lie. He asks whether you are coming as a brother or as a fire.",
+    "weight": 2,
+    "priority": 79,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "flags": [
+        "WROTE_GARRAN"
+      ],
+      "npc_alive": [
+        "garran_vale"
+      ]
+    },
+    "choices": [
+      {
+        "id": "brother",
+        "text": "Answer that you are coming to keep Nezrel, not to burn Mira.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 8,
+            "political": 4
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_HEARS_ETHAN"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "promise",
+            "id": "garran_vale",
+            "text": "You will not use the Guard as a weapon against the innocent."
+          }
+        ]
+      },
+      {
+        "id": "fire",
+        "text": "Tell him to open the inner door when you arrive.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_PRESSED"
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "silence",
+        "text": "Do not answer. A letter can be a confession.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_UNANSWERED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tomas_explains",
+    "title": "What Tomas Kept",
+    "speaker": "Lord Tomas Maren",
+    "place": "Maren Estate",
+    "portrait": "#6a5438",
+    "text": "Tomas sits with his hands on the table like a man giving evidence against himself. The payments were royal. The visits were royal. He says he hid you because the truth would have got a child killed, and he is no longer sure the lie is kinder.",
+    "weight": 2,
+    "priority": 80,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "ASKED_TOMAS"
+      ]
+    },
+    "choices": [
+      {
+        "id": "payments",
+        "text": "Make him show you the payments.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "maren_payments"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_payments"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_tomas"
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": -4,
+            "political": 4
+          },
+          {
+            "op": "flag",
+            "flag": "HEARD_PAYMENTS"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "stop",
+        "text": "Thank him, and tell him he may stop talking.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "SPARED_TOMAS"
+          },
+          {
+            "op": "house_opinion",
+            "id": "maren",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "declare",
+        "text": "Ask House Maren to stand up with you, lie or not.",
+        "effects": [
+          {
+            "op": "house_declare",
+            "id": "maren",
+            "declared": "player"
+          },
+          {
+            "op": "territory",
+            "id": "maren_vale",
+            "controller": "player"
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 2,
+            "political": 8
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MAREN_STOOD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "evelyne_truth",
+    "title": "Evelyne's Version",
+    "speaker": "Lady Evelyne Maren",
+    "place": "Maren Estate",
+    "portrait": "#7a5a62",
+    "text": "Lady Evelyne does not lower her voice. She hated Erol for using her house as a cupboard and her as a mother he could visit. She loves you in the way that makes her dangerous to everyone else. She knows more than Tomas has said aloud.",
+    "weight": 2,
+    "priority": 80,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "EVELYNE_CONFIDED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "hear",
+        "text": "Let her hatred be part of the story.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "ab_evelyne"
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "EVELYNE_TOLD"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "defend",
+        "text": "Defend the king she is burying.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": -6
+          },
+          {
+            "op": "flag",
+            "flag": "DEFENDED_EROL"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "ren",
+        "text": "Ask her about the tutor who came every year.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "master_ren_is_erol"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_ren"
+          },
+          {
+            "op": "chronicle",
+            "id": "ren_identity"
+          },
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "REN_KNOWN"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dorn_watch",
+    "title": "The River Dorn",
+    "speaker": "Your van",
+    "place": "The River Dorn",
+    "portrait": "#4e5966",
+    "text": "Your early march has reached the water. The far bank is not empty. Local levies, and a knot of men in Storm colours who are not yours if you are not Alistair, are arguing about a bridge. A battle here would be heard in Caerlyn by nightfall.",
+    "weight": 2,
+    "priority": 78,
+    "one_time": true,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "flags": [
+        "EARLY_MARCH"
+      ],
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "fight",
+        "text": "Take the crossing.",
+        "effects": [
+          {
+            "op": "battle",
+            "battle_id": "dorn_clash",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "flag",
+                "flag": "DORN_TAKEN"
+              },
+              {
+                "op": "bloc",
+                "bloc": "military",
+                "amount": 3
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "fear",
+                "amount": 1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "flag",
+                "flag": "DORN_REFUSED"
+              },
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hold",
+        "text": "Hold your bank and make them come to you.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "morale",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "DORN_HELD"
+          },
+          {
+            "op": "rations",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "talk",
+        "text": "Send a herald before you send the knights.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "DORN_TALKED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mira_refuses",
+    "title": "The Queen Does Not Answer Kindly",
+    "speaker": "A Storm herald, back again",
+    "place": "Stormhold",
+    "portrait": "#7a2e3b",
+    "text": "Mira's court returns your marriage offer with the seal unbroken and a spoken sentence attached: Storm may visit Caerlyn as a lord, or as an enemy, but not as a husband by threat. Your captains laugh. The laugh is not as confident as they want it to be.",
+    "weight": 2,
+    "priority": 79,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "flags": [
+        "MARRIAGE_OFFERED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "press",
+        "text": "Press the marriage anyway. Call it peace.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_MIRA_ALISTAIR"
+          },
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_PACT"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "dignity",
+        "text": "Withdraw the offer and keep the insult for later.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "OFFER_WITHDRAWN"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "war",
+        "text": "Let the captains have the war they already wanted.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "WAR_WITH_MIRA"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "garran_oath",
+    "title": "Garran Asks Which Oath",
+    "speaker": "Captain Garran Vale",
+    "place": "A stair in the castle",
+    "portrait": "#6e6458",
+    "text": "Captain Garran Vale asks for a private word. He was Ethan's pupil and Mira's sword, and both facts are still true. He will not pretend a company can serve two memories forever.",
+    "weight": 11,
+    "priority": 36,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 4,
+      "npc_alive": [
+        "garran_vale"
+      ],
+      "not_flags": [
+        "GARRAN_ASKED",
+        "GARRAN_DEAD",
+        "GARRAN_UNPRESSED"
+      ],
+      "claimant": "mira"
+    },
+    "choices": [
+      {
+        "id": "ask",
+        "text": "Ask him to choose, and give him time to hate you for asking.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_ASKED"
+          },
+          {
+            "op": "schedule",
+            "event": "garran_choice",
+            "delay": 2
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Leave him where he is. A forced choice becomes a traitor.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_UNPRESSED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "bind",
+        "text": "Bind him with a public honour he cannot refuse.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": -2,
+            "political": 6
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_HONOURED"
+          },
+          {
+            "op": "gold",
+            "amount": -30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "garran_choice",
+    "title": "Garran's Answer",
+    "speaker": "Captain Garran Vale",
+    "place": "The inner court",
+    "portrait": "#6e6458",
+    "text": "Garran comes back without his helmet, which is how he shows he is not giving an order. He will serve, he says, if the service is not asked to become a murder. He is watching your face more than your words.",
+    "weight": 3,
+    "priority": 77,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "GARRAN_ASKED"
+      ],
+      "npc_alive": [
+        "garran_vale"
+      ]
+    },
+    "choices": [
+      {
+        "id": "swear",
+        "text": "Swear the Guard will not be used as assassins.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 10,
+            "political": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_SWORN"
+          },
+          {
+            "op": "promise",
+            "id": "garran_vale",
+            "text": "The Guard will not be sent to murder."
+          },
+          {
+            "op": "commander_add",
+            "id": "garran_vale"
+          }
+        ]
+      },
+      {
+        "id": "test",
+        "text": "Tell him loyalty is proved by doing the ugly work.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": -8
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_TESTED"
+          }
+        ]
+      },
+      {
+        "id": "relieve",
+        "text": "Relieve him of the doors before he relieves you of them.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": -14
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_RELIEVED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "edric_letter",
+    "title": "A Letter Edric Has Not Sent",
+    "speaker": "A clerk who likes living",
+    "place": "The Edevane rooms",
+    "portrait": "#5a4868",
+    "text": "A draft in Edric Edevane's hand offers House Edevane's friendship to 'whoever can keep the seal'. It is not addressed. It is also not burned. Your nephew, if you are Mira, has been practising treason in polite sentences.",
+    "weight": 11,
+    "priority": 38,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "npc_alive": [
+        "edric_edevane"
+      ],
+      "not_flags": [
+        "EDRIC_PAPER",
+        "EDRIC_TRUSTED",
+        "EDRIC_CONFRONTED"
+      ],
+      "claimant": "mira"
+    },
+    "choices": [
+      {
+        "id": "read",
+        "text": "Take the draft. Paper is leverage.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "edric_hedging"
+          },
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_PAPER"
+          }
+        ]
+      },
+      {
+        "id": "burn",
+        "text": "Burn it unread and tell him you trust him.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_TRUSTED"
+          },
+          {
+            "op": "promise",
+            "id": "edric_edevane",
+            "text": "You burned the letter and called it trust."
+          }
+        ]
+      },
+      {
+        "id": "confront",
+        "text": "Confront him in front of a witness.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": -10,
+            "political": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_CONFRONTED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "edric_turns",
+    "title": "Edric Chooses a Winner",
+    "speaker": "Lady Celene, amused",
+    "place": "A supper",
+    "portrait": "#5a4868",
+    "text": "Edric has stopped drafting and started dining with people who are not you. House Edevane's gold can still be yours. So can the story that Mira's own blood left her, if you are not careful with the telling.",
+    "weight": 8,
+    "priority": 75,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 16,
+      "npc_alive": [
+        "edric_edevane"
+      ],
+      "not_flags": [
+        "EDRIC_BOUND"
+      ],
+      "claimant": "mira"
+    },
+    "choices": [
+      {
+        "id": "office",
+        "text": "Buy him an office large enough to be a cage.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": 2,
+            "political": 10
+          },
+          {
+            "op": "house_opinion",
+            "id": "edevane",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_BOUND"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "expose",
+        "text": "Expose the hedge and let the house blush.",
+        "effects": [
+          {
+            "op": "house_opinion",
+            "id": "edevane",
+            "amount": -8
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": -14
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_EXPOSED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "watch",
+        "text": "Have him watched and spend nothing yet.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_WATCHED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celene_grain",
+    "title": "Celene's Quiet Ships",
+    "speaker": "Lady Celene Veyne",
+    "place": "The Veyne warehouse",
+    "portrait": "#3d6b6b",
+    "text": "Lady Celene Veyne offers grain at a price that is either friendship or a hook. Her clerks mention, lightly, that other claimants have also been priced. She values a realm that can still collect a tariff.",
+    "weight": 12,
+    "priority": 34,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 6,
+      "not_flags": [
+        "VEYNE_COMPACT",
+        "VEYNE_REFUSED",
+        "CELENE_BOOKS"
+      ],
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "compact",
+        "text": "Take the compact. Coin now, a favour later.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 160
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": 8
+          },
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "amount": 4,
+            "political": 4
+          },
+          {
+            "op": "flag",
+            "flag": "VEYNE_COMPACT"
+          },
+          {
+            "op": "ledger_add",
+            "id": "favour_celene"
+          },
+          {
+            "op": "modifier",
+            "id": "veyne_compact",
+            "name": "Veyne compact",
+            "turns": 4,
+            "gold": -15
+          }
+        ]
+      },
+      {
+        "id": "books",
+        "text": "Ask to see the books before you trust the smile.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "amount": -3
+          },
+          {
+            "op": "chance",
+            "p": 0.6,
+            "success_text": "A page was not meant for you.",
+            "fail_text": "The books are boring, which is a skill.",
+            "success": [
+              {
+                "op": "ledger_add",
+                "id": "celene_routes"
+              },
+              {
+                "op": "flag",
+                "flag": "CELENE_BOOKS"
+              }
+            ],
+            "fail": [
+              {
+                "op": "house_opinion",
+                "id": "veyne",
+                "amount": -3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse. The people notice who you will not owe.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "VEYNE_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "osric_road",
+    "title": "The Western Road is Not Empty",
+    "speaker": "A burned carter",
+    "place": "The western road",
+    "portrait": "#5a4030",
+    "text": "Raiders are burning carts on the Harrowlands edge, and they are strangely careful about Osric's own villages. Lord Harrow says he is a victim. His neighbours say he is a customer.",
+    "weight": 12,
+    "priority": 33,
+    "one_time": true,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 5,
+      "not_flags": [
+        "OSRIC_KNOWN",
+        "HARROW_PAID",
+        "ROAD_CLEARED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "look",
+        "text": "Spend coin to learn which story is true.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "chance",
+            "p": 0.65,
+            "success_text": "A factor talks.",
+            "fail_text": "The road keeps its mouth.",
+            "success": [
+              {
+                "op": "ledger_add",
+                "id": "osric_bandit_pact"
+              },
+              {
+                "op": "ledger_add",
+                "id": "harrow_debts"
+              },
+              {
+                "op": "flag",
+                "flag": "OSRIC_KNOWN"
+              }
+            ],
+            "fail": [
+              {
+                "op": "news",
+                "text": "You buy a rumour and not a proof."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hire",
+        "text": "Pay Harrow to keep the road, and don't ask how.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -180
+          },
+          {
+            "op": "forces",
+            "amount": 80
+          },
+          {
+            "op": "relation",
+            "id": "osric_harrow",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "HARROW_PAID"
+          },
+          {
+            "op": "house_opinion",
+            "id": "harrow",
+            "amount": 5
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Burn the camp and let Osric explain the ashes.",
+        "effects": [
+          {
+            "op": "house_opinion",
+            "id": "harrow",
+            "amount": -6
+          },
+          {
+            "op": "battle",
+            "battle_id": "raider_camp",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 1
+              },
+              {
+                "op": "rations",
+                "amount": 3
+              },
+              {
+                "op": "flag",
+                "flag": "ROAD_CLEARED"
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "fear",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lesser_oaths_answer",
+    "title": "The Lesser Lords Answer",
+    "speaker": "A northern clerk",
+    "place": "Stormhold",
+    "portrait": "#4e5966",
+    "text": "The oaths you demanded have come back in three shapes: yes, silence, and a carefully worded illness. Making examples of the sick will fill the ranks and empty the reputation you were pretending not to need.",
+    "weight": 3,
+    "priority": 74,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "OATHS_DEMANDED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "examples",
+        "text": "Make two examples. Illness is not a policy.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "OATH_EXAMPLES"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "accept",
+        "text": "Accept the yes, ignore the sick, and move.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "OATHS_PARTIAL"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "release",
+        "text": "Release them from the demand and call it lordship.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 4
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "OATHS_RELEASED"
+          }
+        ]
+      }
+    ]
+  }
+]

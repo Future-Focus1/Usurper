@@ -1,0 +1,1088 @@
+[
+  {
+    "id": "wing_of_the_dead",
+    "title": "The King's Wing",
+    "speaker": "A laundress",
+    "place": "The king's wing",
+    "portrait": "#7a2e3b",
+    "text": "The servants who washed Erol will not meet your eye. One of them saw the cup. None of them will say so where a clerk can write it down. The wing still smells of the medicines Pell measured.",
+    "weight": 12,
+    "priority": 44,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 2,
+      "not_flags": [
+        "CUP_KNOWN",
+        "WING_SEALED",
+        "ASKED_PELL_PRIVATE"
+      ]
+    },
+    "choices": [
+      {
+        "id": "question",
+        "text": "Question them one at a time, without the court watching.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "chance",
+            "p": 0.62,
+            "success_text": "A laundress breaks.",
+            "fail_text": "They have already agreed on silence.",
+            "success": [
+              {
+                "op": "ledger_add",
+                "id": "final_night_mercy"
+              },
+              {
+                "op": "chronicle",
+                "id": "kd_mercy"
+              },
+              {
+                "op": "flag",
+                "flag": "CUP_KNOWN"
+              }
+            ],
+            "fail": [
+              {
+                "op": "bloc",
+                "bloc": "court",
+                "amount": -2
+              },
+              {
+                "op": "news",
+                "text": "The wing learns you are hunting, and shuts."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seal",
+        "text": "Seal the wing and call it mourning.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "WING_SEALED"
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_no_viewing"
+          }
+        ]
+      },
+      {
+        "id": "pell",
+        "text": "Ask Pell, and no one else.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": 3
+          },
+          {
+            "op": "schedule",
+            "event": "pell_private",
+            "delay": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ASKED_PELL_PRIVATE"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pell_private",
+    "title": "Pell, Alone",
+    "speaker": "Master Oren Pell",
+    "place": "The physician's closet",
+    "portrait": "#5c5346",
+    "text": "Pell will speak if you speak first. He knows you were in the room. He is waiting to learn whether the queen remembers the night as mercy, as duty, or as something she needs him to forget.",
+    "weight": 3,
+    "priority": 74,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "flags": [
+        "ASKED_PELL_PRIVATE"
+      ],
+      "npc_alive": [
+        "oren_pell"
+      ]
+    },
+    "choices": [
+      {
+        "id": "confess",
+        "text": "Tell him Erol asked, and that you answered.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "final_night_mercy"
+          },
+          {
+            "op": "flag",
+            "flag": "CONFESSED_TO_PELL"
+          },
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": 8
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_mercy"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_illness"
+          }
+        ]
+      },
+      {
+        "id": "silence",
+        "text": "Order his silence and pay for the order with fear.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": -8
+          },
+          {
+            "op": "flag",
+            "flag": "SILENCED_PELL"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "papers",
+        "text": "Ask only about the contradictory papers.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "doc_mira"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_contradictions"
+          },
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forgotten_drain",
+    "title": "A Drain Under the East Wall",
+    "speaker": "A castle mason",
+    "place": "Under Caerlyn",
+    "portrait": "#7a2e3b",
+    "text": "A mason, paid to look for cracks, finds a passage kings used when they did not want the gate to see them leave. It comes out beyond the ditch. It is old, wet, and suddenly political.",
+    "weight": 10,
+    "priority": 40,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 7,
+      "not_flags": [
+        "PASSAGE_KNOWN",
+        "PASSAGE_WALLED",
+        "PASSAGE_SECRET"
+      ]
+    },
+    "choices": [
+      {
+        "id": "map",
+        "text": "Map it, and let the fact enter the history of the castle.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "passage_under_caerlyn"
+          },
+          {
+            "op": "flag",
+            "flag": "PASSAGE_KNOWN"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "news",
+            "text": "The east drain is no longer only a mason's problem."
+          }
+        ]
+      },
+      {
+        "id": "wall",
+        "text": "Wall it before a rival learns the castle has a second mouth.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "PASSAGE_WALLED"
+          }
+        ]
+      },
+      {
+        "id": "keep",
+        "text": "Tell no one. A queen should have one door that is not on a plan.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "PASSAGE_SECRET"
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aria_in_the_stacks",
+    "title": "Queen Aria's Reign",
+    "speaker": "Chancellor Lucan Rook",
+    "place": "The royal archive",
+    "portrait": "#4a4038",
+    "text": "Lucan's clerks have the reign of Queen Aria in a chest nobody opens unless they mean to start a fight. Two hundred years of commentary call her a mistake. The original writ is shorter, and less embarrassed, than the commentary.",
+    "weight": 11,
+    "priority": 36,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 5,
+      "not_flags": [
+        "ARIA_READ",
+        "ARIA_LEFT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "study",
+        "text": "Read it yourself before the court tells you what it means.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "qa_reign"
+          },
+          {
+            "op": "flag",
+            "flag": "ARIA_READ"
+          },
+          {
+            "op": "schedule",
+            "event": "aria_deeper",
+            "delay": 4
+          },
+          {
+            "op": "relation",
+            "id": "lucan_rook",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "ignore",
+        "text": "Leave Aria in the chest. You will not win by becoming a footnote.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "ARIA_LEFT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aria_deeper",
+    "title": "The Exception",
+    "speaker": "Chancellor Lucan Rook",
+    "place": "The royal archive",
+    "portrait": "#4a4038",
+    "text": "The writ says Aria ruled because the alternative was a battlefield. A later hand has added a scrap: that her father may not have been her father. Lucan looks ill. Precedents are not supposed to have bodies.",
+    "weight": 3,
+    "priority": 73,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "flags": [
+        "ARIA_READ"
+      ]
+    },
+    "choices": [
+      {
+        "id": "precedent",
+        "text": "Take the public writ and leave the scrap in the dark.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "qa_precedent"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "ARIA_CASE"
+          }
+        ]
+      },
+      {
+        "id": "scrap",
+        "text": "Keep the scrap. Dangerous paper is still paper.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "aria_parentage"
+          },
+          {
+            "op": "chronicle",
+            "id": "qa_parentage"
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "ARIA_SCRAP"
+          }
+        ]
+      },
+      {
+        "id": "stop",
+        "text": "Close the chest. Some doors should stay histories.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "lucan_rook",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ARIA_CLOSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aria_proclaimed",
+    "title": "Aria, Read as Law",
+    "speaker": "You",
+    "place": "The royal gallery",
+    "portrait": "#7a2e3b",
+    "text": "You have the precedent in your hand and enough of the court listening to be dangerous. Proclaiming it makes a woman's rule an argument instead of a scandal. It also gives every lord a text to twist.",
+    "weight": 10,
+    "priority": 55,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 18,
+      "flags": [
+        "ARIA_CASE"
+      ],
+      "not_flags": [
+        "ARIA_PRECEDENT_PROVEN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "proclaim",
+        "text": "Proclaim Aria's reign as law, not as a caution.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "ARIA_PRECEDENT_PROVEN"
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "chronicle",
+            "id": "qa_blood_not_sex"
+          },
+          {
+            "op": "chronicle",
+            "id": "qa_first_flame"
+          }
+        ]
+      },
+      {
+        "id": "threat",
+        "text": "Keep it sheathed. A precedent is sometimes louder unused.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "ARIA_SHEATHED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the_old_charge",
+    "title": "The Night Ethan Was in the Room",
+    "speaker": "A lord who enjoys weather",
+    "place": "The gallery",
+    "portrait": "#3d5a73",
+    "text": "A lord repeats the accusation as if it were weather: Ethan assaulted you, Erol was merciful, exile was the kind version. You were there. The sexual charge was the weapon. The argument was about a bastard and a crown.",
+    "weight": 11,
+    "priority": 37,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 6,
+      "not_flags": [
+        "CHARGE_RESTATED",
+        "ARGUMENT_ADMITTED",
+        "CHARGE_SLEPT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "restate",
+        "text": "Restate the charge. The realm already believes it.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": 8
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_accusation"
+          },
+          {
+            "op": "flag",
+            "flag": "CHARGE_RESTATED"
+          }
+        ]
+      },
+      {
+        "id": "admit",
+        "text": "Admit it was an argument, and let the uglier truth out.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "chambers_argument"
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_argument"
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_erol_chose"
+          },
+          {
+            "op": "relation",
+            "id": "ethan",
+            "amount": 4,
+            "political": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ARGUMENT_ADMITTED"
+          }
+        ]
+      },
+      {
+        "id": "sleep",
+        "text": "Let the story sleep. Waking it feeds someone.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "CHARGE_SLEPT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "guard_whispers",
+    "title": "The Guard Says His Name",
+    "speaker": "A stair that talks",
+    "place": "Castle Caerlyn",
+    "portrait": "#6e6458",
+    "text": "You hear it in the stair: soldiers still stand straighter when Ethan's name is used. Garran pretends not to hear. The company is yours until the day it remembers who taught it.",
+    "weight": 10,
+    "priority": 32,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 5,
+      "not_flags": [
+        "WHISPER_PUNISHED",
+        "ASKED_ABOUT_WHISPER",
+        "GUARD_PAID"
+      ]
+    },
+    "choices": [
+      {
+        "id": "punish",
+        "text": "Punish the whisper. Make the stair quiet.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "WHISPER_PUNISHED"
+          }
+        ]
+      },
+      {
+        "id": "ask",
+        "text": "Ask Garran, privately, whether you still have the doors.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 4
+          },
+          {
+            "op": "ledger_add",
+            "id": "garran_divided"
+          },
+          {
+            "op": "flag",
+            "flag": "ASKED_ABOUT_WHISPER"
+          }
+        ]
+      },
+      {
+        "id": "raise",
+        "text": "Raise their pay and do not mention the name.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -90
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "GUARD_PAID"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "treasury_short",
+    "title": "The Treasury Is Not What Erol Said",
+    "speaker": "A treasury clerk",
+    "place": "The counting room",
+    "portrait": "#4a4038",
+    "text": "The books show gifts, pensions, and a quiet account that paid a western house for twenty years. The realm thinks you are sitting on a dragon's hoard. The dragon was already spending itself.",
+    "weight": 10,
+    "priority": 31,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 4,
+      "not_flags": [
+        "BOOKS_CLOSED",
+        "FOLLOWED_ACCOUNT",
+        "TREASURY_HONEST"
+      ]
+    },
+    "choices": [
+      {
+        "id": "hide",
+        "text": "Close the interesting pages.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "BOOKS_CLOSED"
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "follow",
+        "text": "Follow the western account.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "maren_payments"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_payments"
+          },
+          {
+            "op": "flag",
+            "flag": "FOLLOWED_ACCOUNT"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "honest",
+        "text": "Tell the council the truth about the stores.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "TREASURY_HONEST"
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "court_and_flame",
+    "title": "Aldren Will Not Bless a Rumour",
+    "speaker": "Father Aldren Veil",
+    "place": "The royal hearth",
+    "portrait": "#8a5a2a",
+    "text": "Father Aldren will pray for the dead king and will not yet pray for you. He says the Flame has crowned hurried monarchs before, and buried the hurry afterwards. He wants to know what the last night was.",
+    "weight": 11,
+    "priority": 35,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 7,
+      "not_flags": [
+        "TOLD_ALDREN",
+        "ALDREN_SNUBBED",
+        "HEARTH_ENDOWED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "mercy",
+        "text": "Tell him it was a sick man's request.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 6,
+            "political": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 6
+          },
+          {
+            "op": "ledger_add",
+            "id": "final_night_mercy"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_mercy"
+          },
+          {
+            "op": "flag",
+            "flag": "TOLD_ALDREN"
+          }
+        ]
+      },
+      {
+        "id": "law",
+        "text": "Tell him the law is Lucan's business, not the hearth's.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": -5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ALDREN_SNUBBED"
+          }
+        ]
+      },
+      {
+        "id": "gift",
+        "text": "Endow the hearth and do not explain yourself.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -150
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 4
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "HEARTH_ENDOWED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "edric_at_supper",
+    "title": "Your Nephew at Supper",
+    "speaker": "Edric Edevane",
+    "place": "The queen's supper",
+    "portrait": "#5a4868",
+    "text": "Edric Edevane toasts you too carefully. He has been counting the lords who would accept a queen if a man of Edevane blood stood close enough to look like the future. He thinks this is help.",
+    "weight": 10,
+    "priority": 28,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 6,
+      "npc_alive": [
+        "edric_edevane"
+      ],
+      "not_flags": [
+        "EDRIC_USED",
+        "EDRIC_CUT",
+        "EDRIC_PROMISED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "use",
+        "text": "Use him. A visible heir-nephew calms men who fear a woman alone.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": 3,
+            "political": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_USED"
+          }
+        ]
+      },
+      {
+        "id": "cut",
+        "text": "Cut the performance short. You will not be a bridge to him.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_CUT"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "promise",
+        "text": "Promise him a place, and mean it only as far as he deserves.",
+        "effects": [
+          {
+            "op": "promise",
+            "id": "edric_edevane",
+            "text": "A place beside the crown, if you keep faith."
+          },
+          {
+            "op": "relation",
+            "id": "edric_edevane",
+            "amount": 5
+          },
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "flag",
+            "flag": "EDRIC_PROMISED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "alistair_to_mira",
+    "title": "Storm's Offer, Again",
+    "speaker": "A Storm herald",
+    "place": "The throne room",
+    "portrait": "#4e5966",
+    "text": "Alistair's letter is a marriage and a timetable. He will be king beside you, or he will be king in spite of you. The court wants to know whether you are negotiating or stalling.",
+    "weight": 12,
+    "priority": 46,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "min_turn": 8,
+      "not_flags": [
+        "STALLED_ALISTAIR",
+        "TERMS_TO_STORM",
+        "MARRIAGE_MIRA_ALISTAIR"
+      ]
+    },
+    "choices": [
+      {
+        "id": "stall",
+        "text": "Stall. Every week he waits is a week the south can arm.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "STALLED_ALISTAIR"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "alistair",
+            "field": "hostility",
+            "amount": 4
+          }
+        ]
+      },
+      {
+        "id": "terms",
+        "text": "Offer terms that are not a crown: titles, iron rights, no marriage.",
+        "effects": [
+          {
+            "op": "rival",
+            "id": "alistair",
+            "field": "hostility",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "TERMS_TO_STORM"
+          }
+        ]
+      },
+      {
+        "id": "accept",
+        "text": "Accept the marriage as a weapon you intend to hold.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_MIRA_ALISTAIR"
+          },
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_PACT"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          }
+        ]
+      }
+    ]
+  }
+]

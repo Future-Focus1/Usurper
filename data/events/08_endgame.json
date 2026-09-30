@@ -1,0 +1,1454 @@
+[
+  {
+    "id": "the_boy_in_the_vale",
+    "title": "A Boy the King Visited",
+    "speaker": "An old spearman",
+    "place": "The camp",
+    "portrait": "#6a7a3a",
+    "text": "Soldiers who wintered near Maren say Erol rode there under another name. If the stable boy is your brother's son, then the crown is a family argument and not only a war. You can recognise him, use him, or refuse to be his legend.",
+    "weight": 10,
+    "priority": 49,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 15,
+      "not_flags": [
+        "BROTHERS_PACT",
+        "ARLO_PAID_OFF",
+        "ARLO_REFUSED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "recognise",
+        "text": "Recognise him, and offer to be Protector rather than rival.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "BROTHERS_PACT"
+          },
+          {
+            "op": "relation",
+            "id": "arlo",
+            "amount": 10,
+            "political": 6
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "rival",
+            "id": "arlo",
+            "field": "hostility",
+            "amount": -16
+          },
+          {
+            "op": "news",
+            "text": "Ethan names Arlo as blood. The camp does not know whether to cheer."
+          }
+        ]
+      },
+      {
+        "id": "use",
+        "text": "Send him coin and do not send him a title.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "relation",
+            "id": "arlo",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_PAID_OFF"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse the story. Bastards are how kingdoms get knives.",
+        "effects": [
+          {
+            "op": "rival",
+            "id": "arlo",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "ARLO_REFUSED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "open_council",
+    "title": "A Council of Four Banners",
+    "speaker": "Lord Tomas Maren",
+    "place": "A neutral hall",
+    "portrait": "#6a5438",
+    "text": "A careful lord suggests the unthinkable in a careful voice: all four claimants still breathe, and the realm might survive them better as a council than as a graveyard. It will be called childish by men who prefer a single throat to cut.",
+    "weight": 8,
+    "priority": 60,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 20,
+      "max_fear": 45,
+      "not_flags": [
+        "COUNCIL_OF_FOUR",
+        "COUNCIL_SCORNED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "propose",
+        "text": "Propose it aloud. Let the hall hear that you would share.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "COUNCIL_OF_FOUR"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -2
+          },
+          {
+            "op": "stability",
+            "amount": 6
+          },
+          {
+            "op": "news",
+            "text": "You speak of four banners in one hall."
+          }
+        ]
+      },
+      {
+        "id": "moderate",
+        "text": "Use the idea only to look moderate, and do not mean it.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "COUNCIL_FEINT"
+          }
+        ]
+      },
+      {
+        "id": "scorn",
+        "text": "Scorn it. One crown, one ruler.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "COUNCIL_SCORNED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "weak_rival_kneel",
+    "title": "A Rival Too Tired to Stand",
+    "speaker": "A herald",
+    "place": "Your council",
+    "portrait": "#5d7c99",
+    "text": "One of the other claims has thinned to a rumour with a few hundred spears. A herald suggests you offer abdication instead of a last battle. Public kneeling ends wars. It also makes heirs of the humiliation.",
+    "weight": 9,
+    "priority": 58,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 18,
+      "any_rival_weak": true,
+      "not_flags": [
+        "ABDICATION_OFFERED",
+        "NO_ABDICATION"
+      ],
+      "min_forces": 400
+    },
+    "choices": [
+      {
+        "id": "demand",
+        "text": "Demand the kneel, in daylight, with witnesses.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "ABDICATION_OFFERED"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "exile",
+        "text": "Offer exile instead of a grave, and call that the kneel.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "ABDICATION_OFFERED"
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "finish",
+        "text": "Finish them. Tired claims become martyrs if you let them leave.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "NO_ABDICATION"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shared_rule",
+    "title": "A Smaller Title",
+    "speaker": "Chancellor Lucan Rook",
+    "place": "A side chamber",
+    "portrait": "#4a4038",
+    "text": "Someone you have not quite destroyed offers a regency: one name on the coin, two hands on the seal. It saves a battle. It condemns two households to a careful life. The court understands this language better than it understands mercy.",
+    "weight": 8,
+    "priority": 54,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 16,
+      "not_flags": [
+        "REGENCY_OFFERED",
+        "REGENCY_REFUSED"
+      ],
+      "min_claim": 16
+    },
+    "choices": [
+      {
+        "id": "offer",
+        "text": "Offer the regency and keep your face still.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "REGENCY_OFFERED"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse the smaller title. You did not come this far to be a lock on a door.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "REGENCY_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a_political_match",
+    "title": "A Marriage That Is Not a Romance",
+    "speaker": "Lady Celene Veyne",
+    "place": "The Veyne coast",
+    "portrait": "#3d6b6b",
+    "text": "House Veyne will bind a claim to its ships if the ceremony is dull and the tariffs are kind. It is not Mira and it is not love. It is a way to make two fears sit in one household.",
+    "weight": 9,
+    "priority": 46,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 14,
+      "not_flags": [
+        "MARRIAGE_PACT",
+        "MATCH_DECLINED"
+      ],
+      "not_claimant": [
+        "mira",
+        "alistair"
+      ],
+      "min_claim": 20
+    },
+    "choices": [
+      {
+        "id": "bind",
+        "text": "Bind the house. Sign the dull ceremony.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_PACT"
+          },
+          {
+            "op": "gold",
+            "amount": -100
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "house_declare",
+            "id": "veyne",
+            "declared": "player"
+          },
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "amount": 4,
+            "political": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "decline",
+        "text": "Decline. You will not rent the crown to a harbour.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "MATCH_DECLINED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "no_crown_at_all",
+    "title": "A Whisper Against the Crown",
+    "speaker": "A clerk who has read too much",
+    "place": "A back room",
+    "portrait": "#4a4038",
+    "text": "In a back room that thinks it is safe, a clerk repeats Erol's line until it means no king at all. The one who can keep Nezrel whole might be a council, not a throat. Saying this aloud is the hardest politics in the kingdom.",
+    "weight": 6,
+    "priority": 57,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 22,
+      "max_fear": 40,
+      "min_bloc": {
+        "people": 20
+      },
+      "not_flags": [
+        "NO_KING_PATH",
+        "NO_KING_SHUT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "entertain",
+        "text": "Entertain it. Ask what a realm looks like with the chair empty.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "NO_KING_PATH"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_anyone"
+          }
+        ]
+      },
+      {
+        "id": "shut",
+        "text": "Shut it down before it becomes a faction.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "NO_KING_SHUT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the_claim_thins",
+    "title": "Almost Nothing Left",
+    "speaker": "You",
+    "place": "A thin camp",
+    "portrait": "#5d7c99",
+    "text": "The host is a rumour, the land is other people's, and the claim is a story you are tired of paying for. You can walk away and live, spend the last of your name on one speech, or sell the sword and become ordinary.",
+    "weight": 7,
+    "priority": 70,
+    "one_time": true,
+    "tags": [
+      "food"
+    ],
+    "requires": {
+      "min_turn": 12,
+      "max_claim": 14,
+      "max_forces": 180,
+      "max_player_territories": 0
+    },
+    "choices": [
+      {
+        "id": "speech",
+        "text": "Spend the name. One speech, then whatever the road does.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "LAST_SPEECH"
+          }
+        ]
+      },
+      {
+        "id": "sell",
+        "text": "Sell the sword and the story.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 40
+          },
+          {
+            "op": "forces",
+            "amount": -30
+          },
+          {
+            "op": "claim",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "SOLD_THE_SWORD"
+          }
+        ]
+      },
+      {
+        "id": "exile",
+        "text": "Leave Nezrel before it leaves you.",
+        "effects": [
+          {
+            "op": "defeat",
+            "reason": "exile",
+            "text": "You take the road out of the kingdom."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forgotten_passage",
+    "title": "The Forgotten Passage",
+    "speaker": "A travelling mason",
+    "place": "The Caerlyn road",
+    "portrait": "#5d7c99",
+    "text": "A mason who once worked the Caerlyn ditch says kings left by a drain under the east wall when they did not want the gate to see them. He heard it from a woman who served the castle, not from a prophecy. The story is ordinary enough to be true.",
+    "weight": 8,
+    "priority": 44,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "chronicle": "passage_under_caerlyn",
+      "not_claimant": "mira",
+      "not_flags": [
+        "USED_PASSAGE",
+        "PASSAGE_IGNORED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "use",
+        "text": "Pay him and learn the drain.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "USED_PASSAGE"
+          },
+          {
+            "op": "news",
+            "text": "You know a way into Caerlyn that is not a gate."
+          }
+        ]
+      },
+      {
+        "id": "ignore",
+        "text": "Ignore a story that arrives too conveniently.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "PASSAGE_IGNORED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rumour_of_a_tutor",
+    "title": "A Stablehand's Rumour",
+    "speaker": "A horse-seller",
+    "place": "A market",
+    "portrait": "#6a7a3a",
+    "text": "A man who sold horses to Maren says the boy's tutor was called Ren, and that Ren had a king's hands. He does not know he is repeating a secret from another life of the realm. He thinks he is gossiping.",
+    "weight": 8,
+    "priority": 36,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 6,
+      "chronicle": "ren_identity",
+      "not_claimant": "arlo",
+      "not_flags": [
+        "CHASED_REN",
+        "DISMISSED_REN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "chase",
+        "text": "Pay him and chase the name.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "ledger_add",
+            "id": "master_ren_is_erol"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "CHASED_REN"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_ren"
+          }
+        ]
+      },
+      {
+        "id": "dismiss",
+        "text": "Dismiss it. Stable gossip is cheap.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "DISMISSED_REN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the_northern_clerk",
+    "title": "A Clerk Who Wrote North",
+    "speaker": "A drunken clerk",
+    "place": "Caerlyn offices",
+    "portrait": "#4e5966",
+    "text": "A frightened clerk in a Caerlyn office has been copying the king's decline into letters that went to Stormhold. You did not learn this from Alistair. You learned it because the man drinks, and because history has already loosened his name.",
+    "weight": 8,
+    "priority": 38,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 7,
+      "chronicle": "storm_informant",
+      "not_claimant": "alistair",
+      "not_flags": [
+        "FOUND_CLERK",
+        "SHIELDED_CLERK"
+      ]
+    },
+    "choices": [
+      {
+        "id": "take",
+        "text": "Take his confession and his page.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "informant_in_caerlyn"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "FOUND_CLERK"
+          },
+          {
+            "op": "chronicle",
+            "id": "hs_informant"
+          }
+        ]
+      },
+      {
+        "id": "shield",
+        "text": "Shield him and tell no one yet.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "relation",
+            "id": "lucan_rook",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "SHIELDED_CLERK"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kinder_version",
+    "title": "A Kinder Version of the Night",
+    "speaker": "A corridor guard",
+    "place": "An inn",
+    "portrait": "#3d5a73",
+    "text": "A guard who was never important says he heard the corridor: an argument, a bastard, a queen who struck first. He does not know Ethan. He knows a story that has started to travel without its owner.",
+    "weight": 7,
+    "priority": 34,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "chronicle": "ethan_innocence",
+      "not_claimant": "ethan",
+      "not_flags": [
+        "HEARD_KINDER",
+        "PAID_KINDER"
+      ]
+    },
+    "choices": [
+      {
+        "id": "hear",
+        "text": "Hear him out and write it down.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "chambers_argument"
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_argument"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "HEARD_KINDER"
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "text": "Pay him to keep saying it.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "PAID_KINDER"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bandits_at_the_crossing",
+    "title": "Companies on the Road",
+    "speaker": "A toll captain",
+    "place": "A crossing",
+    "portrait": "#5d7c99",
+    "text": "Men who used to be soldiers are taxing the crossing with rusty spears. They will take coin, grain, or a fight. Letting them live teaches every other road the same trade.",
+    "weight": 13,
+    "priority": 24,
+    "one_time": true,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 4,
+      "min_forces": 80,
+      "not_flags": [
+        "BANDITS_PAID",
+        "BANDITS_BROKEN",
+        "BANDITS_HIRED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Pay the toll once and remember the faces.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -70
+          },
+          {
+            "op": "flag",
+            "flag": "BANDITS_PAID"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Break them before the toll becomes a custom.",
+        "effects": [
+          {
+            "op": "battle",
+            "battle_id": "road_bandits",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 1
+              },
+              {
+                "op": "flag",
+                "flag": "BANDITS_BROKEN"
+              },
+              {
+                "op": "reputation",
+                "amount": 1
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "gold",
+                "amount": -20
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "recruit",
+        "text": "Offer them pay in your host instead of on the road.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 60
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "flag",
+            "flag": "BANDITS_HIRED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "white_company",
+    "title": "The White Company Offers a Price",
+    "speaker": "A mercenary captain",
+    "place": "The camp edge",
+    "portrait": "#5d7c99",
+    "text": "Mercenaries who do not care who Erol was will fight for the purse that is heaviest this month. They are also willing to fight you, if a rival's purse arrives first. Hiring them feeds a story that you could not raise your own.",
+    "weight": 10,
+    "priority": 30,
+    "one_time": true,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 9,
+      "not_flags": [
+        "WHITE_HIRED",
+        "WHITE_BROKEN",
+        "WHITE_REFUSED"
+      ],
+      "min_claim": 16
+    },
+    "choices": [
+      {
+        "id": "hire",
+        "text": "Hire them and accept the story.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -420
+          },
+          {
+            "op": "forces",
+            "amount": 320
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "WHITE_HIRED"
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Fight them now, while they are still between purses.",
+        "effects": [
+          {
+            "op": "battle",
+            "battle_id": "mercenary_band",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "flag",
+                "flag": "WHITE_BROKEN"
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "fear",
+                "amount": 1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "flag",
+                "flag": "WHITE_AVOIDED"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse. Let them become someone else's scandal.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "WHITE_REFUSED"
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "flame_demands",
+    "title": "The Flame Names a Price",
+    "speaker": "Father Aldren Veil",
+    "place": "A roadside hearth",
+    "portrait": "#8a5a2a",
+    "text": "Father Aldren will discuss a blessing. He will not discuss it for free, and the price is not only gold. He wants prisoners spared, a lie about the king's death retracted, or at least not enlarged. Saints are politicians with better lighting.",
+    "weight": 11,
+    "priority": 35,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "npc_alive": [
+        "aldren_veil"
+      ],
+      "not_flags": [
+        "FLAME_PROMISE",
+        "FLAME_PAID",
+        "FLAME_REFUSED"
+      ],
+      "min_claim": 16
+    },
+    "choices": [
+      {
+        "id": "spare",
+        "text": "Promise the prisoners and take the blessing's shadow.",
+        "effects": [
+          {
+            "op": "promise",
+            "id": "aldren_veil",
+            "text": "Prisoners will not be killed for spectacle."
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 6,
+            "political": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "FLAME_PROMISE"
+          },
+          {
+            "op": "ledger_add",
+            "id": "favour_aldren"
+          }
+        ]
+      },
+      {
+        "id": "gold",
+        "text": "Pay the hearth and skip the conscience.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 3
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "FLAME_PAID"
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Tell him the Flame does not choose kings.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": -5
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "FLAME_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "foreign_purse",
+    "title": "A Purse from Varos",
+    "speaker": "A Varos envoy",
+    "place": "A rented house",
+    "portrait": "#5d7c99",
+    "text": "An envoy from across the old border does not say conquest. He says gold, and a conversation about lands Erol took twenty years ago. Taking the purse feeds the army. It also lets a foreign crown put a finger on the scale.",
+    "weight": 10,
+    "priority": 40,
+    "one_time": true,
+    "tags": [
+      "foreign"
+    ],
+    "requires": {
+      "min_turn": 10,
+      "not_flags": [
+        "VAROS_TAKEN",
+        "VAROS_REFUSED",
+        "VAROS_STRUNG"
+      ],
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "take",
+        "text": "Take the gold. Win first, repent later.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 260
+          },
+          {
+            "op": "foreign",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "ledger_add",
+            "id": "varos_offer"
+          },
+          {
+            "op": "flag",
+            "flag": "VAROS_TAKEN"
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse him in public.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "foreign",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "VAROS_REFUSED"
+          }
+        ]
+      },
+      {
+        "id": "string",
+        "text": "String him along and learn what he knows.",
+        "effects": [
+          {
+            "op": "foreign",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "VAROS_STRUNG"
+          },
+          {
+            "op": "ledger_add",
+            "id": "varos_offer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "three_papers",
+    "title": "Three Papers, None of Them the Will",
+    "speaker": "A bribed clerk",
+    "place": "The archive stair",
+    "portrait": "#4a4038",
+    "text": "A bribed clerk produces three authentic instructions that cannot all be true. One names Ethan. One asks how a bastard might be made lawful. One gives Mira emergency power. Erol was afraid, and fear writes in more than one hand.",
+    "weight": 11,
+    "priority": 42,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 9,
+      "not_flags": [
+        "KEPT_ETHAN_DOC",
+        "KEPT_ARLO_DOC",
+        "KEPT_MIRA_DOC",
+        "KEPT_ALL_DOCS"
+      ]
+    },
+    "choices": [
+      {
+        "id": "ethan_doc",
+        "text": "Keep the paper that names Ethan.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "doc_ethan"
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_three_docs"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "KEPT_ETHAN_DOC"
+          }
+        ]
+      },
+      {
+        "id": "arlo_doc",
+        "text": "Keep the paper about legitimacy.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "doc_arlo"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_legitimization"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "KEPT_ARLO_DOC"
+          }
+        ]
+      },
+      {
+        "id": "mira_doc",
+        "text": "Keep the paper of emergency powers.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "doc_mira"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_contradictions"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "KEPT_MIRA_DOC"
+          }
+        ]
+      },
+      {
+        "id": "all",
+        "text": "Pay enough to take all three, and the scandal with them.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -90
+          },
+          {
+            "op": "ledger_add",
+            "id": "doc_ethan"
+          },
+          {
+            "op": "ledger_add",
+            "id": "doc_arlo"
+          },
+          {
+            "op": "ledger_add",
+            "id": "doc_mira"
+          },
+          {
+            "op": "chronicle",
+            "id": "tt_three_docs"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_contradictions"
+          },
+          {
+            "op": "flag",
+            "flag": "KEPT_ALL_DOCS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "caerlyn_gate_rumble",
+    "title": "The Crown Gate",
+    "speaker": "A scout",
+    "place": "Below Caerlyn",
+    "portrait": "#7a2e3b",
+    "text": "Scouts say the castle gate can be tried. It will be expensive in lives and louder than any speech you have left. Losing here does not have to end you. Winning here is not the same as being crowned.",
+    "weight": 8,
+    "priority": 52,
+    "one_time": true,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 18,
+      "min_forces": 1400,
+      "not_controls": [
+        "caerlyn"
+      ],
+      "not_flags": [
+        "GATE_WAITED",
+        "GATE_TRIED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "wait",
+        "text": "Wait. A gate is a story you only get once.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "GATE_WAITED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "try",
+        "text": "Try the gate.",
+        "effects": [
+          {
+            "op": "battle",
+            "battle_id": "caerlyn_gate",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 3
+              },
+              {
+                "op": "flag",
+                "flag": "GATE_TRIED"
+              },
+              {
+                "op": "territory",
+                "id": "caerlyn",
+                "controller": "player"
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -3
+              },
+              {
+                "op": "fear",
+                "amount": 2
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "claim",
+                "amount": -1
+              },
+              {
+                "op": "flag",
+                "flag": "GATE_TRIED"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

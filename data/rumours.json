@@ -1,0 +1,14 @@
+[
+  {"text": "A priest in a river village says the Flame went out for a heartbeat during the king's last hour.", "requires": {"max_turn": 16}},
+  {"text": "Grain carts are arriving late. The drivers blame the roads and look at the soldiers.", "requires": {}},
+  {"text": "Someone is selling 'the king's true will' in three different handwritings.", "requires": {"min_turn": 4}},
+  {"text": "Varos merchants are asking, politely, who will honour Erol's border.", "requires": {"min_turn": 6}},
+  {"text": "A company of unpaid spears was seen eating a lord's orchard.", "requires": {"min_turn": 3}},
+  {"text": "The west says Harrow will kneel to anyone who is not Storm.", "requires": {}},
+  {"text": "Sailors claim Celene Veyne already knows the winner and is only waiting to be paid for the knowledge.", "requires": {"min_turn": 5}},
+  {"text": "Children in Caerlyn are playing four crowns and a knife.", "requires": {"min_turn": 8}},
+  {"text": "An old sergeant drank to Ethan and was not arrested, which is its own news.", "requires": {"max_turn": 20}},
+  {"text": "The eastern forts are counting Varos fires at night and pretending they are shepherds.", "requires": {"min_turn": 10}},
+  {"text": "A Maren horse-trader says the vale is feeding more soldiers than it admits.", "requires": {"min_turn": 7}},
+  {"text": "People who saw the covered bier disagree about whether the body was the king's height.", "requires": {"max_turn": 12}}
+]

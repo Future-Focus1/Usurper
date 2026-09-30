@@ -1,0 +1,1178 @@
+[
+  {
+    "id": "veterans_inn",
+    "title": "Men Who Still Stand Up",
+    "speaker": "An old spearman",
+    "place": "A west-road inn",
+    "portrait": "#3d5a73",
+    "text": "An inn on the west road goes quiet when you take your hood down. Three of them served in your old company. They are older, poorer, and offended on your behalf in a way that could become a host or a tavern fight.",
+    "weight": 13,
+    "priority": 42,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 2,
+      "not_flags": [
+        "VETERANS_MET",
+        "VETERANS_REFUSED",
+        "VETERANS_PAID"
+      ]
+    },
+    "choices": [
+      {
+        "id": "drink",
+        "text": "Drink with them and let them tell the young men your name.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 80
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_veterans"
+          },
+          {
+            "op": "flag",
+            "flag": "VETERANS_MET"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "elite_add",
+            "id": "veteran_band"
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse the past. You did not come back to collect applause.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "VETERANS_REFUSED"
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "text": "Pay their debts and leave before the songs start.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -25
+          },
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "VETERANS_PAID"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the_charge_again",
+    "title": "The Accusation Finds You",
+    "speaker": "A village preacher",
+    "place": "A garrison village",
+    "portrait": "#8a5a2a",
+    "text": "A preacher in a village you once garrisoned repeats Mira's charge with the confidence of a man who was not in the room. Your veterans look at you. Silence is a kind of answer. So is the truth, which is not clean.",
+    "weight": 12,
+    "priority": 40,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 4,
+      "not_flags": [
+        "TOLD_THE_ARGUMENT",
+        "CHARGE_SILENT",
+        "HOUR_REMEMBERED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "version",
+        "text": "Tell them it was an argument about Erol's bastard, and that you seized no one.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "chambers_argument"
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_argument"
+          },
+          {
+            "op": "flag",
+            "flag": "TOLD_THE_ARGUMENT"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "silent",
+        "text": "Stay silent. Dignity is also a tactic.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "CHARGE_SILENT"
+          }
+        ]
+      },
+      {
+        "id": "witness",
+        "text": "Spend what you have to find someone who saw you leave.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -15
+          },
+          {
+            "op": "chance",
+            "p": 0.55,
+            "success_text": "A guard remembers the hour.",
+            "fail_text": "The castle has forgotten how to remember.",
+            "success": [
+              {
+                "op": "chronicle",
+                "id": "ee_in_chambers"
+              },
+              {
+                "op": "flag",
+                "flag": "HOUR_REMEMBERED"
+              },
+              {
+                "op": "claim",
+                "amount": 1
+              }
+            ],
+            "fail": [
+              {
+                "op": "news",
+                "text": "Coin spent, door shut."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a_sergeant_speaks",
+    "title": "A Third Mouth",
+    "speaker": "A retired sergeant",
+    "place": "The camp",
+    "portrait": "#3d5a73",
+    "text": "A sergeant who was in the corridor that night will say, if you let him, that he heard shouting about a child and a letter, not a seduction. Once he says it in a square, it is no longer only your word against a queen's.",
+    "weight": 10,
+    "priority": 50,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 12,
+      "flags": [
+        "TOLD_THE_ARGUMENT"
+      ],
+      "not_flags": [
+        "SERGEANT_SPOKE"
+      ]
+    },
+    "choices": [
+      {
+        "id": "let",
+        "text": "Let him speak it in the open.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "ethan_innocence"
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_argument"
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "SERGEANT_SPOKE"
+          }
+        ]
+      },
+      {
+        "id": "quiet",
+        "text": "Keep him for a council, not a crowd.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SERGEANT_HELD"
+          },
+          {
+            "op": "ledger_add",
+            "id": "chambers_argument"
+          }
+        ]
+      },
+      {
+        "id": "stop",
+        "text": "Stop him. Some truths get the teller killed.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SERGEANT_STOPPED"
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bren_at_the_ford",
+    "title": "Marshal Bren Tal",
+    "speaker": "Marshal Bren Tal",
+    "place": "A ford",
+    "portrait": "#4e5a48",
+    "text": "Bren Tal has brought a company to a ford and is carefully not pointing it at anyone. He says the royal army will not pick a butcher. He also says he remembers how you held a line, which is as close as he comes to affection.",
+    "weight": 12,
+    "priority": 39,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 7,
+      "npc_alive": [
+        "bren_tal"
+      ],
+      "not_flags": [
+        "BREN_COURTED",
+        "BREN_CHALLENGED",
+        "BREN_UNASKED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "ask",
+        "text": "Ask him what oath would let him move.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": 6,
+            "political": 4
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_COURTED"
+          },
+          {
+            "op": "schedule",
+            "event": "bren_answers",
+            "delay": 3
+          }
+        ]
+      },
+      {
+        "id": "challenge",
+        "text": "Tell him neutrality is a side, and it favours whoever already holds the castle.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_CHALLENGED"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Salute him and do not ask for what he cannot give.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_UNASKED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bren_answers",
+    "title": "What Bren Will Accept",
+    "speaker": "Marshal Bren Tal",
+    "place": "His tent",
+    "portrait": "#4e5a48",
+    "text": "Bren's answer is a condition, not a cheer. He will not serve a man who executes prisoners to make a point, and he will not serve a ghost. If you can promise the first and stop being the second, the royal army might remember it has a marshal.",
+    "weight": 3,
+    "priority": 74,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "flags": [
+        "BREN_COURTED"
+      ],
+      "npc_alive": [
+        "bren_tal"
+      ]
+    },
+    "choices": [
+      {
+        "id": "swear",
+        "text": "Swear you will not butcher, and mean the swear.",
+        "effects": [
+          {
+            "op": "promise",
+            "id": "bren_tal",
+            "text": "You will not execute prisoners to make a point."
+          },
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": 8,
+            "political": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_LEANING"
+          }
+        ]
+      },
+      {
+        "id": "command",
+        "text": "Offer him command of your host, not a toast.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "commander_add",
+            "id": "bren_tal"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 8
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": 4,
+            "political": 8
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_COMMAND"
+          }
+        ]
+      },
+      {
+        "id": "later",
+        "text": "Tell him you are not ready to be judged by his rules.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_DEFERRED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prisoners_at_dusk",
+    "title": "Prisoners at Dusk",
+    "speaker": "Your patrol",
+    "place": "The camp",
+    "portrait": "#3d5a73",
+    "text": "A patrol has three men who wore another claimant's colours and now wear ropes. The camp wants a decision before supper, because supper is when stories harden. Mercy will be called weakness. A hanging will be called order.",
+    "weight": 12,
+    "priority": 34,
+    "one_time": true,
+    "tags": [
+      "army",
+      "fear"
+    ],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 8,
+      "not_flags": [
+        "PRISONERS_FREED",
+        "ETHAN_EXECUTED_PRISONERS",
+        "PRISONERS_SWORN"
+      ],
+      "min_forces": 120
+    },
+    "choices": [
+      {
+        "id": "free",
+        "text": "Disarm them and let them walk.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "PRISONERS_FREED"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "hang",
+        "text": "Hang them where the road can see.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "ETHAN_EXECUTED_PRISONERS"
+          }
+        ]
+      },
+      {
+        "id": "oath",
+        "text": "Take their oaths and put them in the rear.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 40
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "PRISONERS_SWORN"
+          },
+          {
+            "op": "morale",
+            "amount": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "village_that_fed_you",
+    "title": "The Village That Fed an Exile",
+    "speaker": "A village elder",
+    "place": "A western village",
+    "portrait": "#3d5a73",
+    "text": "They hid you for a winter and lied to a royal rider about it. Now they want the lie repaid: a tax eased, a son not taken, a name spoken kindly. Gratitude is a debt with interest.",
+    "weight": 11,
+    "priority": 30,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 3,
+      "not_flags": [
+        "VILLAGE_REPAID",
+        "SON_TAKEN",
+        "NAME_IN_DAYLIGHT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "ease",
+        "text": "Ease what you can and eat at their table.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "VILLAGE_REPAID"
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "son",
+        "text": "Refuse the son for the levy. You need spears.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 30
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "SON_TAKEN"
+          }
+        ]
+      },
+      {
+        "id": "name",
+        "text": "Give them nothing but your name, said in daylight.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "NAME_IN_DAYLIGHT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mira_writes",
+    "title": "A Letter in Mira's Hand",
+    "speaker": "Queen Mira, by letter",
+    "place": "Your camp",
+    "portrait": "#7a2e3b",
+    "text": "The seal is hers. The letter does not apologise. It says the realm will split if the two of you insist on finishing a night that Erol already finished badly. She offers a meeting, not a pardon.",
+    "weight": 11,
+    "priority": 45,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 11,
+      "not_flags": [
+        "MIRA_ETHAN_RECONCILIATION",
+        "MIRA_ANSWERED_COLD",
+        "MIRA_LETTER_BURNED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "kind",
+        "text": "Answer that you will meet, and that the charge must be walked back.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "mira",
+            "amount": 8,
+            "political": 4
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_ETHAN_RECONCILIATION"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "cold",
+        "text": "Answer that exile was the crime, and you are done being its proof.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "mira",
+            "amount": -6
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MIRA_ANSWERED_COLD"
+          }
+        ]
+      },
+      {
+        "id": "burn",
+        "text": "Burn it. Some doors should stay shut.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MIRA_LETTER_BURNED"
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "debt_on_the_road",
+    "title": "A Man You Once Spared",
+    "speaker": "A horse-thief who lived",
+    "place": "The road",
+    "portrait": "#3d5a73",
+    "text": "He says you refused to hang him for stealing a horse from your own company. He has a dozen riders now, and a memory. He will follow Ethan. He will not follow a prince who has become careful.",
+    "weight": 9,
+    "priority": 26,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 6,
+      "not_flags": [
+        "SPARED_MAN_JOINED",
+        "SPARED_MAN_SENT",
+        "SPARED_MAN_REFUSED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "take",
+        "text": "Take the riders and the memory with them.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 70
+          },
+          {
+            "op": "flag",
+            "flag": "SPARED_MAN_JOINED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "send",
+        "text": "Send them to guard a village instead of your person.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "SPARED_MAN_SENT"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse. You will not collect debts from your own mercy.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SPARED_MAN_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "garran_on_the_wall",
+    "title": "Garran at the Postern",
+    "speaker": "Captain Garran Vale",
+    "place": "A postern",
+    "portrait": "#6e6458",
+    "text": "If you are willing to be seen, Garran will meet you at a postern and not at the gate. He looks older in the way men look older when they have been loyal to two stories. He will not hand you the castle. He might hand you a truth.",
+    "weight": 11,
+    "priority": 41,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 9,
+      "npc_alive": [
+        "garran_vale"
+      ],
+      "not_flags": [
+        "GARRAN_REMEMBERS",
+        "GARRAN_CROSSED",
+        "GARRAN_RELEASED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "gate",
+        "text": "Ask him to remember a door, not to open it tonight.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 8,
+            "political": 3
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_REMEMBERS"
+          },
+          {
+            "op": "promise",
+            "id": "garran_vale",
+            "text": "You asked only for memory, not for treason."
+          }
+        ]
+      },
+      {
+        "id": "recruit",
+        "text": "Ask him to leave Mira and stand with the company he trained.",
+        "effects": [
+          {
+            "op": "chance",
+            "p": 0.4,
+            "success_text": "He steps through.",
+            "fail_text": "He stays, and the door shuts harder.",
+            "success": [
+              {
+                "op": "commander_add",
+                "id": "garran_vale"
+              },
+              {
+                "op": "relation",
+                "id": "garran_vale",
+                "amount": 6
+              },
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "flag",
+                "flag": "GARRAN_CROSSED"
+              }
+            ],
+            "fail": [
+              {
+                "op": "relation",
+                "id": "garran_vale",
+                "amount": -6
+              },
+              {
+                "op": "rival",
+                "id": "mira",
+                "field": "hostility",
+                "amount": 8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bless",
+        "text": "Tell him to keep his oath, even if the oath is hers.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 5
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "GARRAN_RELEASED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "market_name",
+    "title": "They Use Your Name Like a Prayer",
+    "speaker": "A baker",
+    "place": "A market",
+    "portrait": "#3d5a73",
+    "text": "In a market that has not seen a tax collector in a month, they are already calling you king in the way people call rain a promise. It is not a coronation. It is a pressure. You can spend it or you can disappoint it.",
+    "weight": 11,
+    "priority": 33,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 5,
+      "not_flags": [
+        "MARKET_SPENT",
+        "MARKET_TEMPERED",
+        "MARKET_BREAD"
+      ]
+    },
+    "choices": [
+      {
+        "id": "spend",
+        "text": "Speak. Tell them the exile was not the end of the oath.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 6
+          },
+          {
+            "op": "claim",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MARKET_SPENT"
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_exile"
+          }
+        ]
+      },
+      {
+        "id": "temper",
+        "text": "Ask them to wait. A crown shouted too early becomes a joke.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "MARKET_TEMPERED"
+          }
+        ]
+      },
+      {
+        "id": "bread",
+        "text": "Spend the last of the coin on bread and skip the speech.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "rations",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "MARKET_BREAD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "honour_frays",
+    "title": "The Old Code Cuts You",
+    "speaker": "A captain who wants an order",
+    "place": "A manor fence",
+    "portrait": "#3d5a73",
+    "text": "A captain wants to torch a manor that fed Alistair's scouts. The old code you taught them says no. The week says the manor will feed scouts again tomorrow. Your men are watching to see which Ethan came back.",
+    "weight": 10,
+    "priority": 38,
+    "one_time": true,
+    "tags": [
+      "fear"
+    ],
+    "requires": {
+      "claimant": "ethan",
+      "min_turn": 14,
+      "not_flags": [
+        "CODE_HELD",
+        "STORES_BURNED",
+        "HONOUR_BROKEN"
+      ],
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "code",
+        "text": "Hold the code. Hungry principles are still principles.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "CODE_HELD"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "torch",
+        "text": "Burn the stores, not the house, and live with the distinction.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "STORES_BURNED"
+          },
+          {
+            "op": "rival",
+            "id": "alistair",
+            "field": "hostility",
+            "amount": 4
+          }
+        ]
+      },
+      {
+        "id": "both",
+        "text": "Burn it all. The code was for a kingdom that still had a king.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "HONOUR_BROKEN"
+          }
+        ]
+      }
+    ]
+  }
+]

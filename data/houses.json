@@ -1,0 +1,57 @@
+[
+  {
+    "id": "storm",
+    "name": "House Storm",
+    "short": "Storm",
+    "leader": "alistair",
+    "motto": "We Do Not Bend.",
+    "seat": "Stormhold",
+    "summary": "Northern iron, timber, and professional soldiers. They say they are older than Nezrel.",
+    "start_declared": "alistair",
+    "opinion": 10
+  },
+  {
+    "id": "maren",
+    "name": "House Maren",
+    "short": "Maren",
+    "leader": "tomas_maren",
+    "motto": "What We Sow Endures.",
+    "seat": "Maren Vale",
+    "summary": "Horses, wheat, and a careful neutrality. They raised Arlo and never explained the royal payments.",
+    "start_declared": "",
+    "opinion": 0
+  },
+  {
+    "id": "veyne",
+    "name": "House Veyne",
+    "short": "Veyne",
+    "leader": "celene_veyne",
+    "motto": "All Rivers Reach Us.",
+    "seat": "Veyne Coast",
+    "summary": "Ships, ports, and the patience of people who can starve a kingdom without drawing a sword.",
+    "start_declared": "",
+    "opinion": 0
+  },
+  {
+    "id": "harrow",
+    "name": "House Harrow",
+    "short": "Harrow",
+    "leader": "osric_harrow",
+    "motto": "Remember the Old Blood.",
+    "seat": "Harrowlands",
+    "summary": "An old western house with more pride than coin. They will back almost anyone who keeps Storm off the throne.",
+    "start_declared": "",
+    "opinion": 0
+  },
+  {
+    "id": "edevane",
+    "name": "House Edevane",
+    "short": "Edevane",
+    "leader": "edric_edevane",
+    "motto": "Wisdom Before Steel.",
+    "seat": "Larkspool",
+    "summary": "Mira's birth house. Their wealth is the marriage. If she falls, they expect to fall with her, unless Edric has already moved.",
+    "start_declared": "mira",
+    "opinion": 20
+  }
+]

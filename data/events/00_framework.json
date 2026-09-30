@@ -1,0 +1,2085 @@
+[
+  {
+    "id": "morning_of_bells",
+    "title": "The Bells Before Sunrise",
+    "speaker": "Chancellor Lucan Rook",
+    "place": "Castle Caerlyn",
+    "portrait": "#7a2e3b",
+    "text": "The bells of Caerlyn have already told the city that Erol is dead. The court is in the gallery in yesterday's clothes. Lucan Rook has a statement ready that calls the death peaceful. The body is still in the royal chamber, and the door is yours.",
+    "weight": 1,
+    "priority": 96,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "mira",
+      "max_turn": 1
+    },
+    "choices": [
+      {
+        "id": "seal",
+        "text": "Announce a peaceful death and seal the chamber.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "BODY_SEALED"
+          },
+          {
+            "op": "chronicle",
+            "id": "kd_no_viewing"
+          },
+          {
+            "op": "relation",
+            "id": "lucan_rook",
+            "amount": -2
+          },
+          {
+            "op": "news",
+            "text": "The court is told the king died peacefully. The door stays shut."
+          }
+        ]
+      },
+      {
+        "id": "viewing",
+        "text": "Allow a short, witnessed viewing.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "BODY_GLIMPSED"
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 3
+          },
+          {
+            "op": "news",
+            "text": "A few lords see the king. They leave quieter than they arrived."
+          }
+        ]
+      },
+      {
+        "id": "treasury",
+        "text": "Have the Guard secure the treasury before the speeches.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "flag",
+            "flag": "TREASURY_HELD"
+          },
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "council",
+        "text": "Summon the council before anyone writes the story for you.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "COUNCIL_SUMMONED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "schedule",
+            "event": "council_morning",
+            "delay": 2
+          },
+          {
+            "op": "relation",
+            "id": "lucan_rook",
+            "amount": 2,
+            "political": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "news_on_the_road",
+    "title": "A Wagoner on the West Road",
+    "speaker": "A wagoner",
+    "place": "The western road",
+    "portrait": "#3d5a73",
+    "text": "The wagoner says the king is dead and does not know he is speaking to the king's brother. Six years of another name sit in your mouth. A handful of men wait with the horses. They are yours. The regiments that still whisper your name are not, not yet. Garran Vale is still in Caerlyn. So is the accusation.",
+    "weight": 1,
+    "priority": 96,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "ethan",
+      "max_turn": 1
+    },
+    "choices": [
+      {
+        "id": "name",
+        "text": "Tell him who you are, and let the road carry it.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "ETHAN_REVEALED"
+          },
+          {
+            "op": "claim",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -3
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 8
+          },
+          {
+            "op": "chronicle",
+            "id": "ee_exile"
+          },
+          {
+            "op": "news",
+            "text": "Ethan Valen is on the road under his own name."
+          }
+        ]
+      },
+      {
+        "id": "hidden",
+        "text": "Pay for the news and stay a hired sword.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "STAYED_HIDDEN"
+          },
+          {
+            "op": "gold",
+            "amount": 8
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "garran",
+        "text": "Write to Garran Vale before you write to the realm.",
+        "effects": [
+          {
+            "op": "schedule",
+            "event": "garran_answers",
+            "delay": 2
+          },
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 6,
+            "political": 2
+          },
+          {
+            "op": "flag",
+            "flag": "WROTE_GARRAN"
+          },
+          {
+            "op": "gold",
+            "amount": -5
+          }
+        ]
+      },
+      {
+        "id": "delay",
+        "text": "Turn the horse and take another week to decide.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "DELAYED_RETURN"
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "rations",
+            "amount": 2
+          },
+          {
+            "op": "reputation",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "letter_on_the_table",
+    "title": "The Letter on the Table",
+    "speaker": "Lord Tomas Maren",
+    "place": "Maren Estate",
+    "portrait": "#6a7a3a",
+    "text": "Lord Tomas has sent the grooms out. A sealed letter sits between you and the woman who raised you. The wax is the royal stag. The monthly payment from Caerlyn did not come.",
+    "weight": 1,
+    "priority": 96,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "arlo",
+      "max_turn": 1
+    },
+    "choices": [
+      {
+        "id": "open",
+        "text": "Break the seal yourself.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "sealed_letter"
+          },
+          {
+            "op": "chronicle",
+            "id": "ab_nothing"
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": -3
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "LETTER_OPENED"
+          },
+          {
+            "op": "news",
+            "text": "The letter refuses to call you a son. It also refuses to call you nothing."
+          }
+        ]
+      },
+      {
+        "id": "tomas",
+        "text": "Ask Tomas what he has been hiding.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 4,
+            "political": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ASKED_TOMAS"
+          },
+          {
+            "op": "schedule",
+            "event": "tomas_explains",
+            "delay": 2
+          }
+        ]
+      },
+      {
+        "id": "evelyne",
+        "text": "Take the letter to Evelyne before anyone else reads it.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "evelyne_maren",
+            "amount": 5
+          },
+          {
+            "op": "flag",
+            "flag": "EVELYNE_CONFIDED"
+          },
+          {
+            "op": "schedule",
+            "event": "evelyne_truth",
+            "delay": 2
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Leave it sealed. You are still their stable boy until you choose otherwise.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "LETTER_SEALED"
+          },
+          {
+            "op": "relation",
+            "id": "tomas_maren",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stormhold_messengers",
+    "title": "Messengers in the Yard",
+    "speaker": "A Storm captain",
+    "place": "Stormhold",
+    "portrait": "#4e5966",
+    "text": "The southern riders confirm it. Erol is dead. Your captains are already counting the days to the River Dorn. The marriage offer you sent Mira has not been answered, which is an answer of a kind.",
+    "weight": 1,
+    "priority": 96,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "max_turn": 1
+    },
+    "choices": [
+      {
+        "id": "march",
+        "text": "March early. Let the realm see the host before it sees a speech.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "EARLY_MARCH"
+          },
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 8
+          },
+          {
+            "op": "schedule",
+            "event": "dorn_watch",
+            "delay": 3
+          },
+          {
+            "op": "news",
+            "text": "Storm banners leave Stormhold."
+          }
+        ]
+      },
+      {
+        "id": "marriage",
+        "text": "Send the marriage offer again, with the army left in the sentence.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_OFFERED"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "chronicle",
+            "id": "hs_marriage"
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 4
+          },
+          {
+            "op": "schedule",
+            "event": "mira_refuses",
+            "delay": 2
+          }
+        ]
+      },
+      {
+        "id": "hold",
+        "text": "Call the levies, and keep them in the north until the south panics.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 400
+          },
+          {
+            "op": "rations",
+            "amount": -4
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "LEVIES_HELD"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "oaths",
+        "text": "Demand oaths from the lesser northern lords before you move.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 5
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "house_opinion",
+            "id": "harrow",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "OATHS_DEMANDED"
+          },
+          {
+            "op": "schedule",
+            "event": "lesser_oaths_answer",
+            "delay": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quiet_week",
+    "title": "A Quiet Week",
+    "speaker": "",
+    "place": "Wherever you are",
+    "portrait": "#5d7c99",
+    "text": "Nothing urgent finds you. The realm is still eating, still lying, and still waiting to see which name survives the month. Quiet is not peace. It is a pause.",
+    "weight": 1,
+    "priority": 0,
+    "one_time": false,
+    "tags": [],
+    "requires": {},
+    "choices": [
+      {
+        "id": "yard",
+        "text": "Stay with the people who already follow you.",
+        "effects": [
+          {
+            "op": "morale",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "letter",
+        "text": "Write to someone you still trust.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "stores",
+        "text": "Count the stores yourself.",
+        "effects": [
+          {
+            "op": "news",
+            "text": "The numbers are what they are. You know them now."
+          }
+        ]
+      }
+    ],
+    "fallback": true
+  },
+  {
+    "id": "knife_in_yard",
+    "title": "A Knife in the Yard",
+    "speaker": "A watch captain",
+    "place": "Your yard",
+    "portrait": "#5d7c99",
+    "text": "The attempt on a rival failed, and the failure has come home. Someone was in your yard with a short blade and a poor story. The guards caught a man who may be the knife, or may be the person the knife wants blamed.",
+    "weight": 4,
+    "priority": 78,
+    "one_time": false,
+    "tags": [
+      "fear"
+    ],
+    "requires": {
+      "flags": [
+        "KNIFE_ONLY_WHEN_FORCED"
+      ],
+      "min_turn": 999
+    },
+    "choices": [
+      {
+        "id": "hunt",
+        "text": "Hunt the hand that sent him, quietly.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "flag",
+            "flag": "KNIFE_HUNTED"
+          },
+          {
+            "op": "reputation",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "hang",
+        "text": "Hang the man you have, in public, before the story grows.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -5
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "WRONG_MAN"
+          },
+          {
+            "op": "news",
+            "text": "A body swings. The yard is quieter, and not kinder."
+          }
+        ]
+      },
+      {
+        "id": "guard",
+        "text": "Spend the coin on a closer guard and let the man live.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "relation",
+            "id": "garran_vale",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "GUARD_TIGHTENED"
+          }
+        ]
+      },
+      {
+        "id": "unbothered",
+        "text": "Be seen unbothered. Fear is a tax you can refuse to pay.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ultimatum_reply",
+    "title": "Mira's Answer",
+    "speaker": "A royal clerk",
+    "place": "Stormhold",
+    "portrait": "#7a2e3b",
+    "text": "The queen's reply is short. She will not crown you by marriage, and she will not pretend the offer was courtesy. The captains who wanted this letter are already looking at the road.",
+    "weight": 1,
+    "priority": 80,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "flags": [
+        "ULTIMATUM_SENT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "war",
+        "text": "Treat the refusal as the start of the war.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "WAR_WITH_MIRA"
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 10
+          }
+        ]
+      },
+      {
+        "id": "softer",
+        "text": "Send softer terms and look, for a week, like a man who can wait.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "SOFTER_TERMS"
+          },
+          {
+            "op": "relation",
+            "id": "mira",
+            "amount": 4,
+            "political": 2
+          }
+        ]
+      },
+      {
+        "id": "publish",
+        "text": "Read her refusal aloud so the north hears who shut the door.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "REFUSAL_PUBLISHED"
+          }
+        ]
+      },
+      {
+        "id": "ignore",
+        "text": "Ignore the letter and keep the army where it is.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "IGNORED_REFUSAL"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "after_garran",
+    "title": "The Guard Without Garran",
+    "speaker": "A sergeant of the Guard",
+    "place": "Castle Caerlyn",
+    "portrait": "#6e6458",
+    "text": "Captain Garran Vale is dead. The Queen's Guard is still at the doors, and every one of them is waiting to learn whether the company was a man or an oath. Some of them learned their trade from Ethan.",
+    "weight": 1,
+    "priority": 84,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "GARRAN_DEAD"
+      ]
+    },
+    "choices": [
+      {
+        "id": "hard",
+        "text": "Name a harder captain and make the point in public.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "HARD_CAPTAIN"
+          }
+        ]
+      },
+      {
+        "id": "self",
+        "text": "Take the inner doors under your own word.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "morale",
+            "amount": 4
+          },
+          {
+            "op": "flag",
+            "flag": "GUARD_PERSONAL"
+          }
+        ]
+      },
+      {
+        "id": "choose",
+        "text": "Let the Guard choose its next captain.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "GUARD_ELECTED"
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "disband",
+        "text": "Break the company up before it chooses a side without you.",
+        "effects": [
+          {
+            "op": "elite_remove",
+            "id": "queens_guard"
+          },
+          {
+            "op": "fear",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "GUARD_BROKEN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clash_mira",
+    "title": "Banners on the Road",
+    "speaker": "A captain under Mira's stag",
+    "place": "The Caerlyn road",
+    "portrait": "#7a2e3b",
+    "text": "Mira's outriders are on your ground. They are not a raid. They are a question with spears: will you meet the queen's banner, pay it to leave, or give it a reason to call you afraid?",
+    "weight": 8,
+    "priority": 76,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "not_claimant": "mira",
+      "flags": [
+        "CLASH_MIRA"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Buy the week. Coin now, and a grudge later.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_MIRA"
+          },
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": -6
+          },
+          {
+            "op": "news",
+            "text": "The banners turn aside. Nobody calls it peace."
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Meet them. A small battle is cheaper than a story about hiding.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_MIRA"
+          },
+          {
+            "op": "battle",
+            "battle_id": "rival_mira",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "reputation",
+                "amount": 1
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "fear",
+                "amount": 1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "concede",
+        "text": "Give ground and keep the army for a worse day.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_MIRA"
+          },
+          {
+            "op": "claim",
+            "amount": -2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "CONCEDED_MIRA"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "bluff",
+        "text": "Call it a bluff and stand in the road with what you have.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_MIRA"
+          },
+          {
+            "op": "chance",
+            "p": 0.45,
+            "success_text": "They expected a larger host. They wait.",
+            "fail_text": "They did not come to be impressed.",
+            "success": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "mira",
+                "field": "hostility",
+                "amount": 4
+              },
+              {
+                "op": "bloc",
+                "bloc": "military",
+                "amount": 2
+              }
+            ],
+            "fail": [
+              {
+                "op": "forces",
+                "amount": -80
+              },
+              {
+                "op": "fear",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "mira",
+                "field": "hostility",
+                "amount": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clash_ethan",
+    "title": "Banners on the Road",
+    "speaker": "An old sergeant",
+    "place": "A village square",
+    "portrait": "#3d5a73",
+    "text": "Ethan's veterans have stopped pretending they are travellers. They hold a crossroads and they are using his name out loud. The men look glad to be ashamed of nothing.",
+    "weight": 8,
+    "priority": 76,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "not_claimant": "ethan",
+      "flags": [
+        "CLASH_ETHAN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Buy the week. Coin now, and a grudge later.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ETHAN"
+          },
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": -6
+          },
+          {
+            "op": "news",
+            "text": "The banners turn aside. Nobody calls it peace."
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Meet them. A small battle is cheaper than a story about hiding.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ETHAN"
+          },
+          {
+            "op": "battle",
+            "battle_id": "rival_ethan",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "reputation",
+                "amount": 1
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "fear",
+                "amount": 1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "concede",
+        "text": "Give ground and keep the army for a worse day.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ETHAN"
+          },
+          {
+            "op": "claim",
+            "amount": -2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "CONCEDED_ETHAN"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "bluff",
+        "text": "Call it a bluff and stand in the road with what you have.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ETHAN"
+          },
+          {
+            "op": "chance",
+            "p": 0.45,
+            "success_text": "They expected a larger host. They wait.",
+            "fail_text": "They did not come to be impressed.",
+            "success": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "ethan",
+                "field": "hostility",
+                "amount": 4
+              },
+              {
+                "op": "bloc",
+                "bloc": "military",
+                "amount": 2
+              }
+            ],
+            "fail": [
+              {
+                "op": "forces",
+                "amount": -80
+              },
+              {
+                "op": "fear",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "ethan",
+                "field": "hostility",
+                "amount": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clash_arlo",
+    "title": "Banners on the Road",
+    "speaker": "A Maren rider",
+    "place": "The edge of the vale",
+    "portrait": "#6a7a3a",
+    "text": "Riders who say they answer to Arlo have taken a barn and a bridge. It is a small host. Small hosts start stories, and stories start claims.",
+    "weight": 8,
+    "priority": 76,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "not_claimant": "arlo",
+      "flags": [
+        "CLASH_ARLO"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Buy the week. Coin now, and a grudge later.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ARLO"
+          },
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "rival",
+            "id": "arlo",
+            "field": "hostility",
+            "amount": -6
+          },
+          {
+            "op": "news",
+            "text": "The banners turn aside. Nobody calls it peace."
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Meet them. A small battle is cheaper than a story about hiding.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ARLO"
+          },
+          {
+            "op": "battle",
+            "battle_id": "rival_arlo",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "reputation",
+                "amount": 1
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "fear",
+                "amount": 1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "concede",
+        "text": "Give ground and keep the army for a worse day.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ARLO"
+          },
+          {
+            "op": "claim",
+            "amount": -2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "CONCEDED_ARLO"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "bluff",
+        "text": "Call it a bluff and stand in the road with what you have.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ARLO"
+          },
+          {
+            "op": "chance",
+            "p": 0.45,
+            "success_text": "They expected a larger host. They wait.",
+            "fail_text": "They did not come to be impressed.",
+            "success": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "arlo",
+                "field": "hostility",
+                "amount": 4
+              },
+              {
+                "op": "bloc",
+                "bloc": "military",
+                "amount": 2
+              }
+            ],
+            "fail": [
+              {
+                "op": "forces",
+                "amount": -80
+              },
+              {
+                "op": "fear",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "arlo",
+                "field": "hostility",
+                "amount": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clash_alistair",
+    "title": "Banners on the Road",
+    "speaker": "A Storm herald",
+    "place": "The River Dorn",
+    "portrait": "#4e5966",
+    "text": "Storm's vanguard is at the water. The herald does not threaten so much as describe the army behind him, which is its own threat. Alistair is done sending letters.",
+    "weight": 8,
+    "priority": 76,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "not_claimant": "alistair",
+      "flags": [
+        "CLASH_ALISTAIR"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Buy the week. Coin now, and a grudge later.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ALISTAIR"
+          },
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "rival",
+            "id": "alistair",
+            "field": "hostility",
+            "amount": -6
+          },
+          {
+            "op": "news",
+            "text": "The banners turn aside. Nobody calls it peace."
+          }
+        ]
+      },
+      {
+        "id": "fight",
+        "text": "Meet them. A small battle is cheaper than a story about hiding.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ALISTAIR"
+          },
+          {
+            "op": "battle",
+            "battle_id": "rival_alistair",
+            "on_victory": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "reputation",
+                "amount": 1
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "fear",
+                "amount": 1
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "claim",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "concede",
+        "text": "Give ground and keep the army for a worse day.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ALISTAIR"
+          },
+          {
+            "op": "claim",
+            "amount": -2
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          },
+          {
+            "op": "reputation",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "CONCEDED_ALISTAIR"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "bluff",
+        "text": "Call it a bluff and stand in the road with what you have.",
+        "effects": [
+          {
+            "op": "clear_flag",
+            "flag": "CLASH_ALISTAIR"
+          },
+          {
+            "op": "chance",
+            "p": 0.45,
+            "success_text": "They expected a larger host. They wait.",
+            "fail_text": "They did not come to be impressed.",
+            "success": [
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "alistair",
+                "field": "hostility",
+                "amount": 4
+              },
+              {
+                "op": "bloc",
+                "bloc": "military",
+                "amount": 2
+              }
+            ],
+            "fail": [
+              {
+                "op": "forces",
+                "amount": -80
+              },
+              {
+                "op": "fear",
+                "amount": 2
+              },
+              {
+                "op": "rival",
+                "id": "alistair",
+                "field": "hostility",
+                "amount": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bid_mira",
+    "title": "A Rival Reaches for the Crown",
+    "speaker": "A messenger",
+    "place": "Your council",
+    "portrait": "#5d7c99",
+    "text": "Mira's court is saying the queen is ready to be crowned in her own right. The formula is already written. Whether the realm will repeat it is the part she has not bought yet.",
+    "weight": 4,
+    "priority": 86,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "not_claimant": "mira",
+      "flags": [
+        "BID_MIRA"
+      ]
+    },
+    "choices": [
+      {
+        "id": "denounce",
+        "text": "Denounce the bid before it hardens into a ceremony.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "bargain",
+        "text": "Offer a private bargain. Thrones have been shared for less.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -150
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": -10
+          },
+          {
+            "op": "flag",
+            "flag": "BARGAIN_MIRA"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "prepare",
+        "text": "Drill, store grain, and assume the bid becomes a battle.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "morale",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "hollow",
+        "text": "Pay to have the bid called hollow in every tavern that will listen.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bid_ethan",
+    "title": "A Rival Reaches for the Crown",
+    "speaker": "A messenger",
+    "place": "Your council",
+    "portrait": "#5d7c99",
+    "text": "Ethan is being spoken of in markets as if the exile were a pilgrimage. Someone near him believes the claim is whole enough to spend.",
+    "weight": 4,
+    "priority": 86,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "not_claimant": "ethan",
+      "flags": [
+        "BID_ETHAN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "denounce",
+        "text": "Denounce the bid before it hardens into a ceremony.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "bargain",
+        "text": "Offer a private bargain. Thrones have been shared for less.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -150
+          },
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": -10
+          },
+          {
+            "op": "flag",
+            "flag": "BARGAIN_ETHAN"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "prepare",
+        "text": "Drill, store grain, and assume the bid becomes a battle.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "morale",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "hollow",
+        "text": "Pay to have the bid called hollow in every tavern that will listen.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bid_arlo",
+    "title": "A Rival Reaches for the Crown",
+    "speaker": "A messenger",
+    "place": "Your council",
+    "portrait": "#5d7c99",
+    "text": "A letter in a careful hand is calling Arlo the king's son where lords can hear it. The vale's boy is no longer only a rumour.",
+    "weight": 4,
+    "priority": 86,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "not_claimant": "arlo",
+      "flags": [
+        "BID_ARLO"
+      ]
+    },
+    "choices": [
+      {
+        "id": "denounce",
+        "text": "Denounce the bid before it hardens into a ceremony.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "arlo",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "bargain",
+        "text": "Offer a private bargain. Thrones have been shared for less.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -150
+          },
+          {
+            "op": "rival",
+            "id": "arlo",
+            "field": "hostility",
+            "amount": -10
+          },
+          {
+            "op": "flag",
+            "flag": "BARGAIN_ARLO"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "prepare",
+        "text": "Drill, store grain, and assume the bid becomes a battle.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "morale",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "hollow",
+        "text": "Pay to have the bid called hollow in every tavern that will listen.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bid_alistair",
+    "title": "A Rival Reaches for the Crown",
+    "speaker": "A messenger",
+    "place": "Your council",
+    "portrait": "#5d7c99",
+    "text": "Stormhold has stopped asking. Alistair's people are talking about a coronation that does not require Caerlyn's permission.",
+    "weight": 4,
+    "priority": 86,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "not_claimant": "alistair",
+      "flags": [
+        "BID_ALISTAIR"
+      ]
+    },
+    "choices": [
+      {
+        "id": "denounce",
+        "text": "Denounce the bid before it hardens into a ceremony.",
+        "effects": [
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "rival",
+            "id": "alistair",
+            "field": "hostility",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "bargain",
+        "text": "Offer a private bargain. Thrones have been shared for less.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -150
+          },
+          {
+            "op": "rival",
+            "id": "alistair",
+            "field": "hostility",
+            "amount": -10
+          },
+          {
+            "op": "flag",
+            "flag": "BARGAIN_ALISTAIR"
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "prepare",
+        "text": "Drill, store grain, and assume the bid becomes a battle.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "morale",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "hollow",
+        "text": "Pay to have the bid called hollow in every tavern that will listen.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  }
+]

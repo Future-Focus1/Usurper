@@ -1,0 +1,2603 @@
+[
+  {
+    "id": "brothers_reply",
+    "title": "Ethan's Answer",
+    "speaker": "Ethan Valen, by letter",
+    "place": "Maren hall",
+    "portrait": "#3d5a73",
+    "text": "The reply is in a soldier's hand, short of ornaments. He will look at the proofs. He will not kneel to a story. If the blood is real, he says, then one of you should wear the crown and the other should keep it from being a child's mistake.",
+    "weight": 3,
+    "priority": 82,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "flags": [
+        "BROTHERS_OFFERED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pact",
+        "text": "Accept. Let him be Protector if the proofs hold.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "BROTHERS_PACT"
+          },
+          {
+            "op": "relation",
+            "id": "ethan",
+            "amount": 12,
+            "political": 8
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": -20
+          },
+          {
+            "op": "news",
+            "text": "Ethan and Arlo are suddenly a problem for everyone who wanted them apart."
+          }
+        ]
+      },
+      {
+        "id": "crown",
+        "text": "Tell him the crown is yours to try for, brother or not.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "ethan",
+            "amount": -4
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "BROTHERS_REFUSED"
+          },
+          {
+            "op": "rival",
+            "id": "ethan",
+            "field": "hostility",
+            "amount": 6
+          }
+        ]
+      },
+      {
+        "id": "wait",
+        "text": "Ask him to wait until the papers are in a hall.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "ethan",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "BROTHERS_WAIT"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "miller_tithe",
+    "title": "The Miller's Tithe",
+    "speaker": "A miller",
+    "place": "A mill village",
+    "portrait": "#5d7c99",
+    "text": "A miller says the tithe took his seed corn. The Flame says the tithe is holy. Your army says bread is holy too.",
+    "weight": 22,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 3,
+      "min_player_territories": 1,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "ease",
+        "text": "Ease his tithe and eat the difference later.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -2
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "MILLER_EASED"
+          }
+        ]
+      },
+      {
+        "id": "keep",
+        "text": "Keep the tithe. Holiness can wait until the war is over.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 40
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MILLER_KEPT"
+          }
+        ]
+      },
+      {
+        "id": "split",
+        "text": "Split it and please nobody completely.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 1
+          },
+          {
+            "op": "gold",
+            "amount": 15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "relic_procession",
+    "title": "The Relic Will Not Wait",
+    "speaker": "A hearth priest",
+    "place": "The town road",
+    "portrait": "#5d7c99",
+    "text": "Aldren's priests want to carry the hearth-relic through a town that is already hungry. A procession feeds faith. It also blocks a road your grain needs.",
+    "weight": 20,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 5,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "allow",
+        "text": "Let them pass and walk with them a mile.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 5
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 3
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "RELIC_WALKED"
+          }
+        ]
+      },
+      {
+        "id": "stop",
+        "text": "Stop the procession. Roads are for carts.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -4
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "RELIC_STOPPED"
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "text": "Pay for a smaller rite at dusk.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "RELIC_SMALL"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "murdered_messenger",
+    "title": "A Royal Messenger in a Ditch",
+    "speaker": "A road warden",
+    "place": "The east ditch",
+    "portrait": "#5d7c99",
+    "text": "He was carrying nothing you can use and wearing colours that make the ditch a political act. The nearest village swears it was bandits. The wounds are too careful.",
+    "weight": 26,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 4
+    },
+    "choices": [
+      {
+        "id": "investigate",
+        "text": "Investigate, and hang no one today.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MESSENGER_INVESTIGATED"
+          },
+          {
+            "op": "chance",
+            "p": 0.5,
+            "success_text": "A ring points at a house.",
+            "fail_text": "The ditch keeps the name.",
+            "success": [
+              {
+                "op": "fear",
+                "amount": 1
+              },
+              {
+                "op": "bloc",
+                "bloc": "nobility",
+                "amount": -1
+              },
+              {
+                "op": "news",
+                "text": "A house seal was on the killer's pay."
+              }
+            ],
+            "fail": [
+              {
+                "op": "news",
+                "text": "You spend the week learning how a man dies without a reason."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reprisal",
+        "text": "Burn a barn and call it justice.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "MESSENGER_REPRISAL"
+          }
+        ]
+      },
+      {
+        "id": "bury",
+        "text": "Bury him with honour and move the grain.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "MESSENGER_BURIED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "salt_shortage",
+    "title": "The Salt Has Gone",
+    "speaker": "A quartermaster",
+    "place": "The stores",
+    "portrait": "#5d7c99",
+    "text": "Without salt the meat turns, and the coast knows it. Celene's ships have salt. They also have a price that includes a compliment you may not want to pay.",
+    "weight": 18,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 6,
+      "min_forces": 150
+    },
+    "choices": [
+      {
+        "id": "buy",
+        "text": "Buy salt and swallow the compliment.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "rations",
+            "amount": 3
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_BOUGHT"
+          }
+        ]
+      },
+      {
+        "id": "seize",
+        "text": "Seize a warehouse and call it necessity.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_SEIZED"
+          }
+        ]
+      },
+      {
+        "id": "fast",
+        "text": "Let the meat turn. Teach the host to eat simpler.",
+        "effects": [
+          {
+            "op": "morale",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "SALT_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bard_in_the_yard",
+    "title": "A Bard Who Knows Too Many Verses",
+    "speaker": "A bard",
+    "place": "Your yard",
+    "portrait": "#5d7c99",
+    "text": "He will sing you as saviour, butcher, or bastard, depending on the purse. The verses are already written. Only the chorus is for sale.",
+    "weight": 16,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 3
+    },
+    "choices": [
+      {
+        "id": "saviour",
+        "text": "Pay for the kind chorus.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -35
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "BARD_KIND"
+          }
+        ]
+      },
+      {
+        "id": "silence",
+        "text": "Pay him to sing nothing.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "flag",
+            "flag": "BARD_SILENCED"
+          }
+        ]
+      },
+      {
+        "id": "whip",
+        "text": "Have him whipped for the verse he has not sung yet.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "BARD_WHIPPED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armoury_leak",
+    "title": "The Armoury Leaks Spears",
+    "speaker": "An armoury clerk",
+    "place": "The armoury",
+    "portrait": "#5d7c99",
+    "text": "Spears are leaving the armoury at night. It may be theft, or it may be a sergeant arming his cousins. Both are reasons to be angry. Only one is a reason to be afraid.",
+    "weight": 17,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 5,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "audit",
+        "text": "Audit it in daylight.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "gold",
+            "amount": -10
+          },
+          {
+            "op": "flag",
+            "flag": "ARMOURY_AUDITED"
+          }
+        ]
+      },
+      {
+        "id": "hang",
+        "text": "Hang the night watch and replace the lock.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "ARMOURY_HANGED"
+          }
+        ]
+      },
+      {
+        "id": "ignore",
+        "text": "Ignore it until the count is embarrassing.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "ARMOURY_IGNORED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "widow_of_the_gate",
+    "title": "A Widow at the Gate",
+    "speaker": "A widow",
+    "place": "The gate",
+    "portrait": "#5d7c99",
+    "text": "Her husband died in a skirmish that will not make a song. She wants his pay, or his name said by someone with a banner. The pay is small. The precedent is not.",
+    "weight": 15,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 4,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "text": "Pay her, and the next widow who hears.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -25
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "WIDOW_PAID"
+          }
+        ]
+      },
+      {
+        "id": "name",
+        "text": "Say his name and give no coin.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "WIDOW_NAMED"
+          }
+        ]
+      },
+      {
+        "id": "rule",
+        "text": "Tell her war does not keep a pension list.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "gold",
+            "amount": 0
+          },
+          {
+            "op": "flag",
+            "flag": "WIDOW_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "horse_sickness",
+    "title": "The Horses Are Sick",
+    "speaker": "A farrier",
+    "place": "The horse lines",
+    "portrait": "#5d7c99",
+    "text": "A cough is moving through the horse lines. Maren riders would know what to do. Your farrier knows what it costs. Resting them slows every plan you had for the week.",
+    "weight": 19,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 6,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "rest",
+        "text": "Rest them.",
+        "effects": [
+          {
+            "op": "morale",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "HORSES_RESTED"
+          },
+          {
+            "op": "news",
+            "text": "The cavalry does not move this week."
+          }
+        ]
+      },
+      {
+        "id": "work",
+        "text": "Work them anyway.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": -40
+          },
+          {
+            "op": "flag",
+            "flag": "HORSES_WORKED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "maren",
+        "text": "Send to Maren for a farrier and pay the pride.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "house_opinion",
+            "id": "maren",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "MAREN_FARRIER"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tavern_knives",
+    "title": "Knives in a Tavern",
+    "speaker": "A town watchman",
+    "place": "A tavern",
+    "portrait": "#5d7c99",
+    "text": "Two of your soldiers and three townsmen discovered a political theory at the bottom of a cup. Someone is bleeding. If you hang a soldier you lose a spear. If you hang a townsman you lose a street.",
+    "weight": 21,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 4,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "soldier",
+        "text": "Punish your own and pay the town.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": -15
+          },
+          {
+            "op": "gold",
+            "amount": -20
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "TAVERN_SOLDIER"
+          }
+        ]
+      },
+      {
+        "id": "town",
+        "text": "Punish the town and keep the spears.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "TAVERN_TOWN"
+          }
+        ]
+      },
+      {
+        "id": "both",
+        "text": "Fine both and close the tavern for a week.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 15
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "TAVERN_BOTH"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forged_warrant",
+    "title": "A Warrant with Your Seal",
+    "speaker": "A tax farmer",
+    "place": "A market",
+    "portrait": "#5d7c99",
+    "text": "Someone is collecting taxes with a seal that looks like yours and is not. The coin is going into a pocket that may belong to a rival, a clerk, or a joke that has become a crime.",
+    "weight": 23,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 7,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "hunt",
+        "text": "Hunt the seal.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SEAL_HUNTED"
+          }
+        ]
+      },
+      {
+        "id": "amnesty",
+        "text": "Announce the warrants void and start again.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "WARRANTS_VOID"
+          }
+        ]
+      },
+      {
+        "id": "take",
+        "text": "Take the credit and the coin, then stop the practice.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 70
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "SEAL_TAKEN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bridge_dorn",
+    "title": "The Bridge Wants Timber",
+    "speaker": "A bridge warden",
+    "place": "The River Dorn",
+    "portrait": "#5d7c99",
+    "text": "The Dorn bridge will fail in the next hard rain. Repairing it helps whoever holds it, including you, including Alistair, including the grain. Leaving it is a strategy only if you enjoy swimming.",
+    "weight": 20,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "repair",
+        "text": "Repair it.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -110
+          },
+          {
+            "op": "fort",
+            "id": "dorn_crossing",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "BRIDGE_REPAIRED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "break",
+        "text": "Break it so no host crosses easily.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "fort",
+            "id": "dorn_crossing",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "BRIDGE_BROKEN"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Leave it for the rain to decide.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "BRIDGE_LEFT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "census_men",
+    "title": "Men with Counting Sticks",
+    "speaker": "A clerk with a stick",
+    "place": "The villages",
+    "portrait": "#5d7c99",
+    "text": "A census will tell you who can pay and who can fight. It will also tell every village that you intend to use the answer. People hide sons from counting sticks.",
+    "weight": 18,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 9,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "count",
+        "text": "Count them.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "CENSUS_DONE"
+          }
+        ]
+      },
+      {
+        "id": "mercy",
+        "text": "Count grain, not sons.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "rations",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "CENSUS_GRAIN"
+          }
+        ]
+      },
+      {
+        "id": "no",
+        "text": "Send the counters home.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "CENSUS_STOPPED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "winter_count",
+    "title": "The First Frosts Are Early",
+    "speaker": "A granary clerk",
+    "place": "The barns",
+    "portrait": "#5d7c99",
+    "text": "The season turns before the barns do. You can buy, seize, or pray. Prayer is cheapest and has the worst record.",
+    "weight": 24,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "buy",
+        "text": "Buy grain at a bad price.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -100
+          },
+          {
+            "op": "rations",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "WINTER_BOUGHT"
+          }
+        ]
+      },
+      {
+        "id": "seize",
+        "text": "Seize a tenth and call it a loan.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 5
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -5
+          },
+          {
+            "op": "flag",
+            "flag": "WINTER_SEIZED"
+          }
+        ]
+      },
+      {
+        "id": "pray",
+        "text": "Ask the Flame to bless what you already have.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 2
+          },
+          {
+            "op": "relation",
+            "id": "aldren_veil",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "WINTER_PRAYED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pilgrim_tax",
+    "title": "Pilgrims on the Hearth Road",
+    "speaker": "A shrine keeper",
+    "place": "The hearth road",
+    "portrait": "#5d7c99",
+    "text": "They are walking to a shrine and they are eating your countryside as they go. Taxing pilgrims angers the Flame. Feeding them angers the quartermaster.",
+    "weight": 16,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 7,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "feed",
+        "text": "Feed them one night.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "PILGRIMS_FED"
+          }
+        ]
+      },
+      {
+        "id": "tax",
+        "text": "Tax the road.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 50
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -3
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "PILGRIMS_TAXED"
+          }
+        ]
+      },
+      {
+        "id": "divert",
+        "text": "Divert them around your stores.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "PILGRIMS_DIVERTED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accused_witch",
+    "title": "A Woman the Village Wants Burned",
+    "speaker": "A village headman",
+    "place": "A village square",
+    "portrait": "#5d7c99",
+    "text": "They say she soured milk and spoke to a dead king. The Flame has not asked for a fire. The village has. You can be the person who stops a mob or the person who owns one.",
+    "weight": 25,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 6
+    },
+    "choices": [
+      {
+        "id": "stop",
+        "text": "Stop it. Send her out of the village alive.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "WITCH_SAVED"
+          }
+        ]
+      },
+      {
+        "id": "give",
+        "text": "Give her to them.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -4
+          },
+          {
+            "op": "flag",
+            "flag": "WITCH_GIVEN"
+          }
+        ]
+      },
+      {
+        "id": "trial",
+        "text": "Hold a dull trial and bore the mob into going home.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "WITCH_TRIED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "knight_no_house",
+    "title": "A Knight Without a House",
+    "speaker": "A hedge knight",
+    "place": "The road",
+    "portrait": "#5d7c99",
+    "text": "He has a horse, a grievance, and a desire to be seen kneeling to someone who might win. Taking him annoys the houses. Refusing him annoys the story you are telling about merit.",
+    "weight": 14,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 5,
+      "min_claim": 16
+    },
+    "choices": [
+      {
+        "id": "take",
+        "text": "Take his sword.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 25
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "KNIGHT_TAKEN"
+          }
+        ]
+      },
+      {
+        "id": "house",
+        "text": "Send him to a house that can feed him.",
+        "effects": [
+          {
+            "op": "house_opinion",
+            "id": "harrow",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "KNIGHT_SENT"
+          }
+        ]
+      },
+      {
+        "id": "no",
+        "text": "Tell him the war is not a ladder.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "KNIGHT_REFUSED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "orphan_company",
+    "title": "Boys Who Want Spears",
+    "speaker": "A sergeant",
+    "place": "The camp edge",
+    "portrait": "#5d7c99",
+    "text": "They are not men. They will be, if you arm them, or if someone less careful does. The villages call it theft. The sergeants call it the future.",
+    "weight": 20,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 10,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "no",
+        "text": "Send them home.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ORPHANS_SENT"
+          }
+        ]
+      },
+      {
+        "id": "train",
+        "text": "Train them and keep them off the front.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 40
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ORPHANS_TRAINED"
+          }
+        ]
+      },
+      {
+        "id": "front",
+        "text": "Put them where the line is thin.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 50
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -5
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ORPHANS_FRONT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grain_cart",
+    "title": "A Cart That Did Not Arrive",
+    "speaker": "A quartermaster",
+    "place": "The stores",
+    "portrait": "#5d7c99",
+    "text": "The grain was signed out and never signed in. Someone ate your week. Finding them is a use of soldiers. Replacing the cart is a use of gold.",
+    "weight": 22,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 5,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "replace",
+        "text": "Replace it and punish no one yet.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -60
+          },
+          {
+            "op": "rations",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "CART_REPLACED"
+          }
+        ]
+      },
+      {
+        "id": "find",
+        "text": "Find the thieves.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "chance",
+            "p": 0.55,
+            "success_text": "The cart is in a barn.",
+            "fail_text": "The barn is empty and angry.",
+            "success": [
+              {
+                "op": "rations",
+                "amount": 3
+              },
+              {
+                "op": "flag",
+                "flag": "CART_FOUND"
+              }
+            ],
+            "fail": [
+              {
+                "op": "bloc",
+                "bloc": "people",
+                "amount": -2
+              },
+              {
+                "op": "flag",
+                "flag": "CART_MISSED"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ration",
+        "text": "Cut rations and call it discipline.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "morale",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "CART_CUT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "smugglers_coast",
+    "title": "Smugglers Who Know the Coves",
+    "speaker": "A harbour master",
+    "place": "The Veyne coast",
+    "portrait": "#5d7c99",
+    "text": "They can move grain past tariffs, or they can move messages. Celene would rather you hanged them. Your spymaster would rather you hired them.",
+    "weight": 19,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 8,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "hire",
+        "text": "Hire them.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "flag",
+            "flag": "SMUGGLERS_HIRED"
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "hang",
+        "text": "Hang them for Celene's friendship.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "SMUGGLERS_HUNG"
+          }
+        ]
+      },
+      {
+        "id": "fine",
+        "text": "Fine them and let them sail.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 40
+          },
+          {
+            "op": "flag",
+            "flag": "SMUGGLERS_FINED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mine_breath",
+    "title": "Bad Air in the Reach",
+    "speaker": "A mine factor",
+    "place": "The Northern Reach",
+    "portrait": "#5d7c99",
+    "text": "A shaft in the north has killed four miners. Closing it saves lives and costs iron. Keeping it open is a number you can defend only if you never say it aloud.",
+    "weight": 21,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 11,
+      "controls": [
+        "northern_reach"
+      ]
+    },
+    "choices": [
+      {
+        "id": "close",
+        "text": "Close the shaft.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "SHAFT_CLOSED"
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "open",
+        "text": "Keep it open and pay the widows.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "flag",
+            "flag": "SHAFT_OPEN"
+          }
+        ]
+      },
+      {
+        "id": "both",
+        "text": "Close it for a month and reopen when the air is tested.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "SHAFT_TESTED"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "deserter_banner",
+    "title": "Deserters with Another Banner",
+    "speaker": "A picket",
+    "place": "The camp",
+    "portrait": "#5d7c99",
+    "text": "They left a rival's host and they will tell you its strength if you feed them. Feeding deserters teaches your own men that leaving is a career.",
+    "weight": 20,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 7,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "feed",
+        "text": "Feed them and listen.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "DESERTERS_FED"
+          },
+          {
+            "op": "news",
+            "text": "You learn a rival's host is hungrier than it looks."
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "return",
+        "text": "Return them under a flag of truce.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "DESERTERS_RETURNED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "hang",
+        "text": "Hang them as a lesson in both directions.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "DESERTERS_HUNG"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plague_talk",
+    "title": "Talk of Fever in the Ports",
+    "speaker": "A port clerk",
+    "place": "The southern ports",
+    "portrait": "#5d7c99",
+    "text": "It may be a fever and it may be a story merchants tell when they want the road closed. Closing the road protects you and starves a town. Leaving it open is a gamble with other people's bodies.",
+    "weight": 18,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 12,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "close",
+        "text": "Close the road.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "stability",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "ROAD_CLOSED_FEVER"
+          },
+          {
+            "op": "gold",
+            "amount": -20
+          }
+        ]
+      },
+      {
+        "id": "open",
+        "text": "Leave it open and send a physician's apprentice.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "oren_pell",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "ROAD_OPEN_FEVER"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "profit",
+        "text": "Buy their unsold grain cheap.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "FEVER_GRAIN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feast_or_stores",
+    "title": "A Feast the Lords Expect",
+    "speaker": "A steward",
+    "place": "The hall",
+    "portrait": "#5d7c99",
+    "text": "A supper has been promised and the stores have not. Cancelling insults the nobility. Holding it insults the quartermasters and, later, the soldiers.",
+    "weight": 17,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 6,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "hold",
+        "text": "Hold it.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": -3
+          },
+          {
+            "op": "gold",
+            "amount": -40
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "FEAST_HELD"
+          }
+        ]
+      },
+      {
+        "id": "cancel",
+        "text": "Cancel it and eat with the host.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "FEAST_CANCELLED"
+          }
+        ]
+      },
+      {
+        "id": "thin",
+        "text": "Hold a thin supper and call it mourning.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "FEAST_THIN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "black_market_arms",
+    "title": "Arms Under a Market Stall",
+    "speaker": "A market reeve",
+    "place": "A market",
+    "portrait": "#5d7c99",
+    "text": "Someone is selling spearheads that used to be yours. Smash the stall and you smash a street. Tax it and you admit the theft has become trade.",
+    "weight": 16,
+    "priority": 18,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "min_turn": 9,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "smash",
+        "text": "Smash the stall.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "STALL_SMASHED"
+          }
+        ]
+      },
+      {
+        "id": "tax",
+        "text": "Tax it.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 35
+          },
+          {
+            "op": "flag",
+            "flag": "STALL_TAXED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "buy",
+        "text": "Buy the heads back and ask no names.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -45
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "STALL_BOUGHT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grain_prices",
+    "title": "The Price of Bread",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "Bread costs more than it did last week. You can rage at the bakers, subsidise the loaf, or let the price teach the city who is in charge.",
+    "weight": 12,
+    "priority": 12,
+    "one_time": false,
+    "tags": [
+      "food"
+    ],
+    "requires": {
+      "min_turn": 2,
+      "min_player_territories": 1
+    },
+    "choices": [
+      {
+        "id": "subsidy",
+        "text": "Subsidise the loaf.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -50
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "BREAD_SUBSIDY"
+          }
+        ]
+      },
+      {
+        "id": "rage",
+        "text": "Blame the bakers in public.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "BAKERS_BLAMED"
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "text": "Leave the price alone.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "gold",
+            "amount": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sermon_in_square",
+    "title": "A Sermon with Your Name in It",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "A priest is deciding, sentence by sentence, whether you are a scourge or a shelter. You can stand there, send a captain, or let the square finish without you.",
+    "weight": 10,
+    "priority": 12,
+    "one_time": false,
+    "tags": [],
+    "requires": {
+      "min_turn": 2,
+      "min_claim": 12
+    },
+    "choices": [
+      {
+        "id": "stand",
+        "text": "Stand in the square and be seen listening.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "captain",
+        "text": "Send a captain to be seen instead.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "absent",
+        "text": "Be elsewhere. Sermons do not require the subject.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "flame",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hungry_mouths",
+    "title": "The Host Is Hungry Tonight",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "The pots are thin. A captain wants permission to take a village's pigs. The village is close enough to hear the argument.",
+    "weight": 14,
+    "priority": 12,
+    "one_time": false,
+    "tags": [
+      "food",
+      "army"
+    ],
+    "requires": {
+      "min_turn": 2,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "no",
+        "text": "No pigs. Tighten belts.",
+        "effects": [
+          {
+            "op": "morale",
+            "amount": -2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "buy",
+        "text": "Buy the pigs.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -35
+          },
+          {
+            "op": "rations",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "take",
+        "text": "Take them.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 3
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "camp_quarrel",
+    "title": "A Quarrel Between Companies",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "Two companies want the same dry ground. It is beneath you until one of them decides it is about your favour.",
+    "weight": 11,
+    "priority": 12,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 2,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "share",
+        "text": "Make them share and disappoint both captains.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "pick",
+        "text": "Pick a favourite.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "move",
+        "text": "Move your own tent into the wet ground.",
+        "effects": [
+          {
+            "op": "morale",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rumour_market",
+    "title": "The Market Has a New Rumour",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "Today's rumour is already choosing a winner, and it is not always you. You can correct it, mock it, or add a worse one.",
+    "weight": 13,
+    "priority": 12,
+    "one_time": false,
+    "tags": [],
+    "requires": {
+      "min_turn": 2
+    },
+    "choices": [
+      {
+        "id": "correct",
+        "text": "Correct it, plainly.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "mock",
+        "text": "Mock it and look untouchable.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "worse",
+        "text": "Pay for a worse rumour about a rival.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -25
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "levy_complaint",
+    "title": "The Levy Wants to Go Home",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "They were promised a month. The month is over. Keeping them builds the host and breaks the promise. Sending them home does the opposite.",
+    "weight": 12,
+    "priority": 12,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 2,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "keep",
+        "text": "Keep them and call the promise a war.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "break_promise",
+            "id": "bren_tal",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "send",
+        "text": "Send the oldest home.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": -60
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "reputation",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "text": "Pay them to stay another month.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -70
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "night_watch",
+    "title": "The Night Watch Is Thin",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "You can walk it yourself, hire more eyes, or accept that some nights the camp is a rumour of safety.",
+    "weight": 9,
+    "priority": 12,
+    "one_time": false,
+    "tags": [
+      "army"
+    ],
+    "requires": {
+      "min_turn": 2,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "walk",
+        "text": "Walk it yourself.",
+        "effects": [
+          {
+            "op": "morale",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "hire",
+        "text": "Hire more eyes.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -30
+          },
+          {
+            "op": "fear",
+            "amount": -1
+          }
+        ]
+      },
+      {
+        "id": "accept",
+        "text": "Accept the thinness.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "merchant_caravan",
+    "title": "A Caravan Asks for an Escort",
+    "speaker": "",
+    "place": "Nezrel",
+    "portrait": "#5d7c99",
+    "text": "Merchants will pay for spears they do not have to feed afterwards. The spears are the same ones you needed for a different road.",
+    "weight": 11,
+    "priority": 12,
+    "one_time": false,
+    "tags": [],
+    "requires": {
+      "min_turn": 2,
+      "min_forces": 200
+    },
+    "choices": [
+      {
+        "id": "escort",
+        "text": "Escort them.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 80
+          },
+          {
+            "op": "forces",
+            "amount": -20
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "text": "Refuse. The host is not a guard company.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "tax",
+        "text": "Tax them for the road and escort nothing.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": 40
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  }
+]

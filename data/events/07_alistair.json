@@ -1,0 +1,1109 @@
+[
+  {
+    "id": "the_kept_page",
+    "title": "The Page You Did Not Burn",
+    "speaker": "You",
+    "place": "Stormhold, the fire",
+    "portrait": "#4e5966",
+    "text": "The clerk's letters are ash except one. It is enough to show you knew Erol was dying while the court was still announcing hunts. Burning it makes you cleaner. Keeping it makes you armed.",
+    "weight": 12,
+    "priority": 44,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 3,
+      "not_flags": [
+        "LETTER_KEPT",
+        "BURNED_LAST",
+        "LETTER_SHOWN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "read",
+        "text": "Keep it, and know what you are holding.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "surviving_letter"
+          },
+          {
+            "op": "chronicle",
+            "id": "hs_one_letter"
+          },
+          {
+            "op": "chronicle",
+            "id": "hs_informant"
+          },
+          {
+            "op": "flag",
+            "flag": "LETTER_KEPT"
+          }
+        ]
+      },
+      {
+        "id": "burn",
+        "text": "Burn the last page with the others.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "hs_burned"
+          },
+          {
+            "op": "flag",
+            "flag": "BURNED_LAST"
+          },
+          {
+            "op": "ledger_remove",
+            "id": "informant_in_caerlyn"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "use",
+        "text": "Send a copy to a lord who still thinks you are only a sword.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "surviving_letter"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "LETTER_SHOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "order_at_stormhold",
+    "title": "What the North Calls Order",
+    "speaker": "A Storm captain",
+    "place": "Stormhold",
+    "portrait": "#4e5966",
+    "text": "Your captains do not talk about blood. They talk about granaries, roads, and the weeks a kingdom survives without a frightened man at the top. It is a philosophy. It is also an excuse you should hear yourself say out loud.",
+    "weight": 11,
+    "priority": 30,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 2,
+      "not_flags": [
+        "ORDER_SPOKEN",
+        "ORDER_SOFTER"
+      ]
+    },
+    "choices": [
+      {
+        "id": "say",
+        "text": "Say it. Nezrel needs a ruler it can fear and feed.",
+        "effects": [
+          {
+            "op": "chronicle",
+            "id": "hs_order"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "ORDER_SPOKEN"
+          }
+        ]
+      },
+      {
+        "id": "softer",
+        "text": "Say the north will be the granary, not the whip.",
+        "effects": [
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "ORDER_SOFTER"
+          },
+          {
+            "op": "rations",
+            "amount": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "harrow_in_the_yard",
+    "title": "Osric Harrow Comes North",
+    "speaker": "Lord Osric Harrow",
+    "place": "Stormhold yard",
+    "portrait": "#5a4030",
+    "text": "Lord Osric arrives without enough men to be a threat and with enough pride to be a problem. House Harrow hates you the way old houses hate a neighbour who got richer. He will bend, or he will become a story you have to finish.",
+    "weight": 12,
+    "priority": 47,
+    "one_time": true,
+    "tags": [
+      "fear"
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 8,
+      "not_flags": [
+        "ALISTAIR_SPARED_HARROW",
+        "HARROW_KNELT",
+        "HARROW_BROKEN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "spare",
+        "text": "Spare him a public kneeling. Take a quiet oath instead.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "ALISTAIR_SPARED_HARROW"
+          },
+          {
+            "op": "relation",
+            "id": "osric_harrow",
+            "amount": 8,
+            "political": 4
+          },
+          {
+            "op": "house_opinion",
+            "id": "harrow",
+            "amount": 8
+          },
+          {
+            "op": "fear",
+            "amount": -2
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "kneel",
+        "text": "Make him kneel in the yard.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "relation",
+            "id": "osric_harrow",
+            "amount": -12
+          },
+          {
+            "op": "house_opinion",
+            "id": "harrow",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "flag",
+            "flag": "HARROW_KNELT"
+          }
+        ]
+      },
+      {
+        "id": "field",
+        "text": "Settle it where the bows can argue.",
+        "effects": [
+          {
+            "op": "battle",
+            "battle_id": "harrow_field",
+            "on_victory": [
+              {
+                "op": "fear",
+                "amount": 3
+              },
+              {
+                "op": "claim",
+                "amount": 2
+              },
+              {
+                "op": "flag",
+                "flag": "HARROW_BROKEN"
+              },
+              {
+                "op": "house_opinion",
+                "id": "harrow",
+                "amount": -8
+              }
+            ],
+            "on_defeat": [
+              {
+                "op": "claim",
+                "amount": -2
+              },
+              {
+                "op": "reputation",
+                "amount": -2
+              }
+            ],
+            "on_retreat": [
+              {
+                "op": "fear",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marriage_or_march",
+    "title": "Wolf and Spider",
+    "speaker": "A Caerlyn clerk",
+    "place": "Stormhold",
+    "portrait": "#7a2e3b",
+    "text": "A second letter from Caerlyn is not a yes. It is a price. Mira will discuss a shared crown if the army stops at the Dorn and the court is allowed to pretend the idea was hers. Your captains call that a leash. It might be a gate.",
+    "weight": 11,
+    "priority": 52,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 12,
+      "not_flags": [
+        "MARRIAGE_MIRA_ALISTAIR",
+        "WAR_WITH_MIRA",
+        "MARRIAGE_DELAYED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "share",
+        "text": "Take the shared crown and watch the other hand.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_MIRA_ALISTAIR"
+          },
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_PACT"
+          },
+          {
+            "op": "claim",
+            "amount": 4
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -2
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": -12
+          }
+        ]
+      },
+      {
+        "id": "march",
+        "text": "Refuse the leash and cross the river.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "WAR_WITH_MIRA"
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 3
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "rival",
+            "id": "mira",
+            "field": "hostility",
+            "amount": 8
+          }
+        ]
+      },
+      {
+        "id": "delay",
+        "text": "Delay until the stores say you must choose.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "MARRIAGE_DELAYED"
+          },
+          {
+            "op": "rations",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fear_comes_home",
+    "title": "A Plot in Your Own Kitchen",
+    "speaker": "A captain with a list",
+    "place": "Stormhold kitchen",
+    "portrait": "#4e5966",
+    "text": "The cook will not meet your eye, and a captain has a list of names who have been meeting after dark. Fear bought you quiet. It is now buying you conspiracies. You can purge, or you can loosen the hand and look weak on purpose.",
+    "weight": 12,
+    "priority": 50,
+    "one_time": true,
+    "tags": [
+      "fear"
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 14,
+      "min_fear": 36,
+      "not_flags": [
+        "PURGE",
+        "HAND_EASED",
+        "ONE_EXAMPLE"
+      ]
+    },
+    "choices": [
+      {
+        "id": "purge",
+        "text": "Purge the list. Quickly, and in daylight.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "PURGE"
+          },
+          {
+            "op": "news",
+            "text": "Names come off a list and off the earth."
+          }
+        ]
+      },
+      {
+        "id": "ease",
+        "text": "Ease the hand. Hang no one this week.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": -6
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 5
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "HAND_EASED"
+          }
+        ]
+      },
+      {
+        "id": "one",
+        "text": "Hang one and pardon the rest, so both lessons land.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -1
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "ONE_EXAMPLE"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "iron_and_mouths",
+    "title": "Iron, Timber, and Mouths",
+    "speaker": "A Reach factor",
+    "place": "The Northern Reach",
+    "portrait": "#4e5966",
+    "text": "The Reach can give you more spears or more grain, and not both in the same week. The miners want pay. The barns want to be left alone. A conqueror who starves his own north is a story the south will love.",
+    "weight": 11,
+    "priority": 28,
+    "one_time": true,
+    "tags": [
+      "food",
+      "army"
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 4,
+      "not_flags": [
+        "TOOK_SPEARS",
+        "TOOK_GRAIN",
+        "PAID_REACH"
+      ]
+    },
+    "choices": [
+      {
+        "id": "spears",
+        "text": "Take the spears.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": 350
+          },
+          {
+            "op": "rations",
+            "amount": -5
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "TOOK_SPEARS"
+          }
+        ]
+      },
+      {
+        "id": "grain",
+        "text": "Leave the men in the pits and fill the barns.",
+        "effects": [
+          {
+            "op": "rations",
+            "amount": 8
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "TOOK_GRAIN"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "text": "Pay the miners and buy the grain from them.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -200
+          },
+          {
+            "op": "rations",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "PAID_REACH"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bren_and_the_north",
+    "title": "Bren Tal Looks North",
+    "speaker": "Marshal Bren Tal, by letter",
+    "place": "Stormhold",
+    "portrait": "#4e5a48",
+    "text": "The marshal writes that he will not hand the royal army to a man who intends to enter Caerlyn as a sack. He will talk about roads, pay, and prisoners. He will not talk about your blood, because you do not have the kind he respects.",
+    "weight": 10,
+    "priority": 40,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 9,
+      "npc_alive": [
+        "bren_tal"
+      ],
+      "not_flags": [
+        "BREN_ROADS",
+        "BREN_THREATENED",
+        "BREN_IGNORED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "roads",
+        "text": "Talk about roads and pay. Mean it.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": 6,
+            "political": 6
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 4
+          },
+          {
+            "op": "gold",
+            "amount": -80
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_ROADS"
+          },
+          {
+            "op": "claim",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "threat",
+        "text": "Remind him which host is larger.",
+        "effects": [
+          {
+            "op": "relation",
+            "id": "bren_tal",
+            "amount": -6
+          },
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "flag",
+            "flag": "BREN_THREATENED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          }
+        ]
+      },
+      {
+        "id": "ignore",
+        "text": "Ignore the marshal. The north does not need his permission.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "BREN_IGNORED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a_clerk_named",
+    "title": "The Informant Has a Name",
+    "speaker": "A coded note",
+    "place": "Your desk",
+    "portrait": "#4e5966",
+    "text": "The clerk who wrote you from Caerlyn is still inside the castle, and he is frightened enough to be expensive. Naming him to yourself is a risk. Protecting him is a debt. Burning him is a silence.",
+    "weight": 10,
+    "priority": 38,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 6,
+      "not_flags": [
+        "CLERK_SAVED",
+        "CLERK_USED",
+        "CLERK_CUT"
+      ]
+    },
+    "choices": [
+      {
+        "id": "protect",
+        "text": "Pay to move him before Mira's Guard learns the hand.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -100
+          },
+          {
+            "op": "chronicle",
+            "id": "storm_informant"
+          },
+          {
+            "op": "chronicle",
+            "id": "hs_informant"
+          },
+          {
+            "op": "flag",
+            "flag": "CLERK_SAVED"
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "use",
+        "text": "Use him once more, then cut the thread.",
+        "effects": [
+          {
+            "op": "ledger_add",
+            "id": "doc_mira"
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "CLERK_USED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "court",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "id": "cut",
+        "text": "Cut the thread now. Dead letters tell no courts.",
+        "effects": [
+          {
+            "op": "flag",
+            "flag": "CLERK_CUT"
+          },
+          {
+            "op": "chronicle",
+            "id": "hs_burned"
+          },
+          {
+            "op": "fear",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the_south_watches",
+    "title": "The South Is Pricing You",
+    "speaker": "A Veyne factor",
+    "place": "The Dorn road",
+    "portrait": "#3d6b6b",
+    "text": "Celene Veyne's factor does not blink at the size of the army. She blinks at the cost of feeding it south of the Dorn. She will sell you grain and a little legitimacy, at a price that includes not sacking her ports.",
+    "weight": 10,
+    "priority": 33,
+    "one_time": true,
+    "tags": [
+      "food"
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 7,
+      "not_flags": [
+        "VEYNE_GRAIN",
+        "PORTS_TAXED",
+        "VEYNE_UNTOUCHED"
+      ]
+    },
+    "choices": [
+      {
+        "id": "buy",
+        "text": "Buy the grain and the promise.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -180
+          },
+          {
+            "op": "rations",
+            "amount": 8
+          },
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "amount": 4,
+            "political": 4
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": 6
+          },
+          {
+            "op": "flag",
+            "flag": "VEYNE_GRAIN"
+          }
+        ]
+      },
+      {
+        "id": "tax",
+        "text": "Tell her the ports will contribute, willing or not.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 3
+          },
+          {
+            "op": "gold",
+            "amount": 100
+          },
+          {
+            "op": "house_opinion",
+            "id": "veyne",
+            "amount": -8
+          },
+          {
+            "op": "relation",
+            "id": "celene_veyne",
+            "amount": -6
+          },
+          {
+            "op": "flag",
+            "flag": "PORTS_TAXED"
+          }
+        ]
+      },
+      {
+        "id": "nothing",
+        "text": "Take nothing. A conqueror who owes a merchant owes a master.",
+        "effects": [
+          {
+            "op": "reputation",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "VEYNE_UNTOUCHED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mutiny_of_fear",
+    "title": "The Host Learns Your Name for Cruelty",
+    "speaker": "A Storm captain",
+    "place": "The camp",
+    "portrait": "#4e5966",
+    "text": "A company refused a village and was punished in front of the others. Now the punishment is the story, and the story is walking south ahead of you. You can lean on it or you can spend coin to give them a different one.",
+    "weight": 10,
+    "priority": 36,
+    "one_time": true,
+    "tags": [
+      "fear",
+      "army"
+    ],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 11,
+      "min_fear": 30,
+      "not_flags": [
+        "LEANED_ON_FEAR",
+        "FEAR_LIMITED",
+        "CAPTAIN_BROKEN"
+      ]
+    },
+    "choices": [
+      {
+        "id": "lean",
+        "text": "Lean on it. Fear is a weapon you have already drawn.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 4
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": -5
+          },
+          {
+            "op": "claim",
+            "amount": 1
+          },
+          {
+            "op": "flag",
+            "flag": "LEANED_ON_FEAR"
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "text": "Pay the company and publicly limit the punishment.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -120
+          },
+          {
+            "op": "fear",
+            "amount": -3
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "people",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "FEAR_LIMITED"
+          }
+        ]
+      },
+      {
+        "id": "blame",
+        "text": "Blame a captain and break him instead.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": 1
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": -2
+          },
+          {
+            "op": "reputation",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "CAPTAIN_BROKEN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "occupy_echo",
+    "title": "A Land You Took Is Not Yours Yet",
+    "speaker": "A local reeve",
+    "place": "The Eastern March",
+    "portrait": "#4e5966",
+    "text": "The territory answers your banners in daylight and someone else's songs at night. Occupation is a tax on attention. You can garrison it, buy it, or give it back and look like a man who can reverse himself.",
+    "weight": 9,
+    "priority": 27,
+    "one_time": true,
+    "tags": [],
+    "requires": {
+      "claimant": "alistair",
+      "min_turn": 10,
+      "not_flags": [
+        "GARRISONED",
+        "BOUGHT_LAND",
+        "ROAD_ONLY"
+      ]
+    },
+    "choices": [
+      {
+        "id": "garrison",
+        "text": "Garrison it and eat the cost.",
+        "effects": [
+          {
+            "op": "forces",
+            "amount": -80
+          },
+          {
+            "op": "fear",
+            "amount": 2
+          },
+          {
+            "op": "loyalty",
+            "id": "eastern_march",
+            "amount": -5
+          },
+          {
+            "op": "flag",
+            "flag": "GARRISONED"
+          },
+          {
+            "op": "bloc",
+            "bloc": "military",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "id": "buy",
+        "text": "Buy the local house a reason to prefer you.",
+        "effects": [
+          {
+            "op": "gold",
+            "amount": -160
+          },
+          {
+            "op": "loyalty",
+            "id": "eastern_march",
+            "amount": 12
+          },
+          {
+            "op": "bloc",
+            "bloc": "nobility",
+            "amount": 2
+          },
+          {
+            "op": "flag",
+            "flag": "BOUGHT_LAND"
+          }
+        ]
+      },
+      {
+        "id": "return",
+        "text": "Hand the administration back and keep only the road.",
+        "effects": [
+          {
+            "op": "fear",
+            "amount": -2
+          },
+          {
+            "op": "reputation",
+            "amount": 2
+          },
+          {
+            "op": "claim",
+            "amount": -1
+          },
+          {
+            "op": "flag",
+            "flag": "ROAD_ONLY"
+          }
+        ]
+      }
+    ]
+  }
+]
