@@ -61,7 +61,6 @@ func _card(claimant: Dictionary) -> Control:
 	begin.alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var claimant_id := str(claimant.get("id", ""))
 	begin.pressed.connect(func():
-		AudioManager.click()
 		GameManager.start_new(claimant_id)
 	)
 	column.add_child(begin)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4j0tj8jfcido"
+path="res://.godot/imported/Recording 2026-10-01 180336.mp3-b943801f97642dfc901eca9bc67977d4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Recording 2026-10-01 180336.mp3"
+dest_files=["res://.godot/imported/Recording 2026-10-01 180336.mp3-b943801f97642dfc901eca9bc67977d4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

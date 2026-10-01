@@ -85,6 +85,9 @@ func _open_settings() -> void:
 		AudioManager.apply_settings()
 	)
 	column.add_child(full)
+	column.add_child(UiFactory.title("Audio", 24))
+	for channel in [["Master", "volume", "muted"], ["Background music", "music_volume", "music_muted"], ["Menu tone", "tone_volume", "tone_muted"], ["Menu click", "click_volume", "click_muted"]]:
+		_add_audio_control(column, str(channel[0]), str(channel[1]), str(channel[2]))
 	column.add_child(UiFactory.title("How to play", 24))
 	for line in ["A week has four steps: review your position, answer petitions, issue one decree, then read the realm’s response.", "Gold pays your soldiers. Rations keep them alive. Read the weekly forecast before expanding your army.", "Claim opens the path to the throne at 100. Each route still needs its own allies, evidence or military strength.", "The map, court, ledger and army can be consulted at any time. They do not spend your weekly decree.", "In battle, select a lane, assign an order, and commit reserves where they matter. Retreat can preserve an army you will need again.", "Press Esc to pause. Campaigns autosave each week; three manual slots let you keep turning points."]:
 		column.add_child(UiFactory.label(line, 17))
@@ -94,3 +97,35 @@ func _open_settings() -> void:
 	var back := UiFactory.primary("Return to the hall")
 	back.pressed.connect(func(): _settings.queue_free(); _settings = null)
 	column.add_child(back)
+
+func _add_audio_control(column: VBoxContainer, caption: String, volume_key: String, mute_key: String) -> void:
+	var row := UiFactory.hbox(12)
+	column.add_child(row)
+	var value := UiFactory.single("%s: %d%%" % [caption, roundi(float(MetaProgress.settings[volume_key]) * 100)])
+	value.custom_minimum_size.x = 230
+	row.add_child(value)
+	var slider := HSlider.new()
+	slider.min_value = 0
+	slider.max_value = 100
+	slider.step = 1
+	slider.value = float(MetaProgress.settings[volume_key]) * 100
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	slider.custom_minimum_size.x = 200
+	slider.tooltip_text = caption + " volume"
+	row.add_child(slider)
+	slider.value_changed.connect(func(level: float):
+		MetaProgress.settings[volume_key] = level / 100.0
+		value.text = "%s: %d%%" % [caption, roundi(level)]
+		AudioManager.apply_settings()
+		MetaProgress.save_settings()
+	)
+	var mute := CheckButton.new()
+	mute.text = "Mute"
+	mute.tooltip_text = "Mute " + caption.to_lower()
+	mute.button_pressed = bool(MetaProgress.settings[mute_key])
+	row.add_child(mute)
+	mute.toggled.connect(func(on: bool):
+		MetaProgress.settings[mute_key] = on
+		AudioManager.apply_settings()
+		MetaProgress.save_settings()
+	)

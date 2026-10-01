@@ -1,6 +1,6 @@
 param(
     [string]$Godot = 'P:\Godot\Godot_v4.6.3-stable_win64.exe\Godot_v4.6.3-stable_win64.exe',
-    [ValidateSet('all', 'audit', 'layout', 'capture', 'smoke', 'frontend')][string]$Suite = 'all',
+    [ValidateSet('all', 'audit', 'layout', 'capture', 'smoke', 'frontend', 'audio')][string]$Suite = 'all',
     [string]$Resolution = '1280x720',
     [int]$Seeds = 24,
     [switch]$RecordEvidence,
@@ -28,12 +28,13 @@ try {
         if (Select-String -LiteralPath (Join-Path $logRoot 'import.log') -Pattern '^(SCRIPT ERROR:|ERROR:)' -Quiet) { throw 'Godot import reported script/resource errors.' }
     }
     $scenes = switch ($Suite) {
-        'all' { 'release_audit', 'week_loop_test', 'overlay_close_test', 'interaction_audit', 'frontend_campaign_audit', 'layout_audit' }
+        'all' { 'release_audit', 'week_loop_test', 'overlay_close_test', 'interaction_audit', 'frontend_campaign_audit', 'layout_audit', 'audio_test' }
         'audit' { 'release_audit' }
         'layout' { 'layout_audit' }
         'smoke' { 'smoke_runner' }
         'capture' { 'visual_capture' }
         'frontend' { 'frontend_campaign_audit' }
+        'audio' { 'audio_test' }
     }
     foreach ($scene in $scenes) {
         $arguments = @('--path', $projectRoot, '--resolution', $Resolution, '--log-file', (Join-Path $logRoot "$scene-$Resolution.log"))

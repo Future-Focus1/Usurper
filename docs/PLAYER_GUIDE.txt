@@ -30,8 +30,9 @@ The Chronicle remembers completed campaigns and discovered stories. A new
 claimant must still uncover the truth personally. The public World atlas
 contains the history and geography everyone in Nezrel could know.
 
-This version contains no music or sound effects; the owner will supply audio
-for a later update. It includes textual political violence, bereavement,
+Settings includes volume sliders and mute switches for master audio,
+background music, menu tone and menu clicks. Audio preferences are saved.
+The game includes textual political violence, bereavement,
 disputed assault allegations, coercion, and end-of-life mercy.
 
 Godot and font dependency notices are included beside the executable.

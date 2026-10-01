@@ -32,7 +32,7 @@ Player files are stored separately from the project in `%APPDATA%\Godot\app_user
 - Saves retain event queues, pending battles, random-generator state, relationships, promises, evidence, and completed endings. Writes use a temporary file and retain a backup.
 - The Chronicle remembers discovered lore and completed campaigns across playthroughs. A new claimant must still learn information inside their own campaign.
 
-The release is silent. Music and sound effects are reserved for later integration of the owner's supplied audio.
+Background music loops across menus and campaigns. Buttons play a tone on hover or keyboard focus and a click when pressed. Settings provides master, music, menu tone, and menu click volume sliders and mute switches; preferences are saved between sessions.
 
 ## Develop and verify
 

@@ -4,7 +4,10 @@ extends Node
 
 var unlocked := {}
 var campaigns: Array = []
-var settings := {"fullscreen": false, "volume": 0.8}
+var settings := {"fullscreen": false, "volume": 0.8, "muted": false,
+	"music_volume": 0.8, "music_muted": false,
+	"tone_volume": 0.8, "tone_muted": false,
+	"click_volume": 0.8, "click_muted": false}
 
 
 func _ready() -> void:
@@ -20,6 +23,10 @@ func _ready() -> void:
 	if not prefs.is_empty():
 		settings["fullscreen"] = bool(prefs.get("fullscreen", false))
 		settings["volume"] = float(prefs.get("volume", 0.8))
+		for key in ["music_volume", "tone_volume", "click_volume"]:
+			settings[key] = clampf(float(prefs.get(key, 0.8)), 0.0, 1.0)
+		for key in ["muted", "music_muted", "tone_muted", "click_muted"]:
+			settings[key] = bool(prefs.get(key, false))
 
 
 func unlock(id: String) -> bool:
